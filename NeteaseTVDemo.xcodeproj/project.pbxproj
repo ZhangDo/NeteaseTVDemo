@@ -15,6 +15,11 @@
 		295FA8282A985D5100B35C54 /* WKPlayerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8252A985D5100B35C54 /* WKPlayerSettings.swift */; };
 		295FA8292A985D5100B35C54 /* WKPlayerStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8262A985D5100B35C54 /* WKPlayerStateModel.swift */; };
 		295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8272A985D5100B35C54 /* WKPlayer.swift */; };
+		F4905DF12A98DD4B00C76905 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F4905DF02A98DD4B00C76905 /* Alamofire */; };
+		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
+		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
+		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
+		F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF82A98DDF700C76905 /* CustomAudioModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		295FA8252A985D5100B35C54 /* WKPlayerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerSettings.swift; sourceTree = "<group>"; };
 		295FA8262A985D5100B35C54 /* WKPlayerStateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerStateModel.swift; sourceTree = "<group>"; };
 		295FA8272A985D5100B35C54 /* WKPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayer.swift; sourceTree = "<group>"; };
+		F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerTool.swift; sourceTree = "<group>"; };
+		F4905DF32A98DD9C00C76905 /* WKCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKCountdown.swift; sourceTree = "<group>"; };
+		F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerError.swift; sourceTree = "<group>"; };
+		F4905DF82A98DDF700C76905 /* CustomAudioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAudioModel.swift; sourceTree = "<group>"; };
+		F4905DFA2A98E15400C76905 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4905DF12A98DD4B00C76905 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,8 +70,10 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F4905DFA2A98E15400C76905 /* Info.plist */,
 				295FA8132A985D3500B35C54 /* AppDelegate.swift */,
 				295FA8152A985D3500B35C54 /* ViewController.swift */,
+				F4905DF82A98DDF700C76905 /* CustomAudioModel.swift */,
 				295FA8242A985D5100B35C54 /* Player */,
 				295FA8172A985D3500B35C54 /* Main.storyboard */,
 				295FA81A2A985D3600B35C54 /* Assets.xcassets */,
@@ -75,6 +88,9 @@
 				295FA8252A985D5100B35C54 /* WKPlayerSettings.swift */,
 				295FA8262A985D5100B35C54 /* WKPlayerStateModel.swift */,
 				295FA8272A985D5100B35C54 /* WKPlayer.swift */,
+				F4905DF32A98DD9C00C76905 /* WKCountdown.swift */,
+				F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */,
+				F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -95,6 +111,9 @@
 			dependencies = (
 			);
 			name = NeteaseTVDemo;
+			packageProductDependencies = (
+				F4905DF02A98DD4B00C76905 /* Alamofire */,
+			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 295FA8072A985D3500B35C54;
+			packageReferences = (
+				F4905DEF2A98DD4B00C76905 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -150,11 +172,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */,
 				295FA8292A985D5100B35C54 /* WKPlayerStateModel.swift in Sources */,
 				295FA8282A985D5100B35C54 /* WKPlayerSettings.swift in Sources */,
+				F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */,
 				295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */,
 				295FA8162A985D3500B35C54 /* ViewController.swift in Sources */,
 				295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */,
+				F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */,
+				F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -326,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -364,6 +392,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4905DEF2A98DD4B00C76905 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4905DF02A98DD4B00C76905 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4905DEF2A98DD4B00C76905 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 295FA8082A985D3500B35C54 /* Project object */;
 }

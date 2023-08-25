@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  NeteaseTVDemo
 //
-//  Created by fengyn on 2023/8/25.
+//  Created by ZhangDong on 2023/8/25.
 //
 
 import UIKit
