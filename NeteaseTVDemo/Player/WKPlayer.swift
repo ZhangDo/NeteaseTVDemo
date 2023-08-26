@@ -458,7 +458,7 @@ public class WKPlayer: NSObject {
         
         let canPlay = self.canPlay(progress: to)
         if canPlay {
-            await seek(to: to)
+            seek(to: to)
         } else {
             // 当前没有在缓冲等待且没有在等待播放器状态
             if !alreadyInSeeking, !isPlayerStateWaiting {
@@ -751,7 +751,7 @@ public class WKPlayer: NSObject {
             countdownSeconds = Int(leftSeconds)
             
             if leftSeconds <= 0 {
-                await seek(to: 0)
+                seek(to: 0)
                 pausePlayer()
             }
             
@@ -975,7 +975,7 @@ public class WKPlayer: NSObject {
         case .seekToTime(let value):
             let canPlay = self.canPlay(progress: value)
             if canPlay {
-                await self.seek(to: value)
+                self.seek(to: value)
             } else {
                 if !subjectivePause {
                     state = .isBuffering

@@ -13,28 +13,23 @@ class ViewController: UIViewController {
         get {
             
             let model1 = CustomAudioModel()
-            model1.audioUrl = "http://m701.music.126.net/20230825213436/731a74321f3f2cdda6ee7c5c31f3b937/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/19699213280/1e60/deab/6921/c2cc2014ded5613e1e4c6e6f87ec67f3.mp3"
+            model1.audioUrl = "http://m702.music.126.net/20230826113535/decafc4ab8fb39f373e9ebbc4ac2bd2d/jd-musicrep-ts/d793/92f8/4f25/b8e48ba861e9bceb4b346e0fe25ad383.mp3"
             model1.isFree = 1
             model1.freeTime = 0
-            model1.audioTitle = "音频1"
+            model1.audioTitle = "画"
             
             let model2 = CustomAudioModel()
-            model2.audioUrl = "http://m7.music.126.net/20230825214319/46a0221ad09a07d6ae51ba77900c39eb/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/3915666993/252e/5a18/3bf6/7738bbd7ffa009c4fbfd62a1d24203d3.mp3"
-            model2.isFree = 0
-            model2.freeTime = 100
-            model2.audioTitle = "音频2"
+            model2.audioUrl = "http://m801.music.126.net/20230826113554/b60c400d5eb39e312ffc1bfdfbcbbdd7/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096441296/e92c/4fed/0188/7999b19d0e517402cc7157d1103426cc.mp3"
+            model2.isFree = 1
+            model2.freeTime = 0
+            model2.audioTitle = "簇拥烈日的花"
             
             let model3 = CustomAudioModel()
-            model3.audioUrl = "http://m702.music.126.net/20230825214343/994b8d80e8910277e9dd3484794e06cd/jd-musicrep-ts/6a82/0f8d/b485/7c11722bef48eea2c06cf8ca7b1bed0c.mp3"
-            model3.isFree = 0
+            model3.audioUrl = "http://m7.music.126.net/20230826113617/c373aadf0fbbd985aff52b79941bc561/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/14053489035/c480/f221/194e/d330f85f6077e73010ce81539f802972.mp3"
+            model3.isFree = 1
             model3.freeTime = 0
-            model3.audioTitle = "音频3"
+            model3.audioTitle = "风吟诛仙"
 
-            /**
-             音频1:可以播放完整音频
-             音频2:可以播放100秒
-             音频3:不可以播放
-             */
             return [model1, model2, model3]
         }
     }
@@ -113,11 +108,12 @@ extension ViewController: WKPlayerDelegate {
     }
     
     func unifiedExceptionHandle(error: WKPlayerError) {
-        debugPrint(error)
+//        debugPrint(error.errorDescription as Any)
         
-//        let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
-//        let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
-//        alert.addAction(confirm)
+        let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
+        let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
+        alert.addAction(confirm)
+        self.present(alert, animated: true)
 //        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
