@@ -42,7 +42,44 @@ class ViewController: UIViewController {
         try? wk_player.play(index: 0)
     }
 
-
+    @IBAction func backward(_ sender: Any) {
+        Task {
+            await wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
+        }
+        
+    }
+    
+    @IBAction func forward(_ sender: Any) {
+        
+        Task {
+            await wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
+        }
+    }
+    
+    @IBAction func previous(_ sender: Any) {
+        do {
+            try wk_player.playLast()
+        } catch {
+            debugPrint(error)
+        }
+    }
+    @IBAction func playOrPause(_ sender: Any) {
+        if wk_player.state == .paused {
+            wk_player.resumePlayer()
+        } else if  wk_player.state == .isPlaying {
+            wk_player.pausePlayer()
+        }
+        
+    }
+    
+    @IBAction func next(_ sender: Any) {
+        do {
+            try wk_player.playNext()
+        } catch {
+            debugPrint(error)
+        }
+    }
+    
 }
 
 extension ViewController: WKPlayerDelegate {
@@ -52,11 +89,11 @@ extension ViewController: WKPlayerDelegate {
     }
     
     func playDataSourceWillChange(now: WKPlayerDataSource?, new: WKPlayerDataSource?) {
-        debugPrint("设置上一个数据源，说明要切换音频了，当前是\(now?.wk_sourceName!)，即将播放的是\(new?.wk_sourceName!)")
+        debugPrint("设置上一个数据源，说明要切换音频了，当前是\(String(describing: now?.wk_sourceName!))，即将播放的是\(String(describing: new?.wk_sourceName!))")
     }
     
     func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource) {
-        debugPrint("设置新的数据源，说明已经切换音频了，原来是\(last?.wk_sourceName!)，当前是\(now.wk_sourceName!)")
+        debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: last?.wk_sourceName!))，当前是\(now.wk_sourceName!)")
     }
     
     func didPlayToEnd(dataSource: WKPlayerDataSource, isTheEnd: Bool) {
@@ -93,7 +130,7 @@ extension ViewController: WKPlayerDelegate {
 //        audioTitleLbl.text = dataSource?.wk_sourceName!
         guard let detail = detailInfo else { return }
         let currentTime = wk_playerTool.formatTime(seconds: detail.current)
-        let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
+//        let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
 //        audioDurationLbl.text = currentTime + "/" + durationTime
 //        bufferProgress.progress = detail.buffer
 //        audioProgressSlider.value = detail.progress

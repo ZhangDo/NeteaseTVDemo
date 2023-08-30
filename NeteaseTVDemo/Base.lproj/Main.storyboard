@@ -38,9 +38,59 @@
                                             <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgP-mq-cKH">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ppu-wa-udB">
                                         <rect key="frame" x="930" y="0.0" width="830" height="960"/>
-                                    </view>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl1-3R-qEP">
+                                                <rect key="frame" x="0.0" y="0.0" width="830" height="180"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="backward.end.alt.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="backward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="FXG-NL-uWC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-24-56S">
+                                                <rect key="frame" x="0.0" y="195" width="830" height="180"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Previous"/>
+                                                <connections>
+                                                    <action selector="previous:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="9ew-1B-bXc"/>
+                                                    <action selector="previous:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abU-cR-Jbu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-XR-fLM">
+                                                <rect key="frame" x="0.0" y="390" width="830" height="180"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Play/Pause"/>
+                                                <connections>
+                                                    <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3D-OJ-fcl"/>
+                                                    <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="bDI-kR-dEf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVy-dv-6Mz">
+                                                <rect key="frame" x="0.0" y="585" width="830" height="180"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="next:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="GhH-Ej-0In"/>
+                                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vkX-b0-edc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LB-qh-4Ce">
+                                                <rect key="frame" x="0.0" y="780" width="830" height="180"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="forward.end.alt.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="forward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="49l-hi-fJx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -59,4 +109,8 @@
             <point key="canvasLocation" x="-97" y="-147"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backward.end.alt.fill" catalog="system" width="128" height="66"/>
+        <image name="forward.end.alt.fill" catalog="system" width="128" height="66"/>
+    </resources>
 </document>
