@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import NeteaseRequest
 
 public let wk_player = WKPlayer.instance
 
@@ -52,6 +53,7 @@ public enum WkPlayerSeekTime {
 // MARK: —————————— 播放器数据源协议 ——————————
 public protocol WKPlayerDataSource {
     var wk_playURL: String? { get }
+    var wk_audioId: Int? { get }
     ///文件名称
     var wk_sourceName: String? { get }
     var wk_sourceType: WKPlayerSourceType { get }
@@ -60,7 +62,6 @@ public protocol WKPlayerDataSource {
 //MARK: —————————— 播放器功能 ——————————
 public struct WKPlayerFunction: OptionSet {
     public let rawValue: UInt
-    
     ///默认
     public static let `default` = WKPlayerFunction(rawValue: 1<<0)
     ///缓存
@@ -165,7 +166,7 @@ public class WKPlayer: NSObject {
                 case .full:
                     if firstAvailableIndex == NSNotFound {
                         firstAvailableIndex = offset
-                    }
+                    } 
                     temp.append(element)
                 case .partly(let value):
                     if value > 0 {
@@ -253,9 +254,7 @@ public class WKPlayer: NSObject {
     /// 播放器倒计时功能
     public  var countdown: WKPlayerCountdown = .none {
         didSet {
-            Task {
-                await handleCountdown()
-            }
+            handleCountdown()
         }
     }
     
@@ -404,7 +403,7 @@ public class WKPlayer: NSObject {
     /// 为跳转到指定位置做准备操作
     ///
     /// - Parameter to: 要跳转的进度
-    public func prepareForSeek(to: Float) async {
+    public func prepareForSeek(to: Float) {
         
         guard let model = currentModel else {
             let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
@@ -412,7 +411,7 @@ public class WKPlayer: NSObject {
             return
         }
         
-        await updateCountdownSeconds()
+        updateCountdownSeconds()
         
         switch model.wk_sourceType {
         case .partly(let length):
@@ -426,7 +425,7 @@ public class WKPlayer: NSObject {
                     unifiedExceptionHandle(error)
                     return
                 }
-                let totalTime = await wk_playerTool.readDuration(url: urlString)
+                let totalTime = wk_playerTool.readDuration(url: urlString)
                 if totalTime > 0 {
                     
                     self.totalTime = totalTime
@@ -540,6 +539,7 @@ public class WKPlayer: NSObject {
             unifiedExceptionHandle(error)
             throw error
         }
+        //todo:
         guard let urlString = model.wk_playURL else {
             let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
             unifiedExceptionHandle(error)
@@ -568,9 +568,9 @@ public class WKPlayer: NSObject {
         // 当前有正在播放的音频，并且当前正在播放的音频和上一条一样
         let condition1 = lastModel?.wk_playURL == currentModel?.wk_playURL && currentModel?.wk_playURL != nil
         // 要播放的音频和当前音频不一致
-        let condition2 = urlString != currentModel?.wk_playURL
+//        let condition2 = urlString != currentModel?.wk_playURL
         
-        guard !condition1 && condition2 else {
+        guard !condition1 else {
             switch state {
             //缓冲和播放状态时，暂停播放
             case .isBuffering, .isPlaying:
@@ -582,9 +582,7 @@ public class WKPlayer: NSObject {
                     needResume = true
                     subjectivePause = false
                     isPlaying = true
-                    Task {
-                        await judgeProgress()
-                    }
+                    judgeProgress()
                     
                 default:
                     resumePlayer()
@@ -679,10 +677,7 @@ public class WKPlayer: NSObject {
                             self.progress = self.actuallyPlayProgress
                         }
                     }
-                    Task.detached {
-                        await self.updateCountdownSeconds()
-                    }
-//
+                    self.updateCountdownSeconds()
                     
                 }
                 
@@ -695,11 +690,11 @@ public class WKPlayer: NSObject {
         delegate?.updateUI(dataSource: currentModel, state: state, isPlaying: isPlaying, detailInfo: currentModelState)
     }
     
-    private func handleCountdown() async {
+    private func handleCountdown() {
         switch countdown {
         case .endCount(_):
             dataSourceCountdonwRecalculateMark = true
-            await updateCountdownSeconds()
+            updateCountdownSeconds()
         case .endSecond(let seconds):
             debugPrint("设置结束时间为\(seconds)秒")
             wk_countdown.startCountdown(key: countdownMark, seconds: seconds, function: .default) { (info) in
@@ -715,7 +710,7 @@ public class WKPlayer: NSObject {
         }
     }
     ///更新倒计时时长
-    private func updateCountdownSeconds() async {
+    private func updateCountdownSeconds() {
         switch countdown {
         case .endCount(let count):
             if dataSourceCountdonwLeftCount == 0 {
@@ -730,7 +725,7 @@ public class WKPlayer: NSObject {
             if dataSourceCountdonwReadNextModelMark {
                 do {
                     if let url = try getNextModel(after: true)?.wk_playURL {
-                        currentTotal = await UInt(wk_playerTool.readDuration(url: url))
+                        currentTotal = UInt(wk_playerTool.readDuration(url: url))
                         currentTime = Double(currentTotal)
                     }
                 } catch {
@@ -738,12 +733,12 @@ public class WKPlayer: NSObject {
                 }
                 dataSourceCountdonwReadNextModelMark = false
             } else {
-                currentTotal = await UInt(wk_playerTool.readDuration(url: currentModel!.wk_playURL!))
+                currentTotal = UInt(wk_playerTool.readDuration(url: currentModel!.wk_playURL!))
                 currentTime = Double(currentTotal)
             }
             
             if dataSourceCountdonwRecalculateMark {
-                dataSourceCountdonwLeftTotalSeconds = await UInt(calculateLeftDuration(count: leftCount))
+                dataSourceCountdonwLeftTotalSeconds = UInt(calculateLeftDuration(count: leftCount))
                 dataSourceCountdonwRecalculateMark = false
             }
             
@@ -805,18 +800,12 @@ public class WKPlayer: NSObject {
         if wk_playerTool.netStatus == .notReachable {
             if totalTime == 0 && function.contains(.cache) {
                 if let cacheURL = isCached {
-                    Task {
-                        totalTime = await wk_playerTool.readDuration(url: cacheURL.absoluteString)
-                    }
-                    
+                    totalTime = wk_playerTool.readDuration(url: cacheURL.absoluteString)
                 }
             }
         } else {
             if totalTime == 0 {
-                Task {
-                    totalTime = await wk_playerTool.readDuration(url: currentModel!.wk_playURL!)
-                }
-                
+                totalTime = wk_playerTool.readDuration(url: currentModel!.wk_playURL!)
             }
         }
         
@@ -879,14 +868,14 @@ public class WKPlayer: NSObject {
 
     
     ///计算剩余时长
-    private func calculateLeftDuration(count: UInt) async -> UInt {
+    private func calculateLeftDuration(count: UInt) -> UInt {
         var total: UInt = 0
         var leftCount = count
         
         while leftCount > 1 {
             do {
                 if let model = try getNextModel(after: true) {
-                    await total += wk_playerTool.readDuration(url: model.wk_playURL!)
+                    total += wk_playerTool.readDuration(url: model.wk_playURL!)
                 }
             } catch {
                 
@@ -907,15 +896,10 @@ public class WKPlayer: NSObject {
                 unifiedExceptionHandle(error)
                 countdownInfo?.pause()
             case .readyToPlay:
-                Task {
-                    await judgeProgress()
-                }
+                judgeProgress()
                 
                 if isPlayerStateWaiting {
-                    Task {
-                        try? await seekToHistory()
-                    }
-                    
+                    seekToHistory()
                 }
             case .failed:
                 state = .failed
@@ -926,10 +910,7 @@ public class WKPlayer: NSObject {
                 debugPrint("未知错误")
             }
         case WKPlayerObserverKey.loadedTimeRanges.rawValue:
-            Task {
-                await addBufferProgressObserver()
-            }
-            
+            addBufferProgressObserver()
             
         case WKPlayerObserverKey.playbackBufferEmpty.rawValue:
             if isCached == nil {
@@ -946,10 +927,10 @@ public class WKPlayer: NSObject {
     
     // MARK: —————————— 缓冲进度观察 ——————————
     /// 添加缓冲进度观察者
-    private func addBufferProgressObserver() async {
+    private func addBufferProgressObserver() {
         guard let item = playerItem else { return }
         guard !((function.contains(.cache) && isCached != nil) || buffer == 1) else {
-            await judgeProgress()
+            judgeProgress()
             return
         }
         guard let bufferRange = item.loadedTimeRanges.first?.timeRangeValue else { return }
@@ -964,11 +945,11 @@ public class WKPlayer: NSObject {
                 buffer = Float(bufferProgress)
             }
         }
-        await judgeProgress()
+        judgeProgress()
     }
     
     /// 进度发生变化，需要判断是否可播放
-    private func judgeProgress() async {
+    private func judgeProgress() {
         switch isSeekWaiting {
         case .none:
             break
@@ -1017,9 +998,7 @@ public class WKPlayer: NSObject {
 //        if function.contains(.database) {
 //            countdownInfo?.start()
 //        }
-        Task {
-            try? await seekToHistory()
-        }
+        seekToHistory()
         
     }
     
@@ -1051,6 +1030,48 @@ public class WKPlayer: NSObject {
             throw error
         }
         self.loadDataSource(cacheURL: cacheURL)
+        
+//        if currentModel?.wk_playURL != nil {
+//            var cacheURL: URL? = nil
+//            /** 如果允许缓存*/
+//            if function.contains(.cache) {
+//                // 从下载管理类中查询下载的地址
+//                if let cache = wk_playerTool.checkFileExist(url: (currentModel?.wk_playURL)!) {
+//                    cacheURL = URL.init(fileURLWithPath: cache)
+//                }
+//            }
+//
+//            // 如果没有网络并且没有缓存
+//            guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
+//                let error = WKPlayerError.networkError(reason: .notReachable)
+//                unifiedExceptionHandle(error)
+//                throw error
+//            }
+//            self.loadDataSource(cacheURL: cacheURL)
+//        } else {
+//            Task {
+//                let url = try! await fetchAudioUrl(id: (currentModel?.wk_audioId)!).first?.url
+//                var cacheURL: URL? = nil
+//                /** 如果允许缓存*/
+//                if function.contains(.cache) {
+//                    // 从下载管理类中查询下载的地址
+//                    if let cache = wk_playerTool.checkFileExist(url: url!) {
+//                        cacheURL = URL.init(fileURLWithPath: cache)
+//                    }
+//                }
+//
+//                // 如果没有网络并且没有缓存
+//                guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
+//                    let error = WKPlayerError.networkError(reason: .notReachable)
+//                    unifiedExceptionHandle(error)
+//                    throw error
+//                }
+//                self.loadDataSource(cacheURL: cacheURL, currentUrl: url)
+//            }
+//        }
+        
+        
+        
     }
     
     // MARK: —————————— 播放器播放步骤4 ——————————
@@ -1058,12 +1079,18 @@ public class WKPlayer: NSObject {
     ///
     /// 播放流程步骤4:此函数为加载数据源情况判断
     /// - Parameter cacheURL: 数据源缓存地址
-    private func loadDataSource(cacheURL: URL?) {
+    private func loadDataSource(cacheURL: URL?, currentUrl: String? = nil) {
         
         guard let cache = cacheURL, function.contains(.cache) else {
-            // 由于之前已经判断过，此处可以用强制解包
-            let netURL = URL.init(string: currentModel!.wk_playURL!)!
-            try? loadNetURL(netURL)
+            
+            if currentUrl != nil {
+                let netURL = URL.init(string: currentUrl!)
+                try? loadNetURL(netURL!)
+            } else {
+                let netURL = URL.init(string: (currentModel?.wk_playURL)!)
+                try? loadNetURL(netURL!)
+            }
+            
             return
         }
         isCached = cacheURL
@@ -1176,9 +1203,7 @@ public class WKPlayer: NSObject {
                 return
             }
             dataSourceCountdonwRecalculateMark = true
-            Task {
-                await updateCountdownSeconds()
-            }
+            updateCountdownSeconds()
             
         default:
             break
@@ -1197,7 +1222,7 @@ public class WKPlayer: NSObject {
     }
     
     /** 跳转历史进度*/
-    private func seekToHistory() async throws {
+    private func seekToHistory() {
         guard progress > 0 && progress != 1 else {
             return
         }
@@ -1208,16 +1233,14 @@ public class WKPlayer: NSObject {
             // 如果数据源只能播放一部分
             case .partly(let length):
                 guard let url = self.currentModel?.wk_playURL else { return }
-                let total = await wk_playerTool.readDuration(url: url)
+                let total =  wk_playerTool.readDuration(url: url)
                 let willSeekTime = UInt(progress * Float(total))
                 guard willSeekTime < length else { return }
             default:
                 break
             }
         }
-        Task {
-            await prepareForSeek(to: progress)
-        }
+       prepareForSeek(to: progress)
         
     }
 

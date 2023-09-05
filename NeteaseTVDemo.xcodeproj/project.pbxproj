@@ -15,7 +15,7 @@
 		295FA8282A985D5100B35C54 /* WKPlayerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8252A985D5100B35C54 /* WKPlayerSettings.swift */; };
 		295FA8292A985D5100B35C54 /* WKPlayerStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8262A985D5100B35C54 /* WKPlayerStateModel.swift */; };
 		295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8272A985D5100B35C54 /* WKPlayer.swift */; };
-		F4905DF12A98DD4B00C76905 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F4905DF02A98DD4B00C76905 /* Alamofire */; };
+		29D18E6C2AA6FD5A0056EB22 /* NeteaseRequest in Frameworks */ = {isa = PBXBuildFile; productRef = 29D18E6B2AA6FD5A0056EB22 /* NeteaseRequest */; };
 		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
 		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
 		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
@@ -44,7 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4905DF12A98DD4B00C76905 /* Alamofire in Frameworks */,
+				29D18E6C2AA6FD5A0056EB22 /* NeteaseRequest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +56,7 @@
 			children = (
 				295FA8122A985D3500B35C54 /* NeteaseTVDemo */,
 				295FA8112A985D3500B35C54 /* Products */,
+				295FA8562A9F11E700B35C54 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +96,13 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		295FA8562A9F11E700B35C54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,7 +120,7 @@
 			);
 			name = NeteaseTVDemo;
 			packageProductDependencies = (
-				F4905DF02A98DD4B00C76905 /* Alamofire */,
+				29D18E6B2AA6FD5A0056EB22 /* NeteaseRequest */,
 			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
@@ -143,7 +151,7 @@
 			);
 			mainGroup = 295FA8072A985D3500B35C54;
 			packageReferences = (
-				F4905DEF2A98DD4B00C76905 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				29D18E6A2AA6FD5A0056EB22 /* XCRemoteSwiftPackageReference "NeteaseRequest" */,
 			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
@@ -394,21 +402,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F4905DEF2A98DD4B00C76905 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		29D18E6A2AA6FD5A0056EB22 /* XCRemoteSwiftPackageReference "NeteaseRequest" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 0.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F4905DF02A98DD4B00C76905 /* Alamofire */ = {
+		29D18E6B2AA6FD5A0056EB22 /* NeteaseRequest */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F4905DEF2A98DD4B00C76905 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = 29D18E6A2AA6FD5A0056EB22 /* XCRemoteSwiftPackageReference "NeteaseRequest" */;
+			productName = NeteaseRequest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

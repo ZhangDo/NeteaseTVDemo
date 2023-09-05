@@ -60,15 +60,19 @@ public class WKPlayerTool {
     }
     
     /// 根据数据源地址读取数据源播放时长
-    public func readDuration(url urlString: String) async -> UInt {
+    public func readDuration(url urlString: String) -> UInt {
         if let url = URL(string: urlString) {
             let asset = AVURLAsset(url: url)
-            if let duration = try? await asset.load(.duration) {
-                let seconds = CMTimeGetSeconds(duration)
-                if seconds > 0 {
-                    return UInt(ceil(seconds))
+            Task {
+                if let duration = try? await asset.load(.duration) {
+                    let seconds = CMTimeGetSeconds(duration)
+                    if seconds > 0 {
+                        return UInt(ceil(seconds))
+                    }
                 }
+                return 0
             }
+            
         }
         return 0
     }

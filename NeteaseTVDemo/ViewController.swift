@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import NeteaseRequest
 class ViewController: UIViewController {
     
     var allModels: [CustomAudioModel] {
@@ -29,13 +29,13 @@ class ViewController: UIViewController {
             model3.isFree = 1
             model3.freeTime = 0
             model3.audioTitle = "风吟诛仙"
-
             return [model1, model2, model3]
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         wk_player.delegate = self
         wk_player.allOriginalModels = allModels
         
@@ -43,17 +43,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func backward(_ sender: Any) {
-        Task {
-            await wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
-        }
+        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
         
     }
     
     @IBAction func forward(_ sender: Any) {
-        
-        Task {
-            await wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
-        }
+        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
     }
     
     @IBAction func previous(_ sender: Any) {

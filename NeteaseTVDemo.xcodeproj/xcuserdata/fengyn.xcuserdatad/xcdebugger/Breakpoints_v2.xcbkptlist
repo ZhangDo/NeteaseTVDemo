@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0B3EAD1E-A9B6-49E3-B8C2-02037F4060DF"
+            uuid = "A1BE5684-21A2-457F-BCD7-57DE35FD4A2F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeteaseTVDemo/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "826"
-            endingLineNumber = "826"
-            landmarkName = "seek(to:)"
+            startingLineNumber = "1084"
+            endingLineNumber = "1084"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E87A1AE-136F-4663-A652-0AC2FA4CCD0F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1035"
+            endingLineNumber = "1035"
+            landmarkName = "prepareForLoadDataSource()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
