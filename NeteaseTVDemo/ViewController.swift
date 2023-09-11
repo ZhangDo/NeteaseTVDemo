@@ -13,23 +13,42 @@ class ViewController: UIViewController {
         get {
             
             let model1 = CustomAudioModel()
-            model1.audioUrl = "http://m702.music.126.net/20230826113535/decafc4ab8fb39f373e9ebbc4ac2bd2d/jd-musicrep-ts/d793/92f8/4f25/b8e48ba861e9bceb4b346e0fe25ad383.mp3"
+            model1.audioId = 5025180
             model1.isFree = 1
             model1.freeTime = 0
-            model1.audioTitle = "画"
+            model1.audioTitle = "Titoli"
             
             let model2 = CustomAudioModel()
-            model2.audioUrl = "http://m801.music.126.net/20230826113554/b60c400d5eb39e312ffc1bfdfbcbbdd7/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096441296/e92c/4fed/0188/7999b19d0e517402cc7157d1103426cc.mp3"
+            model2.audioId = 5025186
             model2.isFree = 1
             model2.freeTime = 0
-            model2.audioTitle = "簇拥烈日的花"
+            model2.audioTitle = "Doppi Giochi"
             
             let model3 = CustomAudioModel()
-            model3.audioUrl = "http://m7.music.126.net/20230826113617/c373aadf0fbbd985aff52b79941bc561/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/14053489035/c480/f221/194e/d330f85f6077e73010ce81539f802972.mp3"
+            model3.audioId = 5025187
             model3.isFree = 1
             model3.freeTime = 0
-            model3.audioTitle = "风吟诛仙"
-            return [model1, model2, model3]
+            model3.audioTitle = "Per un Pugno di Dollari"
+            
+            let model4 = CustomAudioModel()
+            model3.audioId = 5025187
+            model3.isFree = 1
+            model3.freeTime = 0
+            model3.audioTitle = "Per Qualche Dollaro In Piu"
+            
+            let model5 = CustomAudioModel()
+            model3.audioId = 5025187
+            model3.isFree = 1
+            model3.freeTime = 0
+            model3.audioTitle = "La Resa Dei Conti"
+            
+            let model6 = CustomAudioModel()
+            model3.audioId = 5025187
+            model3.isFree = 1
+            model3.freeTime = 0
+            model3.audioTitle = "Il Vizio Di Uccidere"
+            
+            return [model1, model2, model3, model4, model5, model6]
         }
     }
 
