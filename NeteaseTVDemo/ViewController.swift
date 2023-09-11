@@ -31,22 +31,22 @@ class ViewController: UIViewController {
             model3.audioTitle = "Per un Pugno di Dollari"
             
             let model4 = CustomAudioModel()
-            model3.audioId = 5025187
-            model3.isFree = 1
-            model3.freeTime = 0
-            model3.audioTitle = "Per Qualche Dollaro In Piu"
+            model4.audioId = 5026101
+            model4.isFree = 1
+            model4.freeTime = 0
+            model4.audioTitle = "Per Qualche Dollaro In Piu"
             
             let model5 = CustomAudioModel()
-            model3.audioId = 5025187
-            model3.isFree = 1
-            model3.freeTime = 0
-            model3.audioTitle = "La Resa Dei Conti"
+            model5.audioId = 5026111
+            model5.isFree = 1
+            model5.freeTime = 0
+            model5.audioTitle = "La Resa Dei Conti"
             
             let model6 = CustomAudioModel()
-            model3.audioId = 5025187
-            model3.isFree = 1
-            model3.freeTime = 0
-            model3.audioTitle = "Il Vizio Di Uccidere"
+            model6.audioId = 5026115
+            model6.isFree = 1
+            model6.freeTime = 0
+            model6.audioTitle = "Il Vizio Di Uccidere"
             
             return [model1, model2, model3, model4, model5, model6]
         }
@@ -159,13 +159,13 @@ extension ViewController: WKPlayerDelegate {
     }
     
     func unifiedExceptionHandle(error: WKPlayerError) {
-//        debugPrint(error.errorDescription as Any)
+        debugPrint(error.errorDescription as Any)
         
         let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
         let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
         alert.addAction(confirm)
         self.present(alert, animated: true)
-//        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
 

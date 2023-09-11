@@ -295,14 +295,20 @@ public class WKPlayer: NSObject {
     /// - Throws: 如果有错误就抛出WKPlayerError异常
     public func playNext() throws {
         
-        guard let model = try getNextModel(after: true) else {
-            let error = WKPlayerError.dataSourceError(reason: .noNextDataSource)
-            unifiedExceptionHandle(error)
-            throw error
+        Task {
+            guard let model = try getNextModel(after: true) else {
+                let error = WKPlayerError.dataSourceError(reason: .noNextDataSource)
+                unifiedExceptionHandle(error)
+                throw error
+            }
+            currentIndex += 1
+            do {
+                try await fetchTrueUrlStr(model: model as! CustomAudioModel)
+                try? prepareForPlay(model: model)
+            } catch {
+                print(error)
+            }
         }
-        currentIndex += 1
-        
-        try? prepareForPlay(model: model)
     }
     
     // MARK: —————————— 播放上一条数据源 ——————————
@@ -311,14 +317,22 @@ public class WKPlayer: NSObject {
     /// - Throws: 如果有错误就抛出WKPlayerError异常
     public func playLast() throws {
         
-        guard let model = try getNextModel(after: false) else {
-            let error = WKPlayerError.dataSourceError(reason: .noLastDataSource)
-            unifiedExceptionHandle(error)
-            throw error
+        Task {
+            guard let model = try getNextModel(after: false) else {
+                let error = WKPlayerError.dataSourceError(reason: .noLastDataSource)
+                unifiedExceptionHandle(error)
+                throw error
+            }
+            currentIndex -= 1
+            
+            do {
+                try await fetchTrueUrlStr(model: model as! CustomAudioModel)
+                try? prepareForPlay(model: model)
+            } catch {
+                print(error)
+            }
+            
         }
-        currentIndex -= 1
-        
-        try? prepareForPlay(model: model)
     }
     
     
@@ -518,51 +532,38 @@ public class WKPlayer: NSObject {
         initConfig()
     }
     
-    // MARK: —————————— 播放器播放步骤1 ——————————
-    // MARK: —————————— 播放/暂停 ——————————
-    /// 播放/暂停
-    ///
-    /// 播放流程步骤1:此函数为播放时最先调用的
-    /// 说明：如果当前播放的内容和准备播放的内容一致，则进行播放/暂停的切换，否则进行新内容的播放
-    /// - Parameter index: 数据源索引
-    /// - Throws: 如果有错误就抛出WKPlayerError异常
-    public func play(index: Int) throws {
-        /** 如果没有设置数据源数组*/
-        guard allOriginalModels != nil else {
-            let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
+    
+    func fetchTrueUrlStr(model: CustomAudioModel) async throws {
+//        var urlStr = ""
+        if model.wk_playURL != nil {
+            model.audioUrl = model.wk_playURL!
+        } else {
+            guard let audioId = model.wk_audioId else {
+                let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
+                unifiedExceptionHandle(error)
+                throw error
+            }
+            model.audioUrl = try! await fetchAudioUrl(id: audioId).last?.url ?? ""
+        }
+//        guard (model.wk_playURL) != nil else {
+//
+//        }
+        
+        let url = URL.init(string:model.audioUrl!)
+        
+        guard !url!.pathExtension.isEmpty else {
+            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
             unifiedExceptionHandle(error)
             throw error
         }
-        /** 如果数据源数组中没有找到要播放的索引的数据*/
-        guard let model = allOriginalModels?[index] else {
-            let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
+        switch model.wk_sourceType {
+        case .noPermission:
+            let error = WKPlayerError.dataSourceError(reason: .noPermission)
             unifiedExceptionHandle(error)
             throw error
+        default:
+            break
         }
-        //todo:如果用id播放的话需要注释掉
-//        guard let urlString = model.wk_playURL else {
-//            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
-//            unifiedExceptionHandle(error)
-//            throw error
-//        }
-//        guard let url = URL.init(string: urlString) else {
-//            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
-//            unifiedExceptionHandle(error)
-//            throw error
-//        }
-//        guard !url.pathExtension.isEmpty else {
-//            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
-//            unifiedExceptionHandle(error)
-//            throw error
-//        }
-//        switch model.wk_sourceType {
-//        case .noPermission:
-//            let error = WKPlayerError.dataSourceError(reason: .noPermission)
-//            unifiedExceptionHandle(error)
-//            throw error
-//        default:
-//            break
-//        }
         initConfig()
         // 正在播放的和准备播放的一致
         // 当前有正在播放的音频，并且当前正在播放的音频和上一条一样
@@ -590,8 +591,48 @@ public class WKPlayer: NSObject {
             }
             return
         }
+    }
+    
+    // MARK: —————————— 播放器播放步骤1 ——————————
+    // MARK: —————————— 播放/暂停 ——————————
+    /// 播放/暂停
+    ///
+    /// 播放流程步骤1:此函数为播放时最先调用的
+    /// 说明：如果当前播放的内容和准备播放的内容一致，则进行播放/暂停的切换，否则进行新内容的播放
+    /// - Parameter index: 数据源索引
+    /// - Throws: 如果有错误就抛出WKPlayerError异常
+    public func play(index: Int) throws {
+        /** 如果没有设置数据源数组*/
+        guard allOriginalModels != nil else {
+            let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
+            unifiedExceptionHandle(error)
+            throw error
+        }
+        /** 如果数据源数组中没有找到要播放的索引的数据*/
+        guard let model = allOriginalModels?[index] else {
+            let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
+            unifiedExceptionHandle(error)
+            throw error
+        }
+        //todo:
+//        guard let urlString = model.wk_playURL else {
+//            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
+//            unifiedExceptionHandle(error)
+//            throw error
+//        }
         
-        try? prepareForPlay(model: model)
+        
+        
+        Task {
+            do {
+                try await fetchTrueUrlStr(model: model as! CustomAudioModel)
+                try? prepareForPlay(model: model)
+            } catch {
+                print(error)
+            }
+        }
+        
+        
         
 //        if function.contains(.database) {
 //            prepareRecordDatabase()
@@ -1008,22 +1049,20 @@ public class WKPlayer: NSObject {
     /// 播放流程步骤3:此函数为加载数据源准备操作
     /// - Throws: 抛出异常
     private func prepareForLoadDataSource() throws {
-        //todo:如果用id播放的话需要注释掉
-//        guard let url = currentModel?.wk_playURL else {
-//            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
-//            unifiedExceptionHandle(error)
-//            throw error
-//        }
+        guard let url = currentModel?.wk_playURL else {
+            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
+            unifiedExceptionHandle(error)
+            throw error
+        }
         
         var cacheURL: URL? = nil
         /** 如果允许缓存*/
-        //todo:如果用id播放的话需要注释掉
-//        if function.contains(.cache) {
-//            // 从下载管理类中查询下载的地址
-//            if let cache = wk_playerTool.checkFileExist(url: url) {
-//                cacheURL = URL.init(fileURLWithPath: cache)
-//            }
-//        }
+        if function.contains(.cache) {
+            // 从下载管理类中查询下载的地址
+            if let cache = wk_playerTool.checkFileExist(url: url) {
+                cacheURL = URL.init(fileURLWithPath: cache)
+            }
+        }
         
         // 如果没有网络并且没有缓存
         guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
@@ -1031,47 +1070,46 @@ public class WKPlayer: NSObject {
             unifiedExceptionHandle(error)
             throw error
         }
-        //todo:如果用id播放的话需要注释掉
-//        self.loadDataSource(cacheURL: cacheURL)
+        self.loadDataSource(cacheURL: cacheURL)
         
-        if currentModel?.wk_playURL != nil {
-            var cacheURL: URL? = nil
-            /** 如果允许缓存*/
-            if function.contains(.cache) {
-                // 从下载管理类中查询下载的地址
-                if let cache = wk_playerTool.checkFileExist(url: (currentModel?.wk_playURL)!) {
-                    cacheURL = URL.init(fileURLWithPath: cache)
-                }
-            }
-
-            // 如果没有网络并且没有缓存
-            guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
-                let error = WKPlayerError.networkError(reason: .notReachable)
-                unifiedExceptionHandle(error)
-                throw error
-            }
-            self.loadDataSource(cacheURL: cacheURL)
-        } else {
-            Task {
-                let url = try! await fetchAudioUrl(id: (currentModel?.wk_audioId)!).first?.url
-                var cacheURL: URL? = nil
-                /** 如果允许缓存*/
-                if function.contains(.cache) {
-                    // 从下载管理类中查询下载的地址
-                    if let cache = wk_playerTool.checkFileExist(url: url!) {
-                        cacheURL = URL.init(fileURLWithPath: cache)
-                    }
-                }
-
-                // 如果没有网络并且没有缓存
-                guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
-                    let error = WKPlayerError.networkError(reason: .notReachable)
-                    unifiedExceptionHandle(error)
-                    throw error
-                }
-                self.loadDataSource(cacheURL: cacheURL, currentUrl: url)
-            }
-        }
+//        if currentModel?.wk_playURL != nil {
+//            var cacheURL: URL? = nil
+//            /** 如果允许缓存*/
+//            if function.contains(.cache) {
+//                // 从下载管理类中查询下载的地址
+//                if let cache = wk_playerTool.checkFileExist(url: (currentModel?.wk_playURL)!) {
+//                    cacheURL = URL.init(fileURLWithPath: cache)
+//                }
+//            }
+//
+//            // 如果没有网络并且没有缓存
+//            guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
+//                let error = WKPlayerError.networkError(reason: .notReachable)
+//                unifiedExceptionHandle(error)
+//                throw error
+//            }
+//            self.loadDataSource(cacheURL: cacheURL)
+//        } else {
+//            Task {
+//                let url = try! await fetchAudioUrl(id: (currentModel?.wk_audioId)!).first?.url
+//                var cacheURL: URL? = nil
+//                /** 如果允许缓存*/
+//                if function.contains(.cache) {
+//                    // 从下载管理类中查询下载的地址
+//                    if let cache = wk_playerTool.checkFileExist(url: url!) {
+//                        cacheURL = URL.init(fileURLWithPath: cache)
+//                    }
+//                }
+//
+//                // 如果没有网络并且没有缓存
+//                guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
+//                    let error = WKPlayerError.networkError(reason: .notReachable)
+//                    unifiedExceptionHandle(error)
+//                    throw error
+//                }
+//                self.loadDataSource(cacheURL: cacheURL, currentUrl: url)
+//            }
+//        }
         
         
         
