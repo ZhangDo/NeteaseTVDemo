@@ -9,57 +9,35 @@ import UIKit
 import NeteaseRequest
 class ViewController: UIViewController {
     
-    var allModels: [CustomAudioModel] {
-        get {
-            
-            let model1 = CustomAudioModel()
-            model1.audioId = 5025180
-            model1.isFree = 1
-            model1.freeTime = 0
-            model1.audioTitle = "Titoli"
-            
-            let model2 = CustomAudioModel()
-            model2.audioId = 5025186
-            model2.isFree = 1
-            model2.freeTime = 0
-            model2.audioTitle = "Doppi Giochi"
-            
-            let model3 = CustomAudioModel()
-            model3.audioId = 5025187
-            model3.isFree = 1
-            model3.freeTime = 0
-            model3.audioTitle = "Per un Pugno di Dollari"
-            
-            let model4 = CustomAudioModel()
-            model4.audioId = 5026101
-            model4.isFree = 1
-            model4.freeTime = 0
-            model4.audioTitle = "Per Qualche Dollaro In Piu"
-            
-            let model5 = CustomAudioModel()
-            model5.audioId = 5026111
-            model5.isFree = 1
-            model5.freeTime = 0
-            model5.audioTitle = "La Resa Dei Conti"
-            
-            let model6 = CustomAudioModel()
-            model6.audioId = 5026115
-            model6.isFree = 1
-            model6.freeTime = 0
-            model6.audioTitle = "Il Vizio Di Uccidere"
-            
-            return [model1, model2, model3, model4, model5, model6]
-        }
-    }
+    var allModels: [CustomAudioModel] = [CustomAudioModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        wk_player.delegate = self
-        wk_player.allOriginalModels = allModels
+        Task {
+            wk_player.delegate = self
+            wk_player.allOriginalModels = await loadData()
+            try? wk_player.play(index: 0)
+        }
         
-        try? wk_player.play(index: 0)
+        
     }
+    
+    
+    func loadData() async -> [CustomAudioModel] {
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 1)
+        self.allModels.removeAll()
+        for songModel in songModels {
+            let model = CustomAudioModel()
+            model.audioId = songModel.id
+            model.isFree = 1
+            model.freeTime = 0
+            model.audioTitle = songModel.name
+            self.allModels.append(model)
+        }
+        return self.allModels
+    }
+    
 
     @IBAction func backward(_ sender: Any) {
         wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
