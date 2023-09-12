@@ -563,6 +563,7 @@ public class WKPlayer: NSObject {
         let url = URL.init(string:urlStr)
         
         guard !url!.pathExtension.isEmpty else {
+            print("暂无版权")
             try self.playNext()
             return
         }
