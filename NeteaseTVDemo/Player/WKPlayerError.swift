@@ -67,7 +67,7 @@ extension WKPlayerError.DataSourceError {
         case .noPermission:
             return "You have no permission to access the DataSource."
         case .invalidDataSource:
-            return "Invalid DataSource."
+            return "暂无版权"
         case .noLastDataSource:
             return "There is no exists or you have no permission to access the last DataSource."
         case .noNextDataSource:

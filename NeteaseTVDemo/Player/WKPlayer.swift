@@ -53,6 +53,7 @@ public enum WkPlayerSeekTime {
 // MARK: —————————— 播放器数据源协议 ——————————
 public protocol WKPlayerDataSource {
     var wk_playURL: String? { get }
+    var wk_audioPic: String? { get }
     var wk_audioId: Int? { get }
     ///文件名称
     var wk_sourceName: String? { get }
@@ -301,7 +302,7 @@ public class WKPlayer: NSObject {
                 unifiedExceptionHandle(error)
                 throw error
             }
-            currentIndex += 1
+//            currentIndex += 1
             do {
                 try await fetchTrueUrlStr(model: model as! CustomAudioModel)
                 try? prepareForPlay(model: model)
@@ -323,7 +324,7 @@ public class WKPlayer: NSObject {
                 unifiedExceptionHandle(error)
                 throw error
             }
-            currentIndex -= 1
+//            currentIndex -= 1
             
             do {
                 try await fetchTrueUrlStr(model: model as! CustomAudioModel)
@@ -543,17 +544,26 @@ public class WKPlayer: NSObject {
                 unifiedExceptionHandle(error)
                 throw error
             }
-            model.audioUrl = try! await fetchAudioUrl(id: audioId).last?.url ?? ""
+            
+            do {
+                model.audioUrl = try? await fetchAudioUrl(id: audioId, level: .exhigh).last?.url ?? ""
+            }
+            
         }
 //        guard (model.wk_playURL) != nil else {
 //
 //        }
         
-        let url = URL.init(string:model.audioUrl!)
+        guard let urlStr = model.audioUrl else {
+            print("暂无版权")
+            try self.playNext()
+            return
+        }
         
+        let url = URL.init(string:urlStr)
         
         guard !url!.pathExtension.isEmpty else {
-            try self.playLast()
+            try self.playNext()
             return
         }
         switch model.wk_sourceType {
@@ -809,20 +819,33 @@ public class WKPlayer: NSObject {
         
         if after {
             //如果当前的数据源已是最后一条可播放的
-            guard currentModel?.wk_audioId != allModels.last?.wk_audioId else {
-                let error = WKPlayerError.dataSourceError(reason: .noNextDataSource)
-                unifiedExceptionHandle(error)
-                throw error
+            if currentModel?.wk_audioId != allModels.last?.wk_audioId {
+                index += 1
+            } else {
+                index = 0
             }
-            index += 1
+//            guard currentModel?.wk_audioId != allModels.last?.wk_audioId else {
+//                let error = WKPlayerError.dataSourceError(reason: .noNextDataSource)
+//                unifiedExceptionHandle(error)
+//                throw error
+//            }
+            
+            currentIndex = index
         } else {
             //如果当前的数据源已是第一条可播放的
-            guard currentModel?.wk_audioId != allModels.first?.wk_audioId else {
-                let error = WKPlayerError.dataSourceError(reason: .noLastDataSource)
-                unifiedExceptionHandle(error)
-                throw error
+            
+            if currentModel?.wk_audioId != allModels.first?.wk_audioId {
+                index -= 1
+            } else {
+                index = allAvailableModels!.count - 1
             }
-            index -= 1
+            currentIndex = index
+//            guard currentModel?.wk_audioId != allModels.first?.wk_audioId else {
+//                let error = WKPlayerError.dataSourceError(reason: .noLastDataSource)
+//                unifiedExceptionHandle(error)
+//                throw error
+//            }
+//            index -= 1
         }
         //如果数据源数组中没有找到要播放的索引的数据
         guard let model = allAvailableModels?[index] else {

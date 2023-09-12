@@ -7,10 +7,13 @@
 
 import UIKit
 import NeteaseRequest
+import Kingfisher
 class ViewController: UIViewController {
     
     var allModels: [CustomAudioModel] = [CustomAudioModel]()
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var coverImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +29,7 @@ class ViewController: UIViewController {
     
     func loadData() async -> [CustomAudioModel] {
         let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 53558869)
+
         self.allModels.removeAll()
         for songModel in songModels {
             let model = CustomAudioModel()
@@ -33,6 +37,7 @@ class ViewController: UIViewController {
             model.isFree = 1
             model.freeTime = 0
             model.audioTitle = songModel.name
+            model.audioPicUrl = songModel.al.picUrl
             self.allModels.append(model)
         }
         return self.allModels
@@ -86,6 +91,17 @@ extension ViewController: WKPlayerDelegate {
     
     func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource) {
         debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: last?.wk_sourceName!))，当前是\(now.wk_sourceName!)")
+        
+        if Thread.isMainThread {
+            self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
+            self.nameLabel.text = now.wk_sourceName
+        } else {
+            DispatchQueue.main.async {
+                self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
+                self.nameLabel.text = now.wk_sourceName
+            }
+        }
+        
     }
     
     func didPlayToEnd(dataSource: WKPlayerDataSource, isTheEnd: Bool) {
@@ -120,13 +136,13 @@ extension ViewController: WKPlayerDelegate {
 //        playBtn.isSelected = isPlaying
 //
 //        audioTitleLbl.text = dataSource?.wk_sourceName!
-        guard let detail = detailInfo else { return }
-        let currentTime = wk_playerTool.formatTime(seconds: detail.current)
+//        guard let detail = detailInfo else { return }
+//        let currentTime = wk_playerTool.formatTime(seconds: detail.current)
 //        let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
 //        audioDurationLbl.text = currentTime + "/" + durationTime
 //        bufferProgress.progress = detail.buffer
 //        audioProgressSlider.value = detail.progress
-        debugPrint("进度\(currentTime)")
+//        debugPrint("进度\(currentTime)")
     }
     
     
@@ -139,11 +155,20 @@ extension ViewController: WKPlayerDelegate {
     func unifiedExceptionHandle(error: WKPlayerError) {
         debugPrint(error.errorDescription as Any)
         
-        let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
-        let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
-        alert.addAction(confirm)
-        self.present(alert, animated: true)
-        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
+            let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
+            alert.addAction(confirm)
+    //        self.present(alert, animated: true)
+            let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive})
+                    .compactMap({$0 as? UIWindowScene})
+                    .first?.windows
+                    .filter({$0.isKeyWindow}).first
+            keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
+        
     }
 }
 

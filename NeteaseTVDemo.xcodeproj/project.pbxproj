@@ -16,6 +16,7 @@
 		295FA8292A985D5100B35C54 /* WKPlayerStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8262A985D5100B35C54 /* WKPlayerStateModel.swift */; };
 		295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8272A985D5100B35C54 /* WKPlayer.swift */; };
 		29F2F5F72AAFEEF100E2F389 /* NeteaseRequest in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F5F62AAFEEF100E2F389 /* NeteaseRequest */; };
+		29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F5F92AB0113F00E2F389 /* Kingfisher */; };
 		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
 		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
 		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */,
 				29F2F5F72AAFEEF100E2F389 /* NeteaseRequest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +123,7 @@
 			name = NeteaseTVDemo;
 			packageProductDependencies = (
 				29F2F5F62AAFEEF100E2F389 /* NeteaseRequest */,
+				29F2F5F92AB0113F00E2F389 /* Kingfisher */,
 			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
@@ -152,6 +155,7 @@
 			mainGroup = 295FA8072A985D3500B35C54;
 			packageReferences = (
 				29F2F5F52AAFEEF100E2F389 /* XCRemoteSwiftPackageReference "NeteaseRequest" */,
+				29F2F5F82AB0113F00E2F389 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
@@ -410,6 +414,14 @@
 				minimumVersion = 0.3.1;
 			};
 		};
+		29F2F5F82AB0113F00E2F389 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -417,6 +429,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29F2F5F52AAFEEF100E2F389 /* XCRemoteSwiftPackageReference "NeteaseRequest" */;
 			productName = NeteaseRequest;
+		};
+		29F2F5F92AB0113F00E2F389 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29F2F5F82AB0113F00E2F389 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

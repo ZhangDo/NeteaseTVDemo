@@ -40,6 +40,13 @@ class CustomAudioModel: WKPlayerDataSource {
         }
     }
     
+    var wk_audioPic: String? {
+        get {
+            return audioPicUrl
+        }
+    }
+    
+    
     var wk_sourceName: String? {
         get {
             return audioTitle
@@ -51,6 +58,10 @@ class CustomAudioModel: WKPlayerDataSource {
     var audioUrl: String?
     /** 音频标题*/
     var audioTitle: String?
+    
+    /** 音频封面*/
+    var audioPicUrl: String?
+    
     /** 是否可以完整播放*/
     var isFree: Int?
     /** 不可以完整播放时能播放的秒数*/

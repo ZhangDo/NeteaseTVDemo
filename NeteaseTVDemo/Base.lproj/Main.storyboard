@@ -26,14 +26,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="830" height="960"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xci-Oa-R2R">
-                                                <rect key="frame" x="295" y="260" width="240" height="240"/>
+                                                <rect key="frame" x="166" y="131" width="498" height="498"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xci-Oa-R2R" secondAttribute="height" multiplier="1:1" id="rPa-1d-sxD"/>
-                                                    <constraint firstAttribute="width" constant="240" id="wWS-Su-gt3"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-up-XQL">
+                                                <rect key="frame" x="357" y="720" width="116" height="58"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="GQd-up-XQL" firstAttribute="centerX" secondItem="xci-Oa-R2R" secondAttribute="centerX" id="5wj-nm-GU3"/>
+                                            <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="91" id="g2R-Ef-E3H"/>
+                                            <constraint firstItem="xci-Oa-R2R" firstAttribute="width" secondItem="Umn-Kx-HaH" secondAttribute="width" multiplier="0.6" id="imW-Cx-7aw"/>
                                             <constraint firstItem="xci-Oa-R2R" firstAttribute="centerY" secondItem="Umn-Kx-HaH" secondAttribute="centerY" constant="-100" id="ywU-oY-jYL"/>
                                             <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
                                         </constraints>
@@ -103,6 +111,10 @@
                             <constraint firstItem="6yk-hE-cBt" firstAttribute="leading" secondItem="wu6-TO-1qx" secondAttribute="leading" id="ziN-X3-nj9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coverImageView" destination="xci-Oa-R2R" id="cFI-yM-kql"/>
+                        <outlet property="nameLabel" destination="GQd-up-XQL" id="q6n-xB-FNo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
