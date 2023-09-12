@@ -551,10 +551,10 @@ public class WKPlayer: NSObject {
         
         let url = URL.init(string:model.audioUrl!)
         
+        
         guard !url!.pathExtension.isEmpty else {
-            let error = WKPlayerError.dataSourceError(reason: .invalidDataSource)
-            unifiedExceptionHandle(error)
-            throw error
+            try self.playLast()
+            return
         }
         switch model.wk_sourceType {
         case .noPermission:
@@ -809,7 +809,7 @@ public class WKPlayer: NSObject {
         
         if after {
             //如果当前的数据源已是最后一条可播放的
-            guard currentModel?.wk_playURL != allModels.last?.wk_playURL else {
+            guard currentModel?.wk_audioId != allModels.last?.wk_audioId else {
                 let error = WKPlayerError.dataSourceError(reason: .noNextDataSource)
                 unifiedExceptionHandle(error)
                 throw error
@@ -817,7 +817,7 @@ public class WKPlayer: NSObject {
             index += 1
         } else {
             //如果当前的数据源已是第一条可播放的
-            guard currentModel?.wk_playURL != allModels.first?.wk_playURL else {
+            guard currentModel?.wk_audioId != allModels.first?.wk_audioId else {
                 let error = WKPlayerError.dataSourceError(reason: .noLastDataSource)
                 unifiedExceptionHandle(error)
                 throw error
