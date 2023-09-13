@@ -112,10 +112,22 @@ extension WKPlayerDelegate {
 
 
 public class WKPlayer: NSObject {
+//    public typealias DataSourceDidChangeClosure = (_ lastOriginal: [WKPlayerDataSource]?, _ lastAvailable: [WKPlayerDataSource]?, _ nowOriginal: [WKPlayerDataSource]?, _ nowAvailable: [WKPlayerDataSource]?) -> Void
+
+    
+    
+    
     static let instance = WKPlayer()
     private override init() {
         super.init()
     }
+    
+    //闭包形式回调
+//    public var updateUIHandler: ((_ dataSource: WKPlayerDataSource?, _ state: WKPlayerState, _ isPlaying: Bool, _ detailInfo: WKPlayerStateModel?) -> ()) = { _, _, _, _ in }
+    
+//    func dataSourceDidChange(lastOriginal: [WKPlayerDataSource]?, lastAvailable: [WKPlayerDataSource]?, nowOriginal: [WKPlayerDataSource]?, nowAvailable: [WKPlayerDataSource]?)
+    
+//    public var dataSourceDidChange: DataSourceDidChangeClosure?
     
     ///播放器实时状态
     public var state = WKPlayerState.idle {
@@ -126,6 +138,8 @@ public class WKPlayer: NSObject {
             }
         }
     }
+    
+    
     ///播放器实时进度
     public var progress: Float = 0 {
         didSet {
@@ -546,7 +560,7 @@ public class WKPlayer: NSObject {
             }
             
             do {
-                model.audioUrl = try? await fetchAudioUrl(id: audioId, level: .exhigh).last?.url ?? ""
+                model.audioUrl = try? await fetchAudioUrl(id: audioId, level: .exhigh, cookie: cookie).first?.url ?? ""
             }
             
         }
@@ -740,6 +754,7 @@ public class WKPlayer: NSObject {
     
     private func updateUI() {
         delegate?.updateUI(dataSource: currentModel, state: state, isPlaying: isPlaying, detailInfo: currentModelState)
+//        updateUIHandler(currentModel, state, isPlaying, currentModelState)
     }
     
     private func handleCountdown() {

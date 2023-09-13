@@ -11,24 +11,33 @@ import Kingfisher
 class ViewController: UIViewController {
     
     var allModels: [CustomAudioModel] = [CustomAudioModel]()
+    var lyrics: [String]?
+    var lyricTuple: (times: [String], words: [String])?
+    var current: Int = 0
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         Task {
             wk_player.delegate = self
             wk_player.allOriginalModels = await loadData()
             try? wk_player.play(index: 0)
         }
-        
+//        wk_player.updateUIHandler = { dataSource, state, isPlaying, detailInfo in
+//            guard let detail = detailInfo else { return }
+//            let currentTime = wk_playerTool.formatTime(seconds: detail.current)
+//            let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
+//            debugPrint("进度\(currentTime)")
+//        }
         
     }
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 514947114)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 402924168)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -99,7 +108,13 @@ extension ViewController: WKPlayerDelegate {
             DispatchQueue.main.async {
                 self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
                 self.nameLabel.text = now.wk_sourceName
+                
             }
+            Task {
+                lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
+                tableView.reloadData()
+            }
+            
         }
         
     }
@@ -136,13 +151,34 @@ extension ViewController: WKPlayerDelegate {
 //        playBtn.isSelected = isPlaying
 //
 //        audioTitleLbl.text = dataSource?.wk_sourceName!
-//        guard let detail = detailInfo else { return }
-//        let currentTime = wk_playerTool.formatTime(seconds: detail.current)
+        guard let detail = detailInfo else { return }
+        let currentTime = wk_playerTool.formatTime(seconds: detail.current)
 //        let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
 //        audioDurationLbl.text = currentTime + "/" + durationTime
 //        bufferProgress.progress = detail.buffer
 //        audioProgressSlider.value = detail.progress
 //        debugPrint("进度\(currentTime)")
+        guard let times = lyricTuple?.times else { return }
+        for (index, time) in times.enumerated() {
+            let times = time.components(separatedBy: ":")
+            if time.count > 0 {
+                let lyricTime = (Float(times.first!) ?? 0.0) * 60 + (Float(times[1]) ?? 0.0)
+                if (Float(detail.current) + 0.5) > lyricTime {
+                    current = index
+                } else {
+                    break
+                }
+                    
+            }
+            
+        }
+        
+        DispatchQueue.main.async { [self] in
+            tableView.reloadData()
+            tableView.scrollToRow(at: NSIndexPath(row: current, section: 0) as IndexPath, at: .middle, animated: true)
+        }
+        
+        
     }
     
     
@@ -169,6 +205,25 @@ extension ViewController: WKPlayerDelegate {
         }
         
         
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lyricTuple?.words.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
+        cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
+        if current == indexPath.row {
+            cell.contentLabel?.textColor = UIColor.red
+            cell.contentLabel?.font = .systemFont(ofSize: 48, weight: .black)
+        } else {
+            cell.contentLabel?.textColor = UIColor.label
+            cell.contentLabel?.font = .systemFont(ofSize: 38)
+        }
+        return cell
     }
 }
 
