@@ -341,7 +341,7 @@ public class WKPlayer: NSObject {
 //            currentIndex -= 1
             
             do {
-                try await fetchTrueUrlStr(model: model as! CustomAudioModel)
+                try await fetchTrueUrlStr(model: model as! CustomAudioModel, after: false)
                 try? prepareForPlay(model: model)
             } catch {
                 print(error)
@@ -548,7 +548,7 @@ public class WKPlayer: NSObject {
     }
     
     
-    func fetchTrueUrlStr(model: CustomAudioModel) async throws {
+    func fetchTrueUrlStr(model: CustomAudioModel, after: Bool? = true) async throws {
 //        var urlStr = ""
         if model.wk_playURL != nil {
             model.audioUrl = model.wk_playURL!
@@ -570,7 +570,12 @@ public class WKPlayer: NSObject {
         
         guard let urlStr = model.audioUrl else {
             print("暂无版权")
-            try self.playNext()
+            if after! {
+                try self.playNext()
+            } else {
+                try self.playLast()
+            }
+            
             return
         }
         
@@ -578,7 +583,11 @@ public class WKPlayer: NSObject {
         
         guard !url!.pathExtension.isEmpty else {
             print("暂无版权")
-            try self.playNext()
+            if after! {
+                try self.playNext()
+            } else {
+                try self.playLast()
+            }
             return
         }
         switch model.wk_sourceType {

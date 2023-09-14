@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
 
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
@@ -24,7 +25,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var coverImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         Task {
             wk_player.delegate = self
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2768213177)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 6813112165)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -111,6 +111,7 @@ extension ViewController: WKPlayerDelegate {
             self.nameLabel.text = now.wk_sourceName
         } else {
             DispatchQueue.main.async {
+                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
                 self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
                 self.nameLabel.text = now.wk_sourceName
                 
