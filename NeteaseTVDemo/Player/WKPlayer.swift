@@ -84,7 +84,7 @@ public protocol WKPlayerDelegate {
     ///播放源已经切换
     func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource)
     ///已经获取到数据源的时长
-    func didReadTotalTime(totalTime: UInt, formatTime: String)
+    func didReadTotalTime(totalTime: UInt, formatTime: String, now: WKPlayerDataSource)
     ///数据源非完全拥有，没有权限继续播放数据源
     func noPermissionToPlayDataSource(dataSource: WKPlayerDataSource)
     ///播放至结尾处
@@ -102,7 +102,7 @@ public protocol WKPlayerDelegate {
 extension WKPlayerDelegate {
     func playDataSourceWillChange(now: WKPlayerDataSource?, new: WKPlayerDataSource?) {}
     func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource) {}
-    func didReadTotalTime(totalTime: UInt, formatTime: String) {}
+    func didReadTotalTime(totalTime: UInt, formatTime: String, now: WKPlayerDataSource) {}
     func didPlayToEnd(dataSource: WKPlayerDataSource, isTheEnd: Bool) {}
     func stateDidChanged(_ state: WKPlayerState) {}
     func updateUI(dataSource: WKPlayerDataSource?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {}
@@ -258,7 +258,8 @@ public class WKPlayer: NSObject {
     private (set) public var totalTime: UInt = 0 {
         didSet {
             let time = wk_playerTool.formatTime(seconds: totalTime)
-            delegate?.didReadTotalTime(totalTime: totalTime, formatTime: time)
+            guard let now = currentModel else { return }
+            delegate?.didReadTotalTime(totalTime: totalTime, formatTime: time, now: now)
             currentModelState?.duration = totalTime
             updateUI()
         }
@@ -278,6 +279,8 @@ public class WKPlayer: NSObject {
     ///当前正在播放的item
     private var _playerItem: AVPlayerItem?
     
+    
+    
     private var playerItem: AVPlayerItem? {
         get {
             return _playerItem
@@ -288,6 +291,9 @@ public class WKPlayer: NSObject {
             if let temp = playerItem {
                 
                 NotificationCenter.default.removeObserver(self)
+//                if let info = playerItem?.observationInfo {
+                    
+//                }
                 temp.removeObserver(self, forKeyPath: WKPlayerObserverKey.status.rawValue)
                 temp.removeObserver(self, forKeyPath: WKPlayerObserverKey.loadedTimeRanges.rawValue)
                 temp.removeObserver(self, forKeyPath: WKPlayerObserverKey.playbackBufferEmpty.rawValue)

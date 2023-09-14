@@ -14,6 +14,7 @@ class WKLyricTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentLabel = UILabel()
         self.contentLabel?.numberOfLines = 0
+        self.contentLabel?.textAlignment = .center
         self.contentView.addSubview(self.contentLabel!)
         self.contentLabel?.snp.makeConstraints({ make in
             make.edges.equalToSuperview()

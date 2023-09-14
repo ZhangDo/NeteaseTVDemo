@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 6813112165)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2312165875,limit: 100)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -116,10 +116,6 @@ extension ViewController: WKPlayerDelegate {
                 self.nameLabel.text = now.wk_sourceName
                 
             }
-            Task {
-                lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
-                tableView.reloadData()
-            }
             
         }
         
@@ -134,12 +130,18 @@ extension ViewController: WKPlayerDelegate {
         debugPrint("没有权限播放\(dataSource.wk_sourceName!)")
     }
     
-    func didReadTotalTime(totalTime: UInt, formatTime: String) {
+    func didReadTotalTime(totalTime: UInt, formatTime: String, now: WKPlayerDataSource) {
         debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
         DispatchQueue.main.async {
             self.rightLabel.text = formatTime
         }
+        
+        Task {
+            lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
+            tableView.reloadData()
+        }
     }
+    
     
     
     func askForWWANLoadPermission(confirmed: @escaping () -> ()) {
@@ -228,10 +230,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
         cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
         if current == indexPath.row {
-            cell.contentLabel?.textColor = UIColor.red
+            cell.contentLabel?.textColor = UIColor.label
             cell.contentLabel?.font = .systemFont(ofSize: 48, weight: .black)
         } else {
-            cell.contentLabel?.textColor = UIColor.label
+            cell.contentLabel?.textColor = UIColor.lightGray
             cell.contentLabel?.font = .systemFont(ofSize: 38)
         }
         return cell
