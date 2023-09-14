@@ -21,6 +21,7 @@
 		29F2F61A2AB18A9900E2F389 /* WKConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2F6192AB18A9900E2F389 /* WKConfig.swift */; };
 		29F2F6202AB190CB00E2F389 /* WKLyricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */; };
 		29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F6282AB1935600E2F389 /* SnapKit */; };
+		29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F62B2AB1A83600E2F389 /* MarqueeLabel */; };
 		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
 		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
 		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */,
 				29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */,
 				29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */,
 				29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */,
@@ -136,6 +138,7 @@
 				29F2F5F92AB0113F00E2F389 /* Kingfisher */,
 				29F2F6172AB18A0E00E2F389 /* NeteaseRequest */,
 				29F2F6282AB1935600E2F389 /* SnapKit */,
+				29F2F62B2AB1A83600E2F389 /* MarqueeLabel */,
 			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
@@ -169,6 +172,7 @@
 				29F2F5F82AB0113F00E2F389 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				29F2F6162AB18A0E00E2F389 /* XCRemoteSwiftPackageReference "NeteaseRequest" */,
 				29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
 			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
@@ -446,6 +450,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cbpowell/MarqueeLabel";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -463,6 +475,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		29F2F62B2AB1A83600E2F389 /* MarqueeLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
+			productName = MarqueeLabel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

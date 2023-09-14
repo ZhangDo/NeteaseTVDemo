@@ -13,6 +13,7 @@ class WKLyricTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentLabel = UILabel()
+        self.contentLabel?.numberOfLines = 0
         self.contentView.addSubview(self.contentLabel!)
         self.contentLabel?.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
@@ -24,10 +25,11 @@ class WKLyricTableViewCell: UITableViewCell {
     }
 
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        super.didUpdateFocus(in: context, with: coordinator)
+//        if context.nextFocusedView == self {
+//            setSelected(false, animated: false)
+//        }
     }
 
 }

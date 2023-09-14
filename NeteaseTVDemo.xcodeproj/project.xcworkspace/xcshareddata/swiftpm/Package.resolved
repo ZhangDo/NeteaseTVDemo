@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "marqueelabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cbpowell/MarqueeLabel",
+      "state" : {
+        "branch" : "master",
+        "revision" : "bc00d4cbff7f6c416035e3d16c21885452cd159e"
+      }
+    },
+    {
       "identity" : "neteaserequest",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ZhangDo/NeteaseRequest.git",

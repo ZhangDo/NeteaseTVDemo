@@ -8,6 +8,7 @@
 import UIKit
 import NeteaseRequest
 import Kingfisher
+import MarqueeLabel
 class ViewController: UIViewController {
     
     var allModels: [CustomAudioModel] = [CustomAudioModel]()
@@ -15,11 +16,15 @@ class ViewController: UIViewController {
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
 
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var leftTimeLabel: UILabel!
+    @IBOutlet weak var rightLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         Task {
             wk_player.delegate = self
@@ -37,7 +42,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 402924168)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2768213177)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -130,6 +135,9 @@ extension ViewController: WKPlayerDelegate {
     
     func didReadTotalTime(totalTime: UInt, formatTime: String) {
         debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
+        DispatchQueue.main.async {
+            self.rightLabel.text = formatTime
+        }
     }
     
     
@@ -174,8 +182,10 @@ extension ViewController: WKPlayerDelegate {
         }
         
         DispatchQueue.main.async { [self] in
+            self.leftTimeLabel.text = currentTime
+            self.progressView.progress = detail.progress
             tableView.reloadData()
-            tableView.scrollToRow(at: NSIndexPath(row: current, section: 0) as IndexPath, at: .middle, animated: true)
+            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: true)
         }
         
         
