@@ -23,6 +23,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
+    
+//    static func create() -> ViewController {
+//        let VC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ViewController") as! ViewController
+//        return VC
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -42,7 +48,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2312165875,limit: 100)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 919939187,limit: 100)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -88,6 +94,21 @@ class ViewController: UIViewController {
             try wk_player.playNext()
         } catch {
             debugPrint(error)
+        }
+    }
+    
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        super.pressesBegan(presses, with: event)
+        for press in presses {
+            
+            
+            if press.type == .playPause {
+                if wk_player.state == .paused {
+                    wk_player.resumePlayer()
+                } else if  wk_player.state == .isPlaying {
+                    wk_player.pausePlayer()
+                }
+            }
         }
     }
     
@@ -188,7 +209,7 @@ extension ViewController: WKPlayerDelegate {
             self.leftTimeLabel.text = currentTime
             self.progressView.progress = detail.progress
             tableView.reloadData()
-            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: true)
+            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: false)
         }
         
         

@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
+        
+        
+//        window = UIWindow()
+//        
+//        window?.rootViewController = WKTabBarViewController()
+//        
+//        window?.makeKeyAndVisible()
+        
         return true
     }
 
