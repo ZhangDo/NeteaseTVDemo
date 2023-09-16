@@ -54,6 +54,7 @@ public enum WkPlayerSeekTime {
 public protocol WKPlayerDataSource {
     var wk_playURL: String? { get }
     var wk_audioPic: String? { get }
+    var wk_singerName: String? { get }
     var wk_audioId: Int? { get }
     ///文件名称
     var wk_sourceName: String? { get }

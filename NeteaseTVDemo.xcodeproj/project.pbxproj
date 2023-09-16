@@ -17,6 +17,7 @@
 		295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8272A985D5100B35C54 /* WKPlayer.swift */; };
 		2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */; };
 		2986B2EE2AB3F418002BC0CC /* WKDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2ED2AB3F418002BC0CC /* WKDiscoverViewController.swift */; };
+		2986B2F02AB42E54002BC0CC /* WKPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */; };
 		29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F5F92AB0113F00E2F389 /* Kingfisher */; };
 		29F2F6122AB166E900E2F389 /* WKLyricParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2F6112AB166E900E2F389 /* WKLyricParser.swift */; };
 		29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F6172AB18A0E00E2F389 /* NeteaseRequest */; };
@@ -42,6 +43,7 @@
 		295FA8272A985D5100B35C54 /* WKPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayer.swift; sourceTree = "<group>"; };
 		2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKTabBarViewController.swift; sourceTree = "<group>"; };
 		2986B2ED2AB3F418002BC0CC /* WKDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKDiscoverViewController.swift; sourceTree = "<group>"; };
+		2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListTableViewCell.swift; sourceTree = "<group>"; };
 		29F2F6112AB166E900E2F389 /* WKLyricParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricParser.swift; sourceTree = "<group>"; };
 		29F2F6192AB18A9900E2F389 /* WKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKConfig.swift; sourceTree = "<group>"; };
 		29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				29F2F6112AB166E900E2F389 /* WKLyricParser.swift */,
 				29F2F6192AB18A9900E2F389 /* WKConfig.swift */,
 				29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */,
+				2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */,
 				2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */,
 				2986B2ED2AB3F418002BC0CC /* WKDiscoverViewController.swift */,
 				295FA8242A985D5100B35C54 /* Player */,
@@ -212,6 +215,7 @@
 				295FA8282A985D5100B35C54 /* WKPlayerSettings.swift in Sources */,
 				2986B2EE2AB3F418002BC0CC /* WKDiscoverViewController.swift in Sources */,
 				F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */,
+				2986B2F02AB42E54002BC0CC /* WKPlayListTableViewCell.swift in Sources */,
 				295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */,
 				29F2F6202AB190CB00E2F389 /* WKLyricTableViewCell.swift in Sources */,
 				295FA8162A985D3500B35C54 /* ViewController.swift in Sources */,

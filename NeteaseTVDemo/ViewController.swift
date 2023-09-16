@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var lyrics: [String]?
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
+    var showPlayList: Bool = false
 
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
@@ -23,19 +24,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
-    
-//    static func create() -> ViewController {
-//        let VC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "ViewController") as! ViewController
-//        return VC
-//    }
-    
+    @IBOutlet weak var playListView: UITableView!
+    @IBOutlet weak var playOrPauseBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
+        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         Task {
             wk_player.delegate = self
             wk_player.allOriginalModels = await loadData()
             try? wk_player.play(index: 0)
+            self.playListView.reloadData()
+            
         }
 //        wk_player.updateUIHandler = { dataSource, state, isPlaying, detailInfo in
 //            guard let detail = detailInfo else { return }
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 919939187,limit: 100)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 5204401228,limit: 100)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -58,9 +58,11 @@ class ViewController: UIViewController {
             model.freeTime = 0
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al.picUrl
+            model.singer = "singer"
             self.allModels.append(model)
         }
         return self.allModels
+        
     }
     
 
@@ -97,11 +99,15 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func playListAction(_ sender: Any) {
+        showPlayList = !showPlayList
+        self.playListView.isHidden = !showPlayList
+        self.coverImageView.isHidden = showPlayList
+        self.nameLabel.isHidden = showPlayList
+    }
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)
         for press in presses {
-            
-            
             if press.type == .playPause {
                 if wk_player.state == .paused {
                     wk_player.resumePlayer()
@@ -175,6 +181,13 @@ extension ViewController: WKPlayerDelegate {
     }
     
     func stateDidChanged(_ state: WKPlayerState) {
+        DispatchQueue.main.async {
+            if (state == .paused) {
+                self.playOrPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            } else {
+                self.playOrPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            }
+        }
         
     }
     
@@ -218,9 +231,9 @@ extension ViewController: WKPlayerDelegate {
     
     func dataSourceDidChange(lastOriginal: [WKPlayerDataSource]?, lastAvailable: [WKPlayerDataSource]?, nowOriginal: [WKPlayerDataSource]?, nowAvailable: [WKPlayerDataSource]?) {
         
-        
-        
     }
+    
+    
     
     func unifiedExceptionHandle(error: WKPlayerError) {
         debugPrint(error.errorDescription as Any)
@@ -244,20 +257,42 @@ extension ViewController: WKPlayerDelegate {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lyricTuple?.words.count ?? 0
+        if (tableView == self.playListView) {
+            return self.allModels.count
+        } else {
+            return lyricTuple?.words.count ?? 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
-        cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
-        if current == indexPath.row {
-            cell.contentLabel?.textColor = UIColor.label
-            cell.contentLabel?.font = .systemFont(ofSize: 48, weight: .black)
+        if tableView == self.playListView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
+            cell.setModel(self.allModels[indexPath.row])
+            return cell
         } else {
-            cell.contentLabel?.textColor = UIColor.lightGray
-            cell.contentLabel?.font = .systemFont(ofSize: 38)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
+            cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
+            if current == indexPath.row {
+                cell.contentLabel?.textColor = UIColor.label
+                cell.contentLabel?.font = .systemFont(ofSize: 48, weight: .black)
+            } else {
+                cell.contentLabel?.textColor = UIColor.lightGray
+                cell.contentLabel?.font = .systemFont(ofSize: 38)
+            }
+            return cell
         }
-        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == self.playListView {
+            try? wk_player.play(index: indexPath.row)
+            self.showPlayList = false
+            self.playListView.isHidden = true
+            self.coverImageView.isHidden = false
+            self.nameLabel.isHidden = false
+        }
     }
 }
 

@@ -50,6 +50,13 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-Mu-omP">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="575"/>
+                                                                    <connections>
+                                                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="Xgn-Hb-qFM"/>
+                                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="CgH-5W-Gli"/>
+                                                                    </connections>
+                                                                </tableView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="centerX" secondItem="xci-Oa-R2R" secondAttribute="centerX" id="5wj-nm-GU3"/>
@@ -57,6 +64,10 @@
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="NUp-us-rNt"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="height" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.767857" id="cip-UO-VHK"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="91" id="g2R-Ef-E3H"/>
+                                                                <constraint firstAttribute="trailing" secondItem="VDY-Mu-omP" secondAttribute="trailing" id="idi-Q3-2MM"/>
+                                                                <constraint firstItem="VDY-Mu-omP" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="n3h-bI-Iga"/>
+                                                                <constraint firstItem="VDY-Mu-omP" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="r7p-Kw-L3M"/>
+                                                                <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="VDY-Mu-omP" secondAttribute="bottom" id="snf-Ie-gMm"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
                                                             </constraints>
                                                         </view>
@@ -117,7 +128,7 @@
                                                     <rect key="frame" x="0.0" y="810" width="1820" height="90"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl1-3R-qEP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="316" height="90"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="253.5" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="backward.end.alt.fill" catalog="system"/>
@@ -126,42 +137,51 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-24-56S">
-                                                            <rect key="frame" x="376" y="0.0" width="316" height="90"/>
+                                                            <rect key="frame" x="313.5" y="0.0" width="253" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" title="Previous"/>
+                                                            <state key="normal" image="backward.end.fill" catalog="system"/>
                                                             <connections>
                                                                 <action selector="previous:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="9ew-1B-bXc"/>
                                                                 <action selector="previous:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abU-cR-Jbu"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-XR-fLM">
-                                                            <rect key="frame" x="752" y="0.0" width="316" height="90"/>
+                                                            <rect key="frame" x="626.5" y="0.0" width="253.5" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" title="Play/Pause"/>
+                                                            <state key="normal" image="pause.fill" catalog="system"/>
                                                             <connections>
                                                                 <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3D-OJ-fcl"/>
                                                                 <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="bDI-kR-dEf"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVy-dv-6Mz">
-                                                            <rect key="frame" x="1128" y="0.0" width="316" height="90"/>
+                                                            <rect key="frame" x="940" y="0.0" width="253.5" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" title="Next"/>
+                                                            <state key="normal" image="forward.end.fill" catalog="system"/>
                                                             <connections>
                                                                 <action selector="next:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="GhH-Ej-0In"/>
                                                                 <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vkX-b0-edc"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LB-qh-4Ce">
-                                                            <rect key="frame" x="1504" y="0.0" width="316" height="90"/>
+                                                            <rect key="frame" x="1253.5" y="0.0" width="253" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="forward.end.alt.fill" catalog="system"/>
                                                             <connections>
                                                                 <action selector="forward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="49l-hi-fJx"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZM-ng-kP5">
+                                                            <rect key="frame" x="1566.5" y="0.0" width="253.5" height="90"/>
+                                                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" image="music.note.list" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="playListAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="SON-Ae-Sy7"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -201,6 +221,8 @@
                         <outlet property="coverImageView" destination="xci-Oa-R2R" id="ZUQ-ed-O6h"/>
                         <outlet property="leftTimeLabel" destination="AfV-Dd-bih" id="WxT-Ix-76s"/>
                         <outlet property="nameLabel" destination="GQd-up-XQL" id="q6n-xB-FNo"/>
+                        <outlet property="playListView" destination="VDY-Mu-omP" id="Xx3-nc-zf4"/>
+                        <outlet property="playOrPauseBtn" destination="OQn-XR-fLM" id="0K0-Dm-GsT"/>
                         <outlet property="progressView" destination="xvt-N2-1Bp" id="VVI-dt-qt4"/>
                         <outlet property="rightLabel" destination="tgh-br-fwf" id="Ycw-49-ApE"/>
                         <outlet property="tableView" destination="TgS-vo-ysc" id="yxQ-hl-FGE"/>
@@ -298,8 +320,12 @@
     </designables>
     <resources>
         <image name="backward.end.alt.fill" catalog="system" width="128" height="66"/>
+        <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="bgImage" width="1288" height="728"/>
         <image name="forward.end.alt.fill" catalog="system" width="128" height="66"/>
+        <image name="forward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
+        <image name="pause.fill" catalog="system" width="120" height="128"/>
     </resources>
 </document>

@@ -52,6 +52,14 @@ class CustomAudioModel: WKPlayerDataSource {
             return audioTitle
         }
     }
+    
+    var wk_singerName: String? {
+        get {
+            return singer
+        }
+    }
+    /** 歌手*/
+    var singer: String?
     /** 音频id*/
     var audioId: Int?
     /** 音频地址*/
