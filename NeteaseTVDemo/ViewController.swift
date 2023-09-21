@@ -144,6 +144,12 @@ extension ViewController: WKPlayerDelegate {
     func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource) {
         debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: last?.wk_sourceName!))，当前是\(now.wk_sourceName!)")
         
+        Task {
+            lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
+            tableView.reloadData()
+        }
+        
+        
         if Thread.isMainThread {
             self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
             self.nameLabel.text = now.wk_sourceName
@@ -174,10 +180,7 @@ extension ViewController: WKPlayerDelegate {
             self.rightLabel.text = formatTime
         }
         
-        Task {
-            lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
-            tableView.reloadData()
-        }
+        
     }
     
     
