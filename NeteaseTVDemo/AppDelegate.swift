@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        initConfig()
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
         
         
@@ -25,6 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    /** 初始化配置*/
+    func initConfig() {
+        
+        
+        /** 激活播放器*/
+        wk_player.active()
+        /** 计时器初始化配置*/
+        wk_countdown.initConfig()
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
