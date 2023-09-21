@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2312165875,limit: 100)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 5461537154,limit: 100)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -102,9 +102,19 @@ class ViewController: UIViewController {
     
     @IBAction func playListAction(_ sender: Any) {
         showPlayList = !showPlayList
-        self.playListView.isHidden = !showPlayList
-        self.coverImageView.isHidden = showPlayList
-        self.nameLabel.isHidden = showPlayList
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: { [self] in
+            self.playListView.alpha = showPlayList ? 1.0 : 0.0
+            self.coverImageView.alpha = showPlayList ? 0.0 : 1.0
+            self.nameLabel.alpha = showPlayList ? 0.0 : 1.0
+        }, completion: { [self] _ in
+            self.playListView.isHidden = !showPlayList
+            self.coverImageView.isHidden = showPlayList
+            self.nameLabel.isHidden = showPlayList
+        })
+        
+        
+        
+        
     }
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)

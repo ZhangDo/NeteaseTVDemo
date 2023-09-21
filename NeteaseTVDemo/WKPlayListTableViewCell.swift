@@ -17,7 +17,6 @@ class WKPlayListTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         ({(picView: UIImageView) in
             picView.contentMode = .scaleAspectFill
-            picView.backgroundColor = .red
             picView.layer.cornerRadius = 10
             contentView.addSubview(picView)
             picView.snp.makeConstraints { make in

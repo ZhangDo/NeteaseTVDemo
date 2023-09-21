@@ -230,7 +230,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="-1344"/>
+            <point key="canvasLocation" x="613" y="-1032"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="tdM-fB-swT">
+            <objects>
+                <viewController title="我的" id="CqC-DC-xeo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hc0-gS-eqK"/>
+                        <viewControllerLayoutGuide type="bottom" id="AZQ-LU-KQL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vzo-O9-jLn">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Oz1-B4-9vs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="我的" id="XLW-Bc-RGc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613" y="244"/>
         </scene>
         <!--发现-->
         <scene sceneID="UWU-Tm-q0a">
@@ -276,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rID-nc-Zb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-2728"/>
+            <point key="canvasLocation" x="613" y="-2306"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Nlz-8V-40C">
@@ -290,29 +309,12 @@
                     <connections>
                         <segue destination="Wfi-8j-fvb" kind="relationship" relationship="viewControllers" id="6lc-Me-9Z0"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="xE1-Fy-jeu"/>
+                        <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="6V2-Rp-iFc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oa-wA-3J8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2396" y="-2119"/>
-        </scene>
-        <!--Discover View Controller-->
-        <scene sceneID="bSz-Ik-wRi">
-            <objects>
-                <viewController storyboardIdentifier="WKDiscoverViewController" id="vFq-pI-NNT" customClass="WKDiscoverViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5ke-Ck-WAK"/>
-                        <viewControllerLayoutGuide type="bottom" id="ahk-XL-pyi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DvJ-4Q-8xM">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="age-9T-OUB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pfr-iy-dad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-668" y="495"/>
+            <point key="canvasLocation" x="-2406" y="-814"/>
         </scene>
     </scenes>
     <designables>
