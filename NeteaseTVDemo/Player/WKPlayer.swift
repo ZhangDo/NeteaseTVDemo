@@ -1119,54 +1119,13 @@ public class WKPlayer: NSObject {
             }
         }
         
-        // 如果没有网络并且没有缓存
-        guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
-            let error = WKPlayerError.networkError(reason: .notReachable)
-            unifiedExceptionHandle(error)
-            throw error
-        }
-        self.loadDataSource(cacheURL: cacheURL)
-        
-//        if currentModel?.wk_playURL != nil {
-//            var cacheURL: URL? = nil
-//            /** 如果允许缓存*/
-//            if function.contains(.cache) {
-//                // 从下载管理类中查询下载的地址
-//                if let cache = wk_playerTool.checkFileExist(url: (currentModel?.wk_playURL)!) {
-//                    cacheURL = URL.init(fileURLWithPath: cache)
-//                }
-//            }
-//
-//            // 如果没有网络并且没有缓存
-//            guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
-//                let error = WKPlayerError.networkError(reason: .notReachable)
-//                unifiedExceptionHandle(error)
-//                throw error
-//            }
-//            self.loadDataSource(cacheURL: cacheURL)
-//        } else {
-//            Task {
-//                let url = try! await fetchAudioUrl(id: (currentModel?.wk_audioId)!).first?.url
-//                var cacheURL: URL? = nil
-//                /** 如果允许缓存*/
-//                if function.contains(.cache) {
-//                    // 从下载管理类中查询下载的地址
-//                    if let cache = wk_playerTool.checkFileExist(url: url!) {
-//                        cacheURL = URL.init(fileURLWithPath: cache)
-//                    }
-//                }
-//
-//                // 如果没有网络并且没有缓存
-//                guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
-//                    let error = WKPlayerError.networkError(reason: .notReachable)
-//                    unifiedExceptionHandle(error)
-//                    throw error
-//                }
-//                self.loadDataSource(cacheURL: cacheURL, currentUrl: url)
-//            }
+        // 如果没有网络并且没有缓存 //todo:
+//        guard (wk_playerTool.netStatus != .notReachable) || (cacheURL != nil) else {
+//            let error = WKPlayerError.networkError(reason: .notReachable)
+//            unifiedExceptionHandle(error)
+//            throw error
 //        }
-        
-        
+        self.loadDataSource(cacheURL: cacheURL)
         
     }
     
@@ -1212,12 +1171,12 @@ public class WKPlayer: NSObject {
     /// 播放流程步骤5-2:此函数为加载网络url数据源
     /// - Parameter url: 网络地址
     private func loadNetURL(_ url: URL) throws {
-        
-        guard wk_playerTool.netStatus != .notReachable else {
-            let error = WKPlayerError.networkError(reason: .notReachable)
-            unifiedExceptionHandle(error)
-            throw error
-        }
+        //todo:
+//        guard wk_playerTool.netStatus != .notReachable else {
+//            let error = WKPlayerError.networkError(reason: .notReachable)
+//            unifiedExceptionHandle(error)
+//            throw error
+//        }
         state = .isBuffering
         
         buffer = 0

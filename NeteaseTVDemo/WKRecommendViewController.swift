@@ -1,28 +1,18 @@
 //
-//  WKDiscoverViewController.swift
+//  WKRecommendViewController.swift
 //  NeteaseTVDemo
 //
 //  Created by fengyn on 2023/9/15.
 //
 
 import UIKit
-class WKDiscoverViewController: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
+class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
 
     fileprivate let sectionTitles = ["Configurations", "Decelaration Distance", "Item Size", "Interitem Spacing", "Number Of Items"]
     fileprivate let configurationTitles = ["Automatic sliding","Infinite"]
     fileprivate let decelerationDistanceOptions = ["Automatic", "1", "2"]
     fileprivate let imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
     fileprivate var numberOfItems = 7
-    
-    fileprivate let transformerTypes: [FSPagerViewTransformerType] = [.crossFading,
-                                                                      .zoomOut,
-                                                                      .depth,
-                                                                      .linear,
-                                                                      .overlap,
-                                                                      .ferrisWheel,
-                                                                      .invertedFerrisWheel,
-                                                                      .coverFlow,
-                                                                      .cubic]
     
     @IBOutlet weak var bannerView: FSPagerView! {
         didSet {

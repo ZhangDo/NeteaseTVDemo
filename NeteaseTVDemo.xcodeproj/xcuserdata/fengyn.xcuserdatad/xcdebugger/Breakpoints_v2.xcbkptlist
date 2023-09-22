@@ -16,5 +16,69 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "582C0FD8-22CE-481B-82BB-EACE2F561580"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "unifiedExceptionHandle(error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE5DBCD0-EB56-414C-BA24-C55FFF473EC7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "unifiedExceptionHandle(error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AE5DBCD0-EB56-414C-BA24-C55FFF473EC7 - c0667a1a3ee7f033"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeteaseTVDemo.ViewController.unifiedExceptionHandle(error: NeteaseTVDemo.WKPlayerError) -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "AE5DBCD0-EB56-414C-BA24-C55FFF473EC7 - 3c873076412a5d04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in NeteaseTVDemo.ViewController.unifiedExceptionHandle(error: NeteaseTVDemo.WKPlayerError) -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "259"
+                  endingLineNumber = "259"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

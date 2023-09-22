@@ -229,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-1032"/>
+            <point key="canvasLocation" x="581" y="-2208"/>
         </scene>
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
@@ -248,12 +248,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="244"/>
+            <point key="canvasLocation" x="490" y="-688"/>
         </scene>
         <!--推荐-->
         <scene sceneID="UWU-Tm-q0a">
             <objects>
-                <viewController title="推荐" id="Wfi-8j-fvb" customClass="WKDiscoverViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="推荐" id="Wfi-8j-fvb" customClass="WKRecommendViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vSu-t4-uMu"/>
                         <viewControllerLayoutGuide type="bottom" id="tUw-3n-fWc"/>
@@ -287,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rID-nc-Zb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="613" y="-2306"/>
+            <point key="canvasLocation" x="490" y="-3899"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Nlz-8V-40C">
@@ -306,7 +306,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oa-wA-3J8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2406" y="-814"/>
+            <point key="canvasLocation" x="-3640" y="-1745"/>
         </scene>
     </scenes>
     <designables>
