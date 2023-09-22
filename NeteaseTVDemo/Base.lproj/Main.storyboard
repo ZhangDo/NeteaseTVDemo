@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -251,47 +250,40 @@
             </objects>
             <point key="canvasLocation" x="613" y="244"/>
         </scene>
-        <!--发现-->
+        <!--推荐-->
         <scene sceneID="UWU-Tm-q0a">
             <objects>
-                <viewController id="Wfi-8j-fvb" customClass="WKDiscoverViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="推荐" id="Wfi-8j-fvb" customClass="WKDiscoverViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vSu-t4-uMu"/>
                         <viewControllerLayoutGuide type="bottom" id="tUw-3n-fWc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="55V-FR-zFl">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="55V-FR-zFl">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-Rd-ic6">
-                                <rect key="frame" x="80" y="157" width="1760" height="863"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="phV-Z8-ONY">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="3Hc-mD-A0C">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Wr2-Xg-AGk">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-yK-UOD" customClass="FSPagerView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                <rect key="frame" x="200" y="160" width="1520" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="AU5-MT-zgK"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wfi-8j-fvb" id="AQZ-dG-Ftx"/>
+                                    <outlet property="delegate" destination="Wfi-8j-fvb" id="b5m-61-Fbw"/>
+                                </connections>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="L1M-6Y-ZKm"/>
+                        <viewLayoutGuide key="safeArea" id="RRu-Uy-LwP"/>
                         <constraints>
-                            <constraint firstItem="cY3-Rd-ic6" firstAttribute="leading" secondItem="L1M-6Y-ZKm" secondAttribute="leading" id="LW9-wW-nHT"/>
-                            <constraint firstItem="L1M-6Y-ZKm" firstAttribute="trailing" secondItem="cY3-Rd-ic6" secondAttribute="trailing" id="NOc-CH-JqG"/>
-                            <constraint firstItem="cY3-Rd-ic6" firstAttribute="top" secondItem="L1M-6Y-ZKm" secondAttribute="top" id="kDy-S6-tsA"/>
-                            <constraint firstItem="L1M-6Y-ZKm" firstAttribute="bottom" secondItem="cY3-Rd-ic6" secondAttribute="bottom" id="yWL-rR-D13"/>
+                            <constraint firstAttribute="trailing" secondItem="Zgs-yK-UOD" secondAttribute="trailing" constant="200" id="5qF-Cv-ssd"/>
+                            <constraint firstItem="Zgs-yK-UOD" firstAttribute="leading" secondItem="55V-FR-zFl" secondAttribute="leading" constant="200" id="Wpt-Qm-VnT"/>
+                            <constraint firstItem="Zgs-yK-UOD" firstAttribute="top" secondItem="55V-FR-zFl" secondAttribute="top" constant="160" id="cYS-jX-LoO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="发现" id="mDT-rX-H0e"/>
+                    <tabBarItem key="tabBarItem" title="推荐" id="mDT-rX-H0e"/>
+                    <connections>
+                        <outlet property="bannerView" destination="Zgs-yK-UOD" id="3qu-qg-Qmp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rID-nc-Zb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

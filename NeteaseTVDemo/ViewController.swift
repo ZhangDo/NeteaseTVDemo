@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     
     
     func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 8673267877,limit: 100)
+        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2312165875,limit: 100)
 
         self.allModels.removeAll()
         for songModel in songModels {
@@ -221,7 +221,7 @@ extension ViewController: WKPlayerDelegate {
         for (index, time) in times.enumerated() {
             let times = time.components(separatedBy: ":")
             if time.count > 1 {
-                let lyricTime = Float(times.first ?? "0.0")! * 60 + Float(times.last ?? "0.0")!
+                let lyricTime = Float(times.first ?? "0.0")! * 60 + (Float(times.last ?? "0.0") ?? 0.0)
                 if (Float(detail.current) + 0.5) > lyricTime {
                     current = index
                 } else {
