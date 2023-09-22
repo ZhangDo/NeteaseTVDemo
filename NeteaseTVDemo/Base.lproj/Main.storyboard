@@ -29,29 +29,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="PH6-xz-Jlp">
-                                            <rect key="frame" x="50" y="130" width="1820" height="900"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PH6-xz-Jlp">
+                                            <rect key="frame" x="50" y="160" width="1820" height="870"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="6yk-hE-cBt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1820" height="630"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="1820" height="660"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-Kx-HaH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="860" height="630"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="860" height="660"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xci-Oa-R2R">
-                                                                    <rect key="frame" x="188" y="0.0" width="484" height="484"/>
+                                                                    <rect key="frame" x="176.5" y="0.0" width="507" height="507"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="xci-Oa-R2R" secondAttribute="height" multiplier="1:1" id="rPa-1d-sxD"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-up-XQL" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                    <rect key="frame" x="178" y="575" width="504" height="0.0"/>
+                                                                    <rect key="frame" x="166" y="598" width="528" height="0.0"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-Mu-omP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="575"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="598"/>
                                                                     <connections>
                                                                         <outlet property="dataSource" destination="BYZ-38-t0r" id="Xgn-Hb-qFM"/>
                                                                         <outlet property="delegate" destination="BYZ-38-t0r" id="CgH-5W-Gli"/>
@@ -72,10 +72,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-mp-28g">
-                                                            <rect key="frame" x="960" y="0.0" width="860" height="630"/>
+                                                            <rect key="frame" x="960" y="0.0" width="860" height="660"/>
                                                             <subviews>
                                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="40" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="TgS-vo-ysc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="630"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="660"/>
                                                                     <connections>
                                                                         <outlet property="dataSource" destination="BYZ-38-t0r" id="95c-Ke-aM9"/>
                                                                         <outlet property="delegate" destination="BYZ-38-t0r" id="c1S-4X-Tzx"/>
@@ -125,13 +125,13 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="g4p-uv-Tcc">
-                                                    <rect key="frame" x="0.0" y="810" width="1820" height="90"/>
+                                                    <rect key="frame" x="0.0" y="780" width="1820" height="90"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl1-3R-qEP">
                                                             <rect key="frame" x="0.0" y="0.0" width="253.5" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="backward.end.alt.fill" catalog="system"/>
+                                                            <state key="normal" image="gobackward.15" catalog="system"/>
                                                             <connections>
                                                                 <action selector="backward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="FXG-NL-uWC"/>
                                                             </connections>
@@ -170,7 +170,7 @@
                                                             <rect key="frame" x="1253.5" y="0.0" width="253" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="forward.end.alt.fill" catalog="system"/>
+                                                            <state key="normal" image="goforward.15" catalog="system"/>
                                                             <connections>
                                                                 <action selector="forward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="49l-hi-fJx"/>
                                                             </connections>
@@ -194,7 +194,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="PH6-xz-Jlp" secondAttribute="trailing" constant="50" id="4PW-r4-A2L"/>
-                                        <constraint firstItem="PH6-xz-Jlp" firstAttribute="top" secondItem="KcM-V1-WeR" secondAttribute="top" constant="130" id="P8Y-5t-tBv"/>
+                                        <constraint firstItem="PH6-xz-Jlp" firstAttribute="top" secondItem="KcM-V1-WeR" secondAttribute="top" constant="160" id="P8Y-5t-tBv"/>
                                         <constraint firstAttribute="bottom" secondItem="PH6-xz-Jlp" secondAttribute="bottom" constant="50" id="kZL-il-AxG"/>
                                         <constraint firstItem="PH6-xz-Jlp" firstAttribute="leading" secondItem="KcM-V1-WeR" secondAttribute="leading" constant="50" id="n1x-mN-ZEq"/>
                                     </constraints>
@@ -321,11 +321,11 @@
         <designable name="GQd-up-XQL"/>
     </designables>
     <resources>
-        <image name="backward.end.alt.fill" catalog="system" width="128" height="66"/>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="bgImage" width="1288" height="728"/>
-        <image name="forward.end.alt.fill" catalog="system" width="128" height="66"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="gobackward.15" catalog="system" width="115" height="128"/>
+        <image name="goforward.15" catalog="system" width="115" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
         <image name="pause.fill" catalog="system" width="120" height="128"/>
