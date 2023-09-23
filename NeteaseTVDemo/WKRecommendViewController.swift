@@ -26,14 +26,16 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             let transform = CGAffineTransform(scaleX: 0.4, y: 0.75)
             self.bannerView.itemSize = self.bannerView.frame.size.applying(transform)
             self.bannerView.decelerationDistance = FSPagerView.automaticDistance
-            self.bannerView.interitemSpacing = 200
+            self.bannerView.interitemSpacing = 100
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Task {
-            self.banners = await self.loadBannerData()
+            self.banners = await self.loadBannerData().filter({ model in
+                model.targetType != 3000
+            })
             self.bannerView.reloadData()
         }
         
@@ -65,14 +67,10 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
+        print(self.banners![index])
+        if self.banners![index].targetType == 1 {
+            
+        }
     }
     
-//    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
-//        self.pageControl.currentPage = targetIndex
-//    }
-//
-//    func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
-//        self.pageControl.currentPage = pagerView.currentIndex
-//    }
-
 }

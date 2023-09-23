@@ -157,7 +157,7 @@ open class FSPagerViewCell: UICollectionViewCell {
     open override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if isFocused {
             coordinator.addCoordinatedAnimations {
-                self.transform = CGAffineTransformMakeScale(1.3, 1.3)
+                self.transform = CGAffineTransformMakeScale(1.1, 1.1)
             }
         } else {
             coordinator.addCoordinatedAnimations {
