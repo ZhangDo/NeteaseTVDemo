@@ -6,20 +6,21 @@
 //
 
 import UIKit
+import NeteaseRequest
+import Kingfisher
 class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
 
     fileprivate let sectionTitles = ["Configurations", "Decelaration Distance", "Item Size", "Interitem Spacing", "Number Of Items"]
     fileprivate let configurationTitles = ["Automatic sliding","Infinite"]
-    fileprivate let decelerationDistanceOptions = ["Automatic", "1", "2"]
-    fileprivate let imageNames = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"]
-    fileprivate var numberOfItems = 7
+    
+    fileprivate var banners: [NRBannerModel]?
     
     @IBOutlet weak var bannerView: FSPagerView! {
         didSet {
             self.bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
             self.bannerView.itemSize = FSPagerView.automaticSize
 //            self.bannerView.automaticSlidingInterval = 3.0 - self.bannerView.automaticSlidingInterval
-            self.bannerView.itemSize = CGSize(width: 500, height: 400)
+//            self.bannerView.itemSize = CGSize(width: 500, height: 400)
 //            let type = self.transformerTypes[3]
 //            self.bannerView.transformer = FSPagerViewTransformer(type:type)
             let transform = CGAffineTransform(scaleX: 0.4, y: 0.75)
@@ -30,22 +31,32 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        Task {
+            self.banners = await self.loadBannerData()
+            self.bannerView.reloadData()
+        }
+        
+        
+    }
+    
+    func loadBannerData() async -> [NRBannerModel] {
+        return try! await fetchBanners()
     }
 
     // MARK:- FSPagerView DataSource
     
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return self.numberOfItems
+        return self.banners?.count ?? 0
     }
     
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.image = UIImage(named: self.imageNames[index])
+        cell.imageView?.kf.setImage(with: URL(string: self.banners![index].pic ))
+//        cell.imageView?.image = UIImage(named: self.imageNames[index])
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
-        cell.textLabel?.text = index.description+index.description
+        cell.textLabel?.text = self.banners![index].typeTitle
         return cell
     }
     

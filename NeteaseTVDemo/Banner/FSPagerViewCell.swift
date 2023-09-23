@@ -39,6 +39,7 @@ open class FSPagerViewCell: UICollectionViewCell {
             return _imageView
         }
         let imageView = UIImageView(frame: .zero)
+        imageView.layer.cornerRadius = 10
         self.contentView.addSubview(imageView)
         _imageView = imageView
         return imageView
