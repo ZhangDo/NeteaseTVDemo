@@ -262,32 +262,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgs-yK-UOD" customClass="FSPagerView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                <rect key="frame" x="200" y="160" width="1520" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="AU5-MT-zgK"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Wfi-8j-fvb" id="AQZ-dG-Ftx"/>
-                                    <outlet property="delegate" destination="Wfi-8j-fvb" id="b5m-61-Fbw"/>
-                                </connections>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-SN-rVM">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DY0-HG-Gxq">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NwB-NL-P1r">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-PM-rgf">
+                                            <rect key="frame" x="80" y="111" width="1760" height="885"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cei-MW-7pK" customClass="FSPagerView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1760" height="400"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="400" id="eid-y0-NLa"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Wfi-8j-fvb" id="9Zb-WG-TqY"/>
+                                                        <outlet property="delegate" destination="Wfi-8j-fvb" id="U7g-h9-glh"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cei-MW-7pK" firstAttribute="trailing" secondItem="MH5-U1-Pzk" secondAttribute="trailing" id="KNO-cY-yAW"/>
+                                                <constraint firstItem="cei-MW-7pK" firstAttribute="leading" secondItem="MH5-U1-Pzk" secondAttribute="leading" id="PLr-wY-Wka"/>
+                                                <constraint firstItem="cei-MW-7pK" firstAttribute="width" secondItem="bTG-XU-CPK" secondAttribute="width" id="YCP-NW-akd"/>
+                                                <constraint firstItem="cei-MW-7pK" firstAttribute="top" secondItem="MH5-U1-Pzk" secondAttribute="top" id="cXO-Ne-mrB"/>
+                                            </constraints>
+                                            <viewLayoutGuide key="contentLayoutGuide" id="MH5-U1-Pzk"/>
+                                            <viewLayoutGuide key="frameLayoutGuide" id="bTG-XU-CPK"/>
+                                        </scrollView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RRu-Uy-LwP"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Zgs-yK-UOD" secondAttribute="trailing" constant="200" id="5qF-Cv-ssd"/>
-                            <constraint firstItem="Zgs-yK-UOD" firstAttribute="leading" secondItem="55V-FR-zFl" secondAttribute="leading" constant="200" id="Wpt-Qm-VnT"/>
-                            <constraint firstItem="Zgs-yK-UOD" firstAttribute="top" secondItem="55V-FR-zFl" secondAttribute="top" constant="160" id="cYS-jX-LoO"/>
+                            <constraint firstItem="4Xm-PM-rgf" firstAttribute="leading" secondItem="RRu-Uy-LwP" secondAttribute="leading" id="0aZ-dW-Jcg"/>
+                            <constraint firstAttribute="bottom" secondItem="vQg-SN-rVM" secondAttribute="bottom" id="4T3-1F-hvO"/>
+                            <constraint firstItem="RRu-Uy-LwP" firstAttribute="bottom" secondItem="4Xm-PM-rgf" secondAttribute="bottom" id="EYm-m8-sQE"/>
+                            <constraint firstItem="DY0-HG-Gxq" firstAttribute="top" secondItem="vQg-SN-rVM" secondAttribute="top" id="JY9-3L-LY3"/>
+                            <constraint firstAttribute="trailing" secondItem="vQg-SN-rVM" secondAttribute="trailing" id="PAB-Ob-N75"/>
+                            <constraint firstItem="vQg-SN-rVM" firstAttribute="leading" secondItem="55V-FR-zFl" secondAttribute="leading" id="Rg4-uZ-efB"/>
+                            <constraint firstItem="RRu-Uy-LwP" firstAttribute="top" secondItem="4Xm-PM-rgf" secondAttribute="top" id="aNK-pJ-wpg"/>
+                            <constraint firstItem="DY0-HG-Gxq" firstAttribute="trailing" secondItem="vQg-SN-rVM" secondAttribute="trailing" id="e7K-ie-TMv"/>
+                            <constraint firstItem="vQg-SN-rVM" firstAttribute="top" secondItem="55V-FR-zFl" secondAttribute="top" id="gP4-WV-BYd"/>
+                            <constraint firstItem="DY0-HG-Gxq" firstAttribute="leading" secondItem="vQg-SN-rVM" secondAttribute="leading" id="iC4-aJ-SfN"/>
+                            <constraint firstItem="RRu-Uy-LwP" firstAttribute="trailing" secondItem="4Xm-PM-rgf" secondAttribute="trailing" id="sZe-t6-w2W"/>
+                            <constraint firstItem="DY0-HG-Gxq" firstAttribute="bottom" secondItem="vQg-SN-rVM" secondAttribute="bottom" id="t0T-Xz-7Cf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="推荐" id="mDT-rX-H0e"/>
                     <connections>
-                        <outlet property="bannerView" destination="Zgs-yK-UOD" id="3qu-qg-Qmp"/>
+                        <outlet property="bannerView" destination="cei-MW-7pK" id="3qu-VH-S54"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rID-nc-Zb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="-3899"/>
+            <point key="canvasLocation" x="581" y="-3737"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Nlz-8V-40C">
