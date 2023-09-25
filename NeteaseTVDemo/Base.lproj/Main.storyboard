@@ -31,26 +31,26 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PH6-xz-Jlp">
                                             <rect key="frame" x="50" y="160" width="1820" height="870"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="6yk-hE-cBt">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6yk-hE-cBt">
                                                     <rect key="frame" x="0.0" y="0.0" width="1820" height="660"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-Kx-HaH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="860" height="660"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="673.5" height="660"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xci-Oa-R2R">
-                                                                    <rect key="frame" x="176.5" y="0.0" width="507" height="507"/>
+                                                                    <rect key="frame" x="83.5" y="0.0" width="506.5" height="507"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="xci-Oa-R2R" secondAttribute="height" multiplier="1:1" id="rPa-1d-sxD"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-up-XQL" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                    <rect key="frame" x="166" y="598" width="528" height="0.0"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-up-XQL" customClass="MarqueeLabel" customModule="NeteaseTVDemo">
+                                                                    <rect key="frame" x="72.5" y="598" width="528" height="72"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-Mu-omP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="598"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="673.5" height="598"/>
                                                                     <connections>
                                                                         <outlet property="dataSource" destination="BYZ-38-t0r" id="Xgn-Hb-qFM"/>
                                                                         <outlet property="delegate" destination="BYZ-38-t0r" id="CgH-5W-Gli"/>
@@ -71,10 +71,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-mp-28g">
-                                                            <rect key="frame" x="960" y="0.0" width="860" height="660"/>
+                                                            <rect key="frame" x="723.5" y="0.0" width="1096.5" height="660"/>
                                                             <subviews>
                                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="40" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="TgS-vo-ysc">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="860" height="660"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="1096.5" height="660"/>
                                                                     <connections>
                                                                         <outlet property="dataSource" destination="BYZ-38-t0r" id="95c-Ke-aM9"/>
                                                                         <outlet property="delegate" destination="BYZ-38-t0r" id="c1S-4X-Tzx"/>
@@ -89,6 +89,9 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Umn-Kx-HaH" firstAttribute="width" secondItem="6yk-hE-cBt" secondAttribute="width" multiplier="0.37" id="07g-EZ-jXJ"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-RS-SGO">
                                                     <rect key="frame" x="0.0" y="690" width="1820" height="60"/>
@@ -102,8 +105,11 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3B-kg-2MG">
                                                             <rect key="frame" x="126" y="0.0" width="1568" height="60"/>
                                                             <subviews>
-                                                                <progressView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xvt-N2-1Bp">
-                                                                    <rect key="frame" x="0.0" y="25" width="1568" height="10"/>
+                                                                <progressView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xvt-N2-1Bp" customClass="WKSlider" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="20" width="1568" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="CNl-ZK-faj"/>
+                                                                    </constraints>
                                                                 </progressView>
                                                             </subviews>
                                                             <constraints>
@@ -126,17 +132,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="g4p-uv-Tcc">
                                                     <rect key="frame" x="0.0" y="780" width="1820" height="90"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gl1-3R-qEP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="253.5" height="90"/>
-                                                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="gobackward.15" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="backward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="FXG-NL-uWC"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRi-24-56S">
-                                                            <rect key="frame" x="313.5" y="0.0" width="253" height="90"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="566.5" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="backward.end.fill" catalog="system"/>
@@ -145,18 +142,8 @@
                                                                 <action selector="previous:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abU-cR-Jbu"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-XR-fLM">
-                                                            <rect key="frame" x="626.5" y="0.0" width="253.5" height="90"/>
-                                                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="pause.fill" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3D-OJ-fcl"/>
-                                                                <action selector="playOrPause:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="bDI-kR-dEf"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVy-dv-6Mz">
-                                                            <rect key="frame" x="940" y="0.0" width="253.5" height="90"/>
+                                                            <rect key="frame" x="626.5" y="0.0" width="567" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="forward.end.fill" catalog="system"/>
@@ -165,17 +152,8 @@
                                                                 <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vkX-b0-edc"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LB-qh-4Ce">
-                                                            <rect key="frame" x="1253.5" y="0.0" width="253" height="90"/>
-                                                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="goforward.15" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="forward:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="49l-hi-fJx"/>
-                                                            </connections>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZM-ng-kP5">
-                                                            <rect key="frame" x="1566.5" y="0.0" width="253.5" height="90"/>
+                                                            <rect key="frame" x="1253.5" y="0.0" width="566.5" height="90"/>
                                                             <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="music.note.list" catalog="system"/>
@@ -221,7 +199,6 @@
                         <outlet property="leftTimeLabel" destination="AfV-Dd-bih" id="WxT-Ix-76s"/>
                         <outlet property="nameLabel" destination="GQd-up-XQL" id="q6n-xB-FNo"/>
                         <outlet property="playListView" destination="VDY-Mu-omP" id="Xx3-nc-zf4"/>
-                        <outlet property="playOrPauseBtn" destination="OQn-XR-fLM" id="0K0-Dm-GsT"/>
                         <outlet property="progressView" destination="xvt-N2-1Bp" id="VVI-dt-qt4"/>
                         <outlet property="rightLabel" destination="tgh-br-fwf" id="Ycw-49-ApE"/>
                         <outlet property="tableView" destination="TgS-vo-ysc" id="yxQ-hl-FGE"/>
@@ -345,16 +322,15 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="GQd-up-XQL"/>
+        <designable name="GQd-up-XQL">
+            <size key="intrinsicContentSize" width="121" height="72"/>
+        </designable>
     </designables>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="bgImage" width="1288" height="728"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
-        <image name="gobackward.15" catalog="system" width="115" height="128"/>
-        <image name="goforward.15" catalog="system" width="115" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
-        <image name="pause.fill" catalog="system" width="120" height="128"/>
     </resources>
 </document>

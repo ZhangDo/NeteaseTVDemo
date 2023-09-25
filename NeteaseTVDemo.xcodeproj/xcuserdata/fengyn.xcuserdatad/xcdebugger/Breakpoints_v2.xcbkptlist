@@ -5,79 +5,35 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "3EFFFC8F-93A0-4806-98B8-C979A625FD0F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "582C0FD8-22CE-481B-82BB-EACE2F561580"
+            uuid = "F43D4198-40F3-4899-9154-C67F3A84D5BF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeteaseTVDemo/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "unifiedExceptionHandle(error:)"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
+            landmarkName = "forward()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AE5DBCD0-EB56-414C-BA24-C55FFF473EC7"
+            uuid = "D749821E-117A-4F03-A49E-EB244D0AF946"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NeteaseTVDemo/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "unifiedExceptionHandle(error:)"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "backward()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AE5DBCD0-EB56-414C-BA24-C55FFF473EC7 - c0667a1a3ee7f033"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NeteaseTVDemo.ViewController.unifiedExceptionHandle(error: NeteaseTVDemo.WKPlayerError) -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "258"
-                  endingLineNumber = "258"
-                  offsetFromSymbolStart = "344">
-               </Location>
-               <Location
-                  uuid = "AE5DBCD0-EB56-414C-BA24-C55FFF473EC7 - 3c873076412a5d04"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in NeteaseTVDemo.ViewController.unifiedExceptionHandle(error: NeteaseTVDemo.WKPlayerError) -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "259"
-                  endingLineNumber = "259"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -12,7 +12,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
 
     fileprivate let sectionTitles = ["Configurations", "Decelaration Distance", "Item Size", "Interitem Spacing", "Number Of Items"]
     fileprivate let configurationTitles = ["Automatic sliding","Infinite"]
-    
+    var allModels: [CustomAudioModel] = [CustomAudioModel]()
     fileprivate var banners: [NRBannerModel]?
     
     @IBOutlet weak var bannerView: FSPagerView! {

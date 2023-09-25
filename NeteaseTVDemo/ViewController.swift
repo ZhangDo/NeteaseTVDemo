@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var progressView: WKSlider!
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playOrPauseBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.progressView.delegate = self
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
@@ -38,13 +39,6 @@ class ViewController: UIViewController {
             self.playListView.reloadData()
             
         }
-//        wk_player.updateUIHandler = { dataSource, state, isPlaying, detailInfo in
-//            guard let detail = detailInfo else { return }
-//            let currentTime = wk_playerTool.formatTime(seconds: detail.current)
-//            let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
-//            debugPrint("进度\(currentTime)")
-//        }
-        
     }
     
     
@@ -64,16 +58,6 @@ class ViewController: UIViewController {
         }
         return self.allModels
         
-    }
-    
-
-    @IBAction func backward(_ sender: Any) {
-        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
-        
-    }
-    
-    @IBAction func forward(_ sender: Any) {
-        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -130,7 +114,7 @@ class ViewController: UIViewController {
     }
     
 }
-
+//MARK:  WKPlayerDelegate
 extension ViewController: WKPlayerDelegate {
     
     func configePlayer() {
@@ -195,14 +179,6 @@ extension ViewController: WKPlayerDelegate {
     }
     
     func stateDidChanged(_ state: WKPlayerState) {
-        DispatchQueue.main.async {
-            if (state == .paused) {
-                self.playOrPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            } else {
-                self.playOrPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            }
-        }
-        
     }
     
     func updateUI(dataSource: WKPlayerDataSource?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {
@@ -271,7 +247,25 @@ extension ViewController: WKPlayerDelegate {
         
     }
 }
-
+//MARK:  SliderDelegate
+extension ViewController: WKSliderDelegate {
+    func forward() {
+        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current + 15) / Float(wk_player.totalTime)))
+    }
+    
+    func backward() {
+        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current - 15) / Float(wk_player.totalTime)))
+    }
+    
+    func playOrPause() {
+        if wk_player.state == .paused {
+            wk_player.resumePlayer()
+        } else if  wk_player.state == .isPlaying {
+            wk_player.pausePlayer()
+        }
+    }
+}
+//MARK:  UITableView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == self.playListView) {
@@ -292,10 +286,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
             if current == indexPath.row {
                 cell.contentLabel?.textColor = UIColor.label
-                cell.contentLabel?.font = .systemFont(ofSize: 48, weight: .black)
+                cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
             } else {
                 cell.contentLabel?.textColor = UIColor.lightGray
-                cell.contentLabel?.font = .systemFont(ofSize: 38)
+                cell.contentLabel?.font = .systemFont(ofSize: 60, weight: .bold)
             }
             return cell
         }
