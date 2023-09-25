@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class CustomAudioModel: WKPlayerDataSource {
+public class CustomAudioModel: WKPlayerDataSource {
     
     /** 需要具体描述音频数据源的播放类型，共有3种类型，
      /** 没有权限*/
@@ -16,7 +16,7 @@ class CustomAudioModel: WKPlayerDataSource {
      /** 部分播放，参数为允许播放时长*/
      case partly(length: UInt)
      */
-    var wk_sourceType: WKPlayerSourceType {
+    public var wk_sourceType: WKPlayerSourceType {
         get {
             if isFree == 1 {
                 return .full
@@ -28,32 +28,32 @@ class CustomAudioModel: WKPlayerDataSource {
         }
     }
     
-    var wk_playURL: String? {
+    public var wk_playURL: String? {
         get {
             return audioUrl
         }
     }
     
-    var wk_audioId: Int? {
+    public var wk_audioId: Int? {
         get {
             return audioId
         }
     }
     
-    var wk_audioPic: String? {
+    public var wk_audioPic: String? {
         get {
             return audioPicUrl
         }
     }
     
     
-    var wk_sourceName: String? {
+    public var wk_sourceName: String? {
         get {
             return audioTitle
         }
     }
     
-    var wk_singerName: String? {
+    public var wk_singerName: String? {
         get {
             return singer
         }

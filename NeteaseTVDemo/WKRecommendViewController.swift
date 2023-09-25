@@ -71,6 +71,9 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         if self.banners![index].targetType == 1 {
             
         }
+        
+        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: 514947114)
+        self.present(playListDetaiVC, animated: true)
     }
     
 }

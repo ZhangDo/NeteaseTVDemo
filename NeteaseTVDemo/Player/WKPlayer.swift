@@ -9,6 +9,9 @@ import UIKit
 import AVFoundation
 import NeteaseRequest
 
+
+public let playDataSourceWillChangeName = Notification.Name("playDataSourceWillChange")
+
 public let wk_player = WKPlayer.instance
 
 public enum WKPlayerState: String {
@@ -79,21 +82,21 @@ public struct WKPlayerFunction: OptionSet {
 public protocol WKPlayerDelegate {
     func configePlayer()
     ///
-    func dataSourceDidChange(lastOriginal: [WKPlayerDataSource]?, lastAvailable: [WKPlayerDataSource]?, nowOriginal: [WKPlayerDataSource]?, nowAvailable: [WKPlayerDataSource]?)
+    func dataSourceDidChange(lastOriginal: [CustomAudioModel]?, lastAvailable: [CustomAudioModel]?, nowOriginal: [CustomAudioModel]?, nowAvailable: [CustomAudioModel]?)
     ///播放源将要切换
-    func playDataSourceWillChange(now: WKPlayerDataSource?, new: WKPlayerDataSource?)
+    func playDataSourceWillChange(now: CustomAudioModel?, new: CustomAudioModel?)
     ///播放源已经切换
-    func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource)
+    func playDataSourceDidChanged(last: CustomAudioModel?, now: CustomAudioModel)
     ///已经获取到数据源的时长
-    func didReadTotalTime(totalTime: UInt, formatTime: String, now: WKPlayerDataSource)
+    func didReadTotalTime(totalTime: UInt, formatTime: String, now: CustomAudioModel)
     ///数据源非完全拥有，没有权限继续播放数据源
-    func noPermissionToPlayDataSource(dataSource: WKPlayerDataSource)
+    func noPermissionToPlayDataSource(dataSource: CustomAudioModel)
     ///播放至结尾处
-    func didPlayToEnd(dataSource: WKPlayerDataSource, isTheEnd: Bool)
+    func didPlayToEnd(dataSource: CustomAudioModel, isTheEnd: Bool)
     ///播放状态发生改变
     func stateDidChanged(_ state: WKPlayerState)
     ///更新界面变化
-    func updateUI(dataSource: WKPlayerDataSource?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?)
+    func updateUI(dataSource: CustomAudioModel?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?)
     ///异常处理
     func unifiedExceptionHandle(error: WKPlayerError)
     
@@ -101,21 +104,28 @@ public protocol WKPlayerDelegate {
 
 //MARK: —————————— 播放协议扩展 ——————————
 extension WKPlayerDelegate {
-    func playDataSourceWillChange(now: WKPlayerDataSource?, new: WKPlayerDataSource?) {}
-    func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource) {}
-    func didReadTotalTime(totalTime: UInt, formatTime: String, now: WKPlayerDataSource) {}
-    func didPlayToEnd(dataSource: WKPlayerDataSource, isTheEnd: Bool) {}
+    func playDataSourceWillChange(now: CustomAudioModel?, new: CustomAudioModel?) {}
+    func playDataSourceDidChanged(last: CustomAudioModel?, now: CustomAudioModel) {}
+    func didReadTotalTime(totalTime: UInt, formatTime: String, now: CustomAudioModel) {}
+    func didPlayToEnd(dataSource: CustomAudioModel, isTheEnd: Bool) {}
     func stateDidChanged(_ state: WKPlayerState) {}
-    func updateUI(dataSource: WKPlayerDataSource?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {}
-    func dataSourceDidChange(lastOriginal: [WKPlayerDataSource]?, lastAvailable: [WKPlayerDataSource]?, nowOriginal: [WKPlayerDataSource]?, nowAvailable: [WKPlayerDataSource]?) {}
+    func updateUI(dataSource: CustomAudioModel?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {}
+    func dataSourceDidChange(lastOriginal: [CustomAudioModel]?, lastAvailable: [CustomAudioModel]?, nowOriginal: [CustomAudioModel]?, nowAvailable: [CustomAudioModel]?) {}
     func unifiedExceptionHandle(error: Swift.Error) {}
 }
 
 
 public class WKPlayer: NSObject {
-//    public typealias DataSourceDidChangeClosure = (_ lastOriginal: [WKPlayerDataSource]?, _ lastAvailable: [WKPlayerDataSource]?, _ nowOriginal: [WKPlayerDataSource]?, _ nowAvailable: [WKPlayerDataSource]?) -> Void
+//    public typealias DataSourceDidChangeClosure = (_ lastOriginal: [CustomAudioModel]?, _ lastAvailable: [CustomAudioModel]?, _ nowOriginal: [CustomAudioModel]?, _ nowAvailable: [CustomAudioModel]?) -> Void
 
-    
+    var playDataSourceWillChange: ((_ now: CustomAudioModel?, _ new: CustomAudioModel?) -> Void)?
+    var playDataSourceDidChanged: ((_ now: CustomAudioModel?, _ new: CustomAudioModel) -> Void)?
+    var didReadTotalTime: ((_ totalTime: UInt, _ formatTime: String, _ now: CustomAudioModel) -> Void)?
+    var didPlayToEnd: ((_ dataSource: CustomAudioModel, _ isTheEnd: Bool) -> Void)?
+    var stateDidChanged: ((_ state: WKPlayerState) -> Void)?
+    var update: ((_ dataSource: CustomAudioModel?, _ state: WKPlayerState, _ isPlaying: Bool, _ detailInfo: WKPlayerStateModel?) -> Void)?
+    var dataSourceDidChange: ((_ lastOriginal: [CustomAudioModel]?, _ lastAvailable: [CustomAudioModel]?, _ nowOriginal: [CustomAudioModel]?, _ nowAvailable: [CustomAudioModel]?) -> Void)?
+    var unifiedExceptionHandle: ((_ error: WKPlayerError) -> Void)?
     
     
     static let instance = WKPlayer()
@@ -124,9 +134,9 @@ public class WKPlayer: NSObject {
     }
     
     //闭包形式回调
-//    public var updateUIHandler: ((_ dataSource: WKPlayerDataSource?, _ state: WKPlayerState, _ isPlaying: Bool, _ detailInfo: WKPlayerStateModel?) -> ()) = { _, _, _, _ in }
+//    public var updateUIHandler: ((_ dataSource: CustomAudioModel?, _ state: WKPlayerState, _ isPlaying: Bool, _ detailInfo: WKPlayerStateModel?) -> ()) = { _, _, _, _ in }
     
-//    func dataSourceDidChange(lastOriginal: [WKPlayerDataSource]?, lastAvailable: [WKPlayerDataSource]?, nowOriginal: [WKPlayerDataSource]?, nowAvailable: [WKPlayerDataSource]?)
+//    func dataSourceDidChange(lastOriginal: [CustomAudioModel]?, lastAvailable: [CustomAudioModel]?, nowOriginal: [CustomAudioModel]?, nowAvailable: [CustomAudioModel]?)
     
 //    public var dataSourceDidChange: DataSourceDidChangeClosure?
     
@@ -134,7 +144,8 @@ public class WKPlayer: NSObject {
     public var state = WKPlayerState.idle {
         didSet  {
             if oldValue != state {
-                delegate?.stateDidChanged(state)
+//                delegate?.stateDidChanged(state)
+                stateDidChanged!(state)
                 updateUI()
             }
         }
@@ -168,15 +179,16 @@ public class WKPlayer: NSObject {
     ///播放器倒计时剩余秒数
     private (set) public var countdownSeconds = 0
     /// 所有原始数组
-    public var allOriginalModels: Array<WKPlayerDataSource>? {
+    public var allOriginalModels: Array<CustomAudioModel>? {
         didSet {
             guard let allModels = allOriginalModels else {
-                delegate?.dataSourceDidChange(lastOriginal: oldValue, lastAvailable: allAvailableModels, nowOriginal: nil, nowAvailable: nil)
+//                delegate?.dataSourceDidChange(lastOriginal: oldValue, lastAvailable: allAvailableModels, nowOriginal: nil, nowAvailable: nil)
+                dataSourceDidChange!(oldValue, allOriginalModels, nil, nil)
                 allAvailableModels = nil
                 firstAvailableIndex = NSNotFound
                 return
             }
-            var temp = Array<WKPlayerDataSource>()
+            var temp = Array<CustomAudioModel>()
             allModels.enumerated().forEach { (offset, element) in
                 switch element.wk_sourceType {
                 case .full:
@@ -195,7 +207,8 @@ public class WKPlayer: NSObject {
                     break
                 }
             }
-            delegate?.dataSourceDidChange(lastOriginal: oldValue, lastAvailable: allAvailableModels, nowOriginal: allOriginalModels, nowAvailable: temp)
+//            delegate?.dataSourceDidChange(lastOriginal: oldValue, lastAvailable: allAvailableModels, nowOriginal: allOriginalModels, nowAvailable: temp)
+            dataSourceDidChange?(oldValue, allOriginalModels, allOriginalModels, temp)
             allAvailableModels = temp
         }
     }
@@ -205,9 +218,9 @@ public class WKPlayer: NSObject {
     
     ///播放器对象
     private (set) public var player: AVPlayer?
-    private var tempLastModel: WKPlayerDataSource?
+    private var tempLastModel: CustomAudioModel?
     ///全部可以播放的数组
-    private (set) public var allAvailableModels: Array<WKPlayerDataSource>?
+    private (set) public var allAvailableModels: Array<CustomAudioModel>?
     
     public var delegate: WKPlayerDelegate?
     
@@ -215,19 +228,20 @@ public class WKPlayer: NSObject {
     public var function: WKPlayerFunction = .default
     
     ///当前正在播放的数据源
-    private (set) public var currentModel: WKPlayerDataSource? {
+    private (set) public var currentModel: CustomAudioModel? {
         didSet {
             currentModelState = WKPlayerStateModel()
             updateUI()
             guard let now = currentModel else { return }
             
-            delegate?.playDataSourceDidChanged(last: tempLastModel, now: now)
+//            delegate?.playDataSourceDidChanged(last: tempLastModel, now: now)
+            playDataSourceDidChanged?(tempLastModel, now)
             tempLastModel = nil
         }
     }
     
     /// 上一个播放的数据源
-    private (set) public var lastModel: WKPlayerDataSource? {
+    private (set) public var lastModel: CustomAudioModel? {
         didSet {
             guard let _ = lastModel else {
                 return
@@ -236,7 +250,10 @@ public class WKPlayer: NSObject {
                 tempLastModel = oldValue
             }
             // 设置上一个数据源，说明要切换音频了
-            delegate?.playDataSourceWillChange(now: tempLastModel, new: lastModel)
+            playDataSourceWillChange!(tempLastModel, lastModel)
+            
+//            NotificationCenter.default.post(name: playDataSourceWillChangeName, object: nil, userInfo: ["now": tempLastModel!,"new": lastModel!])
+//            delegate?.playDataSourceWillChange(now: tempLastModel, new: lastModel)
             
         }
     }
@@ -260,7 +277,8 @@ public class WKPlayer: NSObject {
         didSet {
             let time = wk_playerTool.formatTime(seconds: totalTime)
             guard let now = currentModel else { return }
-            delegate?.didReadTotalTime(totalTime: totalTime, formatTime: time, now: now)
+//            delegate?.didReadTotalTime(totalTime: totalTime, formatTime: time, now: now)
+            didReadTotalTime!(totalTime, time, now)
             currentModelState?.duration = totalTime
             updateUI()
         }
@@ -325,7 +343,7 @@ public class WKPlayer: NSObject {
             }
 //            currentIndex += 1
             do {
-                try await fetchTrueUrlStr(model: model as! CustomAudioModel)
+                try await fetchTrueUrlStr(model: model )
                 try? prepareForPlay(model: model)
             } catch {
                 print(error)
@@ -348,7 +366,7 @@ public class WKPlayer: NSObject {
 //            currentIndex -= 1
             
             do {
-                try await fetchTrueUrlStr(model: model as! CustomAudioModel, after: false)
+                try await fetchTrueUrlStr(model: model, after: false)
                 try? prepareForPlay(model: model)
             } catch {
                 print(error)
@@ -666,7 +684,7 @@ public class WKPlayer: NSObject {
         
         Task {
             do {
-                try await fetchTrueUrlStr(model: model as! CustomAudioModel)
+                try await fetchTrueUrlStr(model: model)
                 try? prepareForPlay(model: model)
             } catch {
                 print(error)
@@ -769,7 +787,8 @@ public class WKPlayer: NSObject {
     
     
     private func updateUI() {
-        delegate?.updateUI(dataSource: currentModel, state: state, isPlaying: isPlaying, detailInfo: currentModelState)
+//        delegate?.updateUI(dataSource: currentModel, state: state, isPlaying: isPlaying, detailInfo: currentModelState)
+        update!(currentModel, state, isPlaying, currentModelState)
 //        updateUIHandler(currentModel, state, isPlaying, currentModelState)
     }
     
@@ -840,7 +859,7 @@ public class WKPlayer: NSObject {
     
     
     ///获取下一个播放数据源
-    private func getNextModel(after: Bool) throws -> WKPlayerDataSource? {
+    private func getNextModel(after: Bool) throws -> CustomAudioModel? {
         //如果没有设置数据源数组
         guard let allModels = allAvailableModels else {
             let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
@@ -1068,7 +1087,7 @@ public class WKPlayer: NSObject {
     /// 播放流程步骤2:此函数为播放前准备操作
     /// - Parameter model: 要播放的数据源
     /// - Throws: 抛出异常
-    private func prepareForPlay(model: WKPlayerDataSource) throws {
+    private func prepareForPlay(model: CustomAudioModel) throws {
         subjectivePause = false
         isPlaying = true
         needResume = true
@@ -1264,13 +1283,15 @@ public class WKPlayer: NSObject {
             break
         }
         
-        delegate?.didPlayToEnd(dataSource: currentModel!, isTheEnd: false)
+//        delegate?.didPlayToEnd(dataSource: currentModel!, isTheEnd: false)
+        didPlayToEnd!(currentModel!, false)
         
         guard currentModel?.wk_playURL != allAvailableModels?.last?.wk_playURL else {
                 // 归零
             seek(to: 0)
             pausePlayer()
-            delegate?.didPlayToEnd(dataSource: currentModel!, isTheEnd: true)
+//            delegate?.didPlayToEnd(dataSource: currentModel!, isTheEnd: true)
+            didPlayToEnd!(currentModel!, true)
             return
         }
         try? playNext()

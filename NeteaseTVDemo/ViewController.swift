@@ -11,7 +11,7 @@ import Kingfisher
 import MarqueeLabel
 class ViewController: UIViewController {
     
-    var allModels: [CustomAudioModel] = [CustomAudioModel]()
+//    var allModels: [CustomAudioModel] = [CustomAudioModel]()
     var lyrics: [String]?
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
@@ -26,39 +26,138 @@ class ViewController: UIViewController {
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playListView: UITableView!
     @IBOutlet weak var playOrPauseBtn: UIButton!
+    
+    @IBOutlet weak var bottomActionView: UIView!
+    @IBOutlet weak var sliderStackView: UIStackView!
+    static func creat() -> ViewController {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! ViewController
+        return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.progressView.delegate = self
+        
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
-        Task {
-            wk_player.delegate = self
-            wk_player.allOriginalModels = await loadData()
-            try? wk_player.play(index: 0)
-            self.playListView.reloadData()
+        
+        self.progressView.delegate = self
+        
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(playDataSourceWillChange(_:)), name: playDataSourceWillChangeName, object: nil)
+//        wk_player.delegate = self
+        
+        wk_player.playDataSourceWillChange = { nowAudioModel, newAudioModel in
+            debugPrint("设置上一个数据源，说明要切换音频了，当前是\(String(describing: nowAudioModel?.wk_sourceName!))，即将播放的是\(String(describing: newAudioModel?.wk_sourceName!))")
+        }
+        
+        wk_player.playDataSourceDidChanged = { [weak self] lastAudioModel, nowAudioModel in
+            debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: lastAudioModel?.wk_sourceName!))，当前是\(nowAudioModel.wk_sourceName!)")
+            
+            Task {
+                self?.lyricTuple = parserLyric(lyric: try! await fetchLyric(id: nowAudioModel.wk_audioId!).lyric!)
+                self?.tableView.reloadData()
+            }
+            
+            DispatchQueue.main.async {
+                self?.bgImageView.kf.setImage(with: URL(string: nowAudioModel.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
+                self?.coverImageView.kf.setImage(with: URL(string: nowAudioModel.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
+                self?.nameLabel.text = nowAudioModel.wk_sourceName
+                
+            }
+                
+        }
+        
+        wk_player.didPlayToEnd = { dataSource, isTheEnd in
+            debugPrint("数据源\(dataSource.wk_sourceName!)已播放至结尾")
+        }
+        
+        wk_player.didReadTotalTime = { [weak self] totalTime, formatTime, now in
+            debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
+            DispatchQueue.main.async {
+                self?.rightLabel.text = formatTime
+            }
+        }
+        
+        wk_player.stateDidChanged = { state in
             
         }
-    }
-    
-    
-    func loadData() async -> [CustomAudioModel] {
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2312165875,limit: 100)
-
-        self.allModels.removeAll()
-        for songModel in songModels {
-            let model = CustomAudioModel()
-            model.audioId = songModel.id
-            model.isFree = 1
-            model.freeTime = 0
-            model.audioTitle = songModel.name
-            model.audioPicUrl = songModel.al.picUrl
-            model.singer = "singer"
-            self.allModels.append(model)
-        }
-        return self.allModels
         
+        wk_player.update = { [weak self] dataSource, state, isPlaying, detailInfo in
+            guard let detail = detailInfo else { return }
+            let currentTime = wk_playerTool.formatTime(seconds: detail.current)
+            guard let times = self?.lyricTuple?.times else { return }
+            for (index, time) in times.enumerated() {
+                let times = time.components(separatedBy: ":")
+                if time.count > 1 {
+                    let lyricTime = Float(times.first ?? "0.0")! * 60 + (Float(times.last ?? "0.0") ?? 0.0)
+                    if (Float(detail.current) + 0.5) > lyricTime {
+                        self?.current = index
+                    } else {
+                        break
+                    }
+                        
+                }
+                
+            }
+            
+            DispatchQueue.main.async { [self] in
+                self?.leftTimeLabel.text = currentTime
+                self?.progressView.progress = detail.progress
+                self?.tableView.reloadData()
+                if self!.current >= (self?.lyricTuple?.words.count)! {
+                    return
+                }
+                self?.tableView.scrollToRow(at: IndexPath(row: self!.current, section: 0), at: .middle, animated: true)
+            }
+        }
+        
+        wk_player.dataSourceDidChange = { lastOriginal, lastAvailable, nowOriginal, nowAvailable in
+            
+        }
+        
+        wk_player.unifiedExceptionHandle = { error in
+            debugPrint(error.errorDescription as Any)
+            
+            DispatchQueue.main.async {
+                let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
+                let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
+                alert.addAction(confirm)
+        //        self.present(alert, animated: true)
+                let keyWindow = UIApplication.shared.connectedScenes
+                        .filter({$0.activationState == .foregroundActive})
+                        .compactMap({$0 as? UIWindowScene})
+                        .first?.windows
+                        .filter({$0.isKeyWindow}).first
+                keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+        }
+
     }
+    
+    
+//    @objc func playDataSourceWillChange(_ noti: Notification) {
+//        let now = noti.userInfo?["now"] as! CustomAudioModel
+//        let new = noti.userInfo?["new"] as! CustomAudioModel
+//        debugPrint("设置上一个数据源，说明要切换音频了，当前是\(String(describing: now.wk_sourceName!))，即将播放的是\(String(describing: new.wk_sourceName!))")
+//    }
+    
+    
+//    func loadData() async -> [CustomAudioModel] {
+//        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: 2312165875,limit: 100)
+//        for songModel in songModels {
+//            let model = CustomAudioModel()
+//            model.audioId = songModel.id
+//            model.isFree = 1
+//            model.freeTime = 0
+//            model.audioTitle = songModel.name
+//            model.audioPicUrl = songModel.al.picUrl
+//            model.singer = "singer"
+//            self.allModels.append(model)
+//        }
+//        return self.allModels
+//
+//    }
     
     @IBAction func previous(_ sender: Any) {
         do {
@@ -115,138 +214,132 @@ class ViewController: UIViewController {
     
 }
 //MARK:  WKPlayerDelegate
-extension ViewController: WKPlayerDelegate {
-    
-    func configePlayer() {
-        wk_player.function = [.cache]
-    }
-    
-    func playDataSourceWillChange(now: WKPlayerDataSource?, new: WKPlayerDataSource?) {
-        debugPrint("设置上一个数据源，说明要切换音频了，当前是\(String(describing: now?.wk_sourceName!))，即将播放的是\(String(describing: new?.wk_sourceName!))")
-    }
-    
-    func playDataSourceDidChanged(last: WKPlayerDataSource?, now: WKPlayerDataSource) {
-        debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: last?.wk_sourceName!))，当前是\(now.wk_sourceName!)")
-        
-        Task {
-            lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
-            tableView.reloadData()
-        }
-        
-        
-        if Thread.isMainThread {
-            self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
-            self.nameLabel.text = now.wk_sourceName
-        } else {
-            DispatchQueue.main.async {
-                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
-                self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
-                self.nameLabel.text = now.wk_sourceName
-                
-            }
-            
-        }
-        
-    }
-    
-    func didPlayToEnd(dataSource: WKPlayerDataSource, isTheEnd: Bool) {
-        debugPrint("数据源\(dataSource.wk_sourceName!)已播放至结尾")
-    }
+//extension ViewController: WKPlayerDelegate {
     
     
-    func noPermissionToPlayDataSource(dataSource: WKPlayerDataSource) {
-        debugPrint("没有权限播放\(dataSource.wk_sourceName!)")
-    }
-    
-    func didReadTotalTime(totalTime: UInt, formatTime: String, now: WKPlayerDataSource) {
-        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
-        DispatchQueue.main.async {
-            self.rightLabel.text = formatTime
-        }
-        
-        
-    }
-    
-    
-    
-    func askForWWANLoadPermission(confirmed: @escaping () -> ()) {
-//        let alert = UIAlertController.init(title: "网络环境确认", message: "当前非wifi环境，确定继续加载么", preferredStyle: .alert)
-//        let confirmAction = UIAlertAction.init(title: "确定", style: .default) {_ in
-//            confirmed()
-//        }
-//        alert.addAction(confirmAction)
-//        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
-    }
-    
-    func stateDidChanged(_ state: WKPlayerState) {
-    }
-    
-    func updateUI(dataSource: WKPlayerDataSource?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {
-        
-//        playBtn.isSelected = isPlaying
+//    func configePlayer() {
+//        wk_player.function = [.cache]
+//    }
 //
-//        audioTitleLbl.text = dataSource?.wk_sourceName!
-        guard let detail = detailInfo else { return }
-        let currentTime = wk_playerTool.formatTime(seconds: detail.current)
-//        let durationTime = wk_playerTool.formatTime(seconds: detail.duration)
-//        audioDurationLbl.text = currentTime + "/" + durationTime
-//        bufferProgress.progress = detail.buffer
-//        audioProgressSlider.value = detail.progress
-//        debugPrint("进度\(currentTime)")
-        guard let times = lyricTuple?.times else { return }
-        for (index, time) in times.enumerated() {
-            let times = time.components(separatedBy: ":")
-            if time.count > 1 {
-                let lyricTime = Float(times.first ?? "0.0")! * 60 + (Float(times.last ?? "0.0") ?? 0.0)
-                if (Float(detail.current) + 0.5) > lyricTime {
-                    current = index
-                } else {
-                    break
-                }
-                    
-            }
-            
-        }
-        
-        DispatchQueue.main.async { [self] in
-            self.leftTimeLabel.text = currentTime
-            self.progressView.progress = detail.progress
-            tableView.reloadData()
-            if current >= (lyricTuple?.words.count)! {
-                return
-            }
-            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: false)
-        }
-        
-        
-    }
-    
-    
-    func dataSourceDidChange(lastOriginal: [WKPlayerDataSource]?, lastAvailable: [WKPlayerDataSource]?, nowOriginal: [WKPlayerDataSource]?, nowAvailable: [WKPlayerDataSource]?) {
-        
-    }
-    
-    
-    
-    func unifiedExceptionHandle(error: WKPlayerError) {
-        debugPrint(error.errorDescription as Any)
-        
-        DispatchQueue.main.async {
-            let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
-            let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
-            alert.addAction(confirm)
-    //        self.present(alert, animated: true)
-            let keyWindow = UIApplication.shared.connectedScenes
-                    .filter({$0.activationState == .foregroundActive})
-                    .compactMap({$0 as? UIWindowScene})
-                    .first?.windows
-                    .filter({$0.isKeyWindow}).first
-            keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
-        }
-        
-        
-    }
-}
+//    func playDataSourceWillChange(now: CustomAudioModel?, new: CustomAudioModel?) {
+//        debugPrint("设置上一个数据源，说明要切换音频了，当前是\(String(describing: now?.wk_sourceName!))，即将播放的是\(String(describing: new?.wk_sourceName!))")
+//    }
+//
+//    func playDataSourceDidChanged(last: CustomAudioModel?, now: CustomAudioModel) {
+//        debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: last?.wk_sourceName!))，当前是\(now.wk_sourceName!)")
+//
+//        Task {
+//            lyricTuple = parserLyric(lyric: try! await fetchLyric(id: now.wk_audioId!).lyric!)
+//            tableView.reloadData()
+//        }
+//
+//
+//        if Thread.isMainThread {
+//            self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
+//            self.nameLabel.text = now.wk_sourceName
+//        } else {
+//            DispatchQueue.main.async {
+//                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
+//                self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
+//                self.nameLabel.text = now.wk_sourceName
+//
+//            }
+//
+//        }
+//
+//    }
+//
+//    func didPlayToEnd(dataSource: CustomAudioModel, isTheEnd: Bool) {
+//        debugPrint("数据源\(dataSource.wk_sourceName!)已播放至结尾")
+//    }
+//
+//
+//    func noPermissionToPlayDataSource(dataSource: CustomAudioModel) {
+//        debugPrint("没有权限播放\(dataSource.wk_sourceName!)")
+//    }
+//
+//    func didReadTotalTime(totalTime: UInt, formatTime: String, now: CustomAudioModel) {
+//        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
+//        DispatchQueue.main.async {
+//            self.rightLabel.text = formatTime
+//        }
+//
+//
+//    }
+//
+//
+//
+//    func askForWWANLoadPermission(confirmed: @escaping () -> ()) {
+////        let alert = UIAlertController.init(title: "网络环境确认", message: "当前非wifi环境，确定继续加载么", preferredStyle: .alert)
+////        let confirmAction = UIAlertAction.init(title: "确定", style: .default) {_ in
+////            confirmed()
+////        }
+////        alert.addAction(confirmAction)
+////        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+//    }
+//
+//    func stateDidChanged(_ state: WKPlayerState) {
+//    }
+//
+//    func updateUI(dataSource: CustomAudioModel?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {
+//
+//
+//        guard let detail = detailInfo else { return }
+//        let currentTime = wk_playerTool.formatTime(seconds: detail.current)
+//        guard let times = lyricTuple?.times else { return }
+//        for (index, time) in times.enumerated() {
+//            let times = time.components(separatedBy: ":")
+//            if time.count > 1 {
+//                let lyricTime = Float(times.first ?? "0.0")! * 60 + (Float(times.last ?? "0.0") ?? 0.0)
+//                if (Float(detail.current) + 0.5) > lyricTime {
+//                    current = index
+//                } else {
+//                    break
+//                }
+//
+//            }
+//
+//        }
+//
+//        DispatchQueue.main.async { [self] in
+//            self.leftTimeLabel.text = currentTime
+//            self.progressView.progress = detail.progress
+//            tableView.reloadData()
+//            if current >= (lyricTuple?.words.count)! {
+//                return
+//            }
+//            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: true)
+//        }
+//
+//
+//    }
+//
+//
+//    func dataSourceDidChange(lastOriginal: [CustomAudioModel]?, lastAvailable: [CustomAudioModel]?, nowOriginal: [CustomAudioModel]?, nowAvailable: [CustomAudioModel]?) {
+//
+//    }
+//
+//
+//
+//    func unifiedExceptionHandle(error: WKPlayerError) {
+//        debugPrint(error.errorDescription as Any)
+//
+//        DispatchQueue.main.async {
+//            let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
+//            let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
+//            alert.addAction(confirm)
+//    //        self.present(alert, animated: true)
+//            let keyWindow = UIApplication.shared.connectedScenes
+//                    .filter({$0.activationState == .foregroundActive})
+//                    .compactMap({$0 as? UIWindowScene})
+//                    .first?.windows
+//                    .filter({$0.isKeyWindow}).first
+//            keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
+//        }
+//
+//
+//    }
+//}
 //MARK:  SliderDelegate
 extension ViewController: WKSliderDelegate {
     func forward() {
@@ -269,7 +362,7 @@ extension ViewController: WKSliderDelegate {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (tableView == self.playListView) {
-            return self.allModels.count
+            return wk_player.allOriginalModels?.count ?? 0
         } else {
             return lyricTuple?.words.count ?? 0
         }
@@ -279,7 +372,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.playListView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
-            cell.setModel(self.allModels[indexPath.row])
+            cell.setModel(wk_player.allOriginalModels![indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell

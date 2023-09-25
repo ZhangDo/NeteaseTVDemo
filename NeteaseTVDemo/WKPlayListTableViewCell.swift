@@ -18,12 +18,12 @@ class WKPlayListTableViewCell: UITableViewCell {
         ({(picView: UIImageView) in
             picView.contentMode = .scaleAspectFill
             picView.layer.cornerRadius = 10
+            picView.clipsToBounds = true
             contentView.addSubview(picView)
             picView.snp.makeConstraints { make in
-                make.left.equalTo(40)
-                make.centerY.equalToSuperview()
-                make.size.equalTo(CGSize(width: 100, height: 100))
-                make.bottom.equalTo(-10)
+                make.left.equalTo(contentView)
+                make.top.bottom.equalTo(contentView)
+                make.size.equalTo(100)
             }
         })(picView)
         
@@ -33,7 +33,7 @@ class WKPlayListTableViewCell: UITableViewCell {
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
-                make.bottom.equalTo(contentView.snp.centerY).offset(-10)
+                make.bottom.equalTo(contentView.snp.centerY).offset(-5)
             }
         })(songNameLabel)
         
@@ -43,7 +43,7 @@ class WKPlayListTableViewCell: UITableViewCell {
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
-                make.top.equalTo(contentView.snp.centerY).offset(10)
+                make.top.equalTo(contentView.snp.centerY).offset(5)
             }
         })(singerLabel)
         
