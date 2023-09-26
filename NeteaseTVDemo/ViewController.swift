@@ -97,22 +97,6 @@ class ViewController: UIViewController {
             self.coverImageView.isHidden = showPlayList
             self.nameLabel.isHidden = showPlayList
         })
-        
-        
-        
-        
-    }
-    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        super.pressesBegan(presses, with: event)
-        for press in presses {
-            if press.type == .playPause {
-                if wk_player.state == .paused {
-                    wk_player.resumePlayer()
-                } else if  wk_player.state == .isPlaying {
-                    wk_player.pausePlayer()
-                }
-            }
-        }
     }
     
 }
@@ -185,11 +169,8 @@ extension ViewController: WKPlayerDelegate {
     }
 
     func updateUI(dataSource: CustomAudioModel?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {
-
-
         guard let detail = detailInfo else { return }
         let currentTime = wk_playerTool.formatTime(seconds: detail.current)
-        debugPrint("进度\(currentTime)")
         guard let times = lyricTuple?.times else { return }
         for (index, time) in times.enumerated() {
             let times = time.components(separatedBy: ":")
@@ -200,9 +181,7 @@ extension ViewController: WKPlayerDelegate {
                 } else {
                     break
                 }
-
             }
-
         }
 
         DispatchQueue.main.async { [self] in

@@ -33,6 +33,7 @@ class WKPlayListTableViewCell: UITableViewCell {
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
+                make.right.equalToSuperview()
                 make.bottom.equalTo(contentView.snp.centerY).offset(-5)
             }
         })(songNameLabel)
@@ -43,6 +44,7 @@ class WKPlayListTableViewCell: UITableViewCell {
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
+                make.right.equalToSuperview()
                 make.top.equalTo(contentView.snp.centerY).offset(5)
             }
         })(singerLabel)

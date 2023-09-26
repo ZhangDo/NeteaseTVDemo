@@ -45,7 +45,7 @@ class WKDescView: UIControl {
             addSubview(label)
             label.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview()
-                make.top.equalToSuperview().offset(14)
+                make.centerY.equalToSuperview()
                 make.bottom.lessThanOrEqualToSuperview().offset(-14)
             }
         })(descLabel)

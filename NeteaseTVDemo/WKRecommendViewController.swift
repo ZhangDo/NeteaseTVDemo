@@ -72,7 +72,8 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             
         }
         
-        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: 514947114)
+        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: 7780071743)
+        playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
         self.present(playListDetaiVC, animated: true)
     }
     

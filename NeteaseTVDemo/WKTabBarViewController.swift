@@ -13,15 +13,17 @@ class WKTabBarViewController: UITabBarController {
         super.viewDidLoad()
     }
     
-    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        super.pressesEnded(presses, with: event)
-        guard let buttonPress = presses.first?.type else { return }
-//        if buttonPress == .playPause {
-//            if let reloadVC = topMostViewController() as? BLTabBarContentVCProtocol {
-//                print("send reload to \(reloadVC)")
-//                reloadVC.reloadData()
-//            }
-//        }
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        super.pressesBegan(presses, with: event)
+        for press in presses {
+            if press.type == .playPause {
+                if wk_player.state == .paused {
+                    wk_player.resumePlayer()
+                } else if  wk_player.state == .isPlaying {
+                    wk_player.pausePlayer()
+                }
+            }
+        }
     }
 
 }

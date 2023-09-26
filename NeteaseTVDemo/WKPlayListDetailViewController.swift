@@ -13,6 +13,7 @@ class WKPlayListDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
     
+    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var descView: WKDescView!
     private var playListId: Int!
@@ -35,9 +36,10 @@ class WKPlayListDetailViewController: UIViewController {
     
     func loadData() async {
         let playListDetail: NRPlayListDetailModel = try! await fetchPlayListDetail(id: self.playListId)
-        self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl))
+        self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
         self.coverImageView.kf.setImage(with: URL(string: playListDetail.coverImgUrl))
         self.nameLabel.text = playListDetail.name
+        //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = playListDetail.description
         
         let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: self.playListId,limit: 100)
@@ -49,16 +51,19 @@ class WKPlayListDetailViewController: UIViewController {
             model.freeTime = 0
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al.picUrl
-            model.singer = "singer"
+            let singerModel = songModel.ar
+            model.singer = singerModel.map { $0.name! }.joined(separator: "/")
             self.allModels.append(model)
         }
         tableView .reloadData()
+        self.playButton.isHidden = false
     }
 
     @IBAction func playAll(_ sender: Any) {
         wk_player.allOriginalModels = self.allModels
         try? wk_player.play(index: 0)
         let playingVC = ViewController.creat()
+        playingVC.modalPresentationStyle = .blurOverFullScreen
         self.present(playingVC, animated: true)
     }
 }
@@ -73,5 +78,12 @@ extension WKPlayListDetailViewController: UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
         cell.setModel(self.allModels[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        wk_player.allOriginalModels = self.allModels
+        try? wk_player.play(index: indexPath.row)
+        let playingVC = ViewController.creat()
+        self.present(playingVC, animated: true)
     }
 }
