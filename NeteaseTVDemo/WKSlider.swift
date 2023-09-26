@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol WKSliderDelegate {
+public protocol WKSliderDelegate: AnyObject {
     func forward()
     func backward()
     func playOrPause()
@@ -15,7 +15,7 @@ public protocol WKSliderDelegate {
 
 class WKSlider: UIProgressView {
     
-    public var delegate: WKSliderDelegate?
+    public weak var delegate: WKSliderDelegate?
     
     override func becomeFirstResponder() -> Bool {
         return true
