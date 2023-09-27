@@ -13,6 +13,7 @@ class WKPlayListDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
     
+    @IBOutlet weak var collectButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var descView: WKDescView!
@@ -41,6 +42,7 @@ class WKPlayListDetailViewController: UIViewController {
         self.nameLabel.text = playListDetail.name
         //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = playListDetail.description
+        self.collectButton.isHidden = false
         
         let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: self.playListId,limit: 100)
         self.allModels.removeAll()

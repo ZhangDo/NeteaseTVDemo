@@ -3,8 +3,10 @@
     <device id="appleTV" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -256,7 +258,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-SN-rVM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-SN-rVM">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DY0-HG-Gxq">
@@ -265,8 +267,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-PM-rgf">
-                                            <rect key="frame" x="80" y="111" width="1760" height="885"/>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-PM-rgf">
+                                            <rect key="frame" x="80" y="157" width="1760" height="863"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cei-MW-7pK" customClass="FSPagerView" customModule="NeteaseTVDemo" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="1760" height="400"/>
@@ -278,12 +280,73 @@
                                                         <outlet property="delegate" destination="Wfi-8j-fvb" id="U7g-h9-glh"/>
                                                     </connections>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-83-C9u">
+                                                    <rect key="frame" x="0.0" y="400" width="1760" height="1500"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-eD-xRE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="1760" height="500"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLU-Ac-PNV">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="58"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-tb-CUU">
+                                                                    <rect key="frame" x="0.0" y="68" width="1760" height="500"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="500" id="plN-QL-irz"/>
+                                                                    </constraints>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YC9-Ii-KEM">
+                                                                        <size key="itemSize" width="128" height="128"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                    <cells>
+                                                                        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="Olm-ew-QPa">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3vX-fo-7yj">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                            </collectionViewCellContentView>
+                                                                        </collectionViewCell>
+                                                                    </cells>
+                                                                    <connections>
+                                                                        <outlet property="dataSource" destination="Wfi-8j-fvb" id="1g8-cC-VI7"/>
+                                                                        <outlet property="delegate" destination="Wfi-8j-fvb" id="GnD-wI-Gsu"/>
+                                                                    </connections>
+                                                                </collectionView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="mw7-tb-CUU" firstAttribute="leading" secondItem="cuk-eD-xRE" secondAttribute="leading" id="HsW-3h-bNm"/>
+                                                                <constraint firstItem="mw7-tb-CUU" firstAttribute="top" secondItem="PLU-Ac-PNV" secondAttribute="bottom" constant="10" id="Jz1-zo-Oz8"/>
+                                                                <constraint firstItem="PLU-Ac-PNV" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="top" id="NSP-04-6XR"/>
+                                                                <constraint firstItem="PLU-Ac-PNV" firstAttribute="leading" secondItem="cuk-eD-xRE" secondAttribute="leading" id="RUJ-AU-MVy"/>
+                                                                <constraint firstAttribute="trailing" secondItem="mw7-tb-CUU" secondAttribute="trailing" id="eui-DH-2Cz"/>
+                                                                <constraint firstAttribute="height" constant="500" id="nTH-ee-znT"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="cuk-eD-xRE" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8aU-m3-bSJ"/>
+                                                        <constraint firstItem="cuk-eD-xRE" firstAttribute="top" secondItem="Fb7-83-C9u" secondAttribute="top" id="JZu-ec-2cg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cuk-eD-xRE" secondAttribute="trailing" id="MtG-ct-i8u"/>
+                                                        <constraint firstAttribute="height" constant="1500" id="V2Z-Ob-lcB"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Fb7-83-C9u" firstAttribute="top" secondItem="cei-MW-7pK" secondAttribute="bottom" id="GpH-iA-xYL"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="trailing" secondItem="MH5-U1-Pzk" secondAttribute="trailing" id="KNO-cY-yAW"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="leading" secondItem="MH5-U1-Pzk" secondAttribute="leading" id="PLr-wY-Wka"/>
+                                                <constraint firstItem="Fb7-83-C9u" firstAttribute="bottom" secondItem="MH5-U1-Pzk" secondAttribute="bottom" id="Sx6-xc-mhB"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="width" secondItem="bTG-XU-CPK" secondAttribute="width" id="YCP-NW-akd"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="top" secondItem="MH5-U1-Pzk" secondAttribute="top" id="cXO-Ne-mrB"/>
+                                                <constraint firstItem="Fb7-83-C9u" firstAttribute="width" secondItem="bTG-XU-CPK" secondAttribute="width" id="hkf-DG-yTx"/>
+                                                <constraint firstItem="Fb7-83-C9u" firstAttribute="leading" secondItem="MH5-U1-Pzk" secondAttribute="leading" id="kMV-cj-OwC"/>
+                                                <constraint firstItem="MH5-U1-Pzk" firstAttribute="trailing" secondItem="Fb7-83-C9u" secondAttribute="trailing" id="l6P-gy-3Hy"/>
                                             </constraints>
                                             <viewLayoutGuide key="contentLayoutGuide" id="MH5-U1-Pzk"/>
                                             <viewLayoutGuide key="frameLayoutGuide" id="bTG-XU-CPK"/>
@@ -311,6 +374,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="推荐" id="mDT-rX-H0e"/>
                     <connections>
+                        <outlet property="DailyRecommendView" destination="mw7-tb-CUU" id="lKj-nS-Pk3"/>
                         <outlet property="bannerView" destination="cei-MW-7pK" id="3qu-VH-S54"/>
                     </connections>
                 </viewController>
@@ -378,11 +442,19 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKQ-xE-K3V">
                                                         <rect key="frame" x="0.0" y="280" width="1056" height="80"/>
                                                         <subviews>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBs-im-WDn">
+                                                                <rect key="frame" x="930.5" y="-3" width="125.5" height="86.5"/>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                                </state>
+                                                            </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dxi-cg-nI9">
                                                                 <rect key="frame" x="0.0" y="0.0" width="528" height="80"/>
                                                                 <subviews>
-                                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma8-uc-Wuc">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="86"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma8-uc-Wuc">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="528" height="80"/>
                                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="播放"/>
@@ -395,7 +467,9 @@
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="Dxi-cg-nI9" secondAttribute="bottom" id="6A8-vB-aNX"/>
+                                                            <constraint firstItem="VBs-im-WDn" firstAttribute="centerY" secondItem="aKQ-xE-K3V" secondAttribute="centerY" id="Ep4-Tp-EwU"/>
                                                             <constraint firstItem="Dxi-cg-nI9" firstAttribute="top" secondItem="aKQ-xE-K3V" secondAttribute="top" id="KMT-VM-Rmz"/>
+                                                            <constraint firstAttribute="trailing" secondItem="VBs-im-WDn" secondAttribute="trailing" id="ffK-lQ-Nhi"/>
                                                             <constraint firstItem="Dxi-cg-nI9" firstAttribute="leading" secondItem="aKQ-xE-K3V" secondAttribute="leading" id="nON-sn-w0z"/>
                                                             <constraint firstItem="Dxi-cg-nI9" firstAttribute="width" secondItem="aKQ-xE-K3V" secondAttribute="width" multiplier="0.5" id="omh-vC-lj0"/>
                                                             <constraint firstAttribute="height" constant="80" id="uON-KW-9Yq"/>
@@ -445,6 +519,7 @@
                     </view>
                     <connections>
                         <outlet property="bgView" destination="vrQ-wL-XHC" id="cHy-EO-ljy"/>
+                        <outlet property="collectButton" destination="VBs-im-WDn" id="TwW-Tj-HHh"/>
                         <outlet property="coverImageView" destination="eAf-ue-Ykc" id="hw1-NC-wpA"/>
                         <outlet property="descView" destination="qCB-BN-EDm" id="esH-fw-8Km"/>
                         <outlet property="nameLabel" destination="OJE-F3-S57" id="o11-Ha-Exg"/>
@@ -501,6 +576,7 @@
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="bgImage" width="1288" height="728"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
         <namedColor name="grayColor">

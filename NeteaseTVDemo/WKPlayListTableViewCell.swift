@@ -41,6 +41,7 @@ class WKPlayListTableViewCell: UITableViewCell {
         ({(label: UILabel) in
             label.text = "SONG NAME"
             label.textColor = UIColor(named: "titleColor")
+            label.font = .systemFont(ofSize: 30)
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
