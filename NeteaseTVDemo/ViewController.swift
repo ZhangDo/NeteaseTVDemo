@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playListView: UITableView!
     @IBOutlet weak var playOrPauseBtn: UIButton!
     
+    @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var bottomActionView: UIView!
     @IBOutlet weak var sliderStackView: UIStackView!
     static func creat() -> ViewController {
@@ -129,7 +130,7 @@ extension ViewController: WKPlayerDelegate {
                 self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
                 self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
                 self.nameLabel.text = now.wk_sourceName
-
+                self.singerLabel.text = now.singer
             }
 
         }

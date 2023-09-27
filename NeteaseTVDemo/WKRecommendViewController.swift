@@ -14,7 +14,17 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     var allModels: [CustomAudioModel] = [CustomAudioModel]()
     fileprivate var banners: [NRBannerModel]?
     fileprivate var dailyPlaylist: [NRRecommendPlayListModel]?
+    fileprivate var dailyAudioModels: [CustomAudioModel] = [CustomAudioModel]()
     
+    @IBOutlet weak var songView1: WKSingleSongView!
+    @IBOutlet weak var songView2: WKSingleSongView!
+    @IBOutlet weak var songView3: WKSingleSongView!
+    @IBOutlet weak var songView4: WKSingleSongView!
+    @IBOutlet weak var songView5: WKSingleSongView!
+    @IBOutlet weak var songView6: WKSingleSongView!
+    @IBOutlet weak var songView7: WKSingleSongView!
+    @IBOutlet weak var songView8: WKSingleSongView!
+    @IBOutlet weak var songView9: WKSingleSongView!
     @IBOutlet weak var bannerView: FSPagerView! {
         didSet {
             self.bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -34,8 +44,6 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         
         Task {
             await loadData()
-            self.bannerView.reloadData()
-            self.DailyRecommendView.reloadData()
         }
         
         
@@ -46,7 +54,89 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             model.targetType != 3000
         })
         
+        self.bannerView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.bannerView.scrollToItem(at: 1, animated: true)
+        }
+        
         self.dailyPlaylist = try! await fetchRecommendPlayList(cookie: cookie)
+        self.DailyRecommendView.reloadData()
+        
+        let dailySongs = try! await fetchDailtSongs(cookie: cookie).dailySongs
+        self.dailyAudioModels.removeAll()
+        for songModel in dailySongs {
+            let model = CustomAudioModel()
+            model.audioId = songModel.id
+            model.isFree = 1
+            model.freeTime = 0
+            model.audioTitle = songModel.name
+            model.audioPicUrl = songModel.al.picUrl
+            let singerModel = songModel.ar
+            model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+            self.dailyAudioModels.append(model)
+        }
+        self.songView1.setModel(audioModel: self.dailyAudioModels[0])
+        self.songView1.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 0)
+            self!.enterPlayer()
+        }
+            
+        self.songView2.setModel(audioModel: self.dailyAudioModels[1])
+        self.songView2.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 1)
+            self!.enterPlayer()
+        }
+        self.songView3.setModel(audioModel: self.dailyAudioModels[2])
+        self.songView3.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 2)
+            self!.enterPlayer()
+        }
+        self.songView4.setModel(audioModel: self.dailyAudioModels[3])
+        self.songView4.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 3)
+            self!.enterPlayer()
+        }
+        self.songView5.setModel(audioModel: self.dailyAudioModels[4])
+        self.songView5.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 4)
+            self!.enterPlayer()
+        }
+        self.songView6.setModel(audioModel: self.dailyAudioModels[5])
+        self.songView6.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 5)
+            self!.enterPlayer()
+        }
+        self.songView7.setModel(audioModel: self.dailyAudioModels[6])
+        self.songView7.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 6)
+            self!.enterPlayer()
+        }
+        self.songView8.setModel(audioModel: self.dailyAudioModels[7])
+        self.songView8.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 7)
+            self!.enterPlayer()
+        }
+        self.songView9.setModel(audioModel: self.dailyAudioModels[8])
+        self.songView9.onPrimaryAction = { [weak self] model in
+            wk_player.allOriginalModels = self!.dailyAudioModels
+            try? wk_player.play(index: 8)
+            self!.enterPlayer()
+        }
+        
+    }
+    
+    func enterPlayer() {
+        let playingVC = ViewController.creat()
+        playingVC.modalPresentationStyle = .blurOverFullScreen
+        self.present(playingVC, animated: true)
     }
     
 

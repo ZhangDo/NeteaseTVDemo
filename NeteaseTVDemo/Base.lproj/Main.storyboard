@@ -47,13 +47,19 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-up-XQL" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                    <rect key="frame" x="84.5" y="544" width="504" height="0.0"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                                                    <rect key="frame" x="84.5" y="504" width="504" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aaaaa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-vi-udH" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                                                    <rect key="frame" x="0.0" y="524" width="673.5" height="58"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-Mu-omP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="673.5" height="544"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="673.5" height="504"/>
                                                                     <connections>
                                                                         <outlet property="dataSource" destination="BYZ-38-t0r" id="Xgn-Hb-qFM"/>
                                                                         <outlet property="delegate" destination="BYZ-38-t0r" id="CgH-5W-Gli"/>
@@ -61,13 +67,16 @@
                                                                 </tableView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="U3K-vi-udH" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="2Lf-KH-hpH"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="centerX" secondItem="xci-Oa-R2R" secondAttribute="centerX" id="5wj-nm-GU3"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="width" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.8:1" id="NBy-gN-CT3"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="NUp-us-rNt"/>
+                                                                <constraint firstItem="U3K-vi-udH" firstAttribute="top" secondItem="GQd-up-XQL" secondAttribute="bottom" constant="20" id="VSZ-IA-s7j"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="height" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.767857" id="cip-UO-VHK"/>
-                                                                <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="60" id="g2R-Ef-E3H"/>
+                                                                <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="20" id="g2R-Ef-E3H"/>
                                                                 <constraint firstAttribute="trailing" secondItem="VDY-Mu-omP" secondAttribute="trailing" id="idi-Q3-2MM"/>
                                                                 <constraint firstItem="VDY-Mu-omP" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="n3h-bI-Iga"/>
+                                                                <constraint firstAttribute="trailing" secondItem="U3K-vi-udH" secondAttribute="trailing" id="pDh-g3-zQB"/>
                                                                 <constraint firstItem="VDY-Mu-omP" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="r7p-Kw-L3M"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="VDY-Mu-omP" secondAttribute="bottom" id="snf-Ie-gMm"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
@@ -219,6 +228,7 @@
                         <outlet property="playListView" destination="VDY-Mu-omP" id="Xx3-nc-zf4"/>
                         <outlet property="progressView" destination="xvt-N2-1Bp" id="VVI-dt-qt4"/>
                         <outlet property="rightLabel" destination="tgh-br-fwf" id="Ycw-49-ApE"/>
+                        <outlet property="singerLabel" destination="U3K-vi-udH" id="fQG-G6-Rj8"/>
                         <outlet property="sliderStackView" destination="iSq-RS-SGO" id="9aA-ZO-DI6"/>
                         <outlet property="tableView" destination="TgS-vo-ysc" id="yxQ-hl-FGE"/>
                     </connections>
@@ -287,16 +297,13 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="1760" height="500"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLU-Ac-PNV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="58"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="458" height="91"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-tb-CUU">
-                                                                    <rect key="frame" x="0.0" y="68" width="1760" height="500"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="500" id="plN-QL-irz"/>
-                                                                    </constraints>
+                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="399"/>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YC9-Ii-KEM">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -324,15 +331,88 @@
                                                                 <constraint firstItem="mw7-tb-CUU" firstAttribute="top" secondItem="PLU-Ac-PNV" secondAttribute="bottom" constant="10" id="Jz1-zo-Oz8"/>
                                                                 <constraint firstItem="PLU-Ac-PNV" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="top" id="NSP-04-6XR"/>
                                                                 <constraint firstItem="PLU-Ac-PNV" firstAttribute="leading" secondItem="cuk-eD-xRE" secondAttribute="leading" id="RUJ-AU-MVy"/>
+                                                                <constraint firstAttribute="bottom" secondItem="mw7-tb-CUU" secondAttribute="bottom" id="bVw-IY-KwT"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PLU-Ac-PNV" secondAttribute="trailing" constant="20" symbolic="YES" id="eZC-3A-hVg"/>
                                                                 <constraint firstAttribute="trailing" secondItem="mw7-tb-CUU" secondAttribute="trailing" id="eui-DH-2Cz"/>
                                                                 <constraint firstAttribute="height" constant="500" id="nTH-ee-znT"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCi-8W-p0S">
+                                                            <rect key="frame" x="0.0" y="510" width="1760" height="500"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每日推荐单曲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv3-Ki-oFL">
+                                                                    <rect key="frame" x="0.0" y="20" width="458" height="91"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-cM-roh">
+                                                                    <rect key="frame" x="0.0" y="140" width="1760" height="360"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lue-vm-NZk">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="580" height="360"/>
+                                                                            <subviews>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ou0-2e-X4c" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="113.5"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nep-Rg-s5g" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="123.5" width="580" height="113"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-gd-iSm" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="246.5" width="580" height="113.5"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZB4-Wq-t6T">
+                                                                            <rect key="frame" x="590" y="0.0" width="580" height="360"/>
+                                                                            <subviews>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Di-SF-CcP" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="113.5"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKr-fY-yYo" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="123.5" width="580" height="113"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9J-Qi-5fa" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="246.5" width="580" height="113.5"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-cv-jnv">
+                                                                            <rect key="frame" x="1180" y="0.0" width="580" height="360"/>
+                                                                            <subviews>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-AD-a19" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="113.5"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNw-BQ-XoQ" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="123.5" width="580" height="113"/>
+                                                                                </view>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-9N-Yw1" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="246.5" width="580" height="113.5"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rv3-Ki-oFL" secondAttribute="trailing" constant="20" symbolic="YES" id="3Qf-AP-df6"/>
+                                                                <constraint firstAttribute="height" constant="500" id="5Sf-47-Pxs"/>
+                                                                <constraint firstItem="HEb-cM-roh" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" id="6gr-bL-eFl"/>
+                                                                <constraint firstItem="rv3-Ki-oFL" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="top" constant="20" id="7PA-yT-y9w"/>
+                                                                <constraint firstAttribute="trailing" secondItem="HEb-cM-roh" secondAttribute="trailing" id="AOD-kK-aWQ"/>
+                                                                <constraint firstItem="HEb-cM-roh" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="top" constant="140" id="USj-oM-aj2"/>
+                                                                <constraint firstAttribute="bottom" secondItem="HEb-cM-roh" secondAttribute="bottom" id="Uru-s6-olJ"/>
+                                                                <constraint firstItem="rv3-Ki-oFL" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" id="cCB-qz-QJm"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8aU-m3-bSJ"/>
+                                                        <constraint firstItem="NCi-8W-p0S" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8sb-MS-x3t"/>
+                                                        <constraint firstItem="NCi-8W-p0S" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="bottom" constant="10" id="Ejx-nG-YMM"/>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="top" secondItem="Fb7-83-C9u" secondAttribute="top" id="JZu-ec-2cg"/>
                                                         <constraint firstAttribute="trailing" secondItem="cuk-eD-xRE" secondAttribute="trailing" id="MtG-ct-i8u"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NCi-8W-p0S" secondAttribute="trailing" id="Rpn-Yc-yfR"/>
                                                         <constraint firstAttribute="height" constant="1500" id="V2Z-Ob-lcB"/>
                                                     </constraints>
                                                 </view>
@@ -376,6 +456,15 @@
                     <connections>
                         <outlet property="DailyRecommendView" destination="mw7-tb-CUU" id="lKj-nS-Pk3"/>
                         <outlet property="bannerView" destination="cei-MW-7pK" id="3qu-VH-S54"/>
+                        <outlet property="songView1" destination="Ou0-2e-X4c" id="N9P-It-ByW"/>
+                        <outlet property="songView2" destination="nep-Rg-s5g" id="qub-r8-3Ml"/>
+                        <outlet property="songView3" destination="iyM-gd-iSm" id="bGn-3n-aix"/>
+                        <outlet property="songView4" destination="6Di-SF-CcP" id="d0v-f0-q05"/>
+                        <outlet property="songView5" destination="vKr-fY-yYo" id="8DC-Q0-uzM"/>
+                        <outlet property="songView6" destination="t9J-Qi-5fa" id="aDP-YD-X0y"/>
+                        <outlet property="songView7" destination="BOh-AD-a19" id="Vsy-X4-wJj"/>
+                        <outlet property="songView8" destination="tNw-BQ-XoQ" id="ec7-zR-iPg"/>
+                        <outlet property="songView9" destination="uvB-9N-Yw1" id="hXa-H1-ST0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rID-nc-Zb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -571,6 +660,9 @@
     </scenes>
     <designables>
         <designable name="GQd-up-XQL"/>
+        <designable name="U3K-vi-udH">
+            <size key="intrinsicContentSize" width="127" height="58"/>
+        </designable>
     </designables>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
@@ -580,7 +672,7 @@
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
         <namedColor name="grayColor">
-            <color white="0.88716357946395874" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color white="0.88627451658248901" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
     </resources>
 </document>
