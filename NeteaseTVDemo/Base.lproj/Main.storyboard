@@ -292,12 +292,12 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-tb-CUU">
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-tb-CUU">
                                                                     <rect key="frame" x="0.0" y="68" width="1760" height="500"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="500" id="plN-QL-irz"/>
                                                                     </constraints>
-                                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YC9-Ii-KEM">
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YC9-Ii-KEM">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
