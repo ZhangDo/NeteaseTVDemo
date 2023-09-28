@@ -36,7 +36,7 @@ class WKPlayListDetailViewController: UIViewController {
     }
     
     func loadData() async {
-        let playListDetail: NRPlayListDetailModel = try! await fetchPlayListDetail(id: self.playListId)
+        let playListDetail: NRPlayListDetailModel = try! await fetchPlayListDetail(id: self.playListId, cookie: cookie)
         self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
         self.coverImageView.kf.setImage(with: URL(string: playListDetail.coverImgUrl))
         self.nameLabel.text = playListDetail.name
@@ -53,6 +53,10 @@ class WKPlayListDetailViewController: UIViewController {
             model.freeTime = 0
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al.picUrl
+            
+            let min = songModel.dt / 1000 / 60
+            let sec = songModel.dt / 1000 % 60
+            model.audioTime = String(format: "%d:%02d", min, sec)
             let singerModel = songModel.ar
             model.singer = singerModel.map { $0.name! }.joined(separator: "/")
             self.allModels.append(model)

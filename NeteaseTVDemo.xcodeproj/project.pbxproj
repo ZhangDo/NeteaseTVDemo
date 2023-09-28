@@ -519,7 +519,7 @@
 			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.3;
+				minimumVersion = 0.4.4;
 			};
 		};
 		29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

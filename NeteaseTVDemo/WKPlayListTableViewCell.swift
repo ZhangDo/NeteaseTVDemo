@@ -12,6 +12,7 @@ class WKPlayListTableViewCell: UITableViewCell {
     private var picView = UIImageView ()
     private var songNameLabel = MarqueeLabel()
     private var singerLabel = UILabel()
+    private var timeLabel = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,6 +51,17 @@ class WKPlayListTableViewCell: UITableViewCell {
             }
         })(singerLabel)
         
+        ({(label: UILabel) in
+            label.text = "SONG NAME"
+            label.textColor = .lightGray
+            label.font = .systemFont(ofSize: 30)
+            contentView.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.right.equalToSuperview().offset(-20)
+                make.centerY.equalToSuperview()
+            }
+        })(timeLabel)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -72,6 +84,7 @@ class WKPlayListTableViewCell: UITableViewCell {
         self.picView.kf.setImage(with: URL(string: model.wk_audioPic ?? ""))
         self.songNameLabel.text = model.wk_sourceName
         self.singerLabel.text = model.wk_singerName
+        self.timeLabel.text = model.audioTime
     }
     
 }

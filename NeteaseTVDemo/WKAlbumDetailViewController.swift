@@ -43,7 +43,7 @@ class WKAlbumDetailViewController: UIViewController {
         
         self.bgView.kf.setImage(with: URL(string: albumDetail.album.picUrl!),options: [.transition(.flipFromBottom(0.6))])
         self.coverImageView.kf.setImage(with: URL(string: albumDetail.album.picUrl!))
-        self.nameLabel.text = "TODO:专辑名字"
+        self.nameLabel.text = albumDetail.album.name
         //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = albumDetail.album.description!
         self.collectButton.isHidden = false
@@ -55,6 +55,9 @@ class WKAlbumDetailViewController: UIViewController {
             model.freeTime = 0
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al.picUrl
+            let min = songModel.dt / 1000 / 60
+            let sec = songModel.dt / 1000 % 60
+            model.audioTime = String(format: "%d:%02d", min, sec)
             let singerModel = songModel.ar
             model.singer = singerModel.map { $0.name! }.joined(separator: "/")
             self.allModels.append(model)
