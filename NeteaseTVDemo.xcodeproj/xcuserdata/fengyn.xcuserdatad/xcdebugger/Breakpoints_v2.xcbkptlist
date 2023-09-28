@@ -3,22 +3,4 @@
    uuid = "4F09B342-59AA-4A95-B9D4-BD3769BD5657"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BCE64C61-CD3F-463A-8E6A-8D973590979C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/WKPlayListCollectionViewCell.swift"
-            startingColumnNumber = "16"
-            endingColumnNumber = "16"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "setupViews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

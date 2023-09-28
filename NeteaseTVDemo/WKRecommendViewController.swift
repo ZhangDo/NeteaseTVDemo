@@ -182,6 +182,10 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             let playingVC = ViewController.creat()
             playingVC.modalPresentationStyle = .blurOverFullScreen
             self.present(playingVC, animated: true)
+        } else if self.banners![index].targetType == 10 {
+            let albumVC = WKAlbumDetailViewController.creat(playListId: self.banners![index].targetId!)
+            albumVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(albumVC, animated: true)
         }
         
 //        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: 7780071743)

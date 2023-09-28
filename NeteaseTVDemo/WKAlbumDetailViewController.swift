@@ -9,27 +9,86 @@ import UIKit
 import NeteaseRequest
 class WKAlbumDetailViewController: UIViewController {
     
+    @IBOutlet weak var bgView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var coverImageView: UIImageView!
+    
+    @IBOutlet weak var collectButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var descView: WKDescView!
+    
+    private var albumId: Int!
+    
+    var allModels: [CustomAudioModel] = [CustomAudioModel]()
+    
     static func creat(playListId: Int) -> WKAlbumDetailViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKAlbumDetailViewController
+        vc.albumId = playListId
         return vc
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.coverImageView.layer.cornerRadius = 10;
+        tableView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
+        Task {
+            await loadData()
+        }
         
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func loadData() async {
+        let albumDetail = try! await fetchAlbumDetail(id: self.albumId)
+        
+        self.bgView.kf.setImage(with: URL(string: albumDetail.album.picUrl!),options: [.transition(.flipFromBottom(0.6))])
+        self.coverImageView.kf.setImage(with: URL(string: albumDetail.album.picUrl!))
+        self.nameLabel.text = "TODO:专辑名字"
+        //todo: if description null 则隐藏 descView
+        self.descView.descLabel.text = albumDetail.album.description!
+        self.collectButton.isHidden = false
+        
+        for songModel in albumDetail.songs {
+            let model = CustomAudioModel()
+            model.audioId = songModel.id
+            model.isFree = 1
+            model.freeTime = 0
+            model.audioTitle = songModel.name
+            model.audioPicUrl = songModel.al.picUrl
+            let singerModel = songModel.ar
+            model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+            self.allModels.append(model)
+        }
+        
+        tableView .reloadData()
+        self.playButton.isHidden = false
     }
-    */
+    
+    @IBAction func playAll(_ sender: Any) {
+        wk_player.allOriginalModels = self.allModels
+        try? wk_player.play(index: 0)
+        let playingVC = ViewController.creat()
+        playingVC.modalPresentationStyle = .blurOverFullScreen
+        self.present(playingVC, animated: true)
+    }
 
+}
+
+extension WKAlbumDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.allModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
+        cell.setModel(self.allModels[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        wk_player.allOriginalModels = self.allModels
+        try? wk_player.play(index: indexPath.row)
+        let playingVC = ViewController.creat()
+        self.present(playingVC, animated: true)
+    }
 }
