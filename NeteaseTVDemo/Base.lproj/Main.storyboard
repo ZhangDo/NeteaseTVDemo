@@ -291,7 +291,7 @@
                                                     </connections>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-83-C9u">
-                                                    <rect key="frame" x="0.0" y="400" width="1760" height="1500"/>
+                                                    <rect key="frame" x="0.0" y="400" width="1760" height="1800"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-eD-xRE">
                                                             <rect key="frame" x="0.0" y="0.0" width="1760" height="500"/>
@@ -405,28 +405,69 @@
                                                                 <constraint firstItem="rv3-Ki-oFL" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" id="cCB-qz-QJm"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-yL-wXw">
+                                                            <rect key="frame" x="-8" y="1030" width="1760" height="500"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olx-uO-nVc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="306" height="91"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VQS-ML-TGF">
+                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="399"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JiR-xJ-Uj4">
+                                                                        <size key="itemSize" width="128" height="128"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                    <cells>
+                                                                        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="SeS-Fs-ZiI">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="76X-U3-ipe">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                            </collectionViewCellContentView>
+                                                                        </collectionViewCell>
+                                                                    </cells>
+                                                                    <connections>
+                                                                        <outlet property="dataSource" destination="Wfi-8j-fvb" id="U15-SX-mJp"/>
+                                                                        <outlet property="delegate" destination="Wfi-8j-fvb" id="wd5-mo-OaB"/>
+                                                                    </connections>
+                                                                </collectionView>
+                                                            </subviews>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8aU-m3-bSJ"/>
                                                         <constraint firstItem="NCi-8W-p0S" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8sb-MS-x3t"/>
                                                         <constraint firstItem="NCi-8W-p0S" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="bottom" constant="10" id="Ejx-nG-YMM"/>
+                                                        <constraint firstItem="UoQ-yL-wXw" firstAttribute="height" secondItem="cuk-eD-xRE" secondAttribute="height" id="F1o-Ll-Q7i"/>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="top" secondItem="Fb7-83-C9u" secondAttribute="top" id="JZu-ec-2cg"/>
                                                         <constraint firstAttribute="trailing" secondItem="cuk-eD-xRE" secondAttribute="trailing" id="MtG-ct-i8u"/>
                                                         <constraint firstAttribute="trailing" secondItem="NCi-8W-p0S" secondAttribute="trailing" id="Rpn-Yc-yfR"/>
-                                                        <constraint firstAttribute="height" constant="1500" id="V2Z-Ob-lcB"/>
+                                                        <constraint firstAttribute="height" constant="1800" id="V2Z-Ob-lcB"/>
+                                                        <constraint firstItem="UoQ-yL-wXw" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="bottom" constant="20" id="Y9G-Sx-xjI"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="UoQ-yL-wXw" firstAttribute="width" secondItem="bTG-XU-CPK" secondAttribute="width" id="EqB-b4-eZN"/>
                                                 <constraint firstItem="Fb7-83-C9u" firstAttribute="top" secondItem="cei-MW-7pK" secondAttribute="bottom" id="GpH-iA-xYL"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="trailing" secondItem="MH5-U1-Pzk" secondAttribute="trailing" id="KNO-cY-yAW"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="leading" secondItem="MH5-U1-Pzk" secondAttribute="leading" id="PLr-wY-Wka"/>
                                                 <constraint firstItem="Fb7-83-C9u" firstAttribute="bottom" secondItem="MH5-U1-Pzk" secondAttribute="bottom" id="Sx6-xc-mhB"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="width" secondItem="bTG-XU-CPK" secondAttribute="width" id="YCP-NW-akd"/>
+                                                <constraint firstItem="MH5-U1-Pzk" firstAttribute="trailing" secondItem="UoQ-yL-wXw" secondAttribute="trailing" constant="8" id="bda-kK-boG"/>
                                                 <constraint firstItem="cei-MW-7pK" firstAttribute="top" secondItem="MH5-U1-Pzk" secondAttribute="top" id="cXO-Ne-mrB"/>
                                                 <constraint firstItem="Fb7-83-C9u" firstAttribute="width" secondItem="bTG-XU-CPK" secondAttribute="width" id="hkf-DG-yTx"/>
                                                 <constraint firstItem="Fb7-83-C9u" firstAttribute="leading" secondItem="MH5-U1-Pzk" secondAttribute="leading" id="kMV-cj-OwC"/>
                                                 <constraint firstItem="MH5-U1-Pzk" firstAttribute="trailing" secondItem="Fb7-83-C9u" secondAttribute="trailing" id="l6P-gy-3Hy"/>
+                                                <constraint firstItem="MH5-U1-Pzk" firstAttribute="leading" secondItem="UoQ-yL-wXw" secondAttribute="leading" constant="8" id="qyI-kC-U8D"/>
                                             </constraints>
                                             <viewLayoutGuide key="contentLayoutGuide" id="MH5-U1-Pzk"/>
                                             <viewLayoutGuide key="frameLayoutGuide" id="bTG-XU-CPK"/>
@@ -456,6 +497,7 @@
                     <connections>
                         <outlet property="DailyRecommendView" destination="mw7-tb-CUU" id="lKj-nS-Pk3"/>
                         <outlet property="bannerView" destination="cei-MW-7pK" id="3qu-VH-S54"/>
+                        <outlet property="recommendView" destination="VQS-ML-TGF" id="ktA-16-cZD"/>
                         <outlet property="songView1" destination="Ou0-2e-X4c" id="N9P-It-ByW"/>
                         <outlet property="songView2" destination="nep-Rg-s5g" id="qub-r8-3Ml"/>
                         <outlet property="songView3" destination="iyM-gd-iSm" id="bGn-3n-aix"/>

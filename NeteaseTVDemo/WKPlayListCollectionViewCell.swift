@@ -28,6 +28,7 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViews() {
+        self.clipsToBounds = true
         motionEffectV = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
         motionEffectV.maximumRelativeValue = 8
         motionEffectV.minimumRelativeValue = -8
@@ -95,6 +96,7 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
                 self.layer.shadowOffset = CGSizeMake(0, 16)
                 self.layer.shadowOpacity = 0.2
                 self.layer.shadowRadius = 18.0
+                self.layer.cornerRadius = 10
                 self.addMotionEffect(self.motionEffectH)
                 self.addMotionEffect(self.motionEffectV)
             }
@@ -103,6 +105,7 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
                 self.transform = CGAffineTransformIdentity
                 self.layer.shadowOpacity = 0
                 self.layer.shadowOffset = CGSizeMake(0, 0)
+                self.layer.cornerRadius = 10
                 self.removeMotionEffect(self.motionEffectH)
                 self.removeMotionEffect(self.motionEffectV)
             }

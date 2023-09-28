@@ -16,6 +16,8 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     fileprivate var dailyPlaylist: [NRRecommendPlayListModel]?
     fileprivate var dailyAudioModels: [CustomAudioModel] = [CustomAudioModel]()
     
+    @IBOutlet weak var recommendView: UICollectionView!
+    fileprivate var recommendPlayList:[NRRecommendPlayListModel]?
     @IBOutlet weak var songView1: WKSingleSongView!
     @IBOutlet weak var songView2: WKSingleSongView!
     @IBOutlet weak var songView3: WKSingleSongView!
@@ -40,6 +42,9 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         
         DailyRecommendView.register(WKPlayListCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self))
         DailyRecommendView.collectionViewLayout = makeDailyRecommendCollectionViewLayout()
+        
+        recommendView.register(WKPlayListCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self))
+        recommendView.collectionViewLayout = makeDailyRecommendCollectionViewLayout()
         
         
         Task {
@@ -131,6 +136,10 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             self!.enterPlayer()
         }
         
+        self.recommendPlayList = try! await fetchPersonalizedPlayList(cookie: cookie)
+        self.recommendView.reloadData()
+        
+        
     }
     
     func enterPlayer() {
@@ -204,20 +213,46 @@ extension WKRecommendViewController {
 extension WKRecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dailyPlaylist?.count ?? 0
+        switch collectionView {
+        case DailyRecommendView:
+            return self.dailyPlaylist?.count ?? 0
+        case recommendView:
+            return self.recommendPlayList?.count ?? 0
+        default:
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self), for: indexPath) as! WKPlayListCollectionViewCell
-        cell.playListCover.kf.setImage(with: URL(string: self.dailyPlaylist![indexPath.row].picUrl!))
-        cell.titleLabel.text = self.dailyPlaylist![indexPath.row].name
-        return cell
+        switch collectionView {
+        case DailyRecommendView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self), for: indexPath) as! WKPlayListCollectionViewCell
+            cell.playListCover.kf.setImage(with: URL(string: self.dailyPlaylist![indexPath.row].picUrl!))
+            cell.titleLabel.text = self.dailyPlaylist![indexPath.row].name
+            return cell
+        case recommendView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self), for: indexPath) as! WKPlayListCollectionViewCell
+            cell.playListCover.kf.setImage(with: URL(string: self.recommendPlayList![indexPath.row].picUrl!))
+            cell.titleLabel.text = self.recommendPlayList![indexPath.row].name
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: self.dailyPlaylist![indexPath.row].id)
-        playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
-        self.present(playListDetaiVC, animated: true)
+        if collectionView == DailyRecommendView {
+            let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: self.dailyPlaylist![indexPath.row].id)
+            playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(playListDetaiVC, animated: true)
+        } else {
+            let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: self.recommendPlayList![indexPath.row].id)
+            playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(playListDetaiVC, animated: true)
+        }
+        
     }
     
     

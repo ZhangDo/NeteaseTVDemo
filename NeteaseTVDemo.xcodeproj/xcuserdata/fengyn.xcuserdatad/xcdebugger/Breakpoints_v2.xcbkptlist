@@ -14,8 +14,8 @@
             filePath = "NeteaseTVDemo/WKPlayListCollectionViewCell.swift"
             startingColumnNumber = "16"
             endingColumnNumber = "16"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "setupViews()"
             landmarkType = "7">
          </BreakpointContent>
