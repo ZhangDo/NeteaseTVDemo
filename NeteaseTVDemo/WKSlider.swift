@@ -36,7 +36,7 @@ class WKSlider: UIProgressView {
                 delegate?.playOrPause()
                 self.transform = CGAffineTransformMakeScale(1.0, 1.0)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    self.transform = CGAffineTransformMakeScale(1.0, 1.2)
+                    self.transform = CGAffineTransformMakeScale(1.0, 1.1)
                 }
                 
             }
@@ -45,7 +45,7 @@ class WKSlider: UIProgressView {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if isFocused {
-            self.transform = CGAffineTransformMakeScale(1.0, 1.2)
+            self.transform = CGAffineTransformMakeScale(1.0, 1.1)
         } else {
             self.transform = CGAffineTransformIdentity
         }

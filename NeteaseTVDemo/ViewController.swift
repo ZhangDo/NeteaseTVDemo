@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
         
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
