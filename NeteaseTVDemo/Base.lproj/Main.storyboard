@@ -292,7 +292,7 @@
                                                     </connections>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-83-C9u">
-                                                    <rect key="frame" x="0.0" y="400" width="1760" height="1800"/>
+                                                    <rect key="frame" x="0.0" y="400" width="1760" height="2500"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-eD-xRE">
                                                             <rect key="frame" x="0.0" y="0.0" width="1760" height="500"/>
@@ -348,47 +348,47 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HEb-cM-roh">
-                                                                    <rect key="frame" x="0.0" y="140" width="1760" height="360"/>
+                                                                    <rect key="frame" x="30" y="140" width="1700" height="360"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lue-vm-NZk">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="580" height="360"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="560" height="360"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ou0-2e-X4c" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="113.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="113.5"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nep-Rg-s5g" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="123.5" width="580" height="113"/>
+                                                                                    <rect key="frame" x="0.0" y="123.5" width="560" height="113"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyM-gd-iSm" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="246.5" width="580" height="113.5"/>
+                                                                                    <rect key="frame" x="0.0" y="246.5" width="560" height="113.5"/>
                                                                                 </view>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZB4-Wq-t6T">
-                                                                            <rect key="frame" x="590" y="0.0" width="580" height="360"/>
+                                                                            <rect key="frame" x="570" y="0.0" width="560" height="360"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Di-SF-CcP" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="113.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="113.5"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKr-fY-yYo" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="123.5" width="580" height="113"/>
+                                                                                    <rect key="frame" x="0.0" y="123.5" width="560" height="113"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t9J-Qi-5fa" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="246.5" width="580" height="113.5"/>
+                                                                                    <rect key="frame" x="0.0" y="246.5" width="560" height="113.5"/>
                                                                                 </view>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-cv-jnv">
-                                                                            <rect key="frame" x="1180" y="0.0" width="580" height="360"/>
+                                                                            <rect key="frame" x="1140" y="0.0" width="560" height="360"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-AD-a19" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="580" height="113.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="113.5"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNw-BQ-XoQ" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="123.5" width="580" height="113"/>
+                                                                                    <rect key="frame" x="0.0" y="123.5" width="560" height="113"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-9N-Yw1" customClass="WKSingleSongView" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="246.5" width="580" height="113.5"/>
+                                                                                    <rect key="frame" x="0.0" y="246.5" width="560" height="113.5"/>
                                                                                 </view>
                                                                             </subviews>
                                                                         </stackView>
@@ -398,28 +398,26 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rv3-Ki-oFL" secondAttribute="trailing" constant="20" symbolic="YES" id="3Qf-AP-df6"/>
                                                                 <constraint firstAttribute="height" constant="500" id="5Sf-47-Pxs"/>
-                                                                <constraint firstItem="HEb-cM-roh" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" id="6gr-bL-eFl"/>
+                                                                <constraint firstItem="HEb-cM-roh" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" constant="30" id="6gr-bL-eFl"/>
                                                                 <constraint firstItem="rv3-Ki-oFL" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="top" constant="20" id="7PA-yT-y9w"/>
-                                                                <constraint firstAttribute="trailing" secondItem="HEb-cM-roh" secondAttribute="trailing" id="AOD-kK-aWQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="HEb-cM-roh" secondAttribute="trailing" constant="30" id="AOD-kK-aWQ"/>
                                                                 <constraint firstItem="HEb-cM-roh" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="top" constant="140" id="USj-oM-aj2"/>
                                                                 <constraint firstAttribute="bottom" secondItem="HEb-cM-roh" secondAttribute="bottom" id="Uru-s6-olJ"/>
                                                                 <constraint firstItem="rv3-Ki-oFL" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" id="cCB-qz-QJm"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-yL-wXw">
-                                                            <rect key="frame" x="-8" y="1030" width="1760" height="500"/>
+                                                            <rect key="frame" x="-8" y="1030" width="1760" height="1470"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olx-uO-nVc">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olx-uO-nVc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="306" height="91"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VQS-ML-TGF">
-                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="399"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JiR-xJ-Uj4">
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VQS-ML-TGF">
+                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="1369"/>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JiR-xJ-Uj4">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -441,17 +439,26 @@
                                                                     </connections>
                                                                 </collectionView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="olx-uO-nVc" secondAttribute="trailing" constant="20" symbolic="YES" id="7hj-4e-0ZQ"/>
+                                                                <constraint firstItem="VQS-ML-TGF" firstAttribute="top" secondItem="olx-uO-nVc" secondAttribute="bottom" constant="10" id="7yf-Tb-VBC"/>
+                                                                <constraint firstAttribute="bottom" secondItem="VQS-ML-TGF" secondAttribute="bottom" id="FoI-xp-6bq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="VQS-ML-TGF" secondAttribute="trailing" id="HUa-qj-suf"/>
+                                                                <constraint firstItem="VQS-ML-TGF" firstAttribute="leading" secondItem="UoQ-yL-wXw" secondAttribute="leading" id="PQb-q9-KOP"/>
+                                                                <constraint firstItem="olx-uO-nVc" firstAttribute="leading" secondItem="VQS-ML-TGF" secondAttribute="leading" id="bcU-36-FTR"/>
+                                                                <constraint firstItem="olx-uO-nVc" firstAttribute="top" secondItem="UoQ-yL-wXw" secondAttribute="top" id="f2E-Zx-nDA"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8aU-m3-bSJ"/>
                                                         <constraint firstItem="NCi-8W-p0S" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8sb-MS-x3t"/>
                                                         <constraint firstItem="NCi-8W-p0S" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="bottom" constant="10" id="Ejx-nG-YMM"/>
-                                                        <constraint firstItem="UoQ-yL-wXw" firstAttribute="height" secondItem="cuk-eD-xRE" secondAttribute="height" id="F1o-Ll-Q7i"/>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="top" secondItem="Fb7-83-C9u" secondAttribute="top" id="JZu-ec-2cg"/>
                                                         <constraint firstAttribute="trailing" secondItem="cuk-eD-xRE" secondAttribute="trailing" id="MtG-ct-i8u"/>
+                                                        <constraint firstAttribute="bottom" secondItem="UoQ-yL-wXw" secondAttribute="bottom" id="Ogk-St-oVP"/>
                                                         <constraint firstAttribute="trailing" secondItem="NCi-8W-p0S" secondAttribute="trailing" id="Rpn-Yc-yfR"/>
-                                                        <constraint firstAttribute="height" constant="1800" id="V2Z-Ob-lcB"/>
+                                                        <constraint firstAttribute="height" constant="2500" id="V2Z-Ob-lcB"/>
                                                         <constraint firstItem="UoQ-yL-wXw" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="bottom" constant="20" id="Y9G-Sx-xjI"/>
                                                     </constraints>
                                                 </view>

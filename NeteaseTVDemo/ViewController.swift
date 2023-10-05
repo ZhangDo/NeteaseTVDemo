@@ -193,7 +193,7 @@ extension ViewController: WKPlayerDelegate {
             if current >= (lyricTuple?.words.count)! {
                 return
             }
-            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: true)
+            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: false)
         }
 
 

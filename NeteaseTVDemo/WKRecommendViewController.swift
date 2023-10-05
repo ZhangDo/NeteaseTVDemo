@@ -44,7 +44,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         DailyRecommendView.collectionViewLayout = makeDailyRecommendCollectionViewLayout()
         
         recommendView.register(WKPlayListCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self))
-        recommendView.collectionViewLayout = makeDailyRecommendCollectionViewLayout()
+        recommendView.collectionViewLayout = makeRecommendCollectionViewLayout()
         
         
         Task {
@@ -211,6 +211,53 @@ extension WKRecommendViewController {
             return section
         }
     }
+    
+    func makeRecommendCollectionViewLayout () -> UICollectionViewLayout {
+        
+        UICollectionViewCompositionalLayout {
+            [weak self] _, _ in
+            return self?.makeGridLayoutSection()
+        }
+        
+
+    }
+    
+    func makeGridLayoutSection() -> NSCollectionLayoutSection {
+        
+//        let style = styleOverride ?? Settings.displayStyle
+        let heightDimension = NSCollectionLayoutDimension.estimated(380)
+        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.25),
+            heightDimension: .fractionalHeight(1)
+        ))
+        let hSpacing: CGFloat = 30
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: hSpacing, bottom: 0, trailing: hSpacing)
+        let group = NSCollectionLayoutGroup.horizontalGroup(with: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension:.fractionalWidth(0.25/1.15)
+        ), repeatingSubitem: item, count: 4)
+        let vSpacing: CGFloat =  16
+        let baseSpacing: CGFloat = 24
+        group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .fixed(baseSpacing), top: .fixed(vSpacing), trailing: .fixed(0), bottom: .fixed(vSpacing))
+        let section = NSCollectionLayoutSection(group: group)
+        if baseSpacing > 0 {
+            section.contentInsets = NSDirectionalEdgeInsets(top: baseSpacing, leading: 0, bottom: 0, trailing: 0)
+        }
+
+        let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .estimated(44))
+//        if showHeader {
+//            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+//                layoutSize: titleSize,
+//                elementKind: TitleSupplementaryView.reuseIdentifier,
+//                alignment: .top
+//            )
+//            section.boundarySupplementaryItems = [titleSupplementary]
+//        }
+        return section
+    }
+
+    
 }
 
 

@@ -44,7 +44,7 @@ class WKSingleSongView: UIControl {
         })(backgroundView)
         
         ({(picView: UIImageView) in
-            picView.contentMode = .scaleAspectFill
+            picView.contentMode = .scaleAspectFit
             picView.layer.cornerRadius = 10
             picView.clipsToBounds = true
             addSubview(picView)
@@ -73,7 +73,7 @@ class WKSingleSongView: UIControl {
             addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
-                make.right.equalToSuperview()
+                make.right.equalTo(self).offset(-30)
                 make.top.equalTo(self.snp.centerY).offset(5)
             }
         })(singerLabel)
@@ -88,7 +88,18 @@ class WKSingleSongView: UIControl {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
-        backgroundView.isHidden = !isFocused
+        
+        if isFocused {
+            coordinator.addCoordinatedAnimations {
+                self.transform = CGAffineTransformMakeScale(1.1, 1.1)
+            }
+        } else {
+            coordinator.addCoordinatedAnimations {
+                self.transform = CGAffineTransformIdentity
+            }
+        }
+        
+//        backgroundView.isHidden = !isFocused
     }
 
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
