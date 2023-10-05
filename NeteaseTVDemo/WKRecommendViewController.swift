@@ -193,6 +193,19 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
 //        self.present(playListDetaiVC, animated: true)
     }
     
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        super.pressesBegan(presses, with: event)
+        for press in presses {
+            if press.type == .playPause {
+                Task {
+                    await self.loadData()
+                    self.DailyRecommendView.reloadData()
+                    self.recommendView.reloadData()
+                }
+            }
+        }
+    }
+    
 }
 
 

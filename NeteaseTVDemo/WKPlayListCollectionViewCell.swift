@@ -15,7 +15,7 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
     private let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     var titleLabel: UILabel = UILabel()
     var posterView: TVPosterView!
-    var scaleFactor: CGFloat = 1.1
+    var scaleFactor: CGFloat = 1.05
     
     override init(frame: CGRect) {
         super.init(frame: frame)

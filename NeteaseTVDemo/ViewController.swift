@@ -39,16 +39,14 @@ class ViewController: UIViewController {
         wk_player.delegate = nil
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
-        
-        tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
-        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
-        self.coverImageView.layer.cornerRadius = 20;
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        wk_player.delegate = nil
         self.progressView.delegate = self
         wk_player.delegate = self
+        
+        self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
+        
         
         
         if wk_player.isPlaying {
@@ -61,6 +59,15 @@ class ViewController: UIViewController {
                 tableView.reloadData()
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
+        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
+        self.coverImageView.layer.cornerRadius = 20;
         
     }
     
