@@ -312,7 +312,7 @@
                                                     </connections>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-83-C9u">
-                                                    <rect key="frame" x="0.0" y="400" width="1760" height="2500"/>
+                                                    <rect key="frame" x="0.0" y="400" width="1760" height="2700"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuk-eD-xRE">
                                                             <rect key="frame" x="0.0" y="0.0" width="1760" height="500"/>
@@ -427,7 +427,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-yL-wXw">
-                                                            <rect key="frame" x="-8" y="1030" width="1760" height="1470"/>
+                                                            <rect key="frame" x="-8" y="1030" width="1760" height="1670"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olx-uO-nVc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="306" height="91"/>
@@ -436,7 +436,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VQS-ML-TGF">
-                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="1369"/>
+                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="1569"/>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JiR-xJ-Uj4">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -478,7 +478,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="cuk-eD-xRE" secondAttribute="trailing" id="MtG-ct-i8u"/>
                                                         <constraint firstAttribute="bottom" secondItem="UoQ-yL-wXw" secondAttribute="bottom" id="Ogk-St-oVP"/>
                                                         <constraint firstAttribute="trailing" secondItem="NCi-8W-p0S" secondAttribute="trailing" id="Rpn-Yc-yfR"/>
-                                                        <constraint firstAttribute="height" constant="2500" id="V2Z-Ob-lcB"/>
+                                                        <constraint firstAttribute="height" constant="2700" id="V2Z-Ob-lcB"/>
                                                         <constraint firstItem="UoQ-yL-wXw" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="bottom" constant="20" id="Y9G-Sx-xjI"/>
                                                     </constraints>
                                                 </view>

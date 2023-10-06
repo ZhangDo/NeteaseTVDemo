@@ -61,7 +61,10 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         
         self.bannerView.reloadData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.bannerView.scrollToItem(at: 1, animated: true)
+            if self.banners!.count > 1 {
+                self.bannerView.scrollToItem(at: 1, animated: true)
+            }
+            
         }
         
         self.dailyPlaylist = try! await fetchRecommendPlayList(cookie: cookie)
