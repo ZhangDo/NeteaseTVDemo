@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="-2208"/>
+            <point key="canvasLocation" x="597" y="-612"/>
         </scene>
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
@@ -255,7 +255,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="-688"/>
+            <point key="canvasLocation" x="597" y="1333"/>
+        </scene>
+        <!--浏览-->
+        <scene sceneID="IkT-ae-DCa">
+            <objects>
+                <viewController title="浏览" id="0Tw-Vp-ztT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zZ3-ZZ-HPQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="eR1-3g-NPA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eK3-3t-uIi">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fzW-Yy-2Za"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="浏览" id="YRV-14-5rg"/>
+                    <navigationItem key="navigationItem" id="WYa-pc-Lzv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sqN-WE-31O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="581" y="-2277"/>
         </scene>
         <!--推荐-->
         <scene sceneID="UWU-Tm-q0a">
@@ -690,13 +710,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="Wfi-8j-fvb" kind="relationship" relationship="viewControllers" id="6lc-Me-9Z0"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="xE1-Fy-jeu"/>
-                        <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="6V2-Rp-iFc"/>
+                        <segue destination="0Tw-Vp-ztT" kind="relationship" relationship="viewControllers" id="BWJ-65-Uzi"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="tYd-9q-UaS"/>
+                        <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="cDH-8X-Ser"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oa-wA-3J8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3640" y="-1745"/>
+            <point key="canvasLocation" x="-3573" y="-1735"/>
         </scene>
         <!--Album Detail View Controller-->
         <scene sceneID="VpH-Lv-JGZ">

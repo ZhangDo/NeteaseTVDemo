@@ -15,8 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //MARK: 设置屏幕常亮
         UIApplication.shared.isIdleTimerDisabled = true
-        
+        //播放器设置
         initConfig()
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
         

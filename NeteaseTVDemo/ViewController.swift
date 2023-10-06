@@ -45,10 +45,6 @@ class ViewController: UIViewController {
         self.progressView.delegate = self
         wk_player.delegate = self
         
-        self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
-        
-        
-        
         if wk_player.isPlaying {
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
@@ -59,6 +55,13 @@ class ViewController: UIViewController {
                 tableView.reloadData()
             }
         }
+        
+        guard (wk_player.allOriginalModels?.count) != nil else {
+            self.bottomActionView.isHidden = true
+            self.sliderStackView.isHidden = true
+            return
+        }
+        self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
     }
     
     override func viewDidLoad() {
