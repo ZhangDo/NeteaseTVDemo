@@ -134,22 +134,17 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
+				29DC0E372ACFA59500DD314A /* Playing */,
+				29DC0E362ACFA59500DD314A /* Recommend */,
 				F4905DFA2A98E15400C76905 /* Info.plist */,
 				295FA8132A985D3500B35C54 /* AppDelegate.swift */,
-				295FA8152A985D3500B35C54 /* ViewController.swift */,
-				29F2F6112AB166E900E2F389 /* WKLyricParser.swift */,
 				29F2F6192AB18A9900E2F389 /* WKConfig.swift */,
-				29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */,
 				2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */,
 				2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */,
-				2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */,
-				2944A9372AC12EC800FD4F52 /* WKSlider.swift */,
 				2944A9392AC15EFA00FD4F52 /* WKPlayListDetailViewController.swift */,
 				2944A93D2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift */,
 				2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */,
-				29C865682AC415CA00AB008A /* WKSingleSongView.swift */,
 				2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */,
-				2906FBD82ABD32C6004E5069 /* Banner */,
 				295FA8242A985D5100B35C54 /* Player */,
 				295FA8172A985D3500B35C54 /* Main.storyboard */,
 				295FA81A2A985D3600B35C54 /* Assets.xcassets */,
@@ -177,6 +172,27 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29DC0E362ACFA59500DD314A /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				2906FBD82ABD32C6004E5069 /* Banner */,
+				2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */,
+				29C865682AC415CA00AB008A /* WKSingleSongView.swift */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		29DC0E372ACFA59500DD314A /* Playing */ = {
+			isa = PBXGroup;
+			children = (
+				295FA8152A985D3500B35C54 /* ViewController.swift */,
+				2944A9372AC12EC800FD4F52 /* WKSlider.swift */,
+				29F2F6112AB166E900E2F389 /* WKLyricParser.swift */,
+				29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */,
+			);
+			path = Playing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
