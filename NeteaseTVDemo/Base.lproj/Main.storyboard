@@ -797,10 +797,10 @@
                                                                 </state>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KU8-O6-NCL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="528" height="80"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="906" height="80"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wf-8D-sSA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="528" height="80"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="443" height="80"/>
                                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" title="播放"/>
@@ -808,12 +808,36 @@
                                                                             <action selector="playAll:" destination="FAd-2G-ywM" eventType="primaryActionTriggered" id="nXx-3D-myK"/>
                                                                         </connections>
                                                                     </button>
+                                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xWG-i1-pkg">
+                                                                        <rect key="frame" x="463" y="0.0" width="443" height="80"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kqE-Rm-wRX">
+                                                                            <size key="itemSize" width="128" height="128"/>
+                                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                        </collectionViewFlowLayout>
+                                                                        <cells>
+                                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="Vj4-bb-3c7">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xkm-I4-KbF">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                                </collectionViewCellContentView>
+                                                                            </collectionViewCell>
+                                                                        </cells>
+                                                                        <connections>
+                                                                            <outlet property="dataSource" destination="FAd-2G-ywM" id="Ek3-Tn-xGI"/>
+                                                                            <outlet property="delegate" destination="FAd-2G-ywM" id="MzA-ds-CgN"/>
+                                                                        </connections>
+                                                                    </collectionView>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="KU8-O6-NCL" firstAttribute="width" secondItem="h9k-UN-vLl" secondAttribute="width" multiplier="0.5" id="3u3-N7-tVl"/>
                                                             <constraint firstAttribute="bottom" secondItem="KU8-O6-NCL" secondAttribute="bottom" id="7h5-DJ-njG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="KU8-O6-NCL" secondAttribute="trailing" constant="150" id="BLj-Di-4qj"/>
                                                             <constraint firstAttribute="trailing" secondItem="9kk-8w-3RD" secondAttribute="trailing" id="JUM-nH-lby"/>
                                                             <constraint firstItem="KU8-O6-NCL" firstAttribute="top" secondItem="h9k-UN-vLl" secondAttribute="top" id="f03-lG-NcP"/>
                                                             <constraint firstAttribute="height" constant="80" id="g4g-an-F7c"/>
@@ -871,6 +895,7 @@
                         <outlet property="nameLabel" destination="HVu-0i-iBv" id="Xkd-he-1PY"/>
                         <outlet property="playButton" destination="3wf-8D-sSA" id="e0x-sI-0ki"/>
                         <outlet property="tableView" destination="Wvz-zz-yfn" id="pJa-GQ-TBs"/>
+                        <outlet property="userView" destination="xWG-i1-pkg" id="sqM-yz-AXT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5G-9l-bdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

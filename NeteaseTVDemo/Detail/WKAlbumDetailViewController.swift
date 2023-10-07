@@ -18,7 +18,9 @@ class WKAlbumDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var descView: WKDescView!
     
+    @IBOutlet weak var userView: UICollectionView!
     private var albumId: Int!
+    private var albumDetail: NRAlbumDetailModel?
     
     var allModels: [CustomAudioModel] = [CustomAudioModel]()
     
@@ -32,6 +34,8 @@ class WKAlbumDetailViewController: UIViewController {
         super.viewDidLoad()
         self.coverImageView.layer.cornerRadius = 10;
         tableView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
+        userView.register(WKUserCollectionViewCell.self, forCellWithReuseIdentifier: "WKUserCollectionViewCell")
+        userView.collectionViewLayout = makeUserCollectionViewLayout()
         Task {
             await loadData()
         }
@@ -39,16 +43,18 @@ class WKAlbumDetailViewController: UIViewController {
     }
     
     func loadData() async {
-        let albumDetail = try! await fetchAlbumDetail(id: self.albumId)
+        albumDetail = try! await fetchAlbumDetail(id: self.albumId)
         
-        self.bgView.kf.setImage(with: URL(string: albumDetail.album.picUrl!),options: [.transition(.flipFromBottom(0.6))])
-        self.coverImageView.kf.setImage(with: URL(string: albumDetail.album.picUrl!))
-        self.nameLabel.text = albumDetail.album.name
+        self.bgView.kf.setImage(with: URL(string: (albumDetail?.album!.picUrl!)!),options: [.transition(.flipFromBottom(0.6))])
+        self.coverImageView.kf.setImage(with: URL(string: (albumDetail?.album!.picUrl!)!))
+        self.nameLabel.text = albumDetail?.album!.name
         //todo: if description null 则隐藏 descView
-        self.descView.descLabel.text = albumDetail.album.description!
+        self.descView.descLabel.text = albumDetail?.album!.description!
         self.collectButton.isHidden = false
         
-        for songModel in albumDetail.songs {
+        guard let songs = albumDetail?.songs else { return }
+        
+        for songModel in songs {
             let model = CustomAudioModel()
             model.audioId = songModel.id
             model.isFree = 1
@@ -63,7 +69,8 @@ class WKAlbumDetailViewController: UIViewController {
             self.allModels.append(model)
         }
         
-        tableView .reloadData()
+        tableView.reloadData()
+        userView.reloadData()
         self.playButton.isHidden = false
     }
     
@@ -93,5 +100,36 @@ extension WKAlbumDetailViewController: UITableViewDelegate, UITableViewDataSourc
         try? wk_player.play(index: indexPath.row)
         let playingVC = ViewController.creat()
         self.present(playingVC, animated: true)
+    }
+}
+
+extension WKAlbumDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return albumDetail?.album?.artists?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WKUserCollectionViewCell", for: indexPath) as! WKUserCollectionViewCell
+        userCell.nameLabel.text = albumDetail?.album?.artists![indexPath.row].name
+        return userCell
+    }
+    
+}
+
+
+extension WKAlbumDetailViewController {
+    func makeUserCollectionViewLayout () -> UICollectionViewLayout {
+        UICollectionViewCompositionalLayout {
+            _, _ in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            section.orthogonalScrollingBehavior = .continuous
+            section.interGroupSpacing = 40
+            return section
+        }
     }
 }
