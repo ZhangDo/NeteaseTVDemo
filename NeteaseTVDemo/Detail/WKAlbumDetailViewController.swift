@@ -50,6 +50,10 @@ class WKAlbumDetailViewController: UIViewController {
         self.nameLabel.text = albumDetail?.album!.name
         //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = albumDetail?.album!.description!
+        self.descView.onPrimaryAction = { [weak self] model in
+            let vc = WKDescViewController.creat(desc: self!.albumDetail?.album?.description ?? "")
+            self!.present(vc, animated: true)
+        }
         self.collectButton.isHidden = false
         
         guard let songs = albumDetail?.songs else { return }

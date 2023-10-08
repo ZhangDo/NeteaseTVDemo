@@ -42,6 +42,10 @@ class WKPlayListDetailViewController: UIViewController {
         self.nameLabel.text = playListDetail.name
         //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = playListDetail.description
+        self.descView.onPrimaryAction = { [weak self] model in
+            let vc = WKDescViewController.creat(desc: playListDetail.description ?? "")
+            self!.present(vc, animated: true)
+        }
         self.collectButton.isHidden = false
         
         let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: self.playListId,limit: 100)
