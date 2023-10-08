@@ -187,7 +187,7 @@ extension ViewController: WKPlayerDelegate {
         for (index, time) in times.enumerated() {
             let times = time.components(separatedBy: ":")
             if time.count > 1 {
-                let lyricTime = Float(times.first ?? "0.0")! * 60 + (Float(times.last ?? "0.0") ?? 0.0)
+                let lyricTime = (Float(times.first ?? "0.0") ?? 0.0) * 60 + (Float(times.last ?? "0.0") ?? 0.0)
                 if (Float(detail.current) + 0.5) > lyricTime {
                     current = index
                 } else {
