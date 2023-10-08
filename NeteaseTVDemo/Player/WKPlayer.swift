@@ -657,7 +657,7 @@ public class WKPlayer: NSObject {
 //        }
         
         
-        
+        currentIndex = index
         Task {
             do {
                 try await fetchTrueUrlStr(model: model)
