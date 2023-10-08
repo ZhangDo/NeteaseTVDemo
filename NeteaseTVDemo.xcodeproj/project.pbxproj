@@ -33,6 +33,7 @@
 		2986B2F02AB42E54002BC0CC /* WKPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */; };
 		29C865692AC415CA00AB008A /* WKSingleSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C865682AC415CA00AB008A /* WKSingleSongView.swift */; };
 		29DC0E3B2AD104F000DD314A /* WKUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */; };
+		29DC0E3D2AD252AD00DD314A /* WKRecommendPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */; };
 		29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F5F92AB0113F00E2F389 /* Kingfisher */; };
 		29F2F6122AB166E900E2F389 /* WKLyricParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2F6112AB166E900E2F389 /* WKLyricParser.swift */; };
 		29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F6172AB18A0E00E2F389 /* NeteaseRequest */; };
@@ -75,6 +76,7 @@
 		2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListTableViewCell.swift; sourceTree = "<group>"; };
 		29C865682AC415CA00AB008A /* WKSingleSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSingleSongView.swift; sourceTree = "<group>"; };
 		29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKUserCollectionViewCell.swift; sourceTree = "<group>"; };
+		29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecommendPlaylistVC.swift; sourceTree = "<group>"; };
 		29F2F6112AB166E900E2F389 /* WKLyricParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricParser.swift; sourceTree = "<group>"; };
 		29F2F6192AB18A9900E2F389 /* WKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKConfig.swift; sourceTree = "<group>"; };
 		29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				2906FBD82ABD32C6004E5069 /* Banner */,
 				2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */,
+				29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */,
 				29C865682AC415CA00AB008A /* WKSingleSongView.swift */,
 			);
 			path = Recommend;
@@ -303,6 +306,7 @@
 				295FA82A2A985D5100B35C54 /* WKPlayer.swift in Sources */,
 				29F2F6202AB190CB00E2F389 /* WKLyricTableViewCell.swift in Sources */,
 				295FA8162A985D3500B35C54 /* ViewController.swift in Sources */,
+				29DC0E3D2AD252AD00DD314A /* WKRecommendPlaylistVC.swift in Sources */,
 				2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */,
 				29F2F61A2AB18A9900E2F389 /* WKConfig.swift in Sources */,
 				29F2F6122AB166E900E2F389 /* WKLyricParser.swift in Sources */,

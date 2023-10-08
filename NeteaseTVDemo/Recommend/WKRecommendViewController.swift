@@ -45,7 +45,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         
         recommendView.register(WKPlayListCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self))
         recommendView.collectionViewLayout = makeRecommendCollectionViewLayout()
-        
+        recommendView.isScrollEnabled = false
         
         Task {
             await loadData()
@@ -151,7 +151,12 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         self.present(playingVC, animated: true)
     }
     
-
+    @IBAction func moreRecommendPlaylist(_ sender: Any) {
+        print("更多歌单")
+        let vc = WKRecommendPlaylistVC.creat()
+        self.present(vc, animated: true)
+    }
+    
     // MARK:- FSPagerView DataSource
     
     public func numberOfItems(in pagerView: FSPagerView) -> Int {
