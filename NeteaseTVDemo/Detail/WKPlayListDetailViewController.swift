@@ -91,8 +91,10 @@ extension WKPlayListDetailViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        wk_player.allOriginalModels = self.allModels
-        try? wk_player.play(index: indexPath.row)
+        let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
+        
+        wk_player.allOriginalModels = model
+        try? wk_player.play(index: 0)
         let playingVC = ViewController.creat()
         self.present(playingVC, animated: true)
     }

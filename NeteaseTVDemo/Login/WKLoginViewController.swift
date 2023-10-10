@@ -49,7 +49,7 @@ class WKLoginViewController: UIViewController {
     }
     
     func startValidationTimer(key: String) {
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { [self] _ in
             if code == 803 {
                 self.stopValidationTimer()
             }

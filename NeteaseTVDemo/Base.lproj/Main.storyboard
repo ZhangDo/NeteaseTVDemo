@@ -708,7 +708,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="528" height="80"/>
                                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="播放"/>
+                                                                        <state key="normal" title="播放全部"/>
                                                                         <connections>
                                                                             <action selector="playAll:" destination="IhV-Qa-lCs" eventType="primaryActionTriggered" id="ZHY-1Y-mp5"/>
                                                                         </connections>
@@ -976,7 +976,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="443" height="80"/>
                                                                         <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="播放"/>
+                                                                        <state key="normal" title="播放全部"/>
                                                                         <connections>
                                                                             <action selector="playAll:" destination="FAd-2G-ywM" eventType="primaryActionTriggered" id="nXx-3D-myK"/>
                                                                         </connections>

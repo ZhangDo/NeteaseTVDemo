@@ -145,9 +145,13 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             print(error)
         }
         
+        do {
+            self.recommendPlayList = try await fetchPersonalizedPlayList(cookie: cookie)
+            self.recommendView.reloadData()
+        } catch {
+            print(error)
+        }
         
-        self.recommendPlayList = try! await fetchPersonalizedPlayList(cookie: cookie)
-        self.recommendView.reloadData()
         
         
     }
