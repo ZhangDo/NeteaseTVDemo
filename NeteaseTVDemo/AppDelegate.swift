@@ -12,7 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //MARK: 设置屏幕常亮
@@ -21,12 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initConfig()
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
         
+//        guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
+//            window = UIWindow()
+//            
+//            window?.rootViewController = WKLoginViewController.creat()
+//            
+//            window?.makeKeyAndVisible()
+//            return true
+//        }
+//        cookie = loginCookie
+        window = UIWindow()
         
-//        window = UIWindow()
-//        
-//        window?.rootViewController = WKTabBarViewController()
-//        
-//        window?.makeKeyAndVisible()
+        window?.rootViewController = WKTabBarViewController.creat()
+        
+        window?.makeKeyAndVisible()
         
         return true
     }
@@ -40,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /** 计时器初始化配置*/
         wk_countdown.initConfig()
         
+    }
+    
+    func showTabBar() {
+        window?.rootViewController = WKTabBarViewController.creat()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

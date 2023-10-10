@@ -31,6 +31,8 @@
 		2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */; };
 		2986B2EE2AB3F418002BC0CC /* WKRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */; };
 		2986B2F02AB42E54002BC0CC /* WKPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */; };
+		29A1D6FF2AD4E3E1005EAFC0 /* WKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1D6FE2AD4E3E1005EAFC0 /* WKLoginViewController.swift */; };
+		29A1D7012AD4ED8E005EAFC0 /* EFQRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 29A1D7002AD4ED8E005EAFC0 /* EFQRCode */; };
 		29C865692AC415CA00AB008A /* WKSingleSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C865682AC415CA00AB008A /* WKSingleSongView.swift */; };
 		29DC0E3B2AD104F000DD314A /* WKUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */; };
 		29DC0E3D2AD252AD00DD314A /* WKRecommendPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */; };
@@ -75,6 +77,7 @@
 		2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKTabBarViewController.swift; sourceTree = "<group>"; };
 		2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecommendViewController.swift; sourceTree = "<group>"; };
 		2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListTableViewCell.swift; sourceTree = "<group>"; };
+		29A1D6FE2AD4E3E1005EAFC0 /* WKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLoginViewController.swift; sourceTree = "<group>"; };
 		29C865682AC415CA00AB008A /* WKSingleSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSingleSongView.swift; sourceTree = "<group>"; };
 		29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecommendPlaylistVC.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */,
+				29A1D7012AD4ED8E005EAFC0 /* EFQRCode in Frameworks */,
 				29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */,
 				29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */,
 				29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */,
@@ -140,6 +144,7 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
+				29A1D6FD2AD4E3CB005EAFC0 /* Login */,
 				29DC0E382ACFB50600DD314A /* Detail */,
 				29DC0E372ACFA59500DD314A /* Playing */,
 				29DC0E362ACFA59500DD314A /* Recommend */,
@@ -176,6 +181,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29A1D6FD2AD4E3CB005EAFC0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				29A1D6FE2AD4E3E1005EAFC0 /* WKLoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		29DC0E362ACFA59500DD314A /* Recommend */ = {
@@ -233,6 +246,7 @@
 				29F2F6172AB18A0E00E2F389 /* NeteaseRequest */,
 				29F2F6282AB1935600E2F389 /* SnapKit */,
 				29F2F62B2AB1A83600E2F389 /* MarqueeLabel */,
+				29A1D7002AD4ED8E005EAFC0 /* EFQRCode */,
 			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
@@ -267,6 +281,7 @@
 				29F2F6162AB18A0E00E2F389 /* XCRemoteSwiftPackageReference "NeteaseRequest" */,
 				29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
+				29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */,
 			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
@@ -320,6 +335,7 @@
 				2906FBE62ABD32C6004E5069 /* FSPageViewLayout.swift in Sources */,
 				295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */,
 				F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */,
+				29A1D6FF2AD4E3E1005EAFC0 /* WKLoginViewController.swift in Sources */,
 				2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */,
 				F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */,
 				2906FBE32ABD32C6004E5069 /* FSPageViewTransformer.swift in Sources */,
@@ -542,6 +558,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		29F2F5F82AB0113F00E2F389 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -555,7 +579,7 @@
 			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.6;
+				minimumVersion = 0.5.6;
 			};
 		};
 		29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -563,7 +587,7 @@
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.0.1;
 			};
 		};
 		29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
@@ -577,6 +601,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		29A1D7002AD4ED8E005EAFC0 /* EFQRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */;
+			productName = EFQRCode;
+		};
 		29F2F5F92AB0113F00E2F389 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 29F2F5F82AB0113F00E2F389 /* XCRemoteSwiftPackageReference "Kingfisher" */;

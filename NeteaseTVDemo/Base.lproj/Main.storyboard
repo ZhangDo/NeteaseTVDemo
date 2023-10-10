@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22154" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NeB-bZ-bGH">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22154" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="appleTV" appearance="dark"/>
     <dependencies>
         <deployment identifier="tvOS"/>
@@ -830,10 +830,52 @@
             </objects>
             <point key="canvasLocation" x="5269" y="-3687"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="nhP-TJ-C41">
+            <objects>
+                <viewController storyboardIdentifier="WKLoginViewController" id="TbT-sX-YAK" customClass="WKLoginViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="alJ-Ja-hQG"/>
+                        <viewControllerLayoutGuide type="bottom" id="PXz-tL-QtL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="37d-U7-ZRQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SgE-gb-y4M">
+                                <rect key="frame" x="710" y="290" width="500" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="FAK-PB-Rae"/>
+                                    <constraint firstAttribute="width" constant="500" id="w7d-Q6-8Zp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请使用网易云音乐 App扫码登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-A6-eVN">
+                                <rect key="frame" x="689" y="207" width="542" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NhD-bL-V4h"/>
+                        <constraints>
+                            <constraint firstItem="SgE-gb-y4M" firstAttribute="centerX" secondItem="NhD-bL-V4h" secondAttribute="centerX" id="2e6-2D-s6U"/>
+                            <constraint firstItem="SgE-gb-y4M" firstAttribute="centerY" secondItem="NhD-bL-V4h" secondAttribute="centerY" id="7Y4-rI-lca"/>
+                            <constraint firstItem="SgE-gb-y4M" firstAttribute="top" secondItem="Juh-A6-eVN" secondAttribute="bottom" constant="37" id="eUt-if-rim"/>
+                            <constraint firstItem="Juh-A6-eVN" firstAttribute="centerX" secondItem="SgE-gb-y4M" secondAttribute="centerX" id="uhg-mB-I8K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="qrCodeImageView" destination="SgE-gb-y4M" id="emc-fH-s1C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7u7-SN-wbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3573" y="-3402"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Nlz-8V-40C">
             <objects>
-                <tabBarController id="NeB-bZ-bGH" customClass="WKTabBarViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="WKTabBarViewController" id="NeB-bZ-bGH" customClass="WKTabBarViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HNb-be-vdU">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
