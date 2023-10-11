@@ -7,7 +7,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -261,7 +260,7 @@
         <!--浏览-->
         <scene sceneID="IkT-ae-DCa">
             <objects>
-                <viewController title="浏览" id="0Tw-Vp-ztT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WKFindViewController" title="浏览" id="0Tw-Vp-ztT" customClass="WKFindViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zZ3-ZZ-HPQ"/>
                         <viewControllerLayoutGuide type="bottom" id="eR1-3g-NPA"/>
@@ -269,10 +268,59 @@
                     <view key="view" contentMode="scaleToFill" id="eK3-3t-uIi">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="eYO-eT-6tl">
+                                <rect key="frame" x="80" y="157" width="400" height="863"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="nDn-hV-e9j"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="0Tw-Vp-ztT" id="BJl-NF-h0W"/>
+                                    <outlet property="delegate" destination="0Tw-Vp-ztT" id="9Nd-OM-ifB"/>
+                                </connections>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1zt-Ik-AfB">
+                                <rect key="frame" x="510" y="157" width="1330" height="863"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oE8-7L-EK4">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="fXr-pF-UMe">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HLH-mG-cHa">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="0Tw-Vp-ztT" id="cJQ-Pp-UQ5"/>
+                                    <outlet property="delegate" destination="0Tw-Vp-ztT" id="nOK-tG-XX6"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fzW-Yy-2Za"/>
+                        <constraints>
+                            <constraint firstItem="fzW-Yy-2Za" firstAttribute="bottom" secondItem="eYO-eT-6tl" secondAttribute="bottom" id="GYu-EB-25o"/>
+                            <constraint firstItem="1zt-Ik-AfB" firstAttribute="top" secondItem="fzW-Yy-2Za" secondAttribute="top" id="K0F-dy-JM8"/>
+                            <constraint firstItem="fzW-Yy-2Za" firstAttribute="bottom" secondItem="1zt-Ik-AfB" secondAttribute="bottom" id="X4X-Y1-F8h"/>
+                            <constraint firstItem="eYO-eT-6tl" firstAttribute="leading" secondItem="fzW-Yy-2Za" secondAttribute="leading" id="eKn-q9-O8y"/>
+                            <constraint firstItem="1zt-Ik-AfB" firstAttribute="leading" secondItem="eYO-eT-6tl" secondAttribute="trailing" constant="30" id="it3-Fg-ghN"/>
+                            <constraint firstItem="fzW-Yy-2Za" firstAttribute="trailing" secondItem="1zt-Ik-AfB" secondAttribute="trailing" id="qT9-o8-hPb"/>
+                            <constraint firstItem="eYO-eT-6tl" firstAttribute="top" secondItem="fzW-Yy-2Za" secondAttribute="top" id="tDh-la-ZMI"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="浏览" id="YRV-14-5rg"/>
                     <navigationItem key="navigationItem" id="WYa-pc-Lzv"/>
+                    <connections>
+                        <outlet property="collectionView" destination="1zt-Ik-AfB" id="le3-BX-t0C"/>
+                        <outlet property="tableView" destination="eYO-eT-6tl" id="lCz-X5-KAH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqN-WE-31O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -795,13 +843,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W52-1z-o5h">
-                                <rect key="frame" x="480" y="270" width="960" height="540"/>
+                                <rect key="frame" x="96" y="216" width="1728" height="648"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="706-5f-lKV">
-                                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="706-5f-lKV">
+                                        <rect key="frame" x="0.0" y="0.0" width="1728" height="648"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -816,9 +864,9 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="phX-sq-SDK"/>
                         <constraints>
-                            <constraint firstItem="W52-1z-o5h" firstAttribute="width" secondItem="ect-VF-UNd" secondAttribute="width" multiplier="0.5" id="8kt-H4-QKb"/>
+                            <constraint firstItem="W52-1z-o5h" firstAttribute="width" secondItem="ect-VF-UNd" secondAttribute="width" multiplier="0.9" id="8kt-H4-QKb"/>
                             <constraint firstItem="W52-1z-o5h" firstAttribute="centerX" secondItem="phX-sq-SDK" secondAttribute="centerX" id="bs8-Yo-HK4"/>
-                            <constraint firstItem="W52-1z-o5h" firstAttribute="height" secondItem="ect-VF-UNd" secondAttribute="height" multiplier="0.5" id="vVK-eD-ncf"/>
+                            <constraint firstItem="W52-1z-o5h" firstAttribute="height" secondItem="ect-VF-UNd" secondAttribute="height" multiplier="0.6" id="vVK-eD-ncf"/>
                             <constraint firstItem="W52-1z-o5h" firstAttribute="centerY" secondItem="phX-sq-SDK" secondAttribute="centerY" id="vcj-cL-fFr"/>
                         </constraints>
                     </view>
@@ -1090,8 +1138,5 @@
         <namedColor name="grayColor">
             <color white="0.88627451658248901" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

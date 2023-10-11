@@ -12,7 +12,7 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
     private var motionEffectV: UIInterpolatingMotionEffect!
     private var motionEffectH: UIInterpolatingMotionEffect!
     var playListCover: UIImageView = UIImageView()
-    private let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     var titleLabel: UILabel = UILabel()
     var posterView: TVPosterView!
     var scaleFactor: CGFloat = 1.05
@@ -54,13 +54,13 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
             contentView.addSubview(effectView)
             effectView.snp.makeConstraints { make in
                 make.left.right.bottom.equalToSuperview()
-                make.height.equalTo(80)
+                make.height.equalTo(100)
             }
         })(effectView)
         
         ({(label: UILabel) in
             label.textColor = .white
-            label.numberOfLines = 0
+            label.numberOfLines = 2
             label.textAlignment = .center
             label.font = .boldSystemFont(ofSize: 30)
             addSubview(label)
