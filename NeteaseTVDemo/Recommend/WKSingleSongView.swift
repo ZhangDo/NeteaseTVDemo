@@ -47,6 +47,7 @@ class WKSingleSongView: UIControl {
             picView.contentMode = .scaleAspectFit
             picView.layer.cornerRadius = 10
             picView.clipsToBounds = true
+            picView.layer.masksToBounds = true
             addSubview(picView)
             picView.snp.makeConstraints { make in
                 make.left.equalToSuperview()

@@ -74,6 +74,7 @@ class WKLoginViewController: UIViewController {
             if checkModel.code == 803 {
                 print("授权成功")
                 UserDefaults.standard.setValue(checkModel.cookie, forKey: "cookie")
+                cookie = checkModel.cookie!
                 self.dismiss(animated: true)
                 AppDelegate.shared.showTabBar()
             } else if checkModel.code == 800 {
