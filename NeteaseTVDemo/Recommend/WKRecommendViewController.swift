@@ -257,7 +257,7 @@ extension WKRecommendViewController {
     func makeGridLayoutSection() -> NSCollectionLayoutSection {
         
 //        let style = styleOverride ?? Settings.displayStyle
-        let heightDimension = NSCollectionLayoutDimension.estimated(380)
+//        let heightDimension = NSCollectionLayoutDimension.estimated(380)
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.25),
             heightDimension: .fractionalHeight(1)
@@ -276,8 +276,8 @@ extension WKRecommendViewController {
             section.contentInsets = NSDirectionalEdgeInsets(top: baseSpacing, leading: 0, bottom: 0, trailing: 0)
         }
 
-        let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .estimated(44))
+//        let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                               heightDimension: .estimated(44))
 //        if showHeader {
 //            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
 //                layoutSize: titleSize,

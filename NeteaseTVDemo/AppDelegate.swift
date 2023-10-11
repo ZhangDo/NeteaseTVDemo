@@ -23,15 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initConfig()
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
         
-//        guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
-//            window = UIWindow()
-//            
-//            window?.rootViewController = WKLoginViewController.creat()
-//            
-//            window?.makeKeyAndVisible()
-//            return true
-//        }
-//        cookie = loginCookie
+        guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
+            window = UIWindow()
+            
+            window?.rootViewController = WKLoginViewController.creat()
+            
+            window?.makeKeyAndVisible()
+            return true
+        }
+        cookie = loginCookie
         window = UIWindow()
         
         window?.rootViewController = WKTabBarViewController.creat()
