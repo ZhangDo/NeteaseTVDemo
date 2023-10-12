@@ -16,10 +16,11 @@ class ViewController: UIViewController {
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
     var showPlayList: Bool = false
-
+    var isPodcast: Bool = false
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
+    @IBOutlet weak var infoStackView: UIStackView!
     @IBOutlet weak var progressView: WKSlider!
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
@@ -30,8 +31,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var bottomActionView: UIView!
     @IBOutlet weak var sliderStackView: UIStackView!
-    static func creat() -> ViewController {
+    static func creat(isPodcast: Bool = false) -> ViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! ViewController
+        vc.isPodcast = isPodcast
         return vc
     }
     
@@ -71,6 +73,10 @@ class ViewController: UIViewController {
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
+        
+        if isPodcast {
+            
+        }
         
     }
     

@@ -224,6 +224,7 @@
                         <outlet property="bgImageView" destination="5eD-6P-znW" id="cOW-vu-1yI"/>
                         <outlet property="bottomActionView" destination="DHU-Yl-tfH" id="jkG-Dj-KTF"/>
                         <outlet property="coverImageView" destination="xci-Oa-R2R" id="ZUQ-ed-O6h"/>
+                        <outlet property="infoStackView" destination="6yk-hE-cBt" id="5v6-Fw-z3D"/>
                         <outlet property="leftTimeLabel" destination="AfV-Dd-bih" id="WxT-Ix-76s"/>
                         <outlet property="nameLabel" destination="GQd-up-XQL" id="q6n-xB-FNo"/>
                         <outlet property="playListView" destination="VDY-Mu-omP" id="Xx3-nc-zf4"/>
@@ -236,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="-612"/>
+            <point key="canvasLocation" x="597" y="770"/>
         </scene>
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
@@ -255,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="1333"/>
+            <point key="canvasLocation" x="597" y="2114"/>
         </scene>
         <!--浏览-->
         <scene sceneID="IkT-ae-DCa">
@@ -325,6 +326,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqN-WE-31O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="581" y="-2277"/>
+        </scene>
+        <!--播客-->
+        <scene sceneID="xAC-pI-Jem">
+            <objects>
+                <viewController storyboardIdentifier="WKPodcastViewController" title="播客" id="zgq-d6-2Oe" customClass="WKPodcastViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cyr-6Y-uZh"/>
+                        <viewControllerLayoutGuide type="bottom" id="7g5-Mi-frf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FEP-Bj-7GH">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="4tb-nB-xQQ">
+                                <rect key="frame" x="80" y="157" width="300" height="863"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="WAB-9V-PrM"/>
+                                </constraints>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pxn-o4-uf7">
+                                <rect key="frame" x="410" y="157" width="1430" height="863"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7r-kU-yxQ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gnH-Fx-3bp">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="akj-jM-ERe">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zUs-JE-CpU"/>
+                        <constraints>
+                            <constraint firstItem="4tb-nB-xQQ" firstAttribute="leading" secondItem="zUs-JE-CpU" secondAttribute="leading" id="0GM-8i-Jp4"/>
+                            <constraint firstItem="Pxn-o4-uf7" firstAttribute="leading" secondItem="4tb-nB-xQQ" secondAttribute="trailing" constant="30" id="5ii-tA-oiT"/>
+                            <constraint firstItem="zUs-JE-CpU" firstAttribute="trailing" secondItem="Pxn-o4-uf7" secondAttribute="trailing" id="7Hk-Iw-Dqx"/>
+                            <constraint firstItem="Pxn-o4-uf7" firstAttribute="top" secondItem="zUs-JE-CpU" secondAttribute="top" id="9tw-YJ-Cr2"/>
+                            <constraint firstItem="zUs-JE-CpU" firstAttribute="bottom" secondItem="4tb-nB-xQQ" secondAttribute="bottom" id="kFa-Nk-KUC"/>
+                            <constraint firstItem="4tb-nB-xQQ" firstAttribute="top" secondItem="zUs-JE-CpU" secondAttribute="top" id="psG-aR-a3m"/>
+                            <constraint firstItem="zUs-JE-CpU" firstAttribute="bottom" secondItem="Pxn-o4-uf7" secondAttribute="bottom" id="tAc-8Z-wQI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="播客" id="hLX-NR-hgG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vJQ-Vt-Jaa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="581" y="-808"/>
         </scene>
         <!--Recommend PlaylistVC-->
         <scene sceneID="Li8-wM-XW9">
@@ -932,8 +988,9 @@
                     <connections>
                         <segue destination="Wfi-8j-fvb" kind="relationship" relationship="viewControllers" id="6lc-Me-9Z0"/>
                         <segue destination="0Tw-Vp-ztT" kind="relationship" relationship="viewControllers" id="BWJ-65-Uzi"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="tYd-9q-UaS"/>
-                        <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="cDH-8X-Ser"/>
+                        <segue destination="zgq-d6-2Oe" kind="relationship" relationship="viewControllers" id="5ur-kn-lFr"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GBL-bN-KRI"/>
+                        <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="tc1-CK-sbX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oa-wA-3J8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
