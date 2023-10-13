@@ -59,9 +59,9 @@ class WKPodcastDetailViewController: UIViewController {
                 model.freeTime = 0
                 model.audioTitle = songModel.name
                 model.audioPicUrl = songModel.radio.picUrl
-//                let min = songModel.dt / 1000 / 60
-//                let sec = songModel.dt / 1000 % 60
-//                model.audioTime = String(format: "%d:%02d", min, sec)
+                let min = songModel.duration / 1000 / 60
+                let sec = songModel.duration / 1000 % 60
+                model.audioTime = String(format: "%d:%02d", min, sec)
                 model.singer =  songModel.dj.nickname
                 self.allModels.append(model)
             }

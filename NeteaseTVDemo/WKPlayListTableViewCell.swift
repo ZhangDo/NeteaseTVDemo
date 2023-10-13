@@ -30,30 +30,27 @@ class WKPlayListTableViewCell: UITableViewCell {
         })(picView)
         
         ({(label: MarqueeLabel) in
-            label.text = "SONG NAME"
             label.textColor = UIColor(named: "titleColor")
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
-                make.right.equalToSuperview()
+                make.right.equalTo(-140)
                 make.bottom.equalTo(contentView.snp.centerY).offset(-5)
             }
         })(songNameLabel)
         
         ({(label: UILabel) in
-            label.text = "SONG NAME"
             label.textColor = UIColor(named: "titleColor")
             label.font = .systemFont(ofSize: 30)
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
-                make.right.equalTo(-40)
+                make.right.equalTo(-140)
                 make.top.equalTo(contentView.snp.centerY).offset(5)
             }
         })(singerLabel)
         
         ({(label: UILabel) in
-            label.text = "SONG NAME"
             label.textColor = .lightGray
             label.font = .systemFont(ofSize: 30)
             contentView.addSubview(label)
