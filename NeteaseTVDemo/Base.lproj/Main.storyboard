@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="770"/>
+            <point key="canvasLocation" x="-1440" y="2276"/>
         </scene>
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
@@ -258,8 +258,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-MH-kz2">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="863"/>
                                         <subviews>
-                                            <tvMonogramView contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" image="Jobs" title="Title" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-H3-dCY">
-                                                <rect key="frame" x="10" y="0.0" width="280" height="337"/>
+                                            <tvMonogramView contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" image="Jobs" title="" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-H3-dCY">
+                                                <rect key="frame" x="10" y="0.0" width="280" height="302"/>
                                                 <connections>
                                                     <action selector="changeAccount:" destination="CqC-DC-xeo" eventType="primaryActionTriggered" id="4Tn-8M-RTm"/>
                                                 </connections>
@@ -295,7 +295,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="2114"/>
+            <point key="canvasLocation" x="711" y="2276"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="BGx-eQ-VfX">
+            <objects>
+                <viewController storyboardIdentifier="WKSearchViewController" id="Zwv-bV-08S" customClass="WKSearchViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mjP-4T-D1z"/>
+                        <viewControllerLayoutGuide type="bottom" id="lMG-AA-jdI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4QG-5b-xqf">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="x5s-o1-2gj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="tFw-Pf-pWt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Dn-cX-noF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2810" y="2276"/>
         </scene>
         <!--浏览-->
         <scene sceneID="IkT-ae-DCa">
@@ -364,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqN-WE-31O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="-2277"/>
+            <point key="canvasLocation" x="-5708" y="2276"/>
         </scene>
         <!--播客-->
         <scene sceneID="xAC-pI-Jem">
@@ -431,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJQ-Vt-Jaa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="-808"/>
+            <point key="canvasLocation" x="-3573" y="2276"/>
         </scene>
         <!--Recommend PlaylistVC-->
         <scene sceneID="Li8-wM-XW9">
@@ -507,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzQ-Cx-KUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="-4942"/>
+            <point key="canvasLocation" x="-7947" y="6971"/>
         </scene>
         <!--推荐-->
         <scene sceneID="UWU-Tm-q0a">
@@ -777,7 +796,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rID-nc-Zb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="-3737"/>
+            <point key="canvasLocation" x="-7947" y="2276"/>
         </scene>
         <!--Play List Detail View Controller-->
         <scene sceneID="ppZ-b5-Em1">
@@ -935,7 +954,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I93-Ab-W9e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="-3708"/>
+            <point key="canvasLocation" x="-7947" y="3831"/>
         </scene>
         <!--Desc View Controller-->
         <scene sceneID="uKq-Wv-4vf">
@@ -1025,7 +1044,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7u7-SN-wbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3573" y="-3402"/>
+            <point key="canvasLocation" x="-3573" y="-3534"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Nlz-8V-40C">
@@ -1042,6 +1061,7 @@
                         <segue destination="zgq-d6-2Oe" kind="relationship" relationship="viewControllers" id="5ur-kn-lFr"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GBL-bN-KRI"/>
                         <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="tc1-CK-sbX"/>
+                        <segue destination="Zwv-bV-08S" kind="relationship" relationship="viewControllers" id="w3V-sp-FHp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oa-wA-3J8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1229,7 +1249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5G-9l-bdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="-2277"/>
+            <point key="canvasLocation" x="-7947" y="5410"/>
         </scene>
         <!--Podcast Detail View Controller-->
         <scene sceneID="p4g-6d-why">
@@ -1406,7 +1426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="880-Mr-8Tn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="-808"/>
+            <point key="canvasLocation" x="-3573" y="3831"/>
         </scene>
     </scenes>
     <designables>
