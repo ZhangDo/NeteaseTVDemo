@@ -75,10 +75,40 @@ class WKLoginViewController: UIViewController {
                 print("授权成功")
                 UserDefaults.standard.setValue(checkModel.cookie, forKey: "cookie")
                 cookie = checkModel.cookie!
+                
+//                
+//                do {
+//                    let userModel: NRProfileModel = try await fetchAccountInfo(cookie: cookie)
+//                    if var users: [WKUserModel] = UserDefaults.standard.codable(forKey: "users") {
+//                        var isHave = false
+//                        for var user in users {
+//                            if user.user.userId == userModel.userId {
+//                                isHave = true
+//                                user.isSelected = true
+//                                break
+//                            }
+//                        }
+//                        if !isHave {
+//                            users.append(WKUserModel(isSelected: true, user: userModel))
+//                            UserDefaults.standard.set(users, forKey: "users")
+//                        }
+//                    } else {
+//                        var users: [WKUserModel] = [WKUserModel]()
+//                        users.append(WKUserModel(isSelected: true, user: userModel))
+//                        UserDefaults.standard.set(users, forKey: "users")
+//                    }
+//                    
+//                } catch {
+//                    print(error)
+//                }
+                
                 self.dismiss(animated: true)
                 AppDelegate.shared.showTabBar()
             } else if checkModel.code == 800 {
                 print("二维码过期")
+                self.showAlert("二维码过期，请重新扫码")
+                timer?.invalidate()
+                await loadQRCode()
             } else if checkModel.code == 801 {
                 print("等待扫码")
             } else if checkModel.code == 802 {
@@ -86,19 +116,25 @@ class WKLoginViewController: UIViewController {
             }
         } catch {
             print(error)
+            showAlert(error.localizedDescription)
             await loopValidation(key: key)
         }
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func showAlert(_ message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: .alert)
+            let confirm = UIAlertAction.init(title: "确定", style: .default, handler: nil)
+            alert.addAction(confirm)
+    //        self.present(alert, animated: true)
+            let keyWindow = UIApplication.shared.connectedScenes
+                    .filter({$0.activationState == .foregroundActive})
+                    .compactMap({$0 as? UIWindowScene})
+                    .first?.windows
+                    .filter({$0.isKeyWindow}).first
+            keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
-    */
 
 }
