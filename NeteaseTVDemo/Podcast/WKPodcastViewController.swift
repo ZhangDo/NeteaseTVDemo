@@ -80,9 +80,9 @@ extension WKPodcastViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: djHotRadios[indexPath.row].id)
-//        playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
-//        self.present(playListDetaiVC, animated: true)
+        let playListDetaiVC = WKPodcastDetailViewController.creat(djRadioModel: djHotRadios[indexPath.row])
+        playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
+        self.present(playListDetaiVC, animated: true)
     }
 }
 

@@ -7,6 +7,7 @@
 
 import UIKit
 import MarqueeLabel
+import NeteaseRequest
 class WKPlayListTableViewCell: UITableViewCell {
     
     private var picView = UIImageView ()
@@ -46,7 +47,7 @@ class WKPlayListTableViewCell: UITableViewCell {
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
-                make.right.equalToSuperview()
+                make.right.equalTo(-40)
                 make.top.equalTo(contentView.snp.centerY).offset(5)
             }
         })(singerLabel)
@@ -86,5 +87,4 @@ class WKPlayListTableViewCell: UITableViewCell {
         self.singerLabel.text = model.wk_singerName
         self.timeLabel.text = model.audioTime
     }
-    
 }
