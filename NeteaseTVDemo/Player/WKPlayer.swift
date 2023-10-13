@@ -561,7 +561,7 @@ public class WKPlayer: NSObject {
             }
             
             do {
-                model.audioUrl = try? await fetchAudioUrl(id: audioId, level: .lossless, cookie: cookie).first?.url
+                model.audioUrl = try? await fetchAudioUrl(id: audioId, level: .jymaster, cookie: cookie).first?.url
             }
             
         }

@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="TVUIKit controls" minToolsVersion="10.2"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -242,7 +243,7 @@
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
             <objects>
-                <viewController title="我的" id="CqC-DC-xeo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WKProfileViewController" title="我的" id="CqC-DC-xeo" customClass="WKProfileViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hc0-gS-eqK"/>
                         <viewControllerLayoutGuide type="bottom" id="AZQ-LU-KQL"/>
@@ -250,9 +251,47 @@
                     <view key="view" contentMode="scaleToFill" id="Vzo-O9-jLn">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQ9-y5-L4Z">
+                                <rect key="frame" x="80" y="157" width="1760" height="863"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-MH-kz2">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="863"/>
+                                        <subviews>
+                                            <tvMonogramView contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" image="Jobs" title="Title" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-H3-dCY">
+                                                <rect key="frame" x="10" y="0.0" width="280" height="337"/>
+                                                <connections>
+                                                    <action selector="changeAccount:" destination="CqC-DC-xeo" eventType="primaryActionTriggered" id="4Tn-8M-RTm"/>
+                                                </connections>
+                                            </tvMonogramView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Qg9-3W-Xgb"/>
+                                            <constraint firstItem="VpB-H3-dCY" firstAttribute="top" secondItem="cE3-MH-kz2" secondAttribute="top" id="j4a-R5-VQV"/>
+                                            <constraint firstItem="VpB-H3-dCY" firstAttribute="leading" secondItem="cE3-MH-kz2" secondAttribute="leading" constant="10" id="lxS-l7-IDo"/>
+                                            <constraint firstAttribute="trailing" secondItem="VpB-H3-dCY" secondAttribute="trailing" constant="10" id="vxc-lf-sbt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cE3-MH-kz2" firstAttribute="top" secondItem="xQ9-y5-L4Z" secondAttribute="top" id="6JS-8P-ts8"/>
+                                    <constraint firstAttribute="bottom" secondItem="cE3-MH-kz2" secondAttribute="bottom" id="ZC6-4T-BEc"/>
+                                    <constraint firstItem="cE3-MH-kz2" firstAttribute="leading" secondItem="xQ9-y5-L4Z" secondAttribute="leading" id="gWa-YO-Bsq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Oz1-B4-9vs"/>
+                        <constraints>
+                            <constraint firstItem="xQ9-y5-L4Z" firstAttribute="leading" secondItem="Oz1-B4-9vs" secondAttribute="leading" id="4gf-pI-6pv"/>
+                            <constraint firstItem="Oz1-B4-9vs" firstAttribute="trailing" secondItem="xQ9-y5-L4Z" secondAttribute="trailing" id="7CJ-Vv-WZZ"/>
+                            <constraint firstItem="xQ9-y5-L4Z" firstAttribute="top" secondItem="Oz1-B4-9vs" secondAttribute="top" id="am2-Dr-76G"/>
+                            <constraint firstItem="Oz1-B4-9vs" firstAttribute="bottom" secondItem="xQ9-y5-L4Z" secondAttribute="bottom" id="vU1-hF-I4d"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="我的" id="XLW-Bc-RGc"/>
+                    <connections>
+                        <outlet property="userHeaderView" destination="VpB-H3-dCY" id="VVN-I0-QLX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1375,6 +1414,7 @@
         <designable name="U3K-vi-udH"/>
     </designables>
     <resources>
+        <image name="Jobs" width="300" height="387"/>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="bgImage" width="1288" height="728"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
