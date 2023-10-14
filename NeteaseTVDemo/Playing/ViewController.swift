@@ -31,9 +31,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var bottomActionView: UIView!
     @IBOutlet weak var sliderStackView: UIStackView!
-    static func creat(isPodcast: Bool = false) -> ViewController {
+    static func creat() -> ViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! ViewController
-        vc.isPodcast = isPodcast
         return vc
     }
     

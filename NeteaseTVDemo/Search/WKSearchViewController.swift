@@ -8,36 +8,38 @@
 import UIKit
 
 class WKSearchViewController: UIViewController {
-    var searchResultsController: UITableViewController!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        searchResultsController = UITableViewController(style: .plain)
-        let searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-        
-        if let searchContainerView = self.view.viewWithTag(100) {
-            searchContainerView.addSubview(searchController.searchBar)
-        }
+//    private let appData: WKFindModel
+    private let searchController: UISearchController
+    private let searchContainerViewController: UISearchContainerViewController
+    private let searchResultsController: UITableViewController
+    init() {
+//        self.appData = appData
+        self.searchResultsController = UITableViewController(style: .plain)
+        self.searchController = UISearchController(searchResultsController: self.searchResultsController)
+        self.searchContainerViewController = UISearchContainerViewController(searchController: searchController)
+        super.init(nibName: nil, bundle: nil)
+        tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addChild(searchContainerViewController)
+        searchContainerViewController.view.frame = view.bounds
+        view.addSubview(searchContainerViewController.view)
+        searchContainerViewController.didMove(toParent: self)
+        searchController.searchResultsUpdater = self
+    }
 
 }
 
 extension WKSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        // 处理搜索结果的更新
+        if let searchText = searchController.searchBar.text {
+//            let (results, _) = appData
+        }
     }
 }
+

@@ -13,6 +13,12 @@ class WKFindViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var categories = [WKFindModel]()
     var playList = [NRPlayListModel]()
+    
+    static func creat() -> WKFindViewController {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKFindViewController
+        return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")

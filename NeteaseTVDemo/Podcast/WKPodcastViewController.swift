@@ -14,6 +14,10 @@ class WKPodcastViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var djCatelist = [NRDJCatelistModel]()
     var djHotRadios = [NRDJRadioModel]()
+    static func creat() -> WKPodcastViewController {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKPodcastViewController
+        return vc
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")

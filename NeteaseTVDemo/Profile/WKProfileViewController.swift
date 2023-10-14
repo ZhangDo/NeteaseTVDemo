@@ -11,6 +11,12 @@ import NeteaseRequest
 class WKProfileViewController: UIViewController {
 
     @IBOutlet weak var userHeaderView: TVMonogramView!
+    
+    static func creat() -> WKProfileViewController {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
+        return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userHeaderView.contentMode = .scaleAspectFill

@@ -17,6 +17,35 @@ class WKTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var vcs = [UIViewController]()
+        
+        let recommendVC = WKRecommendViewController.creat()
+        recommendVC.tabBarItem.title = "推荐"
+        vcs.append(recommendVC)
+        
+        let findVC = WKFindViewController.creat()
+        findVC.tabBarItem.title = "浏览"
+        vcs.append(findVC)
+        
+        let podcastVC = WKPodcastViewController.creat()
+        podcastVC.tabBarItem.title = "播客"
+        vcs.append(podcastVC)
+        
+        let playingVC = ViewController.creat()
+        playingVC.tabBarItem.title = "正在播放"
+        vcs.append(playingVC)
+        
+        let profileVC = WKProfileViewController.creat()
+        profileVC.tabBarItem.title = "推荐"
+        vcs.append(profileVC)
+        
+        let searchVC = WKSearchViewController()
+        searchVC.tabBarItem.title = "搜索"
+        vcs.append(searchVC)
+        
+        setViewControllers(vcs, animated: false)
+        
     }
     
 }

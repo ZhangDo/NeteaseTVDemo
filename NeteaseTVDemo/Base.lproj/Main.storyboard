@@ -253,10 +253,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQ9-y5-L4Z">
-                                <rect key="frame" x="80" y="157" width="1760" height="863"/>
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-MH-kz2">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="863"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="960"/>
                                         <subviews>
                                             <tvMonogramView contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" image="Jobs" title="" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-H3-dCY">
                                                 <rect key="frame" x="10" y="0.0" width="280" height="302"/>
@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="eYO-eT-6tl">
-                                <rect key="frame" x="80" y="157" width="300" height="863"/>
+                                <rect key="frame" x="80" y="60" width="300" height="960"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="nDn-hV-e9j"/>
                                 </constraints>
@@ -339,7 +339,7 @@
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1zt-Ik-AfB">
-                                <rect key="frame" x="410" y="157" width="1430" height="863"/>
+                                <rect key="frame" x="410" y="60" width="1430" height="960"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oE8-7L-EK4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -398,7 +398,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="4tb-nB-xQQ">
-                                <rect key="frame" x="80" y="157" width="300" height="863"/>
+                                <rect key="frame" x="80" y="60" width="300" height="960"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="WAB-9V-PrM"/>
                                 </constraints>
@@ -408,7 +408,7 @@
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pxn-o4-uf7">
-                                <rect key="frame" x="410" y="157" width="1430" height="863"/>
+                                <rect key="frame" x="410" y="60" width="1430" height="960"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w7r-kU-yxQ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -531,7 +531,7 @@
         <!--推荐-->
         <scene sceneID="UWU-Tm-q0a">
             <objects>
-                <viewController title="推荐" id="Wfi-8j-fvb" customClass="WKRecommendViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WKRecommendViewController" title="推荐" id="Wfi-8j-fvb" customClass="WKRecommendViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vSu-t4-uMu"/>
                         <viewControllerLayoutGuide type="bottom" id="tUw-3n-fWc"/>
@@ -550,7 +550,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Xm-PM-rgf">
-                                            <rect key="frame" x="80" y="157" width="1760" height="863"/>
+                                            <rect key="frame" x="80" y="60" width="1760" height="960"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cei-MW-7pK" customClass="FSPagerView" customModule="NeteaseTVDemo" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="1760" height="400"/>
@@ -1044,7 +1044,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7u7-SN-wbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3573" y="-3534"/>
+            <point key="canvasLocation" x="-3573" y="-3122"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Nlz-8V-40C">
@@ -1055,18 +1055,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="Wfi-8j-fvb" kind="relationship" relationship="viewControllers" id="6lc-Me-9Z0"/>
-                        <segue destination="0Tw-Vp-ztT" kind="relationship" relationship="viewControllers" id="BWJ-65-Uzi"/>
-                        <segue destination="zgq-d6-2Oe" kind="relationship" relationship="viewControllers" id="5ur-kn-lFr"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GBL-bN-KRI"/>
-                        <segue destination="CqC-DC-xeo" kind="relationship" relationship="viewControllers" id="tc1-CK-sbX"/>
-                        <segue destination="Zwv-bV-08S" kind="relationship" relationship="viewControllers" id="w3V-sp-FHp"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Oa-wA-3J8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3573" y="-1735"/>
+            <point key="canvasLocation" x="-3573" y="-503"/>
         </scene>
         <!--Album Detail View Controller-->
         <scene sceneID="VpH-Lv-JGZ">

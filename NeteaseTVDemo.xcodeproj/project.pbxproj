@@ -33,6 +33,7 @@
 		297F2E0E2AD8E6B6002F4F24 /* WKUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E0D2AD8E6B6002F4F24 /* WKUserModel.swift */; };
 		297F2E112AD91507002F4F24 /* WKProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E102AD91507002F4F24 /* WKProfileViewController.swift */; };
 		297F2E142AD9383E002F4F24 /* WKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E132AD9383E002F4F24 /* WKSearchViewController.swift */; };
+		297F2E192ADA3D66002F4F24 /* WKSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E182ADA3D66002F4F24 /* WKSearchResultViewController.swift */; };
 		2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */; };
 		2986B2EE2AB3F418002BC0CC /* WKRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */; };
 		2986B2F02AB42E54002BC0CC /* WKPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */; };
@@ -87,6 +88,7 @@
 		297F2E0D2AD8E6B6002F4F24 /* WKUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKUserModel.swift; sourceTree = "<group>"; };
 		297F2E102AD91507002F4F24 /* WKProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKProfileViewController.swift; sourceTree = "<group>"; };
 		297F2E132AD9383E002F4F24 /* WKSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSearchViewController.swift; sourceTree = "<group>"; };
+		297F2E182ADA3D66002F4F24 /* WKSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSearchResultViewController.swift; sourceTree = "<group>"; };
 		2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKTabBarViewController.swift; sourceTree = "<group>"; };
 		2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecommendViewController.swift; sourceTree = "<group>"; };
 		2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListTableViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				297F2E132AD9383E002F4F24 /* WKSearchViewController.swift */,
+				297F2E182ADA3D66002F4F24 /* WKSearchResultViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */,
 				295FA8292A985D5100B35C54 /* WKPlayerStateModel.swift in Sources */,
 				2944A93E2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift in Sources */,
+				297F2E192ADA3D66002F4F24 /* WKSearchResultViewController.swift in Sources */,
 				295FA8282A985D5100B35C54 /* WKPlayerSettings.swift in Sources */,
 				2986B2EE2AB3F418002BC0CC /* WKRecommendViewController.swift in Sources */,
 				29A1D7042AD647E8005EAFC0 /* WKFindViewController.swift in Sources */,

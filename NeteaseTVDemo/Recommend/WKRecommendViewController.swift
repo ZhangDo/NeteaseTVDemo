@@ -37,6 +37,11 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             self.bannerView.interitemSpacing = 100
         }
     }
+    
+    static func creat() -> WKRecommendViewController {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKRecommendViewController
+        return vc
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
