@@ -85,7 +85,7 @@ class WKPodcastDetailViewController: UIViewController {
 
 extension WKPodcastDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return djPrograms.count
+        return allModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,7 +96,7 @@ extension WKPodcastDetailViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
         wk_player.allOriginalModels = model
-        try? wk_player.play(index: indexPath.row)
+        try? wk_player.play(index: 0)
         let playingVC = ViewController.creat()
         self.present(playingVC, animated: true)
     }

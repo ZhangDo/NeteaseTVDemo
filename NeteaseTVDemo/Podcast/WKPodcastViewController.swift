@@ -65,7 +65,7 @@ extension WKPodcastViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat = djCatelist[indexPath.row].id
         Task {
-            djHotRadios = try await fetchDJHotRadio(cateId: cat)
+            djHotRadios = try await fetchDJHotRadio(cateId: cat, limit: 1000)
             collectionView.reloadData()
         }
     }
