@@ -37,7 +37,7 @@ class WKTabBarViewController: UITabBarController {
         vcs.append(playingVC)
         
         let profileVC = WKProfileViewController.creat()
-        profileVC.tabBarItem.title = "推荐"
+        profileVC.tabBarItem.title = "我的"
         vcs.append(profileVC)
         
         let searchVC = WKSearchViewController()

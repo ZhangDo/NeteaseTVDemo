@@ -34,6 +34,8 @@
 		297F2E112AD91507002F4F24 /* WKProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E102AD91507002F4F24 /* WKProfileViewController.swift */; };
 		297F2E142AD9383E002F4F24 /* WKSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E132AD9383E002F4F24 /* WKSearchViewController.swift */; };
 		297F2E192ADA3D66002F4F24 /* WKSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E182ADA3D66002F4F24 /* WKSearchResultViewController.swift */; };
+		297F2E1B2ADA74C8002F4F24 /* WKSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E1A2ADA74C8002F4F24 /* WKSegmentCell.swift */; };
+		297F2E1D2ADA7DC9002F4F24 /* WKSearchTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E1C2ADA7DC9002F4F24 /* WKSearchTypeModel.swift */; };
 		2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */; };
 		2986B2EE2AB3F418002BC0CC /* WKRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */; };
 		2986B2F02AB42E54002BC0CC /* WKPlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */; };
@@ -89,6 +91,8 @@
 		297F2E102AD91507002F4F24 /* WKProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKProfileViewController.swift; sourceTree = "<group>"; };
 		297F2E132AD9383E002F4F24 /* WKSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSearchViewController.swift; sourceTree = "<group>"; };
 		297F2E182ADA3D66002F4F24 /* WKSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSearchResultViewController.swift; sourceTree = "<group>"; };
+		297F2E1A2ADA74C8002F4F24 /* WKSegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSegmentCell.swift; sourceTree = "<group>"; };
+		297F2E1C2ADA7DC9002F4F24 /* WKSearchTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSearchTypeModel.swift; sourceTree = "<group>"; };
 		2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKTabBarViewController.swift; sourceTree = "<group>"; };
 		2986B2ED2AB3F418002BC0CC /* WKRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecommendViewController.swift; sourceTree = "<group>"; };
 		2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */,
 				2986B2EB2AB3F3C4002BC0CC /* WKTabBarViewController.swift */,
 				2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */,
+				297F2E1A2ADA74C8002F4F24 /* WKSegmentCell.swift */,
 				295FA8242A985D5100B35C54 /* Player */,
 				295FA8172A985D3500B35C54 /* Main.storyboard */,
 				295FA81A2A985D3600B35C54 /* Assets.xcassets */,
@@ -227,6 +232,7 @@
 			children = (
 				297F2E132AD9383E002F4F24 /* WKSearchViewController.swift */,
 				297F2E182ADA3D66002F4F24 /* WKSearchResultViewController.swift */,
+				297F2E1C2ADA7DC9002F4F24 /* WKSearchTypeModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				2944A93E2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift in Sources */,
 				297F2E192ADA3D66002F4F24 /* WKSearchResultViewController.swift in Sources */,
 				295FA8282A985D5100B35C54 /* WKPlayerSettings.swift in Sources */,
+				297F2E1B2ADA74C8002F4F24 /* WKSegmentCell.swift in Sources */,
 				2986B2EE2AB3F418002BC0CC /* WKRecommendViewController.swift in Sources */,
 				29A1D7042AD647E8005EAFC0 /* WKFindViewController.swift in Sources */,
 				F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */,
@@ -413,6 +420,7 @@
 				29A1D6FF2AD4E3E1005EAFC0 /* WKLoginViewController.swift in Sources */,
 				2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */,
 				F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */,
+				297F2E1D2ADA7DC9002F4F24 /* WKSearchTypeModel.swift in Sources */,
 				2906FBE32ABD32C6004E5069 /* FSPageViewTransformer.swift in Sources */,
 				2906FBE22ABD32C6004E5069 /* FSPagerView.swift in Sources */,
 				2944A9382AC12EC800FD4F52 /* WKSlider.swift in Sources */,
@@ -655,7 +663,7 @@
 			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.81;
+				minimumVersion = 0.6.0;
 			};
 		};
 		29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

@@ -11,11 +11,11 @@ class WKSearchViewController: UIViewController {
 //    private let appData: WKFindModel
     private let searchController: UISearchController
     private let searchContainerViewController: UISearchContainerViewController
-    private let searchResultsController: UITableViewController
+//    private let searchResultsController: UITableViewController
     init() {
 //        self.appData = appData
-        self.searchResultsController = UITableViewController(style: .plain)
-        self.searchController = UISearchController(searchResultsController: self.searchResultsController)
+//        self.searchResultsController = UITableViewController(style: .plain)
+        self.searchController = UISearchController(searchResultsController: WKSearchResultViewController.creat())
         self.searchContainerViewController = UISearchContainerViewController(searchController: searchController)
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
@@ -31,6 +31,11 @@ class WKSearchViewController: UIViewController {
         view.addSubview(searchContainerViewController.view)
         searchContainerViewController.didMove(toParent: self)
         searchController.searchResultsUpdater = self
+        
+//        let suggestion1 = UISearchSuggestionItem(localizedSuggestion: "歌手", localizedDescription: "歌手", iconImage: nil)
+//        let suggestion2 = UISearchSuggestionItem(localizedSuggestion: "曲风", localizedDescription: "曲风", iconImage: nil)
+//        let suggestion3 = UISearchSuggestionItem(localizedSuggestion: "专区", localizedDescription: "专区", iconImage: nil)
+//        searchController.searchSuggestions = [suggestion1, suggestion2, suggestion3]
     }
 
 }
@@ -38,8 +43,12 @@ class WKSearchViewController: UIViewController {
 extension WKSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
-//            let (results, _) = appData
+            print(searchText)
         }
+    }
+    
+    func updateSearchResults(for searchController: UISearchController, selecting searchSuggestion: UISearchSuggestion) {
+        print(searchSuggestion.localizedSuggestion ?? "")
     }
 }
 

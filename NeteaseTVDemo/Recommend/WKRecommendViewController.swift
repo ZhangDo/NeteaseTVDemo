@@ -86,9 +86,10 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
                 model.isFree = 1
                 model.freeTime = 0
                 model.audioTitle = songModel.name
-                model.audioPicUrl = songModel.al.picUrl
-                let singerModel = songModel.ar
-                model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+                model.audioPicUrl = songModel.al?.picUrl
+                if let singerModel = songModel.ar {
+                    model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+                }
                 self.dailyAudioModels.append(model)
             }
             self.songView1.setModel(audioModel: self.dailyAudioModels[0])

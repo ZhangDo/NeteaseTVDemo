@@ -167,23 +167,12 @@ extension ViewController: WKPlayerDelegate {
     }
 
     func didReadTotalTime(totalTime: UInt, formatTime: String, now: CustomAudioModel) {
-        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
+//        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
         DispatchQueue.main.async {
             self.rightLabel.text = formatTime
         }
 
 
-    }
-
-
-
-    func askForWWANLoadPermission(confirmed: @escaping () -> ()) {
-//        let alert = UIAlertController.init(title: "网络环境确认", message: "当前非wifi环境，确定继续加载么", preferredStyle: .alert)
-//        let confirmAction = UIAlertAction.init(title: "确定", style: .default) {_ in
-//            confirmed()
-//        }
-//        alert.addAction(confirmAction)
-//        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 
     func stateDidChanged(_ state: WKPlayerState) {

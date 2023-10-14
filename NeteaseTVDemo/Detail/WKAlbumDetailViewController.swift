@@ -64,12 +64,13 @@ class WKAlbumDetailViewController: UIViewController {
             model.isFree = 1
             model.freeTime = 0
             model.audioTitle = songModel.name
-            model.audioPicUrl = songModel.al.picUrl
-            let min = songModel.dt / 1000 / 60
-            let sec = songModel.dt / 1000 % 60
+            model.audioPicUrl = songModel.al?.picUrl
+            let min = (songModel.dt ?? 0) / 1000 / 60
+            let sec = (songModel.dt ?? 0) / 1000 % 60
             model.audioTime = String(format: "%d:%02d", min, sec)
-            let singerModel = songModel.ar
-            model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+            if let singerModel = songModel.ar {
+                model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+            }
             self.allModels.append(model)
         }
         
