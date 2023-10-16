@@ -3,7 +3,7 @@
     <device id="appleTV" appearance="dark"/>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22023"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -60,13 +60,6 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="100" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="VDY-Mu-omP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="673.5" height="504"/>
-                                                                    <connections>
-                                                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="Xgn-Hb-qFM"/>
-                                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="CgH-5W-Gli"/>
-                                                                    </connections>
-                                                                </tableView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="U3K-vi-udH" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="2Lf-KH-hpH"/>
@@ -76,11 +69,7 @@
                                                                 <constraint firstItem="U3K-vi-udH" firstAttribute="top" secondItem="GQd-up-XQL" secondAttribute="bottom" constant="20" id="VSZ-IA-s7j"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="height" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.767857" id="cip-UO-VHK"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="20" id="g2R-Ef-E3H"/>
-                                                                <constraint firstAttribute="trailing" secondItem="VDY-Mu-omP" secondAttribute="trailing" id="idi-Q3-2MM"/>
-                                                                <constraint firstItem="VDY-Mu-omP" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="n3h-bI-Iga"/>
                                                                 <constraint firstAttribute="trailing" secondItem="U3K-vi-udH" secondAttribute="trailing" id="pDh-g3-zQB"/>
-                                                                <constraint firstItem="VDY-Mu-omP" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="r7p-Kw-L3M"/>
-                                                                <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="VDY-Mu-omP" secondAttribute="bottom" id="snf-Ie-gMm"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
                                                             </constraints>
                                                         </view>
@@ -175,19 +164,8 @@
                                                                 <constraint firstAttribute="height" constant="90" id="Yq6-di-j4r"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZM-ng-kP5">
-                                                            <rect key="frame" x="1693.5" y="16" width="126.5" height="88"/>
-                                                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                            <state key="normal" image="music.note.list" catalog="system"/>
-                                                            <connections>
-                                                                <action selector="playListAction:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="SON-Ae-Sy7"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="uZM-ng-kP5" firstAttribute="centerY" secondItem="DHU-Yl-tfH" secondAttribute="centerY" id="BQD-0c-fPS"/>
-                                                        <constraint firstAttribute="trailing" secondItem="uZM-ng-kP5" secondAttribute="trailing" id="HiE-6J-Qei"/>
                                                         <constraint firstItem="g4p-uv-Tcc" firstAttribute="width" secondItem="DHU-Yl-tfH" secondAttribute="width" multiplier="0.3" id="dpE-Fi-T2Q"/>
                                                         <constraint firstItem="g4p-uv-Tcc" firstAttribute="centerX" secondItem="DHU-Yl-tfH" secondAttribute="centerX" id="fEr-89-4i2"/>
                                                         <constraint firstItem="g4p-uv-Tcc" firstAttribute="centerY" secondItem="DHU-Yl-tfH" secondAttribute="centerY" id="gcO-Uq-4jq"/>
@@ -228,7 +206,6 @@
                         <outlet property="infoStackView" destination="6yk-hE-cBt" id="5v6-Fw-z3D"/>
                         <outlet property="leftTimeLabel" destination="AfV-Dd-bih" id="WxT-Ix-76s"/>
                         <outlet property="nameLabel" destination="GQd-up-XQL" id="q6n-xB-FNo"/>
-                        <outlet property="playListView" destination="VDY-Mu-omP" id="Xx3-nc-zf4"/>
                         <outlet property="progressView" destination="xvt-N2-1Bp" id="VVI-dt-qt4"/>
                         <outlet property="rightLabel" destination="tgh-br-fwf" id="Ycw-49-ApE"/>
                         <outlet property="singerLabel" destination="U3K-vi-udH" id="fQG-G6-Rj8"/>
@@ -1467,7 +1444,6 @@
         <image name="bgImage" width="1288" height="728"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
         <namedColor name="grayColor">
             <color white="0.88627451658248901" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

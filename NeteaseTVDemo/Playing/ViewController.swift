@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var playListView: UITableView!
+//    @IBOutlet weak var playListView: UITableView!
     @IBOutlet weak var playOrPauseBtn: UIButton!
     
     @IBOutlet weak var singerLabel: MarqueeLabel!
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         
         
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
-        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
+//        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
         
         if isPodcast {
@@ -101,19 +101,6 @@ class ViewController: UIViewController {
         } catch {
             debugPrint(error)
         }
-    }
-    
-    @IBAction func playListAction(_ sender: Any) {
-        showPlayList = !showPlayList
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: { [self] in
-            self.playListView.alpha = showPlayList ? 1.0 : 0.0
-            self.coverImageView.alpha = showPlayList ? 0.0 : 1.0
-            self.nameLabel.alpha = showPlayList ? 0.0 : 1.0
-        }, completion: { [self] _ in
-            self.playListView.isHidden = !showPlayList
-            self.coverImageView.isHidden = showPlayList
-            self.nameLabel.isHidden = showPlayList
-        })
     }
     
 }
@@ -254,42 +241,21 @@ extension ViewController: WKSliderDelegate {
 //MARK:  UITableView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (tableView == self.playListView) {
-            return wk_player.allOriginalModels?.count ?? 0
-        } else {
-            return lyricTuple?.words.count ?? 0
-        }
-        
+        return lyricTuple?.words.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == self.playListView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
-            cell.setModel(wk_player.allOriginalModels![indexPath.row])
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
+        cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
+        if current == indexPath.row {
+            cell.contentLabel?.textColor = UIColor.label
+            cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
-            cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
-            if current == indexPath.row {
-                cell.contentLabel?.textColor = UIColor.label
-                cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
-            } else {
-                cell.contentLabel?.textColor = UIColor.lightGray
-                cell.contentLabel?.font = .systemFont(ofSize: 60, weight: .bold)
-            }
-            return cell
+            cell.contentLabel?.textColor = UIColor.lightGray
+            cell.contentLabel?.font = .systemFont(ofSize: 60, weight: .bold)
         }
+        return cell
         
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == self.playListView {
-            try? wk_player.play(index: indexPath.row)
-            self.showPlayList = false
-            self.playListView.isHidden = true
-            self.coverImageView.isHidden = false
-            self.nameLabel.isHidden = false
-        }
     }
 }
 
