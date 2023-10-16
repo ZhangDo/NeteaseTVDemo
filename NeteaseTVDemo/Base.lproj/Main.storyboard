@@ -617,7 +617,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mw7-tb-CUU">
-                                                                    <rect key="frame" x="0.0" y="101" width="1760" height="399"/>
+                                                                    <rect key="frame" x="0.0" y="121" width="1760" height="379"/>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YC9-Ii-KEM">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -642,7 +642,7 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="mw7-tb-CUU" firstAttribute="leading" secondItem="cuk-eD-xRE" secondAttribute="leading" id="HsW-3h-bNm"/>
-                                                                <constraint firstItem="mw7-tb-CUU" firstAttribute="top" secondItem="PLU-Ac-PNV" secondAttribute="bottom" constant="10" id="Jz1-zo-Oz8"/>
+                                                                <constraint firstItem="mw7-tb-CUU" firstAttribute="top" secondItem="PLU-Ac-PNV" secondAttribute="bottom" constant="30" id="Jz1-zo-Oz8"/>
                                                                 <constraint firstItem="PLU-Ac-PNV" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="top" id="NSP-04-6XR"/>
                                                                 <constraint firstItem="PLU-Ac-PNV" firstAttribute="leading" secondItem="cuk-eD-xRE" secondAttribute="leading" constant="10" id="RUJ-AU-MVy"/>
                                                                 <constraint firstAttribute="bottom" secondItem="mw7-tb-CUU" secondAttribute="bottom" id="bVw-IY-KwT"/>
