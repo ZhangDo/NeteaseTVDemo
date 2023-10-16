@@ -313,16 +313,44 @@
                                     <outlet property="delegate" destination="Zwv-bV-08S" id="Tee-sm-8WX"/>
                                 </connections>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-CR-Vat">
+                                <rect key="frame" x="80" y="150" width="1760" height="870"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PBA-m4-9s3">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="5ca-2b-TRu">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KK0-mL-2xI">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zwv-bV-08S" id="Uzx-yP-gFX"/>
+                                    <outlet property="delegate" destination="Zwv-bV-08S" id="4w3-us-Abk"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x5s-o1-2gj"/>
                         <constraints>
+                            <constraint firstItem="Ogg-CR-Vat" firstAttribute="leading" secondItem="x5s-o1-2gj" secondAttribute="leading" id="28L-p7-NC4"/>
                             <constraint firstItem="IfL-1F-nt1" firstAttribute="leading" secondItem="x5s-o1-2gj" secondAttribute="leading" id="alA-ns-2Hd"/>
+                            <constraint firstItem="x5s-o1-2gj" firstAttribute="bottom" secondItem="Ogg-CR-Vat" secondAttribute="bottom" id="btQ-RK-K7b"/>
+                            <constraint firstItem="Ogg-CR-Vat" firstAttribute="top" secondItem="IfL-1F-nt1" secondAttribute="bottom" constant="30" id="dRP-mQ-a4M"/>
                             <constraint firstItem="x5s-o1-2gj" firstAttribute="trailing" secondItem="IfL-1F-nt1" secondAttribute="trailing" id="g90-H6-JyJ"/>
+                            <constraint firstItem="x5s-o1-2gj" firstAttribute="trailing" secondItem="Ogg-CR-Vat" secondAttribute="trailing" id="nmk-X0-pC4"/>
                             <constraint firstItem="IfL-1F-nt1" firstAttribute="top" secondItem="x5s-o1-2gj" secondAttribute="top" id="ubx-yn-Ctg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="tFw-Pf-pWt"/>
                     <connections>
+                        <outlet property="resultCollectionView" destination="Ogg-CR-Vat" id="Ix9-Kg-0sf"/>
                         <outlet property="segmentView" destination="IfL-1F-nt1" id="2gz-GW-H7m"/>
                     </connections>
                 </viewController>

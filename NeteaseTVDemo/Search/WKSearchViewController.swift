@@ -6,15 +6,14 @@
 //
 
 import UIKit
-
+import NeteaseRequest
 class WKSearchViewController: UIViewController {
 //    private let appData: WKFindModel
     private let searchController: UISearchController
     private let searchContainerViewController: UISearchContainerViewController
-//    private let searchResultsController: UITableViewController
+    private let searchResultsController = WKSearchResultViewController.creat()
     init() {
 //        self.appData = appData
-//        self.searchResultsController = UITableViewController(style: .plain)
         self.searchController = UISearchController(searchResultsController: WKSearchResultViewController.creat())
         self.searchContainerViewController = UISearchContainerViewController(searchController: searchController)
         super.init(nibName: nil, bundle: nil)
@@ -44,6 +43,9 @@ extension WKSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             print(searchText)
+            UserDefaults.standard.set(searchText, forKey: "searchText")
+//            self.searchResultsController.query = searchText
+//            self.searchResultsController.searchData()
         }
     }
     

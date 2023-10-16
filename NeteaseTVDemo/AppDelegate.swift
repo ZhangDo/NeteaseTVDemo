@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.isIdleTimerDisabled = true
         //播放器设置
         initConfig()
+        UserDefaults.standard.set(1, forKey: "searchIndex")
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
         
         guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
