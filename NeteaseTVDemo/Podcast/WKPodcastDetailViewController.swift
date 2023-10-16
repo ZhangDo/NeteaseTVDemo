@@ -76,7 +76,7 @@ class WKPodcastDetailViewController: UIViewController {
     @IBAction func playAll(_ sender: Any) {
         wk_player.allOriginalModels = self.allModels
         try? wk_player.play(index: 0)
-        let playingVC = ViewController.creat()
+        let playingVC = ViewController.creat(isPodcast: true)
         playingVC.modalPresentationStyle = .blurOverFullScreen
         self.present(playingVC, animated: true)
     }
@@ -97,7 +97,7 @@ extension WKPodcastDetailViewController: UITableViewDelegate, UITableViewDataSou
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
         wk_player.allOriginalModels = model
         try? wk_player.play(index: 0)
-        let playingVC = ViewController.creat()
+        let playingVC = ViewController.creat(isPodcast: true)
         self.present(playingVC, animated: true)
     }
 }

@@ -25,14 +25,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var playListView: UITableView!
-    @IBOutlet weak var playOrPauseBtn: UIButton!
+//    @IBOutlet weak var playListView: UITableView!
     
+    @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var bottomActionView: UIView!
     @IBOutlet weak var sliderStackView: UIStackView!
-    static func creat() -> ViewController {
+    static func creat(isPodcast: Bool = false) -> ViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! ViewController
+        vc.isPodcast = isPodcast
         return vc
     }
     
@@ -45,15 +46,21 @@ class ViewController: UIViewController {
         wk_player.delegate = nil
         self.progressView.delegate = self
         wk_player.delegate = self
-        
         if wk_player.isPlaying {
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
             
             Task {
-                lyricTuple = parserLyric(lyric: try! await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
-                tableView.reloadData()
+                do {
+                    lyricTuple = parserLyric(lyric: try await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
+                    self.rightView.isHidden = lyricTuple?.words.count == 1
+                    tableView.reloadData()
+                } catch {
+                    print(error)
+                    self.rightView.isHidden = true
+                }
+                
             }
         }
         
@@ -67,15 +74,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
-        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
+//        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
-        
-        if isPodcast {
-            
-        }
         
     }
     
@@ -103,19 +104,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func playListAction(_ sender: Any) {
-        showPlayList = !showPlayList
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: { [self] in
-            self.playListView.alpha = showPlayList ? 1.0 : 0.0
-            self.coverImageView.alpha = showPlayList ? 0.0 : 1.0
-            self.nameLabel.alpha = showPlayList ? 0.0 : 1.0
-        }, completion: { [self] _ in
-            self.playListView.isHidden = !showPlayList
-            self.coverImageView.isHidden = showPlayList
-            self.nameLabel.isHidden = showPlayList
-        })
-    }
-    
 }
 //MARK:  WKPlayerDelegate
 extension ViewController: WKPlayerDelegate {
@@ -135,8 +123,10 @@ extension ViewController: WKPlayerDelegate {
         Task {
             do {
                 lyricTuple = parserLyric(lyric: try await fetchLyric(id: now.wk_audioId!).lyric!)
+                self.rightView.isHidden = lyricTuple?.words.count == 1
                 tableView.reloadData()
             } catch {
+                self.rightView.isHidden = true
                 print(error)
             }
         }
@@ -254,42 +244,21 @@ extension ViewController: WKSliderDelegate {
 //MARK:  UITableView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (tableView == self.playListView) {
-            return wk_player.allOriginalModels?.count ?? 0
-        } else {
-            return lyricTuple?.words.count ?? 0
-        }
-        
+        return lyricTuple?.words.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == self.playListView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
-            cell.setModel(wk_player.allOriginalModels![indexPath.row])
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
+        cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
+        if current == indexPath.row {
+            cell.contentLabel?.textColor = UIColor.label
+            cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
-            cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
-            if current == indexPath.row {
-                cell.contentLabel?.textColor = UIColor.label
-                cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
-            } else {
-                cell.contentLabel?.textColor = UIColor.lightGray
-                cell.contentLabel?.font = .systemFont(ofSize: 60, weight: .bold)
-            }
-            return cell
+            cell.contentLabel?.textColor = UIColor.lightGray
+            cell.contentLabel?.font = .systemFont(ofSize: 60, weight: .bold)
         }
+        return cell
         
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == self.playListView {
-            try? wk_player.play(index: indexPath.row)
-            self.showPlayList = false
-            self.playListView.isHidden = true
-            self.coverImageView.isHidden = false
-            self.nameLabel.isHidden = false
-        }
     }
 }
 

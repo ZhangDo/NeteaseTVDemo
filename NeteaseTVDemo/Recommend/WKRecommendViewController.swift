@@ -59,11 +59,15 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     }
     
     func loadData() async  {
-        self.banners = try! await fetchBanners().filter({ model in
-            model.targetType != 3000
-        })
+        do {
+            self.banners = try await fetchBanners().filter({ model in
+                model.targetType != 3000
+            })
+            self.bannerView.reloadData()
+        } catch {
+            print(error)
+        }
         
-        self.bannerView.reloadData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if self.banners!.count > 1 {
                 self.bannerView.scrollToItem(at: 1, animated: true)
