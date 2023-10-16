@@ -26,13 +26,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
 //    @IBOutlet weak var playListView: UITableView!
-    @IBOutlet weak var playOrPauseBtn: UIButton!
     
+    @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var bottomActionView: UIView!
     @IBOutlet weak var sliderStackView: UIStackView!
-    static func creat() -> ViewController {
+    static func creat(isPodcast: Bool = false) -> ViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! ViewController
+        vc.isPodcast = isPodcast
         return vc
     }
     
@@ -45,15 +46,21 @@ class ViewController: UIViewController {
         wk_player.delegate = nil
         self.progressView.delegate = self
         wk_player.delegate = self
-        
         if wk_player.isPlaying {
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
             
             Task {
-                lyricTuple = parserLyric(lyric: try! await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
-                tableView.reloadData()
+                do {
+                    lyricTuple = parserLyric(lyric: try await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
+                    self.rightView.isHidden = lyricTuple?.words.count == 1
+                    tableView.reloadData()
+                } catch {
+                    print(error)
+                    self.rightView.isHidden = true
+                }
+                
             }
         }
         
@@ -67,15 +74,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
 //        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
-        
-        if isPodcast {
-            
-        }
         
     }
     
@@ -122,8 +123,10 @@ extension ViewController: WKPlayerDelegate {
         Task {
             do {
                 lyricTuple = parserLyric(lyric: try await fetchLyric(id: now.wk_audioId!).lyric!)
+                self.rightView.isHidden = lyricTuple?.words.count == 1
                 tableView.reloadData()
             } catch {
+                self.rightView.isHidden = true
                 print(error)
             }
         }

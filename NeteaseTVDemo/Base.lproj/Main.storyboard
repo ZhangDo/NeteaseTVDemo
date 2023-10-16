@@ -43,19 +43,19 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="673.5" height="630"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xci-Oa-R2R">
-                                                                    <rect key="frame" x="95" y="0.0" width="483.5" height="484"/>
+                                                                    <rect key="frame" x="126.5" y="0.0" width="420.5" height="421"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="xci-Oa-R2R" secondAttribute="height" multiplier="1:1" id="rPa-1d-sxD"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQd-up-XQL" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                    <rect key="frame" x="84.5" y="504" width="504" height="0.0"/>
+                                                                    <rect key="frame" x="85" y="441" width="504" height="0.0"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3K-vi-udH" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                                    <rect key="frame" x="0.0" y="524" width="673.5" height="0.0"/>
+                                                                    <rect key="frame" x="0.0" y="461" width="673.5" height="0.0"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="width" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.8:1" id="NBy-gN-CT3"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="NUp-us-rNt"/>
                                                                 <constraint firstItem="U3K-vi-udH" firstAttribute="top" secondItem="GQd-up-XQL" secondAttribute="bottom" constant="20" id="VSZ-IA-s7j"/>
-                                                                <constraint firstItem="xci-Oa-R2R" firstAttribute="height" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.767857" id="cip-UO-VHK"/>
+                                                                <constraint firstItem="xci-Oa-R2R" firstAttribute="height" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.667857" id="cip-UO-VHK"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="20" id="g2R-Ef-E3H"/>
                                                                 <constraint firstAttribute="trailing" secondItem="U3K-vi-udH" secondAttribute="trailing" id="pDh-g3-zQB"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
@@ -93,8 +93,8 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="Umn-Kx-HaH" firstAttribute="width" secondItem="6yk-hE-cBt" secondAttribute="width" multiplier="0.37" id="07g-EZ-jXJ"/>
                                                         <constraint firstAttribute="height" constant="630" id="1U1-Lo-THo"/>
+                                                        <constraint firstItem="gNA-mp-28g" firstAttribute="width" secondItem="6yk-hE-cBt" secondAttribute="width" multiplier="0.602473" id="HES-62-WIr"/>
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iSq-RS-SGO">
@@ -208,6 +208,7 @@
                         <outlet property="nameLabel" destination="GQd-up-XQL" id="q6n-xB-FNo"/>
                         <outlet property="progressView" destination="xvt-N2-1Bp" id="VVI-dt-qt4"/>
                         <outlet property="rightLabel" destination="tgh-br-fwf" id="Ycw-49-ApE"/>
+                        <outlet property="rightView" destination="gNA-mp-28g" id="kFh-Wa-BfY"/>
                         <outlet property="singerLabel" destination="U3K-vi-udH" id="fQG-G6-Rj8"/>
                         <outlet property="sliderStackView" destination="iSq-RS-SGO" id="9aA-ZO-DI6"/>
                         <outlet property="tableView" destination="TgS-vo-ysc" id="yxQ-hl-FGE"/>
