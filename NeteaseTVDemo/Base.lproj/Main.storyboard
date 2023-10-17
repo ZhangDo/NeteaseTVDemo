@@ -285,7 +285,7 @@
                                     </tabBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5g-tJ-zL4">
                                         <rect key="frame" x="0.0" y="392" width="900" height="568"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -302,7 +302,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puh-Oo-LoP">
                                         <rect key="frame" x="0.0" y="914" width="798" height="46"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="500" id="wpJ-y4-VTM"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="wpJ-y4-VTM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -311,6 +311,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="kGk-hZ-hKR"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="y3b-yo-YoB" secondAttribute="bottom" id="714-kq-0VG"/>
                             <constraint firstItem="oM2-ek-bJw" firstAttribute="leading" secondItem="Y2M-rK-C9K" secondAttribute="trailing" constant="30" id="GKa-XX-0D6"/>
@@ -1607,6 +1608,9 @@
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

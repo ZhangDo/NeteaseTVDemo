@@ -38,6 +38,8 @@ class WKProfileViewController: UIViewController {
     }
     
     @IBAction func changeAccount(_ sender: Any) {
-        print("切换账号")
+        let loginVC = WKLoginViewController.creat()
+        loginVC.modalPresentationStyle = .blurOverFullScreen
+        self.present(loginVC, animated: true)
     }
 }
