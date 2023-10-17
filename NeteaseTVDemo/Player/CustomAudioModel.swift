@@ -67,6 +67,9 @@ public class CustomAudioModel: WKPlayerDataSource {
     /** 音频标题*/
     var audioTitle: String?
     
+    /** 音频质量*/
+    var audioQuality: String?
+    
     /** 音频时长*/
     var audioTime: String?
     

@@ -71,11 +71,14 @@ class WKPlayListDetailViewController: UIViewController {
     }
 
     @IBAction func playAll(_ sender: Any) {
-        wk_player.allOriginalModels = self.allModels
-        try? wk_player.play(index: 0)
-        let playingVC = ViewController.creat()
-        playingVC.modalPresentationStyle = .blurOverFullScreen
-        self.present(playingVC, animated: true)
+        if self.allModels.count > 0 {
+            wk_player.allOriginalModels = self.allModels
+            try? wk_player.play(index: 0)
+            let playingVC = ViewController.creat()
+            playingVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(playingVC, animated: true)
+        }
+        
     }
 }
 

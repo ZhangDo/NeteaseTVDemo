@@ -80,11 +80,14 @@ class WKAlbumDetailViewController: UIViewController {
     }
     
     @IBAction func playAll(_ sender: Any) {
-        wk_player.allOriginalModels = self.allModels
-        try? wk_player.play(index: 0)
-        let playingVC = ViewController.creat()
-        playingVC.modalPresentationStyle = .blurOverFullScreen
-        self.present(playingVC, animated: true)
+        if self.allModels.count > 0 {
+            wk_player.allOriginalModels = self.allModels
+            try? wk_player.play(index: 0)
+            let playingVC = ViewController.creat()
+            playingVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(playingVC, animated: true)
+        }
+        
     }
 
 }
@@ -118,6 +121,12 @@ extension WKAlbumDetailViewController: UICollectionViewDelegate, UICollectionVie
         let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WKUserCollectionViewCell", for: indexPath) as! WKUserCollectionViewCell
         userCell.nameLabel.text = albumDetail?.album?.artists![indexPath.row].name
         return userCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let singerDetailVC = WKSingerDetailViewController.creat(singerId: (albumDetail?.album?.artists![indexPath.row].id)!)
+        singerDetailVC.modalPresentationStyle = .blurOverFullScreen
+        self.present(singerDetailVC, animated: true)
     }
     
 }
