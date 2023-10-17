@@ -12,6 +12,7 @@ class WKSingerDetailViewController: UIViewController {
     private var singerId: Int!
     @IBOutlet weak var singerNameLabel: UILabel!
     
+    @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var aliasLabel: UILabel!
     @IBOutlet weak var fansCountLabel: UILabel!
     @IBOutlet weak var identifyLabel: UILabel!
@@ -42,5 +43,11 @@ class WKSingerDetailViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+}
+
+extension WKSingerDetailViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        print(item)
     }
 }

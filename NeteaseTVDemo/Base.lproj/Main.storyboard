@@ -282,6 +282,9 @@
                                             <tabBarItem title="专辑" id="dgE-YG-6rd"/>
                                             <tabBarItem title="视频" id="ne0-F5-piR"/>
                                         </items>
+                                        <connections>
+                                            <outlet property="delegate" destination="N50-aE-5zh" id="g3b-ge-XTd"/>
+                                        </connections>
                                     </tabBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5g-tJ-zL4">
                                         <rect key="frame" x="0.0" y="392" width="900" height="568"/>
@@ -337,6 +340,7 @@
                         <outlet property="identifyLabel" destination="e6S-JG-3JG" id="0ft-ki-35i"/>
                         <outlet property="singerImageView" destination="N93-TQ-8mv" id="EjD-Nd-Z4Q"/>
                         <outlet property="singerNameLabel" destination="oyW-7W-JCh" id="eaj-Uj-fN8"/>
+                        <outlet property="tabBar" destination="q5N-JO-rQU" id="B81-70-yem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dy-dF-Qb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
