@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var coverImageView: UIImageView!
 //    @IBOutlet weak var playListView: UITableView!
     
+    @IBOutlet weak var audioQualityLabel: UILabel!
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var bottomActionView: UIView!
@@ -135,12 +136,14 @@ extension ViewController: WKPlayerDelegate {
         if Thread.isMainThread {
             self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
             self.nameLabel.text = now.wk_sourceName
+            self.audioQualityLabel.text = now.audioQuality
         } else {
             DispatchQueue.main.async {
                 self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
                 self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
                 self.nameLabel.text = now.wk_sourceName
                 self.singerLabel.text = now.singer
+                self.audioQualityLabel.text = now.audioQuality
             }
 
         }

@@ -60,17 +60,26 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="超清母带" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2X-Dp-CpZ">
+                                                                    <rect key="frame" x="0.0" y="481" width="673.5" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                                                    <color key="textColor" red="0.97397869825363159" green="0.84501243550010485" blue="0.011013108724422014" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="U3K-vi-udH" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="2Lf-KH-hpH"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="centerX" secondItem="xci-Oa-R2R" secondAttribute="centerX" id="5wj-nm-GU3"/>
+                                                                <constraint firstItem="Y2X-Dp-CpZ" firstAttribute="leading" secondItem="Umn-Kx-HaH" secondAttribute="leading" id="8Hd-Gd-fmb"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="width" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.8:1" id="NBy-gN-CT3"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="top" secondItem="Umn-Kx-HaH" secondAttribute="top" id="NUp-us-rNt"/>
                                                                 <constraint firstItem="U3K-vi-udH" firstAttribute="top" secondItem="GQd-up-XQL" secondAttribute="bottom" constant="20" id="VSZ-IA-s7j"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="height" secondItem="Umn-Kx-HaH" secondAttribute="height" multiplier="0.667857" id="cip-UO-VHK"/>
                                                                 <constraint firstItem="GQd-up-XQL" firstAttribute="top" secondItem="xci-Oa-R2R" secondAttribute="bottom" constant="20" id="g2R-Ef-E3H"/>
+                                                                <constraint firstItem="Y2X-Dp-CpZ" firstAttribute="top" secondItem="U3K-vi-udH" secondAttribute="bottom" constant="20" id="gxl-jc-8s9"/>
                                                                 <constraint firstAttribute="trailing" secondItem="U3K-vi-udH" secondAttribute="trailing" id="pDh-g3-zQB"/>
                                                                 <constraint firstItem="xci-Oa-R2R" firstAttribute="centerX" secondItem="Umn-Kx-HaH" secondAttribute="centerX" id="yz1-Su-p17"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Y2X-Dp-CpZ" secondAttribute="trailing" id="zQP-jb-TKs"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNA-mp-28g">
@@ -200,6 +209,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="正在播放" image="music.quarternote.3" catalog="system" id="VFN-lI-RUC"/>
                     <connections>
+                        <outlet property="audioQualityLabel" destination="Y2X-Dp-CpZ" id="Br3-hc-at9"/>
                         <outlet property="bgImageView" destination="5eD-6P-znW" id="cOW-vu-1yI"/>
                         <outlet property="bottomActionView" destination="DHU-Yl-tfH" id="jkG-Dj-KTF"/>
                         <outlet property="coverImageView" destination="xci-Oa-R2R" id="ZUQ-ed-O6h"/>
