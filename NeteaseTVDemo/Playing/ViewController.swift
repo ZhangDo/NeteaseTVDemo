@@ -51,6 +51,7 @@ class ViewController: UIViewController {
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
+            self.audioQualityLabel.text = wk_player.currentModel?.audioQuality
             
             Task {
                 do {

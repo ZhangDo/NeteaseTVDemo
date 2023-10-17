@@ -17,6 +17,7 @@ class WKSearchResultViewController: UIViewController {
      WKSearchTypeModel(isSelected: false, name: "电台", type: 1009)]
     var query: String?
     private var searchResult: NRSearchModel?
+    fileprivate var audioModels: [CustomAudioModel] = [CustomAudioModel]()
     @IBOutlet weak var segmentView: UICollectionView!
     @IBOutlet weak var resultCollectionView: UICollectionView!
     private var currentIndx = 0
@@ -35,6 +36,12 @@ class WKSearchResultViewController: UIViewController {
         
     }
     
+    func enterPlayer() {
+        let playingVC = ViewController.creat()
+        playingVC.modalPresentationStyle = .blurOverFullScreen
+        self.present(playingVC, animated: true)
+    }
+    
     
     func searchData() {
         Task {
@@ -43,6 +50,23 @@ class WKSearchResultViewController: UIViewController {
             let keywords: String = UserDefaults.standard.object(forKey: "searchText") as! String
             do {    
                 searchResult = try await search(keywords: keywords, type: type, limit: 100)
+                if type == 1 {
+                    let ids: String = searchResult?.songs!.map { String($0.id) }.joined(separator: ",") ?? ""
+                    let songModels = try await fetchSongDetail(ids: ids)
+                    self.audioModels.removeAll()
+                    for songModel in songModels {
+                        let model = CustomAudioModel()
+                        model.audioId = songModel.id
+                        model.isFree = 1
+                        model.freeTime = 0
+                        model.audioTitle = songModel.name
+                        model.audioPicUrl = songModel.al?.picUrl
+                        if let singerModel = songModel.ar {
+                            model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+                        }
+                        self.audioModels.append(model)
+                    }
+                }
                 if let collectionView = resultCollectionView {
                     collectionView.reloadData()
                 }
@@ -99,17 +123,6 @@ class WKSearchResultViewController: UIViewController {
         if baseSpacing > 0 {
             section.contentInsets = NSDirectionalEdgeInsets(top: baseSpacing, leading: 0, bottom: 0, trailing: 0)
         }
-
-//        let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                               heightDimension: .estimated(44))
-//        if showHeader {
-//            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
-//                layoutSize: titleSize,
-//                elementKind: TitleSupplementaryView.reuseIdentifier,
-//                alignment: .top
-//            )
-//            section.boundarySupplementaryItems = [titleSupplementary]
-//        }
         return section
     }
 }
@@ -123,7 +136,7 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
             let type = types[index].type
             switch type {
             case 1:
-                return searchResult?.songs?.count ?? 0
+                return audioModels.count
             case 10:
                 return searchResult?.albums?.count ?? 0
             case 100:
@@ -153,8 +166,8 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
             let type = types[index].type
             switch type {
             case 1:
-                cell.playListCover.kf.setImage(with: URL(string: searchResult?.songs![indexPath.row].al?.picUrl ?? ""))
-                cell.titleLabel.text = searchResult?.songs![indexPath.row].name
+                cell.playListCover.kf.setImage(with: URL(string: self.audioModels[indexPath.row].wk_audioPic!))
+                cell.titleLabel.text = self.audioModels[indexPath.row].wk_sourceName
             case 10:
                 cell.playListCover.kf.setImage(with: URL(string: searchResult?.albums![indexPath.row].picUrl ?? ""))
                 cell.titleLabel.text = searchResult?.albums![indexPath.row].name
@@ -200,10 +213,18 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
             let index: Int = UserDefaults.standard.object(forKey: "searchIndex") as! Int
             let type = types[index].type
             switch type {
+            case 1:
+                wk_player.allOriginalModels = [self.audioModels[indexPath.row]]
+                try? wk_player.play(index: 0)
+                self.enterPlayer()
             case 10:
                 let albumVC = WKAlbumDetailViewController.creat(playListId: (searchResult?.albums![indexPath.row].id)!)
                 albumVC.modalPresentationStyle = .blurOverFullScreen
                 self.present(albumVC, animated: true)
+            case 100:
+                let singerDetailVC = WKSingerDetailViewController.creat(singerId: (searchResult?.artists![indexPath.row].id)!)
+                singerDetailVC.modalPresentationStyle = .blurOverFullScreen
+                self.present(singerDetailVC, animated: true)
             case 1000:
                 let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: (searchResult?.playlists![indexPath.row].id)!)
                 playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
