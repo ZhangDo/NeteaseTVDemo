@@ -1,9 +1,3 @@
-//
-//  WKSingleSongView.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/9/27.
-//
 
 import UIKit
 import MarqueeLabel

@@ -574,8 +574,28 @@ public class WKPlayer: NSObject {
 //        }
         
         guard let urlStr = model.audioUrl else {
-            print("暂无版权")
+            if model.fee == .buyAlbum {
+                let error = WKPlayerError.dataSourceError(reason: .needBuyAlbum)
+                unifiedExceptionHandle(error)
+                return
+            }
+            
+            if model.fee == .vip {
+                let error = WKPlayerError.dataSourceError(reason: .needVip)
+                unifiedExceptionHandle(error)
+                return
+            }
+            
+            if model.fee == .free {
+                let error = WKPlayerError.dataSourceError(reason: .noPermission)
+                unifiedExceptionHandle(error)
+                return
+            }
+            
             if after! {
+                if (currentIndex == allAvailableModels!.count - 1) {
+                    return
+                }
                 try self.playNext()
             } else {
                 try self.playLast()

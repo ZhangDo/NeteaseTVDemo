@@ -1,9 +1,3 @@
-//
-//  WKRecommendPlaylistVC.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/8.
-//
 
 import UIKit
 import NeteaseRequest

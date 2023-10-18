@@ -1,9 +1,3 @@
-//
-//  WKFindModel.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/11.
-//
 
 import Foundation
 import NeteaseRequest

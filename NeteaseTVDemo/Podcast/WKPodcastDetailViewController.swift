@@ -1,9 +1,3 @@
-//
-//  WKPodcastDetailViewController.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/13.
-//
 
 import UIKit
 import NeteaseRequest

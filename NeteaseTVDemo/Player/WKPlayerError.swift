@@ -15,16 +15,13 @@ public enum WKPlayerError: Error {
     
     ///数据源错误
     public enum DataSourceError {
-        ///缺少数据源
         case lackOfDataSource
-        ///没有权限播放数据源，或缺少授权信息
         case noPermission
-        ///无效数据源，没有播放地址的数据源
         case invalidDataSource
-        ///没有上一条数据
         case noLastDataSource
-        ///没有下一条数据
         case noNextDataSource
+        case needBuyAlbum
+        case needVip
     }
     
     ///网络错误
@@ -63,15 +60,19 @@ extension WKPlayerError.DataSourceError {
     public var localizedDescription: String {
         switch self {
         case .lackOfDataSource:
-            return "Lack of DataSource."
+            return "缺少数据源"
         case .noPermission:
-            return "You have no permission to access the DataSource."
-        case .invalidDataSource:
             return "暂无版权"
+        case .invalidDataSource:
+            return "无效数据源，没有播放地址的数据源"
         case .noLastDataSource:
-            return "There is no exists or you have no permission to access the last DataSource."
+            return "没有上一条数据"
         case .noNextDataSource:
-            return "There is no exists or you have no permission to access the next DataSource."
+            return "没有下一条数据"
+        case .needBuyAlbum:
+            return "需要到网易云音乐购买专辑"
+        case .needVip:
+            return "需要网易云音乐 VIP 权限"
         }
     }
 }

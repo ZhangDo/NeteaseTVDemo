@@ -1,9 +1,3 @@
-//
-//  WKRecommendViewController.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/9/15.
-//
 
 import UIKit
 import NeteaseRequest
@@ -69,10 +63,11 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if self.banners!.count > 1 {
-                self.bannerView.scrollToItem(at: 1, animated: true)
+            if self.banners != nil {
+                if self.banners!.count > 1 {
+                    self.bannerView.scrollToItem(at: 1, animated: true)
+                }
             }
-            
         }
         do {
             self.dailyPlaylist = try await fetchRecommendPlayList(cookie: cookie)
