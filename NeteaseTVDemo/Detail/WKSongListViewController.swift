@@ -66,5 +66,13 @@ extension WKSongListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
+        
+        wk_player.allOriginalModels = model
+        try? wk_player.play(index: 0)
+        let playingVC = ViewController.creat()
+        self.present(playingVC, animated: true)
+    }
 
 }

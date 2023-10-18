@@ -384,6 +384,58 @@
             </objects>
             <point key="canvasLocation" x="-1520" y="5061"/>
         </scene>
+        <!--Singer Detail Album ListVC-->
+        <scene sceneID="12F-L8-Xa7">
+            <objects>
+                <viewController storyboardIdentifier="WKSingerDetailAlbumListVC" id="vXE-HU-UBO" customClass="WKSingerDetailAlbumListVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XR8-cY-GIO"/>
+                        <viewControllerLayoutGuide type="bottom" id="I3o-ad-KIg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kQe-rg-LRf">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L9E-BP-Dlf">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BU2-qz-0jf">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="YPg-i7-fad">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rZf-td-4qA">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXE-HU-UBO" id="Dup-nU-GzU"/>
+                                    <outlet property="delegate" destination="vXE-HU-UBO" id="k6B-YS-6Tg"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nAC-AS-gYE"/>
+                        <constraints>
+                            <constraint firstItem="L9E-BP-Dlf" firstAttribute="top" secondItem="nAC-AS-gYE" secondAttribute="top" id="Fi8-gx-tCX"/>
+                            <constraint firstItem="nAC-AS-gYE" firstAttribute="bottom" secondItem="L9E-BP-Dlf" secondAttribute="bottom" id="c1Y-QC-f1R"/>
+                            <constraint firstItem="nAC-AS-gYE" firstAttribute="trailing" secondItem="L9E-BP-Dlf" secondAttribute="trailing" id="lzZ-Bg-hgr"/>
+                            <constraint firstItem="L9E-BP-Dlf" firstAttribute="leading" secondItem="nAC-AS-gYE" secondAttribute="leading" id="w8t-ht-wc2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumCollectionView" destination="L9E-BP-Dlf" id="hoa-UK-cTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EXw-x3-8sD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1520" y="6506"/>
+        </scene>
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
             <objects>

@@ -20,12 +20,14 @@ class WKSingerDetailViewController: UIViewController {
     @IBOutlet weak var singerImageView: UIImageView!
     
     @IBOutlet weak var listBgView: UIView!
-    private var songListVC:WKSongListViewController!
+    private var songListVC: WKSongListViewController!
+    private var albumListVC: WKSingerDetailAlbumListVC!
     
     static func creat(singerId: Int) -> WKSingerDetailViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKSingerDetailViewController
         vc.singerId = singerId
         vc.songListVC = WKSongListViewController.creat(singerId: singerId)
+        vc.albumListVC = WKSingerDetailAlbumListVC.creat(singerId: singerId)
         return vc
     }
 
@@ -36,6 +38,13 @@ class WKSingerDetailViewController: UIViewController {
         songListVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        self.addChild(albumListVC)
+        listBgView.addSubview(albumListVC.view)
+        albumListVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        albumListVC.view.isHidden = true
         
         Task {
             await loadSingerDetail()
@@ -61,9 +70,13 @@ extension WKSingerDetailViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.title == "单曲" {
             songListVC.view.isHidden = false
-        } else {
+            albumListVC.view.isHidden = true
+        } else if item.title == "专辑" {
             songListVC.view.isHidden = true
+            albumListVC.view.isHidden = false
+        } else if item.title == "视频" {
+            songListVC.view.isHidden = true
+            albumListVC.view.isHidden = true
         }
-        print(item)
     }
 }
