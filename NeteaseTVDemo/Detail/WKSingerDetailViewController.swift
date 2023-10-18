@@ -18,14 +18,25 @@ class WKSingerDetailViewController: UIViewController {
     @IBOutlet weak var identifyLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var singerImageView: UIImageView!
+    
+    @IBOutlet weak var listBgView: UIView!
+    private var songListVC:WKSongListViewController!
+    
     static func creat(singerId: Int) -> WKSingerDetailViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKSingerDetailViewController
         vc.singerId = singerId
+        vc.songListVC = WKSongListViewController.creat(singerId: singerId)
         return vc
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addChild(songListVC)
+        listBgView.addSubview(songListVC.view)
+        songListVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         Task {
             await loadSingerDetail()
         }
@@ -48,6 +59,11 @@ class WKSingerDetailViewController: UIViewController {
 
 extension WKSingerDetailViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.title == "单曲" {
+            songListVC.view.isHidden = false
+        } else {
+            songListVC.view.isHidden = true
+        }
         print(item)
     }
 }

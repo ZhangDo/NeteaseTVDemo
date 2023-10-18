@@ -288,7 +288,7 @@
                                     </tabBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5g-tJ-zL4">
                                         <rect key="frame" x="0.0" y="392" width="900" height="568"/>
-                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -338,6 +338,7 @@
                         <outlet property="descLabel" destination="Puh-Oo-LoP" id="mZP-xf-dnL"/>
                         <outlet property="fansCountLabel" destination="j8w-E3-tXj" id="Dcm-oi-1jw"/>
                         <outlet property="identifyLabel" destination="e6S-JG-3JG" id="0ft-ki-35i"/>
+                        <outlet property="listBgView" destination="y5g-tJ-zL4" id="Y3t-X4-1Et"/>
                         <outlet property="singerImageView" destination="N93-TQ-8mv" id="EjD-Nd-Z4Q"/>
                         <outlet property="singerNameLabel" destination="oyW-7W-JCh" id="eaj-Uj-fN8"/>
                         <outlet property="tabBar" destination="q5N-JO-rQU" id="B81-70-yem"/>
@@ -346,6 +347,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dy-dF-Qb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1520" y="3799"/>
+        </scene>
+        <!--Song List View Controller-->
+        <scene sceneID="dqC-C0-RKU">
+            <objects>
+                <viewController storyboardIdentifier="WKSongListViewController" id="DbH-1w-Eeq" customClass="WKSongListViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v7Y-x0-g8N"/>
+                        <viewControllerLayoutGuide type="bottom" id="uym-4M-1PI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vYw-F5-Ygu">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="90" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="mEl-JB-UDX">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="DbH-1w-Eeq" id="8I0-gY-Pq0"/>
+                                    <outlet property="delegate" destination="DbH-1w-Eeq" id="PSs-Rl-7A4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QgN-f1-UIn"/>
+                        <constraints>
+                            <constraint firstItem="QgN-f1-UIn" firstAttribute="bottom" secondItem="mEl-JB-UDX" secondAttribute="bottom" id="3XT-QF-Piw"/>
+                            <constraint firstItem="mEl-JB-UDX" firstAttribute="top" secondItem="QgN-f1-UIn" secondAttribute="top" id="acq-nb-zuP"/>
+                            <constraint firstItem="QgN-f1-UIn" firstAttribute="trailing" secondItem="mEl-JB-UDX" secondAttribute="trailing" id="fgE-tw-UhJ"/>
+                            <constraint firstItem="mEl-JB-UDX" firstAttribute="leading" secondItem="QgN-f1-UIn" secondAttribute="leading" id="isD-TN-8UR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="mEl-JB-UDX" id="lwF-Hs-2gp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DqC-yS-wdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1520" y="5061"/>
         </scene>
         <!--我的-->
         <scene sceneID="tdM-fB-swT">
@@ -1612,9 +1649,6 @@
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tertiarySystemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
