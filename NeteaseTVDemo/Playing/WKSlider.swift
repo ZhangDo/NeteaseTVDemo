@@ -1,10 +1,3 @@
-//
-//  WKSlider.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/9/25.
-//
-
 import UIKit
 
 public protocol WKSliderDelegate: AnyObject {

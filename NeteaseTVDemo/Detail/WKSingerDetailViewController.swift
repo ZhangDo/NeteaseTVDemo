@@ -1,9 +1,3 @@
-//
-//  WKSingerDetailViewController.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/17.
-//
 
 import UIKit
 import NeteaseRequest
@@ -22,12 +16,14 @@ class WKSingerDetailViewController: UIViewController {
     @IBOutlet weak var listBgView: UIView!
     private var songListVC: WKSongListViewController!
     private var albumListVC: WKSingerDetailAlbumListVC!
+    private var mvListVC: WKSingerMVListVC!
     
     static func creat(singerId: Int) -> WKSingerDetailViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKSingerDetailViewController
         vc.singerId = singerId
         vc.songListVC = WKSongListViewController.creat(singerId: singerId)
         vc.albumListVC = WKSingerDetailAlbumListVC.creat(singerId: singerId)
+        vc.mvListVC = WKSingerMVListVC.creat(singerId: singerId)
         return vc
     }
 
@@ -45,6 +41,13 @@ class WKSingerDetailViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         albumListVC.view.isHidden = true
+        
+        self.addChild(mvListVC)
+        listBgView.addSubview(mvListVC.view)
+        mvListVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        mvListVC.view.isHidden = true
         
         Task {
             await loadSingerDetail()
@@ -71,12 +74,15 @@ extension WKSingerDetailViewController: UITabBarDelegate {
         if item.title == "单曲" {
             songListVC.view.isHidden = false
             albumListVC.view.isHidden = true
+            mvListVC.view.isHidden = true
         } else if item.title == "专辑" {
             songListVC.view.isHidden = true
             albumListVC.view.isHidden = false
+            mvListVC.view.isHidden = true
         } else if item.title == "视频" {
             songListVC.view.isHidden = true
             albumListVC.view.isHidden = true
+            mvListVC.view.isHidden = false
         }
     }
 }

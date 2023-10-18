@@ -1,9 +1,3 @@
-//
-//  WKSearchResultViewController.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/14.
-//
 
 import UIKit
 import NeteaseRequest

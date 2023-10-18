@@ -1,9 +1,3 @@
-//
-//  WKUserModel.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/13.
-//
 
 import Foundation
 import NeteaseRequest

@@ -1,9 +1,3 @@
-//
-//  WKSongListViewController.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/18.
-//
 
 import UIKit
 import NeteaseRequest

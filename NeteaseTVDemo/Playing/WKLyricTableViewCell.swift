@@ -1,10 +1,3 @@
-//
-//  WKLyricTableViewCell.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/9/13.
-//
-
 import UIKit
 import SnapKit
 class WKLyricTableViewCell: UITableViewCell {
