@@ -5,7 +5,7 @@ class WKSongTableViewCell: UITableViewCell {
     
     var indexLabel = UILabel()
     private var songNameLabel = MarqueeLabel()
-    private var singerLabel = MarqueeLabel()
+    private var albumLabel = MarqueeLabel()
     private var timeLabel = UILabel()
     
     
@@ -45,7 +45,7 @@ class WKSongTableViewCell: UITableViewCell {
                 make.right.equalTo(self.contentView.snp.right).offset(-30)
                 make.top.equalTo(self.contentView.snp.centerY).offset(5)
             }
-        })(singerLabel)
+        })(albumLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -57,16 +57,25 @@ class WKSongTableViewCell: UITableViewCell {
         super.didUpdateFocus(in: context, with: coordinator)
         if isFocused {
             songNameLabel.textColor = .black
-            singerLabel.textColor = .black
+            albumLabel.textColor = .black
         } else {
             songNameLabel.textColor = .white
-            singerLabel.textColor = .white
+            albumLabel.textColor = .white
         }
     }
     
     func setModel(_ model: CustomAudioModel) {
-        self.songNameLabel.text = model.wk_sourceName
-        self.singerLabel.text = model.wk_singerName
+        if let tns = model.transTitle {
+            self.songNameLabel.text = model.wk_sourceName! + " (\(tns))"
+            let attributedString = NSMutableAttributedString(string: self.songNameLabel.text!)
+            // 设置不同范围的文本颜色
+            attributedString.addAttribute(.foregroundColor, value: UIColor.lightGray, range: NSRange(location: model.wk_sourceName!.count, length: tns.count + 3))
+            attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 27), range: NSRange(location: model.wk_sourceName!.count, length: tns.count + 3))
+            self.songNameLabel.attributedText = attributedString
+        } else {
+            self.songNameLabel.text = model.wk_sourceName
+        }
+        self.albumLabel.text = model.albumTitle
     }
     
 }

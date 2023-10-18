@@ -7,7 +7,6 @@ class WKSingerDetailViewController: UIViewController {
     @IBOutlet weak var singerNameLabel: UILabel!
     
     @IBOutlet weak var tabBar: UITabBar!
-    @IBOutlet weak var aliasLabel: UILabel!
     @IBOutlet weak var fansCountLabel: UILabel!
     @IBOutlet weak var identifyLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -59,8 +58,7 @@ class WKSingerDetailViewController: UIViewController {
             let singerDetail: NRArtistDetailModel = try await fetchArtistDetail(id: singerId)
             self.singerImageView.kf.setImage(with: URL(string: singerDetail.artist?.cover ?? ""))
             self.singerNameLabel.text = singerDetail.artist?.name
-            self.aliasLabel.text = "JJ Lin"
-            self.fansCountLabel.text = "1056.3万粉丝"
+            self.fansCountLabel.text = try await fetchArtistFansCount(id: singerId).fansCnt.toTenThousandString(scale: 2) + "粉丝"
             self.identifyLabel.text = singerDetail.identify?.imageDesc
             self.descLabel.text = singerDetail.artist?.briefDesc
         } catch {

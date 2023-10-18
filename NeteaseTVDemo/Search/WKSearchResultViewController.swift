@@ -8,7 +8,9 @@ class WKSearchResultViewController: UIViewController {
      WKSearchTypeModel(isSelected: false, name: "歌手", type: 100),
      WKSearchTypeModel(isSelected: false, name: "歌单", type: 1000),
      WKSearchTypeModel(isSelected: false, name: "用户", type: 1002),
-     WKSearchTypeModel(isSelected: false, name: "电台", type: 1009)]
+     WKSearchTypeModel(isSelected: false, name: "电台", type: 1009),
+     WKSearchTypeModel(isSelected: false, name: "MV", type: 1004),
+     WKSearchTypeModel(isSelected: false, name: "视频", type: 1014)]
     var query: String?
     private var searchResult: NRSearchModel?
     fileprivate var audioModels: [CustomAudioModel] = [CustomAudioModel]()
@@ -141,6 +143,10 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
                 return searchResult?.userprofiles?.count ?? 0
             case 1009:
                 return searchResult?.djRadios?.count ?? 0
+            case 1004:
+                return searchResult?.mvs?.count ?? 0
+            case 1014:
+                return searchResult?.videos?.count ?? 0
             default:
                 return 0
             }
@@ -177,6 +183,12 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
             case 1009:
                 cell.playListCover.kf.setImage(with: URL(string: searchResult?.djRadios![indexPath.row].picUrl ?? ""))
                 cell.titleLabel.text = searchResult?.djRadios![indexPath.row].name
+            case 1004:
+                cell.playListCover.kf.setImage(with: URL(string: searchResult?.mvs![indexPath.row].cover ?? ""))
+                cell.titleLabel.text = searchResult?.mvs![indexPath.row].name
+            case 1014:
+                cell.playListCover.kf.setImage(with: URL(string: searchResult?.videos![indexPath.row].coverUrl ?? ""))
+                cell.titleLabel.text = searchResult?.videos![indexPath.row].title
             default: break
             }
             return cell
@@ -227,6 +239,12 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
                 let podcastDetaiVC = WKPodcastDetailViewController.creat(djRadioModel: (searchResult?.djRadios![indexPath.row])!)
                 podcastDetaiVC.modalPresentationStyle = .blurOverFullScreen
                 self.present(podcastDetaiVC, animated: true)
+            case 1004:
+                let videoPlayerVC = WKVideoViewController(playInfo: WKPlayInfo(id: (searchResult?.mvs![indexPath.row].id)!, r: 1080, isMV: true))
+                self.present(videoPlayerVC, animated: true)
+            case 1014:
+                let videoPlayerVC = WKVideoViewController(playInfo: WKPlayInfo(id: Int((searchResult?.videos![indexPath.row].vid)!)!, r: 1080, isMV: true))
+                self.present(videoPlayerVC, animated: true)
             default:
                 break
             }

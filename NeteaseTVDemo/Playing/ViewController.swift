@@ -205,16 +205,10 @@ extension ViewController: WKPlayerDelegate {
         debugPrint(error.errorDescription as Any)
 
         DispatchQueue.main.async {
-            let alert = UIAlertController.init(title: "Error", message: error.errorDescription, preferredStyle: .alert)
+            let alert = UIAlertController.init(title: "提示", message: error.errorDescription, preferredStyle: .alert)
             let confirm = UIAlertAction.init(title: "ok", style: .default, handler: nil)
             alert.addAction(confirm)
-    //        self.present(alert, animated: true)
-            let keyWindow = UIApplication.shared.connectedScenes
-                    .filter({$0.activationState == .foregroundActive})
-                    .compactMap({$0 as? UIWindowScene})
-                    .first?.windows
-                    .filter({$0.isKeyWindow}).first
-            keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
 
 

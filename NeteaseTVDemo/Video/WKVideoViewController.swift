@@ -4,6 +4,7 @@ import NeteaseRequest
 struct WKPlayInfo {
     var id: Int
     var r: Int
+    var isMV: Bool
 }
 
 class WKVideoViewController: AVPlayerViewController {
@@ -18,19 +19,35 @@ class WKVideoViewController: AVPlayerViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Task {
-            await loadData()
+        if self.playInfo.isMV {
+            Task {
+                await loadData()
+            }
         }
     }
     
     func loadData() async {
         do {
-            let mvUrlModel: NRMVUrlModel = try await fetchMVUrl(id: 14634962)
-            player = AVPlayer(url: URL(string: mvUrlModel.url)!)
-            player?.play()
+            let mvUrlModel: NRMVUrlModel = try await fetchMVUrl(id: self.playInfo.id)
+            if let url = mvUrlModel.url {
+                player = AVPlayer(url: URL(string: url)!)
+                player?.play()
+            } else {
+                showAlert(mvUrlModel.msg ?? "")
+            }
+            
         } catch {
             print(error)
+            showAlert(error.localizedDescription)
+        }
+    }
+    
+    func showAlert(_ message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: .alert)
+            let confirm = UIAlertAction.init(title: "确定", style: .default, handler: nil)
+            alert.addAction(confirm)
+            self.present(alert, animated: true, completion: nil)
         }
     }
 

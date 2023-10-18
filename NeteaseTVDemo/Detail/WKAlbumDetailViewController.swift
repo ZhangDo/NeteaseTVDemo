@@ -59,6 +59,7 @@ class WKAlbumDetailViewController: UIViewController {
             model.freeTime = 0
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al?.picUrl
+            model.fee = songModel.fee
             let min = (songModel.dt ?? 0) / 1000 / 60
             let sec = (songModel.dt ?? 0) / 1000 % 60
             model.audioTime = String(format: "%d:%02d", min, sec)

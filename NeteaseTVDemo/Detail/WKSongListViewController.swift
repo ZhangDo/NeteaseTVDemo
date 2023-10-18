@@ -31,7 +31,8 @@ class WKSongListViewController: UIViewController {
                 model.freeTime = 0
                 model.audioTitle = songModel.name
                 model.audioPicUrl = songModel.al?.picUrl
-//                model.transTitle = songModel.
+                model.transTitle = songModel.tns?.first
+                model.albumTitle = songModel.al?.name
                 let min = (songModel.dt ?? 0) / 1000 / 60
                 let sec = (songModel.dt ?? 0) / 1000 % 60
                 model.audioTime = String(format: "%d:%02d", min, sec)
@@ -55,7 +56,7 @@ extension WKSongListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WKSongTableViewCell", for: indexPath) as! WKSongTableViewCell
-        cell.indexLabel.text = "\(indexPath.row + 1)"
+        cell.indexLabel.text = "\(indexPath.row + 1)" + "."
         cell.setModel(allModels[indexPath.row])
         return cell
     }

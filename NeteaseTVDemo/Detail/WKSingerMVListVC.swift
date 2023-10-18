@@ -78,7 +78,7 @@ extension WKSingerMVListVC: UICollectionViewDelegate, UICollectionViewDataSource
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let videoPlayerVC = WKVideoViewController(playInfo: WKPlayInfo(id: singerMVs[indexPath.row].id, r: 1080))
+        let videoPlayerVC = WKVideoViewController(playInfo: WKPlayInfo(id: singerMVs[indexPath.row].id, r: 1080, isMV: true))
         self.present(videoPlayerVC, animated: true)
     }
 }

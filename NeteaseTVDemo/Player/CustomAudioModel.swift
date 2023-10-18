@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NeteaseRequest
 public class CustomAudioModel: WKPlayerDataSource {
     
     /** 需要具体描述音频数据源的播放类型，共有3种类型，
@@ -66,8 +67,9 @@ public class CustomAudioModel: WKPlayerDataSource {
     var audioUrl: String?
     /** 音频标题*/
     var audioTitle: String?
-    
+    var albumTitle: String?
     var transTitle: String?
+    var fee: NRFee?
     
     /** 音频质量*/
     var audioQuality: String?
