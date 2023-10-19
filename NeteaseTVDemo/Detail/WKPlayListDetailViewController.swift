@@ -5,8 +5,6 @@ class WKPlayListDetailViewController: UIViewController {
     
     @IBOutlet weak var bgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var coverImageView: UIImageView!
-    
     @IBOutlet weak var collectButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +19,6 @@ class WKPlayListDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.coverImageView.layer.cornerRadius = 10;
         tableView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         
         Task {
@@ -32,9 +29,7 @@ class WKPlayListDetailViewController: UIViewController {
     func loadData() async {
         let playListDetail: NRPlayListDetailModel = try! await fetchPlayListDetail(id: self.playListId, cookie: cookie)
         self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
-        self.coverImageView.kf.setImage(with: URL(string: playListDetail.coverImgUrl))
         self.nameLabel.text = playListDetail.name
-        //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = playListDetail.description
         self.descView.onPrimaryAction = { [weak self] model in
             let vc = WKDescViewController.creat(desc: playListDetail.description ?? "")
