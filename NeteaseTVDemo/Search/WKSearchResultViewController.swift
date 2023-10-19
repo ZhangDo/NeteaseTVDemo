@@ -220,6 +220,10 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
             let type = types[index].type
             switch type {
             case 1:
+                if wk_player.isPlaying && wk_player.currentModel?.audioId == self.audioModels[indexPath.row].audioId {
+                    self.enterPlayer()
+                    return
+                }
                 wk_player.allOriginalModels = [self.audioModels[indexPath.row]]
                 try? wk_player.play(index: 0)
                 self.enterPlayer()
