@@ -39,7 +39,6 @@ class WKPodcastDetailViewController: UIViewController {
             await loadData()
             tableView.reloadData()
         }
-        
     }
     
     func loadData() async {
@@ -88,6 +87,11 @@ extension WKPodcastDetailViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if wk_player.isPlaying && wk_player.currentModel?.audioId == self.allModels[indexPath.row].audioId {
+            let playingVC = ViewController.creat()
+            self.present(playingVC, animated: true)
+            return
+        }
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
         wk_player.allOriginalModels = model
         try? wk_player.play(index: 0)

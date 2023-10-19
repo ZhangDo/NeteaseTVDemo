@@ -5,8 +5,6 @@ class WKPlayListDetailViewController: UIViewController {
     
     @IBOutlet weak var bgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var coverImageView: UIImageView!
-    
     @IBOutlet weak var collectButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -21,26 +19,29 @@ class WKPlayListDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.coverImageView.layer.cornerRadius = 10;
         tableView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
-        
+        if #available(tvOS 17.0, *) {
+            collectButton.menu = UIMenu(children: [UIAction(title: "保存到文件", handler: { action in
+                print("保存到文件")
+            })])
+        } else {
+            // Fallback on earlier versions
+        }
         Task {
             await loadData()
         }
+        
     }
     
     func loadData() async {
         let playListDetail: NRPlayListDetailModel = try! await fetchPlayListDetail(id: self.playListId, cookie: cookie)
         self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
-        self.coverImageView.kf.setImage(with: URL(string: playListDetail.coverImgUrl))
         self.nameLabel.text = playListDetail.name
-        //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = playListDetail.description
         self.descView.onPrimaryAction = { [weak self] model in
             let vc = WKDescViewController.creat(desc: playListDetail.description ?? "")
             self!.present(vc, animated: true)
         }
-        self.collectButton.isHidden = false
         
         let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: self.playListId,limit: 100)
         self.allModels.removeAll()
@@ -89,8 +90,12 @@ extension WKPlayListDetailViewController: UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if wk_player.isPlaying && wk_player.currentModel?.audioId == self.allModels[indexPath.row].audioId {
+            let playingVC = ViewController.creat()
+            self.present(playingVC, animated: true)
+            return
+        }
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
-        
         wk_player.allOriginalModels = model
         try? wk_player.play(index: 0)
         let playingVC = ViewController.creat()

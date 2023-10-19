@@ -8,7 +8,6 @@ class ViewController: UIViewController {
     var lyrics: [String]?
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
-    var showPlayList: Bool = false
     var isPodcast: Bool = false
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
@@ -96,6 +95,19 @@ class ViewController: UIViewController {
             try wk_player.playNext()
         } catch {
             debugPrint(error)
+        }
+    }
+    
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        super.pressesBegan(presses, with: event)
+        for press in presses {
+             if press.type == .playPause {
+                if wk_player.state == .paused {
+                    wk_player.resumePlayer()
+                } else if  wk_player.state == .isPlaying {
+                    wk_player.pausePlayer()
+                }
+            }
         }
     }
     

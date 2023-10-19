@@ -5,7 +5,6 @@ class WKAlbumDetailViewController: UIViewController {
     
     @IBOutlet weak var bgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var coverImageView: UIImageView!
     
     @IBOutlet weak var collectButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -26,8 +25,7 @@ class WKAlbumDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.coverImageView.layer.cornerRadius = 10;
-        tableView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
+        tableView.register(WKSongTableViewCell.self, forCellReuseIdentifier: "WKSongTableViewCell")
         userView.register(WKUserCollectionViewCell.self, forCellWithReuseIdentifier: "WKUserCollectionViewCell")
         userView.collectionViewLayout = makeUserCollectionViewLayout()
         Task {
@@ -40,7 +38,6 @@ class WKAlbumDetailViewController: UIViewController {
         albumDetail = try! await fetchAlbumDetail(id: self.albumId)
         
         self.bgView.kf.setImage(with: URL(string: (albumDetail?.album!.picUrl!)!),options: [.transition(.flipFromBottom(0.6))])
-        self.coverImageView.kf.setImage(with: URL(string: (albumDetail?.album!.picUrl!)!))
         self.nameLabel.text = albumDetail?.album!.name
         //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = albumDetail?.album!.description!
@@ -60,6 +57,8 @@ class WKAlbumDetailViewController: UIViewController {
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al?.picUrl
             model.fee = songModel.fee
+            model.transTitle = songModel.tns?.first
+            model.albumTitle = songModel.al?.name
             let min = (songModel.dt ?? 0) / 1000 / 60
             let sec = (songModel.dt ?? 0) / 1000 % 60
             model.audioTime = String(format: "%d:%02d", min, sec)
@@ -93,12 +92,18 @@ extension WKAlbumDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WKPlayListTableViewCell", for: indexPath) as! WKPlayListTableViewCell
-        cell.setModel(self.allModels[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WKSongTableViewCell", for: indexPath) as! WKSongTableViewCell
+        cell.indexLabel.text = "\(indexPath.row + 1)" + "."
+        cell.setModel(allModels[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if wk_player.isPlaying && wk_player.currentModel?.audioId == self.allModels[indexPath.row].audioId {
+            let playingVC = ViewController.creat()
+            self.present(playingVC, animated: true)
+            return
+        }
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
         wk_player.allOriginalModels = model
         try? wk_player.play(index: 0)
