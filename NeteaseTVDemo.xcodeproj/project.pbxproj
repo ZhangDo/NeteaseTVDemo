@@ -25,6 +25,7 @@
 		2944A93E2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93D2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift */; };
 		2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */; };
 		2944A9442AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */; };
+		295E48D02AE1056600C259D2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */; };
 		295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8132A985D3500B35C54 /* AppDelegate.swift */; };
 		295FA8162A985D3500B35C54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8152A985D3500B35C54 /* ViewController.swift */; };
 		295FA8192A985D3500B35C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295FA8172A985D3500B35C54 /* Main.storyboard */; };
@@ -89,6 +90,7 @@
 		2944A93D2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKAlbumDetailViewController.swift; sourceTree = "<group>"; };
 		2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKDescView.swift; sourceTree = "<group>"; };
 		2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListCollectionViewCell.swift; sourceTree = "<group>"; };
+		295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeteaseTVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295FA8132A985D3500B35C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295FA8152A985D3500B35C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				297F2E0B2AD8E50F002F4F24 /* UserDefault+.swift */,
 				29EBE67D2ADFB5900023E9C7 /* Int+Extension.swift */,
+				295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				2906FBE32ABD32C6004E5069 /* FSPageViewTransformer.swift in Sources */,
 				2906FBE22ABD32C6004E5069 /* FSPagerView.swift in Sources */,
 				2944A9382AC12EC800FD4F52 /* WKSlider.swift in Sources */,
+				295E48D02AE1056600C259D2 /* UIViewController+Extension.swift in Sources */,
 				2906FBE52ABD32C6004E5069 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				29DC0E3B2AD104F000DD314A /* WKUserCollectionViewCell.swift in Sources */,
 				297F2E142AD9383E002F4F24 /* WKSearchViewController.swift in Sources */,

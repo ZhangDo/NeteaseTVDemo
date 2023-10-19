@@ -39,7 +39,6 @@ class WKPodcastDetailViewController: UIViewController {
             await loadData()
             tableView.reloadData()
         }
-        
     }
     
     func loadData() async {

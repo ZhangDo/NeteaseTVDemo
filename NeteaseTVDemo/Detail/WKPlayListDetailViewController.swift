@@ -20,10 +20,17 @@ class WKPlayListDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
-        
+        if #available(tvOS 17.0, *) {
+            collectButton.menu = UIMenu(children: [UIAction(title: "保存到文件", handler: { action in
+                print("保存到文件")
+            })])
+        } else {
+            // Fallback on earlier versions
+        }
         Task {
             await loadData()
         }
+        
     }
     
     func loadData() async {
@@ -35,7 +42,6 @@ class WKPlayListDetailViewController: UIViewController {
             let vc = WKDescViewController.creat(desc: playListDetail.description ?? "")
             self!.present(vc, animated: true)
         }
-        self.collectButton.isHidden = false
         
         let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: self.playListId,limit: 100)
         self.allModels.removeAll()
