@@ -60,19 +60,19 @@ extension WKPlayerError.DataSourceError {
     public var localizedDescription: String {
         switch self {
         case .lackOfDataSource:
-            return "缺少数据源"
+            return "缺少数据源。"
         case .noPermission:
-            return "暂无版权"
+            return "暂无版权。"
         case .invalidDataSource:
-            return "无效数据源，没有播放地址的数据源"
+            return "无效数据源，没有播放地址的数据源。"
         case .noLastDataSource:
-            return "没有上一条数据"
+            return "没有上一条数据。"
         case .noNextDataSource:
-            return "没有下一条数据"
+            return "没有下一条数据。"
         case .needBuyAlbum:
-            return "需要到网易云音乐购买专辑"
+            return "需要到网易云音乐购买专辑。"
         case .needVip:
-            return "需要网易云音乐 VIP 权限"
+            return "需要网易云音乐 VIP 权限。"
         }
     }
 }
@@ -81,9 +81,9 @@ extension WKPlayerError.NetworkError {
     public var localizedDescription: String {
         switch self {
         case .notReachable:
-            return "Network is not reachable."
+            return "网络无法访问。"
         case .timeout:
-            return "Network is timeout."
+            return "网络超时。"
         }
     }
 }
@@ -92,9 +92,9 @@ extension WKPlayerError.PlayerStatusError {
     public var localizedDescription: String {
         switch self {
         case .unknown:
-            return "There is an unknown error occurs while playing."
+            return "播放时出现未知错误。"
         case .failed:
-            return "Player play failed."
+            return "播放器播放失败。"
         }
     }
 }
