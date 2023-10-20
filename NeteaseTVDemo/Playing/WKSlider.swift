@@ -38,9 +38,13 @@ class WKSlider: UIProgressView {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if isFocused {
-            self.transform = CGAffineTransformMakeScale(1.0, 1.1)
+            coordinator.addCoordinatedAnimations {
+                self.transform = CGAffineTransformMakeScale(1.0, 1.1)
+            }
         } else {
-            self.transform = CGAffineTransformIdentity
+            coordinator.addCoordinatedAnimations {
+                self.transform = CGAffineTransformIdentity
+            }
         }
     }
     

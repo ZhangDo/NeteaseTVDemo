@@ -1,9 +1,3 @@
-//
-//  WKPlayer.swift
-//  neteaseTVDemo
-//
-//  Created by ZhangDong on 2023/8/25.
-//
 
 import UIKit
 import AVFoundation

@@ -1,9 +1,3 @@
-//
-//  WKCountdown.swift
-//  NeteaseTVDemo
-//
-//  Created by ZhangDong on 2023/8/25.
-//
 
 import UIKit
 public let wk_countdown = WKCountdown.instance

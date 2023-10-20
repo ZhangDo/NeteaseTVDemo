@@ -58,12 +58,9 @@ class WKPodcastDetailViewController: UIViewController {
                 model.singer =  songModel.dj.nickname
                 self.allModels.append(model)
             }
-            
-            
         } catch {
             print(error)
         }
-         
     }
     
     @IBAction func playAll(_ sender: Any) {
