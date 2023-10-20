@@ -26,6 +26,15 @@
 		2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */; };
 		2944A9442AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */; };
 		295E48D02AE1056600C259D2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */; };
+		295E48D92AE2218800C259D2 /* WKBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E48D82AE2218800C259D2 /* WKBrowserViewController.m */; };
+		295E48E42AE223E500C259D2 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48DC2AE223E500C259D2 /* menu-button.png */; };
+		295E48E52AE223E500C259D2 /* resize-arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48DD2AE223E500C259D2 /* resize-arrows.png */; };
+		295E48E62AE223E500C259D2 /* menu-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48DE2AE223E500C259D2 /* menu-2.png */; };
+		295E48E72AE223E500C259D2 /* right-arrow-forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48DF2AE223E500C259D2 /* right-arrow-forward.png */; };
+		295E48E82AE223E500C259D2 /* house-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E02AE223E500C259D2 /* house-outline.png */; };
+		295E48E92AE223E500C259D2 /* go-back-left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E12AE223E500C259D2 /* go-back-left-arrow.png */; };
+		295E48EA2AE223E500C259D2 /* refresh-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E22AE223E500C259D2 /* refresh-button.png */; };
+		295E48EB2AE223E500C259D2 /* maximize-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E32AE223E500C259D2 /* maximize-2.png */; };
 		295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8132A985D3500B35C54 /* AppDelegate.swift */; };
 		295FA8162A985D3500B35C54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8152A985D3500B35C54 /* ViewController.swift */; };
 		295FA8192A985D3500B35C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295FA8172A985D3500B35C54 /* Main.storyboard */; };
@@ -91,6 +100,17 @@
 		2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKDescView.swift; sourceTree = "<group>"; };
 		2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListCollectionViewCell.swift; sourceTree = "<group>"; };
 		295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		295E48D72AE2218800C259D2 /* WKBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBrowserViewController.h; sourceTree = "<group>"; };
+		295E48D82AE2218800C259D2 /* WKBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBrowserViewController.m; sourceTree = "<group>"; };
+		295E48DA2AE221CA00C259D2 /* NeteaseTVDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NeteaseTVDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		295E48DC2AE223E500C259D2 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		295E48DD2AE223E500C259D2 /* resize-arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resize-arrows.png"; sourceTree = "<group>"; };
+		295E48DE2AE223E500C259D2 /* menu-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-2.png"; sourceTree = "<group>"; };
+		295E48DF2AE223E500C259D2 /* right-arrow-forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-forward.png"; sourceTree = "<group>"; };
+		295E48E02AE223E500C259D2 /* house-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "house-outline.png"; sourceTree = "<group>"; };
+		295E48E12AE223E500C259D2 /* go-back-left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go-back-left-arrow.png"; sourceTree = "<group>"; };
+		295E48E22AE223E500C259D2 /* refresh-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh-button.png"; sourceTree = "<group>"; };
+		295E48E32AE223E500C259D2 /* maximize-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maximize-2.png"; sourceTree = "<group>"; };
 		295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeteaseTVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295FA8132A985D3500B35C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295FA8152A985D3500B35C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +184,32 @@
 			path = Banner;
 			sourceTree = "<group>";
 		};
+		295E48D62AE2218800C259D2 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				295E48D72AE2218800C259D2 /* WKBrowserViewController.h */,
+				295E48D82AE2218800C259D2 /* WKBrowserViewController.m */,
+				295E48DA2AE221CA00C259D2 /* NeteaseTVDemo-Bridging-Header.h */,
+				295E48DB2AE223E500C259D2 /* MenuIcons */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
+		295E48DB2AE223E500C259D2 /* MenuIcons */ = {
+			isa = PBXGroup;
+			children = (
+				295E48DC2AE223E500C259D2 /* menu-button.png */,
+				295E48DD2AE223E500C259D2 /* resize-arrows.png */,
+				295E48DE2AE223E500C259D2 /* menu-2.png */,
+				295E48DF2AE223E500C259D2 /* right-arrow-forward.png */,
+				295E48E02AE223E500C259D2 /* house-outline.png */,
+				295E48E12AE223E500C259D2 /* go-back-left-arrow.png */,
+				295E48E22AE223E500C259D2 /* refresh-button.png */,
+				295E48E32AE223E500C259D2 /* maximize-2.png */,
+			);
+			path = MenuIcons;
+			sourceTree = "<group>";
+		};
 		295FA8072A985D3500B35C54 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +230,7 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
+				295E48D62AE2218800C259D2 /* Browser */,
 				29EBE67A2ADFA8CE0023E9C7 /* Video */,
 				297F2E0A2AD8E4DD002F4F24 /* Extensions */,
 				29A1D7072AD78710005EAFC0 /* Podcast */,
@@ -405,8 +452,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				295E48E42AE223E500C259D2 /* menu-button.png in Resources */,
+				295E48E62AE223E500C259D2 /* menu-2.png in Resources */,
+				295E48E52AE223E500C259D2 /* resize-arrows.png in Resources */,
+				295E48E92AE223E500C259D2 /* go-back-left-arrow.png in Resources */,
 				295FA81E2A985D3600B35C54 /* LaunchScreen.storyboard in Resources */,
 				295FA81B2A985D3600B35C54 /* Assets.xcassets in Resources */,
+				295E48EB2AE223E500C259D2 /* maximize-2.png in Resources */,
+				295E48E82AE223E500C259D2 /* house-outline.png in Resources */,
+				295E48EA2AE223E500C259D2 /* refresh-button.png in Resources */,
+				295E48E72AE223E500C259D2 /* right-arrow-forward.png in Resources */,
 				295FA8192A985D3500B35C54 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +520,7 @@
 				29EBE67C2ADFA8E20023E9C7 /* WKVideoViewController.swift in Sources */,
 				297F2E1D2ADA7DC9002F4F24 /* WKSearchTypeModel.swift in Sources */,
 				2906FBE32ABD32C6004E5069 /* FSPageViewTransformer.swift in Sources */,
+				295E48D92AE2218800C259D2 /* WKBrowserViewController.m in Sources */,
 				2906FBE22ABD32C6004E5069 /* FSPagerView.swift in Sources */,
 				2944A9382AC12EC800FD4F52 /* WKSlider.swift in Sources */,
 				295E48D02AE1056600C259D2 /* UIViewController+Extension.swift in Sources */,
@@ -631,6 +687,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wk.NeteaseTVDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/NeteaseTVDemo/Browser/NeteaseTVDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
@@ -657,6 +714,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wk.NeteaseTVDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/NeteaseTVDemo/Browser/NeteaseTVDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};

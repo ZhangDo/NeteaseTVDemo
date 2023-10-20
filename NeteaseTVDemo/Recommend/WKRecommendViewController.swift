@@ -192,25 +192,29 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     // MARK:- FSPagerView Delegate
     
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
-        pagerView.deselectItem(at: index, animated: true)
-        pagerView.scrollToItem(at: index, animated: true)
-        print(self.banners![index])
-        if self.banners![index].targetType == 1 {
-            let model = CustomAudioModel()
-            model.audioId = self.banners![index].song?.id
-            model.audioTitle = self.banners![index].song?.name
-            model.audioPicUrl = self.banners![index].pic
-            model.isFree = 1
-            wk_player.allOriginalModels = [model]
-            try? wk_player.play(index: 0)
-            let playingVC = ViewController.creat()
-            playingVC.modalPresentationStyle = .blurOverFullScreen
-            self.present(playingVC, animated: true)
-        } else if self.banners![index].targetType == 10 {
-            let albumVC = WKAlbumDetailViewController.creat(playListId: self.banners![index].targetId!)
-            albumVC.modalPresentationStyle = .blurOverFullScreen
-            self.present(albumVC, animated: true)
-        }
+//        pagerView.deselectItem(at: index, animated: true)
+//        pagerView.scrollToItem(at: index, animated: true)
+//        print(self.banners![index])
+//        if self.banners![index].targetType == 1 {
+//            let model = CustomAudioModel()
+//            model.audioId = self.banners![index].song?.id
+//            model.audioTitle = self.banners![index].song?.name
+//            model.audioPicUrl = self.banners![index].pic
+//            model.isFree = 1
+//            wk_player.allOriginalModels = [model]
+//            try? wk_player.play(index: 0)
+//            let playingVC = ViewController.creat()
+//            playingVC.modalPresentationStyle = .blurOverFullScreen
+//            self.present(playingVC, animated: true)
+//        } else if self.banners![index].targetType == 10 {
+//            let albumVC = WKAlbumDetailViewController.creat(playListId: self.banners![index].targetId!)
+//            albumVC.modalPresentationStyle = .blurOverFullScreen
+//            self.present(albumVC, animated: true)
+//        }
+        let vc = WKBrowserViewController()
+        vc.modalPresentationStyle = .blurOverFullScreen
+        vc.url = "https://www.baidu.com"
+        self.present(vc, animated: true)
         
 //        let playListDetaiVC = WKPlayListDetailViewController.creat(playListId: 7780071743)
 //        playListDetaiVC.modalPresentationStyle = .blurOverFullScreen
