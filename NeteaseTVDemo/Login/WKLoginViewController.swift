@@ -69,8 +69,8 @@ class WKLoginViewController: UIViewController {
                 print("授权成功")
                 UserDefaults.standard.setValue(checkModel.cookie, forKey: "cookie")
                 cookie = checkModel.cookie!
-                
-//                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "login"), object: nil, userInfo: nil)
+//
 //                do {
 //                    let userModel: NRProfileModel = try await fetchAccountInfo(cookie: cookie)
 //                    if var users: [WKUserModel] = UserDefaults.standard.codable(forKey: "users") {

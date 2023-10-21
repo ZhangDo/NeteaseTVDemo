@@ -46,10 +46,18 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         recommendView.collectionViewLayout = makeRecommendCollectionViewLayout()
         recommendView.isScrollEnabled = false
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "login"), object: nil)
+        
         Task {
             await loadData()
         }
         
+    }
+    
+    @objc func reloadData() {
+        Task {
+            await loadData()
+        }
     }
     
     func loadData() async  {
