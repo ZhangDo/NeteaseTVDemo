@@ -3,9 +3,6 @@ import UIKit
 import TVUIKit
 import NeteaseRequest
 class WKProfileViewController: UIViewController {
-
-//    @IBOutlet weak var userHeaderView: TVMonogramView!
-    
     @IBOutlet weak var tableView: UITableView!
     fileprivate var cellContents = ["最近播放", "我的收藏", "我创建的歌单", "基础设置"]
     fileprivate var userInfo: NRProfileModel?
@@ -18,29 +15,19 @@ class WKProfileViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(WKProfileHeader.self, forHeaderFooterViewReuseIdentifier: "profileHeader")
-//        self.userHeaderView.contentMode = .scaleAspectFill
         Task {
             await loadUserInfo()
         }
     }
     
-    
     func loadUserInfo() async {
         do {
             userInfo = try await fetchAccountInfo(cookie: cookie)
             self.tableView.reloadData()
-//            self.userHeaderView.kf.setImage(with: URL(string: userIno.avatarUrl))
-//            self.userHeaderView.title = userIno.nickname
         } catch {
             print(error)
         }
     }
-    
-//    @IBAction func changeAccount(_ sender: Any) {
-//        let loginVC = WKLoginViewController.creat()
-//        loginVC.modalPresentationStyle = .blurOverFullScreen
-//        self.present(loginVC, animated: true)
-//    }
 }
 
 extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
