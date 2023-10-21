@@ -35,6 +35,7 @@
 		295E48E92AE223E500C259D2 /* go-back-left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E12AE223E500C259D2 /* go-back-left-arrow.png */; };
 		295E48EA2AE223E500C259D2 /* refresh-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E22AE223E500C259D2 /* refresh-button.png */; };
 		295E48EB2AE223E500C259D2 /* maximize-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E32AE223E500C259D2 /* maximize-2.png */; };
+		295E48ED2AE355EF00C259D2 /* WKMVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48EC2AE355EF00C259D2 /* WKMVViewController.swift */; };
 		295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8132A985D3500B35C54 /* AppDelegate.swift */; };
 		295FA8162A985D3500B35C54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8152A985D3500B35C54 /* ViewController.swift */; };
 		295FA8192A985D3500B35C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295FA8172A985D3500B35C54 /* Main.storyboard */; };
@@ -111,6 +112,7 @@
 		295E48E12AE223E500C259D2 /* go-back-left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "go-back-left-arrow.png"; sourceTree = "<group>"; };
 		295E48E22AE223E500C259D2 /* refresh-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh-button.png"; sourceTree = "<group>"; };
 		295E48E32AE223E500C259D2 /* maximize-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maximize-2.png"; sourceTree = "<group>"; };
+		295E48EC2AE355EF00C259D2 /* WKMVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKMVViewController.swift; sourceTree = "<group>"; };
 		295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeteaseTVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295FA8132A985D3500B35C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295FA8152A985D3500B35C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				29EBE67B2ADFA8E20023E9C7 /* WKVideoViewController.swift */,
+				295E48EC2AE355EF00C259D2 /* WKMVViewController.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */,
 				293F75012ADF884900692091 /* WKSingerMVListVC.swift in Sources */,
 				2906FBE42ABD32C6004E5069 /* FSPagerViewCell.swift in Sources */,
+				295E48ED2AE355EF00C259D2 /* WKMVViewController.swift in Sources */,
 				293F75032ADF88D200692091 /* WKMVCollectionViewCell.swift in Sources */,
 				2906FBE92ABD32C6004E5069 /* FSPagerCollectionView.swift in Sources */,
 				293F74FD2ADF7EBB00692091 /* WKSingerDetailAlbumListVC.swift in Sources */,
@@ -765,7 +769,7 @@
 			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.62;
+				minimumVersion = 0.7.0;
 			};
 		};
 		29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

@@ -26,6 +26,10 @@ class WKTabBarViewController: UITabBarController {
         podcastVC.tabBarItem.title = "播客"
         vcs.append(podcastVC)
         
+        let mvVC = WKMVViewController.creat()
+        mvVC.tabBarItem.title = "MV"
+        vcs.append(mvVC)
+        
         let playingVC = ViewController.creat()
         playingVC.tabBarItem.title = "正在播放"
         vcs.append(playingVC)

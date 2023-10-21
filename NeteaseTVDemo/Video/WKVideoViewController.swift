@@ -45,10 +45,10 @@ class WKVideoViewController: AVPlayerViewController {
     func loadData() async {
         do {
             
-            let mvDetai: NRMVDetailModel = try await fetchMVDetail(mvid: self.playInfo.id)
+            let mvDetai: NRMVDetailModel = try await fetchMVDetail(mvid: self.playInfo.id, cookie: cookie)
             setPlayerInfo(title: mvDetai.name, subTitle: "", desp: mvDetai.briefDesc, pic: URL(string: mvDetai.cover))
             
-            let mvUrlModel: NRMVUrlModel = try await fetchMVUrl(id: self.playInfo.id)
+            let mvUrlModel: NRMVUrlModel = try await fetchMVUrl(id: self.playInfo.id, cookie: cookie)
             if let url = mvUrlModel.url {
                 let asset = AVURLAsset(url: URL(string: url)!)
                 playerItem = AVPlayerItem(asset: asset)
@@ -101,15 +101,6 @@ class WKVideoViewController: AVPlayerViewController {
         // Specify "und" to indicate an undefined language.
         item.extendedLanguageTag = "und"
         return item.copy() as? AVMetadataItem
-    }
-    
-    func showAlert(_ message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: .alert)
-            let confirm = UIAlertAction.init(title: "确定", style: .default, handler: nil)
-            alert.addAction(confirm)
-            self.present(alert, animated: true, completion: nil)
-        }
     }
 
 }

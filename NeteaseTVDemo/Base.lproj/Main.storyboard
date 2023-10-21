@@ -227,7 +227,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1440" y="2276"/>
+            <point key="canvasLocation" x="844" y="2276"/>
+        </scene>
+        <!--MV-->
+        <scene sceneID="aY7-bN-BMB">
+            <objects>
+                <viewController storyboardIdentifier="WKMVViewController" title="MV" id="HYo-bI-Y34" customClass="WKMVViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VQ1-bu-wOU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ctE-9L-dHS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9f7-HX-rYL">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="Uc6-ze-Xxl">
+                                <rect key="frame" x="80" y="60" width="300" height="960"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ks0-fS-Hoi"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="HYo-bI-Y34" id="y3N-qw-kCH"/>
+                                    <outlet property="delegate" destination="HYo-bI-Y34" id="Weo-Za-Hn8"/>
+                                </connections>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k82-md-3Td">
+                                <rect key="frame" x="410" y="60" width="1430" height="960"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ceG-eC-WWy">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="XOl-9Q-Or9">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dyb-ln-QZs">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="HYo-bI-Y34" id="31J-vs-Hpc"/>
+                                    <outlet property="delegate" destination="HYo-bI-Y34" id="9FG-aq-tNa"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="beD-7I-egc"/>
+                        <constraints>
+                            <constraint firstItem="k82-md-3Td" firstAttribute="top" secondItem="beD-7I-egc" secondAttribute="top" id="7LA-5c-9r9"/>
+                            <constraint firstItem="Uc6-ze-Xxl" firstAttribute="leading" secondItem="beD-7I-egc" secondAttribute="leading" id="AIR-o7-pWj"/>
+                            <constraint firstItem="Uc6-ze-Xxl" firstAttribute="top" secondItem="beD-7I-egc" secondAttribute="top" id="EHt-Tk-Jcy"/>
+                            <constraint firstItem="k82-md-3Td" firstAttribute="leading" secondItem="Uc6-ze-Xxl" secondAttribute="trailing" constant="30" id="MJH-Ci-AMV"/>
+                            <constraint firstItem="beD-7I-egc" firstAttribute="bottom" secondItem="Uc6-ze-Xxl" secondAttribute="bottom" id="XlG-Sl-iPO"/>
+                            <constraint firstItem="beD-7I-egc" firstAttribute="bottom" secondItem="k82-md-3Td" secondAttribute="bottom" id="cY7-z6-bXc"/>
+                            <constraint firstItem="beD-7I-egc" firstAttribute="trailing" secondItem="k82-md-3Td" secondAttribute="trailing" id="fbc-qn-fpZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="k82-md-3Td" id="IDK-Vn-Yat"/>
+                        <outlet property="tableView" destination="Uc6-ze-Xxl" id="AgE-3C-UZU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEB-Oq-LBG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1424" y="2273"/>
         </scene>
         <!--Singer Detail View Controller-->
         <scene sceneID="Lav-T5-GNS">
@@ -536,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="2276"/>
+            <point key="canvasLocation" x="3132" y="2279"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="BGx-eQ-VfX">
@@ -619,7 +685,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Dn-cX-noF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2696" y="2276"/>
+            <point key="canvasLocation" x="6032" y="2279"/>
         </scene>
         <!--浏览-->
         <scene sceneID="IkT-ae-DCa">

@@ -115,20 +115,5 @@ class WKLoginViewController: UIViewController {
         }
 
     }
-    
-    func showAlert(_ message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: .alert)
-            let confirm = UIAlertAction.init(title: "确定", style: .default, handler: nil)
-            alert.addAction(confirm)
-    //        self.present(alert, animated: true)
-            let keyWindow = UIApplication.shared.connectedScenes
-                    .filter({$0.activationState == .foregroundActive})
-                    .compactMap({$0 as? UIWindowScene})
-                    .first?.windows
-                    .filter({$0.isKeyWindow}).first
-            keyWindow!.rootViewController?.present(alert, animated: true, completion: nil)
-        }
-    }
 
 }
