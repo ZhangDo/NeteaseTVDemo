@@ -36,6 +36,8 @@
 		295E48EA2AE223E500C259D2 /* refresh-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E22AE223E500C259D2 /* refresh-button.png */; };
 		295E48EB2AE223E500C259D2 /* maximize-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48E32AE223E500C259D2 /* maximize-2.png */; };
 		295E48ED2AE355EF00C259D2 /* WKMVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48EC2AE355EF00C259D2 /* WKMVViewController.swift */; };
+		295E48EF2AE3AEAD00C259D2 /* WKProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48EE2AE3AEAD00C259D2 /* WKProfileHeader.swift */; };
+		295E48F12AE3AF5400C259D2 /* WKAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48F02AE3AF5400C259D2 /* WKAvatarView.swift */; };
 		295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8132A985D3500B35C54 /* AppDelegate.swift */; };
 		295FA8162A985D3500B35C54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295FA8152A985D3500B35C54 /* ViewController.swift */; };
 		295FA8192A985D3500B35C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295FA8172A985D3500B35C54 /* Main.storyboard */; };
@@ -113,6 +115,8 @@
 		295E48E22AE223E500C259D2 /* refresh-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh-button.png"; sourceTree = "<group>"; };
 		295E48E32AE223E500C259D2 /* maximize-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maximize-2.png"; sourceTree = "<group>"; };
 		295E48EC2AE355EF00C259D2 /* WKMVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKMVViewController.swift; sourceTree = "<group>"; };
+		295E48EE2AE3AEAD00C259D2 /* WKProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKProfileHeader.swift; sourceTree = "<group>"; };
+		295E48F02AE3AF5400C259D2 /* WKAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKAvatarView.swift; sourceTree = "<group>"; };
 		295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeteaseTVDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295FA8132A985D3500B35C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295FA8152A985D3500B35C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				297F2E102AD91507002F4F24 /* WKProfileViewController.swift */,
+				295E48EE2AE3AEAD00C259D2 /* WKProfileHeader.swift */,
+				295E48F02AE3AF5400C259D2 /* WKAvatarView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -512,10 +518,12 @@
 				297F2E0C2AD8E50F002F4F24 /* UserDefault+.swift in Sources */,
 				29C865692AC415CA00AB008A /* WKSingleSongView.swift in Sources */,
 				2944A93B2AC15EFA00FD4F52 /* WKPlayListDetailViewController.swift in Sources */,
+				295E48EF2AE3AEAD00C259D2 /* WKProfileHeader.swift in Sources */,
 				297F2E112AD91507002F4F24 /* WKProfileViewController.swift in Sources */,
 				2906FBE82ABD32C6004E5069 /* FSPagerViewObjcCompat.m in Sources */,
 				29DC0E3F2AD27D4500DD314A /* WKDescViewController.swift in Sources */,
 				2906FBE62ABD32C6004E5069 /* FSPageViewLayout.swift in Sources */,
+				295E48F12AE3AF5400C259D2 /* WKAvatarView.swift in Sources */,
 				295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */,
 				F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */,
 				29A1D6FF2AD4E3E1005EAFC0 /* WKLoginViewController.swift in Sources */,

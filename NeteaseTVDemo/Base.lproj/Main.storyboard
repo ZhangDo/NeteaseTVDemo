@@ -3,12 +3,11 @@
     <device id="appleTV" appearance="dark"/>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="TVUIKit controls" minToolsVersion="10.2"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -560,44 +559,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQ9-y5-L4Z">
-                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-MH-kz2">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="960"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="576" height="1080"/>
                                         <subviews>
-                                            <tvMonogramView contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" image="Jobs" title="" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-H3-dCY">
-                                                <rect key="frame" x="10" y="0.0" width="280" height="302"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="han-7x-jY3">
+                                                <rect key="frame" x="0.0" y="0.0" width="576" height="1080"/>
                                                 <connections>
-                                                    <action selector="changeAccount:" destination="CqC-DC-xeo" eventType="primaryActionTriggered" id="4Tn-8M-RTm"/>
+                                                    <outlet property="dataSource" destination="CqC-DC-xeo" id="iv4-UF-0cj"/>
+                                                    <outlet property="delegate" destination="CqC-DC-xeo" id="1nS-tg-ofa"/>
                                                 </connections>
-                                            </tvMonogramView>
+                                            </tableView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="Qg9-3W-Xgb"/>
-                                            <constraint firstItem="VpB-H3-dCY" firstAttribute="top" secondItem="cE3-MH-kz2" secondAttribute="top" id="j4a-R5-VQV"/>
-                                            <constraint firstItem="VpB-H3-dCY" firstAttribute="leading" secondItem="cE3-MH-kz2" secondAttribute="leading" constant="10" id="lxS-l7-IDo"/>
-                                            <constraint firstAttribute="trailing" secondItem="VpB-H3-dCY" secondAttribute="trailing" constant="10" id="vxc-lf-sbt"/>
+                                            <constraint firstItem="han-7x-jY3" firstAttribute="leading" secondItem="cE3-MH-kz2" secondAttribute="leading" id="72R-SS-WI1"/>
+                                            <constraint firstAttribute="trailing" secondItem="han-7x-jY3" secondAttribute="trailing" id="UcO-zq-lQc"/>
+                                            <constraint firstItem="han-7x-jY3" firstAttribute="top" secondItem="cE3-MH-kz2" secondAttribute="top" id="fq6-US-Ggw"/>
+                                            <constraint firstAttribute="bottom" secondItem="han-7x-jY3" secondAttribute="bottom" id="nkh-07-KUT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="top" secondItem="xQ9-y5-L4Z" secondAttribute="top" id="6JS-8P-ts8"/>
                                     <constraint firstAttribute="bottom" secondItem="cE3-MH-kz2" secondAttribute="bottom" id="ZC6-4T-BEc"/>
+                                    <constraint firstItem="cE3-MH-kz2" firstAttribute="width" secondItem="xQ9-y5-L4Z" secondAttribute="width" multiplier="0.3" id="d4M-Z5-dIE"/>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="leading" secondItem="xQ9-y5-L4Z" secondAttribute="leading" id="gWa-YO-Bsq"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Oz1-B4-9vs"/>
                         <constraints>
-                            <constraint firstItem="xQ9-y5-L4Z" firstAttribute="leading" secondItem="Oz1-B4-9vs" secondAttribute="leading" id="4gf-pI-6pv"/>
-                            <constraint firstItem="Oz1-B4-9vs" firstAttribute="trailing" secondItem="xQ9-y5-L4Z" secondAttribute="trailing" id="7CJ-Vv-WZZ"/>
-                            <constraint firstItem="xQ9-y5-L4Z" firstAttribute="top" secondItem="Oz1-B4-9vs" secondAttribute="top" id="am2-Dr-76G"/>
-                            <constraint firstItem="Oz1-B4-9vs" firstAttribute="bottom" secondItem="xQ9-y5-L4Z" secondAttribute="bottom" id="vU1-hF-I4d"/>
+                            <constraint firstItem="xQ9-y5-L4Z" firstAttribute="leading" secondItem="Vzo-O9-jLn" secondAttribute="leading" id="4gf-pI-6pv"/>
+                            <constraint firstAttribute="trailing" secondItem="xQ9-y5-L4Z" secondAttribute="trailing" id="7CJ-Vv-WZZ"/>
+                            <constraint firstItem="xQ9-y5-L4Z" firstAttribute="top" secondItem="Vzo-O9-jLn" secondAttribute="top" id="am2-Dr-76G"/>
+                            <constraint firstAttribute="bottom" secondItem="xQ9-y5-L4Z" secondAttribute="bottom" id="vU1-hF-I4d"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="我的" id="XLW-Bc-RGc"/>
                     <connections>
-                        <outlet property="userHeaderView" destination="VpB-H3-dCY" id="VVN-I0-QLX"/>
+                        <outlet property="tableView" destination="han-7x-jY3" id="hI0-q2-bhT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1839,7 +1840,6 @@
         <designable name="U3K-vi-udH"/>
     </designables>
     <resources>
-        <image name="Jobs" width="300" height="387"/>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="bgImage" width="1288" height="728"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>

@@ -125,6 +125,7 @@ static UIImage *kPointerCursor() {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     self.definesPresentationContext = YES;
     
     [self initWebView];
