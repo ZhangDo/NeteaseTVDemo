@@ -241,11 +241,19 @@ extension WKRecommendViewController {
     func makeDailyRecommendCollectionViewLayout () -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout {
             _, _ in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                  heightDimension: .fractionalHeight(1.0))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .fractionalHeight(1))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1/5),
+                heightDimension: .fractionalHeight(1)
+            ))
+            let hSpacing: CGFloat = 30
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: hSpacing, bottom: 0, trailing: hSpacing)
+            let group = NSCollectionLayoutGroup.horizontalGroup(with: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension:.fractionalWidth(0.18)
+            ), repeatingSubitem: item, count: 5)
+            let vSpacing: CGFloat =  16
+            let baseSpacing: CGFloat = 24
+            group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: .fixed(baseSpacing), top: .fixed(vSpacing), trailing: .fixed(0), bottom: .fixed(vSpacing))
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .continuous
             section.interGroupSpacing = 40
