@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         
         guard (wk_player.allOriginalModels?.count) != nil else {
             self.bottomActionView.isHidden = true
-            self.sliderStackView.isHidden = true
+//            self.sliderStackView.isHidden = true
             return
         }
         self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
