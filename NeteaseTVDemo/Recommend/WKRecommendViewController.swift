@@ -54,9 +54,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     
     func loadData() async  {
         do {
-            self.banners = try await fetchBanners().filter({ model in
-                model.targetType != 3000
-            })
+            self.banners = try await fetchBanners()
             self.bannerView.reloadData()
         } catch {
             print(error)

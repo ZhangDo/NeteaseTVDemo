@@ -663,14 +663,14 @@ static UIImage *kPointerCursor() {
 -(void)showInputURLorSearchGoogle
 {
     UIAlertController *alertController2 = [UIAlertController
-                                           alertControllerWithTitle:@"Enter URL or Search Terms"
+                                           alertControllerWithTitle:@"请输入URL或搜索词"
                                            message:@""
                                            preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController2 addTextFieldWithConfigurationHandler:^(UITextField *textField)
      {
          textField.keyboardType = UIKeyboardTypeURL;
-         textField.placeholder = @"Enter URL or Search Terms";
+         textField.placeholder = @"请输入URL或搜索词";
          textField.textColor = kTextColor();
          [textField setReturnKeyType:UIReturnKeyDone];
          [textField addTarget:self
@@ -681,7 +681,7 @@ static UIImage *kPointerCursor() {
     
     
     UIAlertAction *goAction = [UIAlertAction
-                               actionWithTitle:@"Go To Website"
+                               actionWithTitle:@"访问网站"
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {
@@ -720,7 +720,7 @@ static UIImage *kPointerCursor() {
                                }];
     
     UIAlertAction *searchAction = [UIAlertAction
-                                   actionWithTitle:@"Search Google"
+                                   actionWithTitle:@"在谷歌搜索"
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
@@ -772,7 +772,7 @@ static UIImage *kPointerCursor() {
 {
     
     UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Quick Menu"
+                                          alertControllerWithTitle:@"快捷菜单"
                                           message:@""
                                           preferredStyle:UIAlertControllerStyleAlert];
     
@@ -785,7 +785,7 @@ static UIImage *kPointerCursor() {
     
     
     UIAlertAction *forwardAction = [UIAlertAction
-                                   actionWithTitle:@"Go Forward"
+                                   actionWithTitle:@"前进"
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
@@ -794,7 +794,7 @@ static UIImage *kPointerCursor() {
     
     
     UIAlertAction *reloadAction = [UIAlertAction
-                                   actionWithTitle:@"Reload Page"
+                                   actionWithTitle:@"重新加载页面"
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
@@ -809,7 +809,7 @@ static UIImage *kPointerCursor() {
                                    handler:nil];
     
     UIAlertAction *inputAction = [UIAlertAction
-                                  actionWithTitle:@"Input URL or Search with Google"
+                                  actionWithTitle:@"输入URL或使用谷歌搜索"
                                   style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction *action)
                                   {
@@ -887,7 +887,7 @@ static UIImage *kPointerCursor() {
 //    [self.loadingSpinner stopAnimating];
     if (![[NSString stringWithFormat:@"%lid", (long)error.code] containsString:@"999"] && ![[NSString stringWithFormat:@"%lid", (long)error.code] containsString:@"204"]) {
         UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:@"Could Not Load Webpage"
+                                              alertControllerWithTitle:@"无法加载网页"
                                               message:[error localizedDescription]
                                               preferredStyle:UIAlertControllerStyleAlert];
         
@@ -912,7 +912,7 @@ static UIImage *kPointerCursor() {
                                            
                                        }];
         UIAlertAction *reloadAction = [UIAlertAction
-                                       actionWithTitle:@"Reload Page"
+                                       actionWithTitle:@"重新加载页面"
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction *action)
                                        {
@@ -920,7 +920,7 @@ static UIImage *kPointerCursor() {
                                            [self.webview reload];
                                        }];
         UIAlertAction *newurlAction = [UIAlertAction
-                                       actionWithTitle:@"Enter a URL or Search"
+                                       actionWithTitle:@"请输入URL或搜索词"
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction *action)
                                        {
@@ -975,12 +975,12 @@ static UIImage *kPointerCursor() {
 - (void)showHintsAlert
 {
     UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Usage Guide"
-                                          message:@"Double press the touch area to switch between cursor & scroll mode.\nPress the touch area while in cursor mode to click.\nSingle tap to Menu button to Go Back, or Exit on root page.\nSingle tap the Play/Pause button to: Go Forward, Enter URL or Reload Page.\nDouble tap the Play/Pause to show the Advanced Menu with more options."
+                                          alertControllerWithTitle:@"使用指南"
+                                          message:@"双击触摸区域可在光标模式和滚动模式之间切换。\n在光标模式下，按下触摸区域可进行点击操作。\n单击菜单按钮可返回上一页，或在根页面上退出。\n单击播放/暂停按钮可进行以下操作：前进、输入URL或重新加载页面。\n双击播放/暂停按钮可显示高级菜单，提供更多选项。"
                                           preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *hideForeverAction = [UIAlertAction
-                                        actionWithTitle:@"Don't Show This Again"
+                                        actionWithTitle:@"不再显示"
                                         style:UIAlertActionStyleDestructive
                                         handler:^(UIAlertAction *action)
                                         {
@@ -988,7 +988,7 @@ static UIImage *kPointerCursor() {
                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                         }];
     UIAlertAction *showForeverAction = [UIAlertAction
-                                        actionWithTitle:@"Always Show On Launch"
+                                        actionWithTitle:@"每次启动都显示"
                                         style:UIAlertActionStyleDestructive
                                         handler:^(UIAlertAction *action)
                                         {
@@ -996,7 +996,7 @@ static UIImage *kPointerCursor() {
                                             [[NSUserDefaults standardUserDefaults] synchronize];
                                         }];
     UIAlertAction *cancelAction = [UIAlertAction
-                                   actionWithTitle:@"Dismiss"
+                                   actionWithTitle:@"忽略"
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction *action)
                                    {
