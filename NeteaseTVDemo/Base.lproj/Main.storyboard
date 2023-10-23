@@ -579,12 +579,20 @@
                                             <constraint firstAttribute="bottom" secondItem="han-7x-jY3" secondAttribute="bottom" id="nkh-07-KUT"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-gn-O1g">
+                                        <rect key="frame" x="576" y="0.0" width="1344" height="1080"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="top" secondItem="xQ9-y5-L4Z" secondAttribute="top" id="6JS-8P-ts8"/>
+                                    <constraint firstItem="j1z-gn-O1g" firstAttribute="top" secondItem="xQ9-y5-L4Z" secondAttribute="top" id="G23-p7-HVk"/>
+                                    <constraint firstAttribute="bottom" secondItem="j1z-gn-O1g" secondAttribute="bottom" id="XDP-iF-PhU"/>
                                     <constraint firstAttribute="bottom" secondItem="cE3-MH-kz2" secondAttribute="bottom" id="ZC6-4T-BEc"/>
+                                    <constraint firstAttribute="trailing" secondItem="j1z-gn-O1g" secondAttribute="trailing" id="bFx-8q-aRY"/>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="width" secondItem="xQ9-y5-L4Z" secondAttribute="width" multiplier="0.3" id="d4M-Z5-dIE"/>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="leading" secondItem="xQ9-y5-L4Z" secondAttribute="leading" id="gWa-YO-Bsq"/>
+                                    <constraint firstItem="j1z-gn-O1g" firstAttribute="leading" secondItem="cE3-MH-kz2" secondAttribute="trailing" id="jdC-ID-0uI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -598,12 +606,100 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="我的" id="XLW-Bc-RGc"/>
                     <connections>
+                        <outlet property="rightBgView" destination="j1z-gn-O1g" id="zvg-Of-t6Y"/>
                         <outlet property="tableView" destination="han-7x-jY3" id="hI0-q2-bhT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-dl-zWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3132" y="2279"/>
+        </scene>
+        <!--Recent Play View Controller-->
+        <scene sceneID="Vb1-Xa-dvB">
+            <objects>
+                <viewController storyboardIdentifier="WKRecentPlayViewController" id="tmK-ho-Tuc" customClass="WKRecentPlayViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OAk-qI-mxl"/>
+                        <viewControllerLayoutGuide type="bottom" id="fUM-d5-TaE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dWZ-Og-wov">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryg-mu-Lfb">
+                                <rect key="frame" x="0.0" y="60" width="1920" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="JKi-4U-bqt"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="歌曲" id="pCE-tr-aHQ"/>
+                                    <tabBarItem title="声音" id="07e-uk-DuZ"/>
+                                    <tabBarItem title="歌单" id="Hp6-iJ-v53"/>
+                                    <tabBarItem title="专辑" id="4dG-FC-qSN"/>
+                                    <tabBarItem title="视频" id="ZVO-FC-7Zw"/>
+                                    <tabBarItem title="播客" id="KgG-Jk-GeM"/>
+                                </items>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBV-Bm-aIY">
+                                <rect key="frame" x="80" y="140" width="1760" height="880"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dGM-Na-s02"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ryg-mu-Lfb" secondAttribute="trailing" id="7AU-CH-wyc"/>
+                            <constraint firstItem="ZBV-Bm-aIY" firstAttribute="top" secondItem="ryg-mu-Lfb" secondAttribute="bottom" constant="10" id="7c2-Rk-0DX"/>
+                            <constraint firstItem="ryg-mu-Lfb" firstAttribute="leading" secondItem="dWZ-Og-wov" secondAttribute="leading" id="IAp-E4-NJz"/>
+                            <constraint firstItem="dGM-Na-s02" firstAttribute="bottom" secondItem="ZBV-Bm-aIY" secondAttribute="bottom" id="Z1B-wi-wIv"/>
+                            <constraint firstItem="ZBV-Bm-aIY" firstAttribute="leading" secondItem="dGM-Na-s02" secondAttribute="leading" id="c7T-yQ-iOb"/>
+                            <constraint firstItem="dGM-Na-s02" firstAttribute="trailing" secondItem="ZBV-Bm-aIY" secondAttribute="trailing" id="nzf-SC-mG8"/>
+                            <constraint firstItem="ryg-mu-Lfb" firstAttribute="top" secondItem="dGM-Na-s02" secondAttribute="top" id="yYH-ut-X6M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="ZBV-Bm-aIY" id="elz-LG-OWf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tKf-DJ-GKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="3707"/>
+        </scene>
+        <!--Recent Song ListVC-->
+        <scene sceneID="iNE-YB-sfu">
+            <objects>
+                <viewController storyboardIdentifier="WKRecentSongListVC" id="PGA-K8-qb8" customClass="WKRecentSongListVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gMh-mf-Ojz"/>
+                        <viewControllerLayoutGuide type="bottom" id="MGx-MM-EDx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iXX-2H-TEr">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-7y-7N2">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PGA-K8-qb8" id="V4M-ne-pOt"/>
+                                    <outlet property="delegate" destination="PGA-K8-qb8" id="Fkd-0d-bbD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b4A-Cj-RxP"/>
+                        <constraints>
+                            <constraint firstItem="XBd-7y-7N2" firstAttribute="top" secondItem="b4A-Cj-RxP" secondAttribute="top" id="BeH-Db-KH9"/>
+                            <constraint firstItem="XBd-7y-7N2" firstAttribute="leading" secondItem="b4A-Cj-RxP" secondAttribute="leading" id="IfC-rX-bhO"/>
+                            <constraint firstItem="b4A-Cj-RxP" firstAttribute="bottom" secondItem="XBd-7y-7N2" secondAttribute="bottom" id="Qkl-Ag-PgO"/>
+                            <constraint firstItem="b4A-Cj-RxP" firstAttribute="trailing" secondItem="XBd-7y-7N2" secondAttribute="trailing" id="v7P-5B-KgZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="XBd-7y-7N2" id="6LA-5B-gp7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gi2-2m-ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3136" y="4987"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="BGx-eQ-VfX">

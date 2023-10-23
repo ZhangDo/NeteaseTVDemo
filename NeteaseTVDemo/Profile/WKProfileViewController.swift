@@ -4,8 +4,10 @@ import TVUIKit
 import NeteaseRequest
 class WKProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var rightBgView: UIView!
     fileprivate var cellContents = ["最近播放", "我的收藏", "我创建的歌单", "基础设置"]
     fileprivate var userInfo: NRUserDetailModel?
+    fileprivate var recentPlayVC = WKRecentPlayViewController.creat()
     static func creat() -> WKProfileViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
         return vc
@@ -15,8 +17,20 @@ class WKProfileViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(WKProfileHeader.self, forHeaderFooterViewReuseIdentifier: "profileHeader")
+        tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
+        
+        addChildVC()
         Task {
             await loadUserDetailInfo()
+        }
+    }
+    
+    
+    func addChildVC() {
+        addChild(recentPlayVC)
+        self.rightBgView.addSubview(recentPlayVC.view)
+        recentPlayVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     
@@ -26,6 +40,7 @@ class WKProfileViewController: UIViewController {
                 userInfo = try await fetchUserInfoDetail(uid: userModel.userId, cookie: cookie)
             }
             self.tableView.reloadData()
+            tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         } catch {
             print(error)
         }

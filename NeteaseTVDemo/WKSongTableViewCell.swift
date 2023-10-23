@@ -5,8 +5,8 @@ class WKSongTableViewCell: UITableViewCell {
     
     var indexLabel = UILabel()
     private var songNameLabel = MarqueeLabel()
-    private var albumLabel = MarqueeLabel()
-    private var timeLabel = UILabel()
+    var albumLabel = MarqueeLabel()
+    var timeLabel = UILabel()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
