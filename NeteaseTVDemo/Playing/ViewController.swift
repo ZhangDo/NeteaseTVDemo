@@ -47,7 +47,8 @@ class ViewController: UIViewController {
             
             Task {
                 do {
-                    lyricTuple = parserLyric(lyric: try await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
+                    lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
+//                    lyricTuple = parserLyric(lyric: try await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
                     self.rightView.isHidden = lyricTuple?.words.count == 1
                     tableView.reloadData()
                 } catch {
@@ -129,7 +130,7 @@ extension ViewController: WKPlayerDelegate {
 
         Task {
             do {
-                lyricTuple = parserLyric(lyric: try await fetchLyric(id: now.wk_audioId!).lyric!)
+                lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
                 self.rightView.isHidden = lyricTuple?.words.count == 1
                 tableView.reloadData()
             } catch {
