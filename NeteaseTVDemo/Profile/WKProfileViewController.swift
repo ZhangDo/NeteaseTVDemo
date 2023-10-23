@@ -5,7 +5,7 @@ import NeteaseRequest
 class WKProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     fileprivate var cellContents = ["最近播放", "我的收藏", "我创建的歌单", "基础设置"]
-    fileprivate var userInfo: NRProfileModel?
+    fileprivate var userInfo: NRUserDetailModel?
     static func creat() -> WKProfileViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
         return vc
@@ -16,13 +16,15 @@ class WKProfileViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(WKProfileHeader.self, forHeaderFooterViewReuseIdentifier: "profileHeader")
         Task {
-            await loadUserInfo()
+            await loadUserDetailInfo()
         }
     }
     
-    func loadUserInfo() async {
+    func loadUserDetailInfo() async {
         do {
-            userInfo = try await fetchAccountInfo(cookie: cookie)
+            if  let userModel: NRProfileModel = UserDefaults.standard.codable(forKey: "userModel") {
+                userInfo = try await fetchUserInfoDetail(uid: userModel.userId, cookie: cookie)
+            }
             self.tableView.reloadData()
         } catch {
             print(error)
@@ -39,15 +41,25 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 400
+        return 420
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "profileHeader") as! WKProfileHeader
-        if let avatar = userInfo?.avatarUrl, let name = userInfo?.nickname {
+        if let avatar = userInfo?.profile.avatarUrl, let name = userInfo?.profile.nickname {
             header.nameLabel.text = name
             header.avatarView.imageView.kf.setImage(with: URL(string: avatar))
         }
+        header.signatureView.descLabel.text = userInfo?.profile.signature ?? ""
+        header.signatureView.onPrimaryAction = { [weak self] model in
+            let vc = WKDescViewController.creat(desc: self?.userInfo?.profile.signature ?? "")
+            self!.present(vc, animated: true)
+        }
+        header.followedsLabel.text = "\(userInfo?.profile.followeds ?? 0)" + " 粉丝"
+        header.followsLabel.text = "\(userInfo?.profile.follows ?? 0)" + " 关注"
+        header.levelLabel.text = "Lv.\(userInfo?.level ?? 0)"
+        
+        
         header.clickAvatarAction = {
             let loginVC = WKLoginViewController.creat()
             loginVC.modalPresentationStyle = .blurOverFullScreen

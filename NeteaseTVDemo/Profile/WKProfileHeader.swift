@@ -1,15 +1,12 @@
-//
-//  WKProfileHeader.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/21.
-//
-
 import UIKit
 import MarqueeLabel
 class WKProfileHeader: UITableViewHeaderFooterView {
     var avatarView = WKAvatarView()
     var nameLabel = MarqueeLabel()
+    var followedsLabel = UILabel()
+    var followsLabel = UILabel()
+    var levelLabel = UILabel()
+    var signatureView = WKDescView()
     var clickAvatarAction: (() -> Void)?
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -44,6 +41,46 @@ class WKProfileHeader: UITableViewHeaderFooterView {
                 make.top.equalTo(self.avatarView.snp.bottom).offset(10)
             }
         })(nameLabel)
+        
+        ({(label: UILabel) in
+            label.font = .systemFont(ofSize: 25, weight: .semibold)
+            label.textColor = .lightGray
+            self.contentView.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.centerX.equalToSuperview()
+                make.top.equalTo(nameLabel.snp.bottom).offset(10)
+            }
+        })(followedsLabel)
+        
+        ({(label: UILabel) in
+            label.font = .systemFont(ofSize: 25, weight: .semibold)
+            label.textColor = .lightGray
+            self.contentView.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.right.equalTo(followedsLabel.snp.left).offset(-10)
+                make.centerY.equalTo(followedsLabel)
+            }
+        })(followsLabel)
+        
+        ({(label: UILabel) in
+            label.font = .systemFont(ofSize: 25, weight: .semibold)
+            label.textColor = .lightGray
+            self.contentView.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.left.equalTo(followedsLabel.snp.right).offset(10)
+                make.centerY.equalTo(followedsLabel)
+            }
+        })(levelLabel)
+        
+        ({(view: WKDescView) in
+            self.contentView.addSubview(view)
+            view.snp.makeConstraints { make in
+                make.left.equalTo(contentView).offset(10)
+                make.right.equalTo(contentView).offset(-10)
+                make.top.equalTo((followedsLabel.snp.bottom)).offset(10)
+                make.height.equalTo(100)
+            }
+        })(signatureView)
     }
 
     

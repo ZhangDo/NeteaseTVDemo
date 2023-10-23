@@ -71,30 +71,12 @@ class WKLoginViewController: UIViewController {
                 cookie = checkModel.cookie!
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "login"), object: nil, userInfo: nil)
 //
-//                do {
-//                    let userModel: NRProfileModel = try await fetchAccountInfo(cookie: cookie)
-//                    if var users: [WKUserModel] = UserDefaults.standard.codable(forKey: "users") {
-//                        var isHave = false
-//                        for var user in users {
-//                            if user.user.userId == userModel.userId {
-//                                isHave = true
-//                                user.isSelected = true
-//                                break
-//                            }
-//                        }
-//                        if !isHave {
-//                            users.append(WKUserModel(isSelected: true, user: userModel))
-//                            UserDefaults.standard.set(users, forKey: "users")
-//                        }
-//                    } else {
-//                        var users: [WKUserModel] = [WKUserModel]()
-//                        users.append(WKUserModel(isSelected: true, user: userModel))
-//                        UserDefaults.standard.set(users, forKey: "users")
-//                    }
-//                    
-//                } catch {
-//                    print(error)
-//                }
+                do {
+                    let userModel: NRProfileModel = try await fetchAccountInfo(cookie: cookie)
+                    UserDefaults.standard.set(codable: userModel, forKey: "userModel")
+                } catch {
+                    print(error)
+                }
                 
                 self.dismiss(animated: true)
                 AppDelegate.shared.showTabBar()

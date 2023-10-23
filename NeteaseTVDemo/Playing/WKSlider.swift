@@ -28,10 +28,18 @@ class WKSlider: UIProgressView {
             } else if press.type == .select {
                 delegate?.playOrPause()
                 self.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    self.transform = CGAffineTransformMakeScale(1.0, 1.1)
-                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                    self.transform = CGAffineTransformMakeScale(1.0, 1.1)
+//                }
                 
+            }
+        }
+    }
+    
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        for press in presses {
+            if press.type == .select {
+                self.transform = CGAffineTransformMakeScale(1.0, 1.1)
             }
         }
     }

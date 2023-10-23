@@ -3,6 +3,7 @@ import Foundation
 
 
 extension String {
+    ///歌词解析
     func parserLyric() -> (times: [String], words: [String]) {
         var lineLyrics: [String] = []
         var words: [String] = []
