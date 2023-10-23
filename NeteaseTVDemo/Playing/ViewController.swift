@@ -234,7 +234,10 @@ extension ViewController: WKSliderDelegate {
     }
     
     func backward() {
-        wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current - 15) / Float(wk_player.totalTime)))
+        if wk_player.currentModelState!.current >= 15 {
+            wk_player.prepareForSeek(to: (Float(wk_player.currentModelState!.current - 15) / Float(wk_player.totalTime)))
+        }
+        
     }
     
     func playOrPause() {

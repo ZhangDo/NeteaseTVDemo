@@ -58,6 +58,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         Task {
             await loadData()
         }
+
     }
     
     func loadData() async  {
@@ -68,13 +69,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             print(error)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if self.banners != nil {
-                if self.banners!.count > 1 {
-                    self.bannerView.scrollToItem(at: 1, animated: true)
-                }
-            }
-        }
+        
         do {
             self.dailyPlaylist = try await fetchRecommendPlayList(cookie: cookie)
             self.dailyRecommendView.reloadData()

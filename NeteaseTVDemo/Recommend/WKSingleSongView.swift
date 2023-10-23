@@ -51,7 +51,6 @@ class WKSingleSongView: UIControl {
         })(picView)
         
         ({(label: MarqueeLabel) in
-            label.text = "SONG NAME"
             label.textColor = UIColor(named: "titleColor")
             addSubview(label)
             label.snp.makeConstraints { make in
@@ -62,7 +61,6 @@ class WKSingleSongView: UIControl {
         })(songNameLabel)
         
         ({(label: UILabel) in
-            label.text = "SONG NAME"
             label.textColor = UIColor(named: "titleColor")
             label.font = .systemFont(ofSize: 30)
             addSubview(label)
