@@ -22,9 +22,7 @@ class WKRecentVideoVC: UIViewController {
     func loadData() async {
         do {
             let recentModel: NRRecentPlayModel = try await fetchRecentVideo(cookie: cookie, limit: 1000)
-            videoList = recentModel.list.map({ model in
-                model.data
-            })
+            videoList = recentModel.list.map { $0.data }
             collectionView.reloadData()
         } catch {
             print(error)

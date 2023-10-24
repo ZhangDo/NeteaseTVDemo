@@ -77,12 +77,14 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentPlaylistVC.view.alpha = 0.0
                 self.recentAlbumListVC.view.alpha = 0.0
                 self.recentVideoListVC.view.alpha = 0.0
+                self.recentPodcastListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = false
                 self.recentVoiceListVC.view.isHidden = true
                 self.recentPlaylistVC.view.isHidden = true
                 self.recentAlbumListVC.view.isHidden = true
                 self.recentVideoListVC.view.isHidden = true
+                self.recentPodcastListVC.view.isHidden = true
             }
             
         } else if item.title == "声音" {
@@ -92,12 +94,14 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentPlaylistVC.view.alpha = 0.0
                 self.recentAlbumListVC.view.alpha = 0.0
                 self.recentVideoListVC.view.alpha = 0.0
+                self.recentPodcastListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = true
                 self.recentVoiceListVC.view.isHidden = false
                 self.recentPlaylistVC.view.isHidden = true
                 self.recentAlbumListVC.view.isHidden = true
                 self.recentVideoListVC.view.isHidden = true
+                self.recentPodcastListVC.view.isHidden = true
             }
     
         } else if item.title == "歌单" {
@@ -107,12 +111,14 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentPlaylistVC.view.alpha = 1.0
                 self.recentAlbumListVC.view.alpha = 0.0
                 self.recentVideoListVC.view.alpha = 0.0
+                self.recentPodcastListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = true
                 self.recentVoiceListVC.view.isHidden = true
                 self.recentPlaylistVC.view.isHidden = false
                 self.recentAlbumListVC.view.isHidden = true
                 self.recentVideoListVC.view.isHidden = true
+                self.recentPodcastListVC.view.isHidden = true
             }
             
         } else if item.title == "专辑" {
@@ -122,12 +128,14 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentPlaylistVC.view.alpha = 0.0
                 self.recentAlbumListVC.view.alpha = 1.0
                 self.recentVideoListVC.view.alpha = 0.0
+                self.recentPodcastListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = true
                 self.recentVoiceListVC.view.isHidden = true
                 self.recentPlaylistVC.view.isHidden = true
                 self.recentAlbumListVC.view.isHidden = false
                 self.recentVideoListVC.view.isHidden = true
+                self.recentPodcastListVC.view.isHidden = true
             }
         } else if item.title == "视频"  {
             UIView.animate(withDuration: 0.2) {
@@ -136,12 +144,14 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentPlaylistVC.view.alpha = 0.0
                 self.recentAlbumListVC.view.alpha = 0.0
                 self.recentVideoListVC.view.alpha = 1.0
+                self.recentPodcastListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = true
                 self.recentVoiceListVC.view.isHidden = true
                 self.recentPlaylistVC.view.isHidden = true
                 self.recentAlbumListVC.view.isHidden = true
                 self.recentVideoListVC.view.isHidden = false
+                self.recentPodcastListVC.view.isHidden = true
             }
         } else if item.title == "播客"  {
             UIView.animate(withDuration: 0.2) {

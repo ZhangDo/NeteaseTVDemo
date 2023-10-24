@@ -22,9 +22,7 @@ class WKRecentPodcastListVC: UIViewController {
     func loadData() async {
         do {
             let recentModel: NRRecentPlayModel = try await fetchRecentDj(cookie: cookie, limit: 1000)
-            podcastModels = recentModel.list.map { model in
-                model.data
-            }
+            podcastModels = recentModel.list.map { $0.data }
             collectionView.reloadData()
         } catch {
             

@@ -20,9 +20,7 @@ class WKRecentAlbumListVC: UIViewController {
     func loadData() async {
         do {
             let recentModel: NRRecentPlayModel = try await fetchRecentAlbum(cookie: cookie, limit: 1000)
-            albumModels = recentModel.list.map({ model in
-                model.data
-            })
+            albumModels = recentModel.list.map { $0.data }
             collectionView.reloadData()
         } catch {
             print(error)
