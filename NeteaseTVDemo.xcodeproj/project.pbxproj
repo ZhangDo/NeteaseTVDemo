@@ -50,6 +50,7 @@
 		2969156E2AE649A900ED9298 /* WKRecentSongListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2969156D2AE649A900ED9298 /* WKRecentSongListVC.swift */; };
 		296915702AE753B300ED9298 /* WKRencentVoiceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2969156F2AE753B300ED9298 /* WKRencentVoiceListVC.swift */; };
 		296915722AE75A0C00ED9298 /* WKRencentPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296915712AE75A0C00ED9298 /* WKRencentPlaylistVC.swift */; };
+		296915742AE764E000ED9298 /* WKRecentAlbumListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296915732AE764E000ED9298 /* WKRecentAlbumListVC.swift */; };
 		297F2E092AD8CD3B002F4F24 /* WKPodcastDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E082AD8CD3B002F4F24 /* WKPodcastDetailViewController.swift */; };
 		297F2E0C2AD8E50F002F4F24 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E0B2AD8E50F002F4F24 /* UserDefault+.swift */; };
 		297F2E0E2AD8E6B6002F4F24 /* WKUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297F2E0D2AD8E6B6002F4F24 /* WKUserModel.swift */; };
@@ -134,6 +135,7 @@
 		2969156D2AE649A900ED9298 /* WKRecentSongListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecentSongListVC.swift; sourceTree = "<group>"; };
 		2969156F2AE753B300ED9298 /* WKRencentVoiceListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRencentVoiceListVC.swift; sourceTree = "<group>"; };
 		296915712AE75A0C00ED9298 /* WKRencentPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRencentPlaylistVC.swift; sourceTree = "<group>"; };
+		296915732AE764E000ED9298 /* WKRecentAlbumListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecentAlbumListVC.swift; sourceTree = "<group>"; };
 		297F2E082AD8CD3B002F4F24 /* WKPodcastDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPodcastDetailViewController.swift; sourceTree = "<group>"; };
 		297F2E0B2AD8E50F002F4F24 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		297F2E0D2AD8E6B6002F4F24 /* WKUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKUserModel.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				2969156D2AE649A900ED9298 /* WKRecentSongListVC.swift */,
 				2969156F2AE753B300ED9298 /* WKRencentVoiceListVC.swift */,
 				296915712AE75A0C00ED9298 /* WKRencentPlaylistVC.swift */,
+				296915732AE764E000ED9298 /* WKRecentAlbumListVC.swift */,
 				295E48EE2AE3AEAD00C259D2 /* WKProfileHeader.swift */,
 				295E48F02AE3AF5400C259D2 /* WKAvatarView.swift */,
 			);
@@ -545,6 +548,7 @@
 				2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */,
 				F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */,
 				29EBE67C2ADFA8E20023E9C7 /* WKVideoViewController.swift in Sources */,
+				296915742AE764E000ED9298 /* WKRecentAlbumListVC.swift in Sources */,
 				297F2E1D2ADA7DC9002F4F24 /* WKSearchTypeModel.swift in Sources */,
 				2906FBE32ABD32C6004E5069 /* FSPageViewTransformer.swift in Sources */,
 				295E48D92AE2218800C259D2 /* WKBrowserViewController.m in Sources */,

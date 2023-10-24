@@ -6,6 +6,7 @@ class WKRecentPlayViewController: UIViewController {
     fileprivate var recentSongListVC = WKRecentSongListVC.creat()
     fileprivate var recentVoiceListVC = WKRencentVoiceListVC.creat()
     fileprivate var recentPlaylistVC = WKRencentPlaylistVC.creat()
+    fileprivate var recentAlbumListVC = WKRecentAlbumListVC.creat()
     static func creat() -> WKRecentPlayViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKRecentPlayViewController
         return vc
@@ -35,9 +36,16 @@ class WKRecentPlayViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
+        addChild(recentAlbumListVC)
+        contentView.addSubview(recentAlbumListVC.view)
+        recentAlbumListVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         recentSongListVC.view.isHidden = false
         recentVoiceListVC.view.isHidden = true
         recentPlaylistVC.view.isHidden = true
+        recentAlbumListVC.view.isHidden = true
         
     }
 
@@ -51,10 +59,12 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentSongListVC.view.alpha = 1.0
                 self.recentVoiceListVC.view.alpha = 0.0
                 self.recentPlaylistVC.view.alpha = 0.0
+                self.recentAlbumListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = false
                 self.recentVoiceListVC.view.isHidden = true
                 self.recentPlaylistVC.view.isHidden = true
+                self.recentAlbumListVC.view.isHidden = true
             }
             
         } else if item.title == "声音" {
@@ -62,10 +72,12 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentSongListVC.view.alpha = 0.0
                 self.recentVoiceListVC.view.alpha = 1.0
                 self.recentPlaylistVC.view.alpha = 0.0
+                self.recentAlbumListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = true
                 self.recentVoiceListVC.view.isHidden = false
                 self.recentPlaylistVC.view.isHidden = true
+                self.recentAlbumListVC.view.isHidden = true
             }
     
         } else if item.title == "歌单" {
@@ -73,12 +85,26 @@ extension WKRecentPlayViewController: UITabBarDelegate {
                 self.recentSongListVC.view.alpha = 0.0
                 self.recentVoiceListVC.view.alpha = 0.0
                 self.recentPlaylistVC.view.alpha = 1.0
+                self.recentAlbumListVC.view.alpha = 0.0
             } completion: { finished in
                 self.recentSongListVC.view.isHidden = true
                 self.recentVoiceListVC.view.isHidden = true
                 self.recentPlaylistVC.view.isHidden = false
+                self.recentAlbumListVC.view.isHidden = true
             }
             
+        } else if item.title == "专辑" {
+            UIView.animate(withDuration: 0.2) {
+                self.recentSongListVC.view.alpha = 0.0
+                self.recentVoiceListVC.view.alpha = 0.0
+                self.recentPlaylistVC.view.alpha = 0.0
+                self.recentAlbumListVC.view.alpha = 1.0
+            } completion: { finished in
+                self.recentSongListVC.view.isHidden = true
+                self.recentVoiceListVC.view.isHidden = true
+                self.recentPlaylistVC.view.isHidden = true
+                self.recentAlbumListVC.view.isHidden = false
+            }
         }
     }
 }
