@@ -45,7 +45,7 @@ class WKAvatarView: UIControl {
         }
     }
     
-//    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+//    override func pressesBegan  {
 //        super.pressesBegan(presses, with: event)
 //        self.transform =  CGAffineTransformIdentity
 //    }

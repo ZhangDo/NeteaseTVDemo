@@ -580,7 +580,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1z-gn-O1g">
-                                        <rect key="frame" x="576" y="0.0" width="1344" height="1080"/>
+                                        <rect key="frame" x="606" y="0.0" width="1314" height="1080"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -592,7 +592,7 @@
                                     <constraint firstAttribute="trailing" secondItem="j1z-gn-O1g" secondAttribute="trailing" id="bFx-8q-aRY"/>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="width" secondItem="xQ9-y5-L4Z" secondAttribute="width" multiplier="0.3" id="d4M-Z5-dIE"/>
                                     <constraint firstItem="cE3-MH-kz2" firstAttribute="leading" secondItem="xQ9-y5-L4Z" secondAttribute="leading" id="gWa-YO-Bsq"/>
-                                    <constraint firstItem="j1z-gn-O1g" firstAttribute="leading" secondItem="cE3-MH-kz2" secondAttribute="trailing" id="jdC-ID-0uI"/>
+                                    <constraint firstItem="j1z-gn-O1g" firstAttribute="leading" secondItem="cE3-MH-kz2" secondAttribute="trailing" constant="30" id="jdC-ID-0uI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -637,19 +637,21 @@
                                     <tabBarItem title="声音" id="07e-uk-DuZ"/>
                                     <tabBarItem title="歌单" id="Hp6-iJ-v53"/>
                                     <tabBarItem title="专辑" id="4dG-FC-qSN"/>
-                                    <tabBarItem title="视频" id="ZVO-FC-7Zw"/>
                                     <tabBarItem title="播客" id="KgG-Jk-GeM"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="tmK-ho-Tuc" id="zzR-R7-fsI"/>
+                                </connections>
                             </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBV-Bm-aIY">
-                                <rect key="frame" x="80" y="140" width="1760" height="880"/>
+                                <rect key="frame" x="80" y="160" width="1760" height="860"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dGM-Na-s02"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ryg-mu-Lfb" secondAttribute="trailing" id="7AU-CH-wyc"/>
-                            <constraint firstItem="ZBV-Bm-aIY" firstAttribute="top" secondItem="ryg-mu-Lfb" secondAttribute="bottom" constant="10" id="7c2-Rk-0DX"/>
+                            <constraint firstItem="ZBV-Bm-aIY" firstAttribute="top" secondItem="ryg-mu-Lfb" secondAttribute="bottom" constant="30" id="7c2-Rk-0DX"/>
                             <constraint firstItem="ryg-mu-Lfb" firstAttribute="leading" secondItem="dWZ-Og-wov" secondAttribute="leading" id="IAp-E4-NJz"/>
                             <constraint firstItem="dGM-Na-s02" firstAttribute="bottom" secondItem="ZBV-Bm-aIY" secondAttribute="bottom" id="Z1B-wi-wIv"/>
                             <constraint firstItem="ZBV-Bm-aIY" firstAttribute="leading" secondItem="dGM-Na-s02" secondAttribute="leading" id="c7T-yQ-iOb"/>
@@ -699,7 +701,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gi2-2m-ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136" y="4987"/>
+            <point key="canvasLocation" x="3132" y="5061"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="BGx-eQ-VfX">
@@ -1929,6 +1931,254 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r85-KA-QoP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-881" y="-266"/>
+        </scene>
+        <!--Rencent Voice ListVC-->
+        <scene sceneID="Q5q-gO-0DZ">
+            <objects>
+                <viewController storyboardIdentifier="WKRencentVoiceListVC" id="lA7-gI-EU6" customClass="WKRencentVoiceListVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QcI-aB-hIi"/>
+                        <viewControllerLayoutGuide type="bottom" id="xgA-2W-LFm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w08-hT-Usr">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="4je-CO-2ZU">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lA7-gI-EU6" id="Sdx-sy-p9W"/>
+                                    <outlet property="delegate" destination="lA7-gI-EU6" id="aXn-Nh-0Tl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CIl-WR-Dv7"/>
+                        <constraints>
+                            <constraint firstItem="CIl-WR-Dv7" firstAttribute="bottom" secondItem="4je-CO-2ZU" secondAttribute="bottom" id="5hG-Md-1ht"/>
+                            <constraint firstItem="4je-CO-2ZU" firstAttribute="leading" secondItem="CIl-WR-Dv7" secondAttribute="leading" id="Px8-v9-ii3"/>
+                            <constraint firstItem="4je-CO-2ZU" firstAttribute="top" secondItem="CIl-WR-Dv7" secondAttribute="top" id="S8f-6z-N7p"/>
+                            <constraint firstItem="CIl-WR-Dv7" firstAttribute="trailing" secondItem="4je-CO-2ZU" secondAttribute="trailing" id="x0Y-dn-GiF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="4je-CO-2ZU" id="q0N-zM-Y7n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqv-qV-EdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="6458"/>
+        </scene>
+        <!--Rencent PlaylistVC-->
+        <scene sceneID="rtQ-d1-oyV">
+            <objects>
+                <viewController storyboardIdentifier="WKRencentPlaylistVC" id="zpV-nU-lzh" customClass="WKRencentPlaylistVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lkY-61-uv2"/>
+                        <viewControllerLayoutGuide type="bottom" id="N3N-we-MbB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V6m-Ah-lYt">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="USQ-et-ziW">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cHQ-07-eq0">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="Leu-ga-gCf">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vVY-kW-Dhp">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zpV-nU-lzh" id="JfB-E7-Coo"/>
+                                    <outlet property="delegate" destination="zpV-nU-lzh" id="xSh-D5-hKv"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NlE-5M-JDc"/>
+                        <constraints>
+                            <constraint firstItem="USQ-et-ziW" firstAttribute="top" secondItem="NlE-5M-JDc" secondAttribute="top" id="SnY-jd-3Eh"/>
+                            <constraint firstItem="NlE-5M-JDc" firstAttribute="trailing" secondItem="USQ-et-ziW" secondAttribute="trailing" id="VRN-cB-1bs"/>
+                            <constraint firstItem="NlE-5M-JDc" firstAttribute="bottom" secondItem="USQ-et-ziW" secondAttribute="bottom" id="iFN-uB-kWM"/>
+                            <constraint firstItem="USQ-et-ziW" firstAttribute="leading" secondItem="NlE-5M-JDc" secondAttribute="leading" id="syu-nP-YrY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="USQ-et-ziW" id="Ikj-vU-3tX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-Mm-FRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="7941"/>
+        </scene>
+        <!--Recent Album ListVC-->
+        <scene sceneID="9jI-XD-bfo">
+            <objects>
+                <viewController storyboardIdentifier="WKRecentAlbumListVC" id="Gl5-bV-osv" customClass="WKRecentAlbumListVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T96-4g-ySs"/>
+                        <viewControllerLayoutGuide type="bottom" id="0mS-Xm-2oC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aUI-f2-85N">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JjS-eL-OpI">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i3u-ZM-Apx">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="h8y-Dm-Xb6">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HrX-d6-Wzj">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gl5-bV-osv" id="nxx-4U-eUP"/>
+                                    <outlet property="delegate" destination="Gl5-bV-osv" id="edB-Di-F4u"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xIh-Fc-xNU"/>
+                        <constraints>
+                            <constraint firstItem="JjS-eL-OpI" firstAttribute="top" secondItem="xIh-Fc-xNU" secondAttribute="top" id="0xs-yR-bpx"/>
+                            <constraint firstItem="xIh-Fc-xNU" firstAttribute="bottom" secondItem="JjS-eL-OpI" secondAttribute="bottom" id="Mii-rR-bKC"/>
+                            <constraint firstItem="JjS-eL-OpI" firstAttribute="leading" secondItem="xIh-Fc-xNU" secondAttribute="leading" id="RCD-6t-E9u"/>
+                            <constraint firstItem="xIh-Fc-xNU" firstAttribute="trailing" secondItem="JjS-eL-OpI" secondAttribute="trailing" id="ukT-Vi-2rP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="JjS-eL-OpI" id="V5u-6x-mBU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RJb-ru-i1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="9328"/>
+        </scene>
+        <!--Recent VideoVC-->
+        <scene sceneID="HNJ-5T-BbV">
+            <objects>
+                <viewController storyboardIdentifier="WKRecentVideoVC" id="eDZ-Kn-RyH" customClass="WKRecentVideoVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ssw-wF-YwJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="RME-2u-sgQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jHE-E4-dGq">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-ki-FPb">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nXT-6u-kaS">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gCB-Jv-JsH">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hca-bV-gqc">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eDZ-Kn-RyH" id="YjA-cq-xof"/>
+                                    <outlet property="delegate" destination="eDZ-Kn-RyH" id="T7R-WE-ayh"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mt8-7o-Aew"/>
+                        <constraints>
+                            <constraint firstItem="7u4-ki-FPb" firstAttribute="top" secondItem="mt8-7o-Aew" secondAttribute="top" id="7B4-lV-ogy"/>
+                            <constraint firstItem="7u4-ki-FPb" firstAttribute="leading" secondItem="mt8-7o-Aew" secondAttribute="leading" id="9FG-ns-VOK"/>
+                            <constraint firstItem="mt8-7o-Aew" firstAttribute="trailing" secondItem="7u4-ki-FPb" secondAttribute="trailing" id="EGd-pL-6x5"/>
+                            <constraint firstItem="mt8-7o-Aew" firstAttribute="bottom" secondItem="7u4-ki-FPb" secondAttribute="bottom" id="i4w-1b-lau"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="7u4-ki-FPb" id="RWY-Md-zmq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TFD-j0-LdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="9328"/>
+        </scene>
+        <!--Recent Podcast ListVC-->
+        <scene sceneID="JYI-dV-g0N">
+            <objects>
+                <viewController storyboardIdentifier="WKRecentPodcastListVC" id="zPh-TP-RHF" customClass="WKRecentPodcastListVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o9Z-wk-SOR"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Fl-mL-Y40"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oR7-Fk-ZiX">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cxt-zN-4v4">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E3A-Gz-TUJ">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="OZB-P2-aBH">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Pgd-Zs-iS5">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zPh-TP-RHF" id="hPo-0F-dQh"/>
+                                    <outlet property="delegate" destination="zPh-TP-RHF" id="vuf-2k-O5y"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dlu-7s-5wZ"/>
+                        <constraints>
+                            <constraint firstItem="dlu-7s-5wZ" firstAttribute="bottom" secondItem="cxt-zN-4v4" secondAttribute="bottom" id="BB4-GI-fLH"/>
+                            <constraint firstItem="cxt-zN-4v4" firstAttribute="top" secondItem="dlu-7s-5wZ" secondAttribute="top" id="epQ-3A-69x"/>
+                            <constraint firstItem="cxt-zN-4v4" firstAttribute="leading" secondItem="dlu-7s-5wZ" secondAttribute="leading" id="mij-z0-so1"/>
+                            <constraint firstItem="dlu-7s-5wZ" firstAttribute="trailing" secondItem="cxt-zN-4v4" secondAttribute="trailing" id="rdU-Rm-BiF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="cxt-zN-4v4" id="7WG-JC-TR1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cus-Zv-f0Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="10587"/>
         </scene>
     </scenes>
     <designables>

@@ -20,7 +20,7 @@ class WKRecentSongListVC: UIViewController {
     
     func loadData() async {
         do {
-            let recentModel: NRRecentPlayModel = try await fetchRecentSong(cookie: cookie)
+            let recentModel: NRRecentPlayModel = try await fetchRecentSong(cookie: cookie,limit: 1000)
             self.allModels.removeAll()
             for resourceModel in recentModel.list {
                 let model = CustomAudioModel()
