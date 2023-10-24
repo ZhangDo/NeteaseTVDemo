@@ -182,7 +182,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     
     public func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        cell.imageView?.kf.setImage(with: URL(string: self.banners![index].pic ))
+        cell.imageView?.kf.setImage(with: URL(string: self.banners![index].pic ?? "" ))
 //        cell.imageView?.image = UIImage(named: self.imageNames[index])
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
