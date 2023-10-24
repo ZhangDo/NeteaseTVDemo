@@ -1969,6 +1969,59 @@
             </objects>
             <point key="canvasLocation" x="3132" y="6306"/>
         </scene>
+        <!--Rencent PlaylistVC-->
+        <scene sceneID="rtQ-d1-oyV">
+            <objects>
+                <viewController storyboardIdentifier="WKRencentPlaylistVC" id="zpV-nU-lzh" customClass="WKRencentPlaylistVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lkY-61-uv2"/>
+                        <viewControllerLayoutGuide type="bottom" id="N3N-we-MbB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V6m-Ah-lYt">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="USQ-et-ziW">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cHQ-07-eq0">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="Leu-ga-gCf">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vVY-kW-Dhp">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zpV-nU-lzh" id="JfB-E7-Coo"/>
+                                    <outlet property="delegate" destination="zpV-nU-lzh" id="xSh-D5-hKv"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NlE-5M-JDc"/>
+                        <constraints>
+                            <constraint firstItem="USQ-et-ziW" firstAttribute="top" secondItem="NlE-5M-JDc" secondAttribute="top" id="SnY-jd-3Eh"/>
+                            <constraint firstItem="NlE-5M-JDc" firstAttribute="trailing" secondItem="USQ-et-ziW" secondAttribute="trailing" id="VRN-cB-1bs"/>
+                            <constraint firstItem="NlE-5M-JDc" firstAttribute="bottom" secondItem="USQ-et-ziW" secondAttribute="bottom" id="iFN-uB-kWM"/>
+                            <constraint firstItem="USQ-et-ziW" firstAttribute="leading" secondItem="NlE-5M-JDc" secondAttribute="leading" id="syu-nP-YrY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="USQ-et-ziW" id="Ikj-vU-3tX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-Mm-FRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3132" y="7548"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="GQd-up-XQL"/>

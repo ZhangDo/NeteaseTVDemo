@@ -5,6 +5,7 @@ class WKRecentPlayViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     fileprivate var recentSongListVC = WKRecentSongListVC.creat()
     fileprivate var recentVoiceListVC = WKRencentVoiceListVC.creat()
+    fileprivate var recentPlaylistVC = WKRencentPlaylistVC.creat()
     static func creat() -> WKRecentPlayViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKRecentPlayViewController
         return vc
@@ -28,8 +29,15 @@ class WKRecentPlayViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
+        addChild(recentPlaylistVC)
+        contentView.addSubview(recentPlaylistVC.view)
+        recentPlaylistVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         recentSongListVC.view.isHidden = false
         recentVoiceListVC.view.isHidden = true
+        recentPlaylistVC.view.isHidden = true
         
     }
 
@@ -39,11 +47,38 @@ extension WKRecentPlayViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         print(item)
         if item.title == "歌曲" {
-            recentSongListVC.view.isHidden = false
-            recentVoiceListVC.view.isHidden = true
+            UIView.animate(withDuration: 0.2) {
+                self.recentSongListVC.view.alpha = 1.0
+                self.recentVoiceListVC.view.alpha = 0.0
+                self.recentPlaylistVC.view.alpha = 0.0
+            } completion: { finished in
+                self.recentSongListVC.view.isHidden = false
+                self.recentVoiceListVC.view.isHidden = true
+                self.recentPlaylistVC.view.isHidden = true
+            }
+            
         } else if item.title == "声音" {
-            recentSongListVC.view.isHidden = true
-            recentVoiceListVC.view.isHidden = false
+            UIView.animate(withDuration: 0.2) {
+                self.recentSongListVC.view.alpha = 0.0
+                self.recentVoiceListVC.view.alpha = 1.0
+                self.recentPlaylistVC.view.alpha = 0.0
+            } completion: { finished in
+                self.recentSongListVC.view.isHidden = true
+                self.recentVoiceListVC.view.isHidden = false
+                self.recentPlaylistVC.view.isHidden = true
+            }
+    
+        } else if item.title == "歌单" {
+            UIView.animate(withDuration: 0.2) {
+                self.recentSongListVC.view.alpha = 0.0
+                self.recentVoiceListVC.view.alpha = 0.0
+                self.recentPlaylistVC.view.alpha = 1.0
+            } completion: { finished in
+                self.recentSongListVC.view.isHidden = true
+                self.recentVoiceListVC.view.isHidden = true
+                self.recentPlaylistVC.view.isHidden = false
+            }
+            
         }
     }
 }
