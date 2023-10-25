@@ -85,7 +85,7 @@ extension WKPodcastDetailViewController: UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if wk_player.isPlaying && wk_player.currentModel?.audioId == self.allModels[indexPath.row].audioId {
-            let playingVC = ViewController.creat()
+            let playingVC = WKPlayingViewController.creat()
             self.present(playingVC, animated: true)
             return
         }

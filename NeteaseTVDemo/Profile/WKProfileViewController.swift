@@ -5,7 +5,7 @@ import NeteaseRequest
 class WKProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var rightBgView: UIView!
-    fileprivate var cellContents = ["最近播放", "我的收藏", "我创建的歌单", "基础设置"]
+    fileprivate var cellContents = ["最近播放", "我的收藏", "我的歌单", "基础设置"]
     fileprivate var userInfo: NRUserDetailModel?
     fileprivate var recentPlayVC = WKRecentPlayViewController.creat()
     static func creat() -> WKProfileViewController {

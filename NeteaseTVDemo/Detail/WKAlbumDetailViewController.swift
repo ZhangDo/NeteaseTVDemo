@@ -77,7 +77,7 @@ class WKAlbumDetailViewController: UIViewController {
         if self.allModels.count > 0 {
             wk_player.allOriginalModels = self.allModels
             try? wk_player.play(index: 0)
-            let playingVC = ViewController.creat()
+            let playingVC = WKPlayingViewController.creat()
             playingVC.modalPresentationStyle = .blurOverFullScreen
             self.present(playingVC, animated: true)
         }
@@ -100,14 +100,14 @@ extension WKAlbumDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if wk_player.isPlaying && wk_player.currentModel?.audioId == self.allModels[indexPath.row].audioId {
-            let playingVC = ViewController.creat()
+            let playingVC = WKPlayingViewController.creat()
             self.present(playingVC, animated: true)
             return
         }
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
         wk_player.allOriginalModels = model
         try? wk_player.play(index: 0)
-        let playingVC = ViewController.creat()
+        let playingVC = WKPlayingViewController.creat()
         self.present(playingVC, animated: true)
     }
 }

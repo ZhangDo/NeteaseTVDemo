@@ -33,7 +33,7 @@ class WKSearchResultViewController: UIViewController {
     }
     
     func enterPlayer() {
-        let playingVC = ViewController.creat()
+        let playingVC = WKPlayingViewController.creat()
         playingVC.modalPresentationStyle = .blurOverFullScreen
         self.present(playingVC, animated: true)
     }

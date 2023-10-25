@@ -30,7 +30,7 @@ class WKTabBarViewController: UITabBarController {
         mvVC.tabBarItem.title = "MV"
         vcs.append(mvVC)
         
-        let playingVC = ViewController.creat()
+        let playingVC = WKPlayingViewController.creat()
         playingVC.tabBarItem.title = "正在播放"
         vcs.append(playingVC)
         

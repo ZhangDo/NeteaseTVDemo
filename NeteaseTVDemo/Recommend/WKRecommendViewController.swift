@@ -163,7 +163,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     }
     
     func enterPlayer() {
-        let playingVC = ViewController.creat()
+        let playingVC = WKPlayingViewController.creat()
         playingVC.modalPresentationStyle = .blurOverFullScreen
         self.present(playingVC, animated: true)
     }
@@ -204,7 +204,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             model.isFree = 1
             wk_player.allOriginalModels = [model]
             try? wk_player.play(index: 0)
-            let playingVC = ViewController.creat()
+            let playingVC = WKPlayingViewController.creat()
             playingVC.modalPresentationStyle = .blurOverFullScreen
             self.present(playingVC, animated: true)
         } else if self.banners![index].targetType == 10 {
