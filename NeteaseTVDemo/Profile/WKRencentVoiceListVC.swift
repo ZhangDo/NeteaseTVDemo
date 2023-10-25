@@ -60,7 +60,7 @@ extension WKRencentVoiceListVC: UITableViewDelegate, UITableViewDataSource {
         let model: [CustomAudioModel] = [self.allModels[indexPath.row]]
         wk_player.allOriginalModels = model
         try? wk_player.play(index: 0)
-        let playingVC = ViewController.creat(isPodcast: true)
+        let playingVC = WKPlayingViewController.creat(isPodcast: true)
         self.present(playingVC, animated: true)
     }
 }

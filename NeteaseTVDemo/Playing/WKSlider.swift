@@ -39,7 +39,7 @@ class WKSlider: UIProgressView {
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         for press in presses {
             if press.type == .select {
-                self.transform = CGAffineTransformMakeScale(1.0, 1.1)
+                self.transform = CGAffineTransformMakeScale(1.05, 1.3)
             }
         }
     }
@@ -47,7 +47,7 @@ class WKSlider: UIProgressView {
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if isFocused {
             coordinator.addCoordinatedAnimations {
-                self.transform = CGAffineTransformMakeScale(1.0, 1.1)
+                self.transform = CGAffineTransformMakeScale(1.05, 1.3)
             }
         } else {
             coordinator.addCoordinatedAnimations {

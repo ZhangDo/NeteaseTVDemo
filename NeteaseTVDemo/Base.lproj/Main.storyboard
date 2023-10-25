@@ -2208,13 +2208,14 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="694" height="880"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DZa-f5-B9b">
-                                                            <rect key="frame" x="69.5" y="0.0" width="555" height="555"/>
+                                                            <rect key="frame" x="117" y="0.0" width="460" height="460"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" constant="460" id="9lS-Vl-MPR"/>
                                                                 <constraint firstAttribute="width" secondItem="DZa-f5-B9b" secondAttribute="height" multiplier="1:1" id="zjF-2h-wM2"/>
                                                             </constraints>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opY-ZQ-4dR">
-                                                            <rect key="frame" x="69.5" y="555" width="555" height="80"/>
+                                                            <rect key="frame" x="117" y="460" width="460" height="80"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apR-TI-Elh">
                                                                     <rect key="frame" x="0.0" y="30" width="79" height="35"/>
@@ -2223,13 +2224,13 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jft-ds-n4y">
-                                                                    <rect key="frame" x="476" y="30" width="79" height="35"/>
+                                                                    <rect key="frame" x="381" y="30" width="79" height="35"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <progressView opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-ze-TWP" customClass="WKSlider" customModule="NeteaseTVDemo" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="70" width="555" height="10"/>
+                                                                    <rect key="frame" x="0.0" y="70" width="460" height="10"/>
                                                                 </progressView>
                                                             </subviews>
                                                             <constraints>
@@ -2245,25 +2246,25 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl2-f5-8kI" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                            <rect key="frame" x="347" y="701" width="0.0" height="0.0"/>
+                                                            <rect key="frame" x="347" y="606" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="un9-4V-j7B">
-                                                            <rect key="frame" x="347" y="711" width="0.0" height="0.0"/>
+                                                            <rect key="frame" x="347" y="616" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="aaaa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-zs-VDy" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                            <rect key="frame" x="69.5" y="645" width="555" height="46"/>
+                                                            <rect key="frame" x="117" y="550" width="460" height="46"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="w2T-aQ-SrY">
-                                                            <rect key="frame" x="122" y="721" width="450" height="86"/>
+                                                            <rect key="frame" x="122" y="626" width="450" height="86"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-Mq-4dm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="86"/>
@@ -2306,7 +2307,6 @@
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="top" secondItem="un9-4V-j7B" secondAttribute="bottom" constant="10" id="Qeq-fh-RCc"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="aZ3-1F-I8j"/>
                                                         <constraint firstItem="Hl2-f5-8kI" firstAttribute="top" secondItem="8Ls-zs-VDy" secondAttribute="bottom" constant="10" id="jLv-wn-Oi5"/>
-                                                        <constraint firstItem="DZa-f5-B9b" firstAttribute="width" secondItem="cOq-IQ-BWs" secondAttribute="width" multiplier="0.8" id="rgs-sC-oOw"/>
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="yYW-sf-gv0"/>
                                                     </constraints>
                                                 </view>
