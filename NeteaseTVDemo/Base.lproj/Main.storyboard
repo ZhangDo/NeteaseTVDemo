@@ -2229,6 +2229,12 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="un9-4V-j7B">
+                                                                    <rect key="frame" x="230" y="47.5" width="0.0" height="0.0"/>
+                                                                    <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <progressView opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-ze-TWP" customClass="WKSlider" customModule="NeteaseTVDemo" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="70" width="460" height="10"/>
                                                                 </progressView>
@@ -2236,6 +2242,8 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="EbY-37-9kZ"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="top" secondItem="Jft-ds-n4y" secondAttribute="bottom" constant="5" id="Gci-yB-Xls"/>
+                                                                <constraint firstItem="un9-4V-j7B" firstAttribute="centerY" secondItem="apR-TI-Elh" secondAttribute="centerY" id="ITq-zt-dC5"/>
+                                                                <constraint firstItem="un9-4V-j7B" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="Job-Ph-dbI"/>
                                                                 <constraint firstItem="Jft-ds-n4y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="apR-TI-Elh" secondAttribute="trailing" symbolic="YES" id="PL3-zG-mHE"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="top" secondItem="apR-TI-Elh" secondAttribute="bottom" constant="5" id="PYn-Ls-RXO"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4oO-ze-TWP" secondAttribute="trailing" id="U6b-gy-XI2"/>
@@ -2249,12 +2257,6 @@
                                                             <rect key="frame" x="347" y="606" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="un9-4V-j7B">
-                                                            <rect key="frame" x="347" y="616" width="0.0" height="0.0"/>
-                                                            <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="20"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="aaaa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-zs-VDy" customClass="MarqueeLabel" customModule="MarqueeLabel">
@@ -2301,10 +2303,8 @@
                                                         <constraint firstItem="Hl2-f5-8kI" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="70i-Kk-0Qt"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="trailing" secondItem="DZa-f5-B9b" secondAttribute="trailing" id="7dS-rg-mXG"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="top" secondItem="opY-ZQ-4dR" secondAttribute="bottom" constant="10" id="9XJ-ok-3ED"/>
-                                                        <constraint firstItem="un9-4V-j7B" firstAttribute="top" secondItem="Hl2-f5-8kI" secondAttribute="bottom" constant="10" id="IDK-x9-S10"/>
                                                         <constraint firstItem="opY-ZQ-4dR" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="JJz-Tz-rmM"/>
-                                                        <constraint firstItem="un9-4V-j7B" firstAttribute="centerX" secondItem="Hl2-f5-8kI" secondAttribute="centerX" id="OXn-Eu-ZlC"/>
-                                                        <constraint firstItem="w2T-aQ-SrY" firstAttribute="top" secondItem="un9-4V-j7B" secondAttribute="bottom" constant="10" id="Qeq-fh-RCc"/>
+                                                        <constraint firstItem="w2T-aQ-SrY" firstAttribute="top" secondItem="Hl2-f5-8kI" secondAttribute="bottom" constant="20" id="VC3-Bq-Kby"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="aZ3-1F-I8j"/>
                                                         <constraint firstItem="Hl2-f5-8kI" firstAttribute="top" secondItem="8Ls-zs-VDy" secondAttribute="bottom" constant="10" id="jLv-wn-Oi5"/>
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="yYW-sf-gv0"/>
