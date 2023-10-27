@@ -35,7 +35,7 @@ class WKDescView: UIControl {
         ({(label: UILabel) in
             label.numberOfLines = 0
             label.font = UIFont.systemFont(ofSize: 29)
-            label.textColor = UIColor(named: "grayColor")
+            label.textColor = UIColor(named: "titleColor")
             label.textAlignment = .center
             addSubview(label)
             label.snp.makeConstraints { make in

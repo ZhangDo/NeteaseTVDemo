@@ -1292,7 +1292,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJE-F3-S57">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="58"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <color key="textColor" name="grayColor"/>
+                                        <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCB-BN-EDm" customClass="WKDescView" customModule="NeteaseTVDemo" customModuleProvider="target">
@@ -2254,19 +2254,19 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl2-f5-8kI" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                            <rect key="frame" x="347" y="656" width="0.0" height="0.0"/>
+                                                            <rect key="frame" x="347" y="610" width="0.0" height="0.0"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="aaaa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-zs-VDy" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                            <rect key="frame" x="117" y="600" width="460" height="46"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-zs-VDy" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                                            <rect key="frame" x="117" y="600" width="460" height="0.0"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="w2T-aQ-SrY">
-                                                            <rect key="frame" x="122" y="676" width="450" height="86"/>
+                                                            <rect key="frame" x="122" y="630" width="450" height="86"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-Mq-4dm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="86"/>
@@ -2367,9 +2367,7 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="8Ls-zs-VDy">
-            <size key="intrinsicContentSize" width="81" height="46"/>
-        </designable>
+        <designable name="8Ls-zs-VDy"/>
         <designable name="GQd-up-XQL"/>
         <designable name="Hl2-f5-8kI"/>
         <designable name="U3K-vi-udH"/>
@@ -2392,6 +2390,9 @@
         </namedColor>
         <namedColor name="sectionTitleColor">
             <color red="0.034000005573034286" green="0.085999995470046997" blue="0.079999998211860657" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="titleColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
