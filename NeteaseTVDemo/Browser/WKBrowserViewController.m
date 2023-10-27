@@ -242,7 +242,7 @@ static UIImage *kPointerCursor() {
 -(void)showAdvancedMenu
 {
     UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Advanced Menu"
+                                          alertControllerWithTitle:@"高级菜单"
                                           message:@""
                                           preferredStyle:UIAlertControllerStyleAlert];
     
@@ -250,7 +250,7 @@ static UIImage *kPointerCursor() {
     if(self.topMenuShowing == YES)
     {
        topBarAction = [UIAlertAction
-                                         actionWithTitle:@"Hide Top Navigation bar"
+                                         actionWithTitle:@"隐藏顶部导航栏"
                                          style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action)
                                          {
@@ -260,7 +260,7 @@ static UIImage *kPointerCursor() {
     else
     {
         topBarAction = [UIAlertAction
-                                       actionWithTitle:@"Show Top Navigation bar"
+                                       actionWithTitle:@"显示顶部导航栏"
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction *action)
                                        {
@@ -269,14 +269,14 @@ static UIImage *kPointerCursor() {
     }
     
     UIAlertAction *loadHomePageAction = [UIAlertAction
-                                         actionWithTitle:@"Go To Home Page"
+                                         actionWithTitle:@"返回首页"
                                          style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction *action)
                                          {
                                              [self loadHomePage];
                                          }];
     UIAlertAction *setHomePageAction = [UIAlertAction
-                                        actionWithTitle:@"Set Current Page As Home Page"
+                                        actionWithTitle:@"将当前页面设为首页"
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction *action)
                                         {
@@ -288,7 +288,7 @@ static UIImage *kPointerCursor() {
                                             }
                                         }];
     UIAlertAction *showHintsAction = [UIAlertAction
-                                      actionWithTitle:@"Usage Guide"
+                                      actionWithTitle:@"使用指南"
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction *action)
                                       {
@@ -299,13 +299,13 @@ static UIImage *kPointerCursor() {
                                    style:UIAlertActionStyleCancel
                                    handler:nil];
     UIAlertAction *viewFavoritesAction = [UIAlertAction
-                                          actionWithTitle:@"Favorites"
+                                          actionWithTitle:@"收藏夹"
                                           style:UIAlertActionStyleDefault
                                           handler:^(UIAlertAction *action)
                                           {
                                               NSArray *indexableArray = [[NSUserDefaults standardUserDefaults] arrayForKey:@"FAVORITES"];
                                               UIAlertController *historyAlertController = [UIAlertController
-                                                                                           alertControllerWithTitle:@"Favorites"
+                                                                                           alertControllerWithTitle:@"收藏夹"
                                                                                            message:@""
                                                                                            preferredStyle:UIAlertControllerStyleAlert];
                                               UIAlertAction *editFavoritesAction = [UIAlertAction
@@ -315,8 +315,8 @@ static UIImage *kPointerCursor() {
                                                                                     {
                                                                                         NSArray *editingIndexableArray = [[NSUserDefaults standardUserDefaults] arrayForKey:@"FAVORITES"];
                                                                                         UIAlertController *editHistoryAlertController = [UIAlertController
-                                                                                                                                         alertControllerWithTitle:@"Delete a Favorite"
-                                                                                                                                         message:@"Select a Favorite to Delete"
+                                                                                                                                         alertControllerWithTitle:@"删除一个收藏夹项"
+                                                                                                                                         message:@"请选择要删除的收藏夹项"
                                                                                                                                          preferredStyle:UIAlertControllerStyleAlert];
                                                                                         if (editingIndexableArray != nil) {
                                                                                             for (int i = 0; i < [editingIndexableArray count]; i++) {
@@ -346,7 +346,7 @@ static UIImage *kPointerCursor() {
                                                                                         
                                                                                     }];
                                               UIAlertAction *addToFavoritesAction = [UIAlertAction
-                                                                                     actionWithTitle:@"Add Current Page to Favorites"
+                                                                                     actionWithTitle:@"将当前页面添加到收藏夹"
                                                                                      style:UIAlertActionStyleDefault
                                                                                      handler:^(UIAlertAction *action)
                                                                                      {
@@ -354,14 +354,14 @@ static UIImage *kPointerCursor() {
                                                                                          NSURLRequest *request = [self.webview request];
                                                                                          NSString *currentURL = request.URL.absoluteString;
                                                                                          UIAlertController *favoritesAddToController = [UIAlertController
-                                                                                                                                        alertControllerWithTitle:@"Name New Favorite"
+                                                                                                                                        alertControllerWithTitle:@"为新的收藏夹项命名"
                                                                                                                                         message:currentURL
                                                                                                                                         preferredStyle:UIAlertControllerStyleAlert];
                                                                                          
                                                                                          [favoritesAddToController addTextFieldWithConfigurationHandler:^(UITextField *textField)
                                                                                           {
                                                                                               textField.keyboardType = UIKeyboardTypeDefault;
-                                                                                              textField.placeholder = @"Name New Favorite";
+                                                                                              textField.placeholder = @"请为新的收藏夹项命名";
                                                                                               textField.text = theTitle;
                                                                                               textField.textColor = kTextColor();
                                                                                               [textField setReturnKeyType:UIReturnKeyDone];
@@ -372,7 +372,7 @@ static UIImage *kPointerCursor() {
                                                                                           }];
                                                                                          
                                                                                          UIAlertAction *saveAction = [UIAlertAction
-                                                                                                                      actionWithTitle:@"Save"
+                                                                                                                      actionWithTitle:@"保存"
                                                                                                                       style:UIAlertActionStyleDestructive
                                                                                                                       handler:^(UIAlertAction *action)
                                                                                                                       {
@@ -428,17 +428,17 @@ static UIImage *kPointerCursor() {
                                               [self presentViewController:historyAlertController animated:YES completion:nil];
                                           }];
     UIAlertAction *viewHistoryAction = [UIAlertAction
-                                        actionWithTitle:@"History"
+                                        actionWithTitle:@"历史记录"
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction *action)
                                         {
                                             NSArray *indexableArray = [[NSUserDefaults standardUserDefaults] arrayForKey:@"HISTORY"];
                                             UIAlertController *historyAlertController = [UIAlertController
-                                                                                         alertControllerWithTitle:@"History"
+                                                                                         alertControllerWithTitle:@"历史记录"
                                                                                          message:@""
                                                                                          preferredStyle:UIAlertControllerStyleAlert];
                                             UIAlertAction *clearHistoryAction = [UIAlertAction
-                                                                                 actionWithTitle:@"Clear History"
+                                                                                 actionWithTitle:@"清除历史记录"
                                                                                  style:UIAlertActionStyleDestructive
                                                                                  handler:^(UIAlertAction *action)
                                                                                  {
@@ -473,7 +473,7 @@ static UIImage *kPointerCursor() {
                                             [self presentViewController:historyAlertController animated:YES completion:nil];
                                         }];
     UIAlertAction *mobileModeAction = [UIAlertAction
-                                       actionWithTitle:@"Switch To Mobile Mode"
+                                       actionWithTitle:@"切换到移动模式"
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction *action)
                                        {
@@ -506,7 +506,7 @@ static UIImage *kPointerCursor() {
                                            }];
                                        }];
     UIAlertAction *desktopModeAction = [UIAlertAction
-                                        actionWithTitle:@"Switch To Desktop Mode"
+                                        actionWithTitle:@"切换到桌面模式"
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction *action)
                                         {
@@ -539,7 +539,7 @@ static UIImage *kPointerCursor() {
                                             }];
                                         }];
     UIAlertAction *scalePageToFitAction = [UIAlertAction
-                                           actionWithTitle:@"Scale Pages to Fit"
+                                           actionWithTitle:@"将页面缩放以适应屏幕"
                                            style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction *action)
                                            {
@@ -550,7 +550,7 @@ static UIImage *kPointerCursor() {
                                                [self.webview reload];
                                            }];
     UIAlertAction *stopScalePageToFitAction = [UIAlertAction
-                                               actionWithTitle:@"Stop Scaling Pages to Fit"
+                                               actionWithTitle:@"停止将页面缩放以适应屏幕"
                                                style:UIAlertActionStyleDefault
                                                handler:^(UIAlertAction *action)
                                                {
@@ -561,7 +561,7 @@ static UIImage *kPointerCursor() {
                                                }];
     
     UIAlertAction *increaseFontSizeAction = [UIAlertAction
-                                             actionWithTitle:@"Increase Font Size"
+                                             actionWithTitle:@"增大字体大小"
                                              style:UIAlertActionStyleDefault
                                              handler:^(UIAlertAction *action)
                                              {
@@ -570,7 +570,7 @@ static UIImage *kPointerCursor() {
                                              }];
     
     UIAlertAction *decreaseFontSizeAction = [UIAlertAction
-                                             actionWithTitle:@"Decrease Font Size"
+                                             actionWithTitle:@"减小字体大小"
                                              style:UIAlertActionStyleDefault
                                              handler:^(UIAlertAction *action)
                                              {
@@ -579,7 +579,7 @@ static UIImage *kPointerCursor() {
                                              }];
     
     UIAlertAction *clearCacheAction = [UIAlertAction
-                                       actionWithTitle:@"Clear Cache"
+                                       actionWithTitle:@"清除缓存"
                                        style:UIAlertActionStyleDestructive
                                        handler:^(UIAlertAction *action)
                                        {
@@ -590,7 +590,7 @@ static UIImage *kPointerCursor() {
                                            
                                        }];
     UIAlertAction *clearCookiesAction = [UIAlertAction
-                                         actionWithTitle:@"Clear Cookies"
+                                         actionWithTitle:@"清除 Cookies"
                                          style:UIAlertActionStyleDestructive
                                          handler:^(UIAlertAction *action)
                                          {
@@ -1056,255 +1056,255 @@ static UIImage *kPointerCursor() {
      */
 }
 #pragma mark - Remote Button
-//-(void)pressesEnded:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event
-//{
-//    
-//    
-//    if (presses.anyObject.type == UIPressTypeMenu)
-//    {
-//        UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
-//        if (alertController)
-//        {
-//            [self.presentedViewController dismissViewControllerAnimated:true completion:nil];
-//        }
-//        else if ([self.webview canGoBack]) {
-//            [self.webview goBack];
-//        }
-//        else
-//        {
-//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Exit App?" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//            [alert addAction:[UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-//                exit(EXIT_SUCCESS);
-//            }]];
-//            [alert addAction:[UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:nil]];
-//            [self presentViewController:alert animated:YES completion:nil];
-//        }
-//        /*
-//        else {
-//            [self requestURLorSearchInput];
-//        }*/
-//        
-//    }
-//    else if (presses.anyObject.type == UIPressTypeUpArrow)
-//    {
-//        // Zoom testing (needs work) (requires old remote for up arrow)
-//        //UIScrollView * sv = self.webview.scrollView;
-//        //[sv setZoomScale:30];
-//    }
-//    else if (presses.anyObject.type == UIPressTypeDownArrow)
-//    {
-//    }
-//    
-//    
-//    else if (presses.anyObject.type == UIPressTypeSelect) // Handle the normal single Touchpad press with our virtual cursor
-//    {
-//        if(!self.cursorMode)
-//        {
-//            //[self toggleMode]; // This is now done in Double-tap
-//        }
-//        else
-//        {
-//            // Handle the virtual cursor
-//            
-//            
+-(void)pressesEnded:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event
+{
+    
+    
+    if (presses.anyObject.type == UIPressTypeMenu)
+    {
+        UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+        if (alertController)
+        {
+            [self.presentedViewController dismissViewControllerAnimated:true completion:nil];
+        }
+        else if ([self.webview canGoBack]) {
+            [self.webview goBack];
+        }
+        else
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Exit App?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Exit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                exit(EXIT_SUCCESS);
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        /*
+        else {
+            [self requestURLorSearchInput];
+        }*/
+        
+    }
+    else if (presses.anyObject.type == UIPressTypeUpArrow)
+    {
+        // Zoom testing (needs work) (requires old remote for up arrow)
+        //UIScrollView * sv = self.webview.scrollView;
+        //[sv setZoomScale:30];
+    }
+    else if (presses.anyObject.type == UIPressTypeDownArrow)
+    {
+    }
+    
+    
+    else if (presses.anyObject.type == UIPressTypeSelect) // Handle the normal single Touchpad press with our virtual cursor
+    {
+        if(!self.cursorMode)
+        {
+            //[self toggleMode]; // This is now done in Double-tap
+        }
+        else
+        {
+            // Handle the virtual cursor
+            
+            
+
+            CGPoint point = [self.view convertPoint:self.cursorView.frame.origin toView:self.webview];
+            //TODO: Handle the virtual cursor
+//            if(point.y < 0)
+//            {
+//                // Handle menu buttons press
+//                point = [self.view convertPoint:self.cursorView.frame.origin toView:self.topMenuView];
+//                CGRect backBtnFrameExtra = self.btnImageBack.frame;
+//                backBtnFrameExtra.origin.y = 0; // Enable cursor in upper right corner
+//                backBtnFrameExtra.size.height = backBtnFrameExtra.size.height+ 8;// Enable cursor in upper right corner
 //
-//            CGPoint point = [self.view convertPoint:self.cursorView.frame.origin toView:self.webview];
+//                
+//                if(CGRectContainsPoint(backBtnFrameExtra, point))
+//                {
+//                    [self.webview goBack];
+//                }
+//                else if(CGRectContainsPoint(self.btnImageRefresh.frame, point))
+//                {
+//                    [self.webview reload];
+//                }
+//                else if(CGRectContainsPoint(self.btnImageForward.frame, point))
+//                {
+//                    [self.webview goForward];
+//                }
+//                else if(CGRectContainsPoint(self.btnImageHome.frame, point))
+//                {
+//                    [self loadHomePage];
+//                }
+//                else if(CGRectContainsPoint(self.lblUrlBar.frame, point))
+//                {
+//                    [self showInputURLorSearchGoogle];
+//                }
+//
+//                
+//                else if(CGRectContainsPoint(self.btnImageFullScreen.frame, point))
+//                {
+//                    // Hide/show top bar:
+//                    
+//                    if(self.topMenuShowing)
+//                        [self hideTopNav];
+//                    else
+//                        [self showTopNav];
+//                }
+//                
+//                CGRect menuBtnFrameExtra = self.btnImgMenu.frame;
+//                menuBtnFrameExtra.origin.y = 0; // Enable cursor in upper right corner
+//                menuBtnFrameExtra.size.width = menuBtnFrameExtra.size.width + 100; // Enable cursor in upper right corner
+//                menuBtnFrameExtra.size.height = menuBtnFrameExtra.size.height+ 100;// Enable cursor in upper right corner
+//
+//                if(CGRectContainsPoint(menuBtnFrameExtra, point))
+//                {
+//                    // Show advanced menu:
+//                    [self showAdvancedMenu];
+//                }
+//                
+//               
+//
+//                    
+//            }
+//            else // Handle Press in the Browser view
+//            {
 //            
-////            if(point.y < 0)
-////            {
-////                // Handle menu buttons press
-////                point = [self.view convertPoint:self.cursorView.frame.origin toView:self.topMenuView];
-////                CGRect backBtnFrameExtra = self.btnImageBack.frame;
-////                backBtnFrameExtra.origin.y = 0; // Enable cursor in upper right corner
-////                backBtnFrameExtra.size.height = backBtnFrameExtra.size.height+ 8;// Enable cursor in upper right corner
-////
-////                
-////                if(CGRectContainsPoint(backBtnFrameExtra, point))
-////                {
-////                    [self.webview goBack];
-////                }
-////                else if(CGRectContainsPoint(self.btnImageRefresh.frame, point))
-////                {
-////                    [self.webview reload];
-////                }
-////                else if(CGRectContainsPoint(self.btnImageForward.frame, point))
-////                {
-////                    [self.webview goForward];
-////                }
-////                else if(CGRectContainsPoint(self.btnImageHome.frame, point))
-////                {
-////                    [self loadHomePage];
-////                }
-////                else if(CGRectContainsPoint(self.lblUrlBar.frame, point))
-////                {
-////                    [self showInputURLorSearchGoogle];
-////                }
-////
-////                
-////                else if(CGRectContainsPoint(self.btnImageFullScreen.frame, point))
-////                {
-////                    // Hide/show top bar:
-////                    
-////                    if(self.topMenuShowing)
-////                        [self hideTopNav];
-////                    else
-////                        [self showTopNav];
-////                }
-////                
-////                CGRect menuBtnFrameExtra = self.btnImgMenu.frame;
-////                menuBtnFrameExtra.origin.y = 0; // Enable cursor in upper right corner
-////                menuBtnFrameExtra.size.width = menuBtnFrameExtra.size.width + 100; // Enable cursor in upper right corner
-////                menuBtnFrameExtra.size.height = menuBtnFrameExtra.size.height+ 100;// Enable cursor in upper right corner
-////
-////                if(CGRectContainsPoint(menuBtnFrameExtra, point))
-////                {
-////                    // Show advanced menu:
-////                    [self showAdvancedMenu];
-////                }
-////                
-////               
-////
-////                    
-////            }
-////            else // Handle Press in the Browser view
-////            {
-////            
-////            int displayWidth = [[self.webview stringByEvaluatingJavaScriptFromString:@"window.innerWidth"] intValue];
-////            CGFloat scale = [self.webview frame].size.width / displayWidth;
-////            
-////            point.x /= scale;
-////            point.y /= scale;
-////
-////            [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).click()", (int)point.x, (int)point.y]];
-////            // Make the UIWebView method call
-////            NSString *fieldType = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).type;", (int)point.x, (int)point.y]];
-////            /*
-////             if (fieldType == nil) {
-////             NSString *contentEditible = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).getAttribute('contenteditable');", (int)point.x, (int)point.y]];
-////             NSLog(contentEditible);
-////             if ([contentEditible isEqualToString:@"true"]) {
-////             fieldType = @"text";
-////             }
-////             }
-////             else if ([[fieldType stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString: @""]) {
-////             NSString *contentEditible = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).getAttribute('contenteditable');", (int)point.x, (int)point.y]];
-////             NSLog(contentEditible);
-////             if ([contentEditible isEqualToString:@"true"]) {
-////             fieldType = @"text";
-////             }
-////             }
-////             NSLog(fieldType);
-////             */
-////            fieldType = fieldType.lowercaseString;
-////            if ([fieldType isEqualToString:@"date"] || [fieldType isEqualToString:@"datetime"] || [fieldType isEqualToString:@"datetime-local"] || [fieldType isEqualToString:@"email"] || [fieldType isEqualToString:@"month"] || [fieldType isEqualToString:@"number"] || [fieldType isEqualToString:@"password"] || [fieldType isEqualToString:@"search"] || [fieldType isEqualToString:@"tel"] || [fieldType isEqualToString:@"text"] || [fieldType isEqualToString:@"time"] || [fieldType isEqualToString:@"url"] || [fieldType isEqualToString:@"week"]) {
-////                NSString *fieldTitle = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).title;", (int)point.x, (int)point.y]];
-////                if ([fieldTitle isEqualToString:@""]) {
-////                    fieldTitle = fieldType;
-////                }
-////                NSString *placeholder = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).placeholder;", (int)point.x, (int)point.y]];
-////                if ([placeholder isEqualToString:@""]) {
-////                    if (![fieldTitle isEqualToString:fieldType]) {
-////                        placeholder = [NSString stringWithFormat:@"%@ Input", fieldTitle];
-////                    }
-////                    else {
-////                        placeholder = @"Text Input";
-////                    }
-////                }
-////                NSString *testedFormResponse = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).form.hasAttribute('onsubmit');", (int)point.x, (int)point.y]];
-////                UIAlertController *alertController = [UIAlertController
-////                                                      alertControllerWithTitle:@"Input Text"
-////                                                      message: [fieldTitle capitalizedString]
-////                                                      preferredStyle:UIAlertControllerStyleAlert];
-////                
-////                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-////                 {
-////                     if ([fieldType isEqualToString:@"url"]) {
-////                         textField.keyboardType = UIKeyboardTypeURL;
-////                     }
-////                     else if ([fieldType isEqualToString:@"email"]) {
-////                         textField.keyboardType = UIKeyboardTypeEmailAddress;
-////                     }
-////                     else if ([fieldType isEqualToString:@"tel"] || [fieldType isEqualToString:@"number"] || [fieldType isEqualToString:@"date"] || [fieldType isEqualToString:@"datetime"] || [fieldType isEqualToString:@"datetime-local"]) {
-////                         textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-////                     }
-////                     else {
-////                         textField.keyboardType = UIKeyboardTypeDefault;
-////                     }
-////                     textField.placeholder = [placeholder capitalizedString];
-////                     if ([fieldType isEqualToString:@"password"]) {
-////                         textField.secureTextEntry = YES;
-////                     }
-////                     textField.text = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).value;", (int)point.x, (int)point.y]];
-////                     textField.textColor = kTextColor();
-////                     [textField setReturnKeyType:UIReturnKeyDone];
-////                     [textField addTarget:self
-////                                   action:@selector(alertTextFieldShouldReturn:)
-////                         forControlEvents:UIControlEventEditingDidEnd];
-////                     
-////                 }];
-////                UIAlertAction *inputAndSubmitAction = [UIAlertAction
-////                                                       actionWithTitle:@"Submit"
-////                                                       style:UIAlertActionStyleDefault
-////                                                       handler:^(UIAlertAction *action)
-////                                                       {
-////                                                           UITextField *inputViewTextField = alertController.textFields[0];
-////                                                           NSString *javaScript = [NSString stringWithFormat:@"var textField = document.elementFromPoint(%i, %i);"
-////                                                                                   "textField.value = '%@';"
-////                                                                                   "textField.form.submit();"
-////                                                                                   //"var ev = document.createEvent('KeyboardEvent');"
-////                                                                                   //"ev.initKeyEvent('keydown', true, true, window, false, false, false, false, 13, 0);"
-////                                                                                   //"document.body.dispatchEvent(ev);"
-////                                                                                   , (int)point.x, (int)point.y, inputViewTextField.text];
-////                                                           [self.webview stringByEvaluatingJavaScriptFromString:javaScript];
-////                                                       }];
-////                UIAlertAction *inputAction = [UIAlertAction
-////                                              actionWithTitle:@"Done"
-////                                              style:UIAlertActionStyleDefault
-////                                              handler:^(UIAlertAction *action)
-////                                              {
-////                                                  UITextField *inputViewTextField = alertController.textFields[0];
-////                                                  NSString *javaScript = [NSString stringWithFormat:@"var textField = document.elementFromPoint(%i, %i);"
-////                                                                          "textField.value = '%@';", (int)point.x, (int)point.y, inputViewTextField.text];
-////                                                  [self.webview stringByEvaluatingJavaScriptFromString:javaScript];
-////                                              }];
-////                UIAlertAction *cancelAction = [UIAlertAction
-////                                               actionWithTitle:nil
-////                                               style:UIAlertActionStyleCancel
-////                                               handler:nil];
-////                [alertController addAction:inputAction];
-////                if (testedFormResponse != nil) {
-////                    if ([testedFormResponse isEqualToString:@"true"]) {
-////                        [alertController addAction:inputAndSubmitAction];
-////                    }
-////                }
-////                [alertController addAction:cancelAction];
-////                [self presentViewController:alertController animated:YES completion:nil];
-////                UITextField *inputViewTextField = alertController.textFields[0];
-////                if ([[inputViewTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""]) {
-////                    [inputViewTextField becomeFirstResponder];
-////                }
-////            }
-////            else {
-////                //[self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).click()", (int)point.x, (int)point.y]];
-////            }
-////            //[self toggleMode];
-////                
-////            }
-//        }
-//    }
-//    
-//    else if (presses.anyObject.type == UIPressTypePlayPause)
-//    {
-//        UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
-//        if (alertController)
-//        {
-//            [self.presentedViewController dismissViewControllerAnimated:true completion:nil];
-//        }
-//        else {
-//            [self requestURLorSearchInput];
-//        }
-//    }
-//}
+//            int displayWidth = [[self.webview stringByEvaluatingJavaScriptFromString:@"window.innerWidth"] intValue];
+//            CGFloat scale = [self.webview frame].size.width / displayWidth;
+//            
+//            point.x /= scale;
+//            point.y /= scale;
+//
+//            [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).click()", (int)point.x, (int)point.y]];
+//            // Make the UIWebView method call
+//            NSString *fieldType = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).type;", (int)point.x, (int)point.y]];
+//            /*
+//             if (fieldType == nil) {
+//             NSString *contentEditible = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).getAttribute('contenteditable');", (int)point.x, (int)point.y]];
+//             NSLog(contentEditible);
+//             if ([contentEditible isEqualToString:@"true"]) {
+//             fieldType = @"text";
+//             }
+//             }
+//             else if ([[fieldType stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString: @""]) {
+//             NSString *contentEditible = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).getAttribute('contenteditable');", (int)point.x, (int)point.y]];
+//             NSLog(contentEditible);
+//             if ([contentEditible isEqualToString:@"true"]) {
+//             fieldType = @"text";
+//             }
+//             }
+//             NSLog(fieldType);
+//             */
+//            fieldType = fieldType.lowercaseString;
+//            if ([fieldType isEqualToString:@"date"] || [fieldType isEqualToString:@"datetime"] || [fieldType isEqualToString:@"datetime-local"] || [fieldType isEqualToString:@"email"] || [fieldType isEqualToString:@"month"] || [fieldType isEqualToString:@"number"] || [fieldType isEqualToString:@"password"] || [fieldType isEqualToString:@"search"] || [fieldType isEqualToString:@"tel"] || [fieldType isEqualToString:@"text"] || [fieldType isEqualToString:@"time"] || [fieldType isEqualToString:@"url"] || [fieldType isEqualToString:@"week"]) {
+//                NSString *fieldTitle = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).title;", (int)point.x, (int)point.y]];
+//                if ([fieldTitle isEqualToString:@""]) {
+//                    fieldTitle = fieldType;
+//                }
+//                NSString *placeholder = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).placeholder;", (int)point.x, (int)point.y]];
+//                if ([placeholder isEqualToString:@""]) {
+//                    if (![fieldTitle isEqualToString:fieldType]) {
+//                        placeholder = [NSString stringWithFormat:@"%@ Input", fieldTitle];
+//                    }
+//                    else {
+//                        placeholder = @"Text Input";
+//                    }
+//                }
+//                NSString *testedFormResponse = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).form.hasAttribute('onsubmit');", (int)point.x, (int)point.y]];
+//                UIAlertController *alertController = [UIAlertController
+//                                                      alertControllerWithTitle:@"Input Text"
+//                                                      message: [fieldTitle capitalizedString]
+//                                                      preferredStyle:UIAlertControllerStyleAlert];
+//                
+//                [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+//                 {
+//                     if ([fieldType isEqualToString:@"url"]) {
+//                         textField.keyboardType = UIKeyboardTypeURL;
+//                     }
+//                     else if ([fieldType isEqualToString:@"email"]) {
+//                         textField.keyboardType = UIKeyboardTypeEmailAddress;
+//                     }
+//                     else if ([fieldType isEqualToString:@"tel"] || [fieldType isEqualToString:@"number"] || [fieldType isEqualToString:@"date"] || [fieldType isEqualToString:@"datetime"] || [fieldType isEqualToString:@"datetime-local"]) {
+//                         textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+//                     }
+//                     else {
+//                         textField.keyboardType = UIKeyboardTypeDefault;
+//                     }
+//                     textField.placeholder = [placeholder capitalizedString];
+//                     if ([fieldType isEqualToString:@"password"]) {
+//                         textField.secureTextEntry = YES;
+//                     }
+//                     textField.text = [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).value;", (int)point.x, (int)point.y]];
+//                     textField.textColor = kTextColor();
+//                     [textField setReturnKeyType:UIReturnKeyDone];
+//                     [textField addTarget:self
+//                                   action:@selector(alertTextFieldShouldReturn:)
+//                         forControlEvents:UIControlEventEditingDidEnd];
+//                     
+//                 }];
+//                UIAlertAction *inputAndSubmitAction = [UIAlertAction
+//                                                       actionWithTitle:@"Submit"
+//                                                       style:UIAlertActionStyleDefault
+//                                                       handler:^(UIAlertAction *action)
+//                                                       {
+//                                                           UITextField *inputViewTextField = alertController.textFields[0];
+//                                                           NSString *javaScript = [NSString stringWithFormat:@"var textField = document.elementFromPoint(%i, %i);"
+//                                                                                   "textField.value = '%@';"
+//                                                                                   "textField.form.submit();"
+//                                                                                   //"var ev = document.createEvent('KeyboardEvent');"
+//                                                                                   //"ev.initKeyEvent('keydown', true, true, window, false, false, false, false, 13, 0);"
+//                                                                                   //"document.body.dispatchEvent(ev);"
+//                                                                                   , (int)point.x, (int)point.y, inputViewTextField.text];
+//                                                           [self.webview stringByEvaluatingJavaScriptFromString:javaScript];
+//                                                       }];
+//                UIAlertAction *inputAction = [UIAlertAction
+//                                              actionWithTitle:@"Done"
+//                                              style:UIAlertActionStyleDefault
+//                                              handler:^(UIAlertAction *action)
+//                                              {
+//                                                  UITextField *inputViewTextField = alertController.textFields[0];
+//                                                  NSString *javaScript = [NSString stringWithFormat:@"var textField = document.elementFromPoint(%i, %i);"
+//                                                                          "textField.value = '%@';", (int)point.x, (int)point.y, inputViewTextField.text];
+//                                                  [self.webview stringByEvaluatingJavaScriptFromString:javaScript];
+//                                              }];
+//                UIAlertAction *cancelAction = [UIAlertAction
+//                                               actionWithTitle:nil
+//                                               style:UIAlertActionStyleCancel
+//                                               handler:nil];
+//                [alertController addAction:inputAction];
+//                if (testedFormResponse != nil) {
+//                    if ([testedFormResponse isEqualToString:@"true"]) {
+//                        [alertController addAction:inputAndSubmitAction];
+//                    }
+//                }
+//                [alertController addAction:cancelAction];
+//                [self presentViewController:alertController animated:YES completion:nil];
+//                UITextField *inputViewTextField = alertController.textFields[0];
+//                if ([[inputViewTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""] isEqualToString:@""]) {
+//                    [inputViewTextField becomeFirstResponder];
+//                }
+//            }
+//            else {
+//                //[self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.elementFromPoint(%i, %i).click()", (int)point.x, (int)point.y]];
+//            }
+//            //[self toggleMode];
+//                
+//            }
+        }
+    }
+    
+    else if (presses.anyObject.type == UIPressTypePlayPause)
+    {
+        UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+        if (alertController)
+        {
+            [self.presentedViewController dismissViewControllerAnimated:true completion:nil];
+        }
+        else {
+            [self requestURLorSearchInput];
+        }
+    }
+}
 
 #pragma mark - Cursor Input
 
