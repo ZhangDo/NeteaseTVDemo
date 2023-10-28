@@ -16,7 +16,7 @@ class WKSongTableViewCell: UITableViewCell {
         self.selectedBackgroundView = selView
         
         ({(label: UILabel) in
-            label.textColor = .lightGray
+            label.textColor = .darkGray
             label.font = .systemFont(ofSize: 30)
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
@@ -27,7 +27,7 @@ class WKSongTableViewCell: UITableViewCell {
         })(indexLabel)
         
         ({(label: MarqueeLabel) in
-            label.textColor = .white
+//            label.textColor = .white
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(self.contentView).offset(80)
@@ -37,7 +37,7 @@ class WKSongTableViewCell: UITableViewCell {
         })(songNameLabel)
         
         ({(label: MarqueeLabel) in
-            label.textColor = .white
+//            label.textColor = .white
             label.font = .systemFont(ofSize: 30)
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
@@ -59,8 +59,14 @@ class WKSongTableViewCell: UITableViewCell {
             songNameLabel.textColor = .black
             albumLabel.textColor = .black
         } else {
-            songNameLabel.textColor = .white
-            albumLabel.textColor = .white
+            songNameLabel.textColor = UIColor(dynamicProvider: { (traitCollection: UITraitCollection) -> UIColor in
+                return traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark ?
+                    .white : .black
+            })
+            albumLabel.textColor = UIColor(dynamicProvider: { (traitCollection: UITraitCollection) -> UIColor in
+                return traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark ?
+                    .white : .black
+            })
         }
     }
     

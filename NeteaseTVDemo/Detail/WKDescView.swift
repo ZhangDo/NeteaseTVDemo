@@ -17,7 +17,7 @@ class WKDescView: UIControl {
     
     func setup() {
         ({(view: UIView) in
-            view.backgroundColor = UIColor(white: 0.9, alpha: 0.1)
+            view.backgroundColor = UIColor(white: 0.9, alpha: 0.3)
             view.layer.shadowOffset = CGSizeMake(0, 10)
             view.layer.shadowOpacity = 0.15
             view.layer.shadowRadius = 16.0

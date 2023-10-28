@@ -1506,7 +1506,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVu-0i-iBv">
                                         <rect key="frame" x="0.0" y="0.0" width="900" height="58"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <color key="textColor" name="grayColor"/>
+                                        <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqk-Da-7mK" customClass="WKDescView" customModule="NeteaseTVDemo" customModuleProvider="target">
@@ -1638,7 +1638,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="dark"/>
+                                <blurEffect style="regular"/>
                             </visualEffectView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h19-nt-tQ0">
                                 <rect key="frame" x="80" y="60" width="1760" height="960"/>
@@ -1646,14 +1646,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j79-9C-LY9">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="960"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="播客" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-2p-5nH">
-                                                <rect key="frame" x="0.0" y="60" width="153" height="91"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWh-2p-5nH">
+                                                <rect key="frame" x="0.0" y="60" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oKI-RK-njB">
-                                                <rect key="frame" x="0.0" y="191" width="634" height="634"/>
+                                                <rect key="frame" x="0.0" y="100" width="634" height="634"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="oKI-RK-njB" secondAttribute="height" multiplier="1:1" id="l52-nN-mab"/>
                                                 </constraints>
@@ -1677,7 +1677,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kz-jb-g3l">
                                                         <rect key="frame" x="0.0" y="0.0" width="1056" height="58"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                        <color key="textColor" name="grayColor"/>
+                                                        <color key="textColor" name="titleColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-hS-WjJ" customClass="WKDescView" customModule="NeteaseTVDemo" customModuleProvider="target">
@@ -2385,9 +2385,6 @@
         <image name="refresh-button" width="192" height="192"/>
         <image name="resize-arrows" width="192" height="192"/>
         <image name="right-arrow-forward" width="192" height="192"/>
-        <namedColor name="grayColor">
-            <color white="0.88627451658248901" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </namedColor>
         <namedColor name="sectionTitleColor">
             <color red="0.034000005573034286" green="0.085999995470046997" blue="0.079999998211860657" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
