@@ -9,6 +9,7 @@ class WKProfileViewController: UIViewController {
     fileprivate var userInfo: NRUserDetailModel?
     fileprivate var recentPlayVC = WKRecentPlayViewController.creat()
     fileprivate var myCollectionVC = WKMyCollectionVC.creat()
+    fileprivate var myPlaylistVC = WYMyPlaylistViewController.creat()
     static func creat() -> WKProfileViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
         return vc
@@ -39,8 +40,14 @@ class WKProfileViewController: UIViewController {
         myCollectionVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        addChild(myPlaylistVC)
+        self.rightBgView.addSubview(myPlaylistVC.view)
+        myPlaylistVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         recentPlayVC.view.isHidden = false
         myCollectionVC.view.isHidden = true
+        myPlaylistVC.view.isHidden = true
     }
     
     func loadUserDetailInfo() async {
@@ -107,9 +114,15 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             recentPlayVC.view.isHidden = false
             myCollectionVC.view.isHidden = true
+            myPlaylistVC.view.isHidden = true
         case 1:
             recentPlayVC.view.isHidden = true
             myCollectionVC.view.isHidden = false
+            myPlaylistVC.view.isHidden = true
+        case 2:
+            recentPlayVC.view.isHidden = true
+            myCollectionVC.view.isHidden = true
+            myPlaylistVC.view.isHidden = false
         default: break
         }
     }
