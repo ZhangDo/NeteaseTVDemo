@@ -9,7 +9,8 @@ class WKProfileViewController: UIViewController {
     fileprivate var userInfo: NRUserDetailModel?
     fileprivate var recentPlayVC = WKRecentPlayViewController.creat()
     fileprivate var myCollectionVC = WKMyCollectionVC.creat()
-    fileprivate var myPlaylistVC = WYMyPlaylistViewController.creat()
+    fileprivate var myPlaylistVC = WKMyPlaylistViewController.creat()
+    fileprivate var settingVC = WKSettingViewController.creat()
     static func creat() -> WKProfileViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
         return vc
@@ -45,9 +46,15 @@ class WKProfileViewController: UIViewController {
         myPlaylistVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        addChild(settingVC)
+        self.rightBgView.addSubview(settingVC.view)
+        settingVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         recentPlayVC.view.isHidden = false
         myCollectionVC.view.isHidden = true
         myPlaylistVC.view.isHidden = true
+        settingVC.view.isHidden = true
     }
     
     func loadUserDetailInfo() async {
@@ -115,14 +122,22 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
             recentPlayVC.view.isHidden = false
             myCollectionVC.view.isHidden = true
             myPlaylistVC.view.isHidden = true
+            settingVC.view.isHidden = true
         case 1:
             recentPlayVC.view.isHidden = true
             myCollectionVC.view.isHidden = false
             myPlaylistVC.view.isHidden = true
+            settingVC.view.isHidden = true
         case 2:
             recentPlayVC.view.isHidden = true
             myCollectionVC.view.isHidden = true
             myPlaylistVC.view.isHidden = false
+            settingVC.view.isHidden = true
+        case 3:
+            recentPlayVC.view.isHidden = true
+            myCollectionVC.view.isHidden = true
+            myPlaylistVC.view.isHidden = true
+            settingVC.view.isHidden = false
         default: break
         }
     }

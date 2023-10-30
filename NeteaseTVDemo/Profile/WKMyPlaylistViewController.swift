@@ -1,13 +1,13 @@
 
 import UIKit
 import NeteaseRequest
-class WYMyPlaylistViewController: UIViewController {
+class WKMyPlaylistViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var playList = [NRPlayListModel]()
     
-    static func creat() -> WYMyPlaylistViewController {
-        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WYMyPlaylistViewController
+    static func creat() -> WKMyPlaylistViewController {
+        let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKMyPlaylistViewController
         return vc
     }
 
@@ -47,7 +47,7 @@ class WYMyPlaylistViewController: UIViewController {
 
 }
 
-extension WYMyPlaylistViewController {
+extension WKMyPlaylistViewController {
     
     func makeRencentPlaylistCollectionViewLayout () -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout {
@@ -93,7 +93,7 @@ extension WYMyPlaylistViewController {
     }
 }
 
-extension WYMyPlaylistViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension WKMyPlaylistViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return playList.count
     }

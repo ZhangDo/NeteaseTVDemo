@@ -1966,7 +1966,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqv-qV-EdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="6458"/>
+            <point key="canvasLocation" x="3156" y="6458"/>
         </scene>
         <!--Rencent PlaylistVC-->
         <scene sceneID="rtQ-d1-oyV">
@@ -2472,7 +2472,7 @@
         <!--My Playlist View Controller-->
         <scene sceneID="4h8-53-R3d">
             <objects>
-                <viewController storyboardIdentifier="WYMyPlaylistViewController" id="tbE-aI-ZOh" customClass="WYMyPlaylistViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WKMyPlaylistViewController" id="tbE-aI-ZOh" customClass="WKMyPlaylistViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ly9-Kb-FJZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Y0n-Kf-dOO"/>
@@ -2521,6 +2521,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slQ-Gs-ls5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5317" y="6458"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="UNu-Pu-gtb">
+            <objects>
+                <viewController storyboardIdentifier="WKSettingViewController" id="SWd-HR-LZw" customClass="WKSettingViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Cf-CX-MTc"/>
+                        <viewControllerLayoutGuide type="bottom" id="K2W-pn-MC0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q2f-th-ZKd">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="yOI-FK-irG">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="SWd-HR-LZw" id="RcQ-5V-N6s"/>
+                                    <outlet property="delegate" destination="SWd-HR-LZw" id="EKw-aH-BSX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dJN-WZ-8Ue"/>
+                        <constraints>
+                            <constraint firstItem="yOI-FK-irG" firstAttribute="leading" secondItem="dJN-WZ-8Ue" secondAttribute="leading" id="7i6-GI-aKR"/>
+                            <constraint firstItem="yOI-FK-irG" firstAttribute="top" secondItem="dJN-WZ-8Ue" secondAttribute="top" id="Jgl-Vo-wPA"/>
+                            <constraint firstItem="dJN-WZ-8Ue" firstAttribute="bottom" secondItem="yOI-FK-irG" secondAttribute="bottom" id="gEK-Jv-bPh"/>
+                            <constraint firstItem="dJN-WZ-8Ue" firstAttribute="trailing" secondItem="yOI-FK-irG" secondAttribute="trailing" id="wfx-Vu-Eyk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="yOI-FK-irG" id="M1s-kE-VRu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7X-E4-rl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5269" y="7941"/>
         </scene>
     </scenes>
     <designables>
