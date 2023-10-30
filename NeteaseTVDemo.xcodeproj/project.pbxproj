@@ -273,6 +273,7 @@
 				29DC0E382ACFB50600DD314A /* Detail */,
 				29DC0E372ACFA59500DD314A /* Playing */,
 				29DC0E362ACFA59500DD314A /* Recommend */,
+				295FA8242A985D5100B35C54 /* Player */,
 				F4905DFA2A98E15400C76905 /* Info.plist */,
 				295FA8132A985D3500B35C54 /* AppDelegate.swift */,
 				29F2F6192AB18A9900E2F389 /* WKConfig.swift */,
@@ -283,7 +284,6 @@
 				293F74F72ADF66F500692091 /* WKSongTableViewCell.swift */,
 				293F75022ADF88D200692091 /* WKMVCollectionViewCell.swift */,
 				296915832AEF84FD00ED9298 /* Settings.swift */,
-				295FA8242A985D5100B35C54 /* Player */,
 				295FA8172A985D3500B35C54 /* Main.storyboard */,
 				295FA81A2A985D3600B35C54 /* Assets.xcassets */,
 				295FA81C2A985D3600B35C54 /* LaunchScreen.storyboard */,
@@ -827,7 +827,7 @@
 			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.3;
+				minimumVersion = 0.7.4;
 			};
 		};
 		29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

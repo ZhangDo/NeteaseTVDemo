@@ -555,7 +555,7 @@ public class WKPlayer: NSObject {
             }
             
             do {
-                let audioModels: [NRAudioUrlModel] = try await fetchAudioUrl(id: audioId, level: .hires, cookie: cookie)
+                let audioModels: [NRAudioUrlModel] = try await fetchAudioUrl(id: audioId, level: Settings.audioQuality, cookie: cookie)
                 model.audioUrl = audioModels.first?.url
                 model.audioQuality = audioModels.first?.levelName
             } catch {
