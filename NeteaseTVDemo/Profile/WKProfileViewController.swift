@@ -8,6 +8,7 @@ class WKProfileViewController: UIViewController {
     fileprivate var cellContents = ["最近播放", "我的收藏", "我的歌单", "基础设置"]
     fileprivate var userInfo: NRUserDetailModel?
     fileprivate var recentPlayVC = WKRecentPlayViewController.creat()
+    fileprivate var myCollectionVC = WKMyCollectionVC.creat()
     static func creat() -> WKProfileViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
         return vc
@@ -32,6 +33,14 @@ class WKProfileViewController: UIViewController {
         recentPlayVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        addChild(myCollectionVC)
+        self.rightBgView.addSubview(myCollectionVC.view)
+        myCollectionVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        recentPlayVC.view.isHidden = false
+        myCollectionVC.view.isHidden = true
     }
     
     func loadUserDetailInfo() async {
@@ -91,5 +100,17 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
 //        content.secondaryText = "errrrrr"
         cell.contentConfiguration = content
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            recentPlayVC.view.isHidden = false
+            myCollectionVC.view.isHidden = true
+        case 1:
+            recentPlayVC.view.isHidden = true
+            myCollectionVC.view.isHidden = false
+        default: break
+        }
     }
 }
