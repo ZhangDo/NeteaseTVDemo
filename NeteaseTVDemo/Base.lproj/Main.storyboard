@@ -2558,6 +2558,112 @@
             </objects>
             <point key="canvasLocation" x="5269" y="7941"/>
         </scene>
+        <!--My Collection AlbumVC-->
+        <scene sceneID="k64-nd-UM5">
+            <objects>
+                <viewController storyboardIdentifier="WKMyCollectionAlbumVC" id="ejo-wZ-jZc" customClass="WKMyCollectionAlbumVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mOq-32-FHa"/>
+                        <viewControllerLayoutGuide type="bottom" id="SIu-i6-qE4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3KX-lO-CQh">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yDx-Va-Jmo">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uUC-As-2US">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="oe0-KM-vOY">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2H7-pK-aZV">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ejo-wZ-jZc" id="MtZ-51-gdQ"/>
+                                    <outlet property="delegate" destination="ejo-wZ-jZc" id="J0b-wn-6NN"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tEC-Y1-XYp"/>
+                        <constraints>
+                            <constraint firstItem="yDx-Va-Jmo" firstAttribute="leading" secondItem="tEC-Y1-XYp" secondAttribute="leading" id="KMc-DW-PAv"/>
+                            <constraint firstItem="tEC-Y1-XYp" firstAttribute="bottom" secondItem="yDx-Va-Jmo" secondAttribute="bottom" id="hKa-WC-xdo"/>
+                            <constraint firstItem="tEC-Y1-XYp" firstAttribute="trailing" secondItem="yDx-Va-Jmo" secondAttribute="trailing" id="xO0-Kz-w1A"/>
+                            <constraint firstItem="yDx-Va-Jmo" firstAttribute="top" secondItem="tEC-Y1-XYp" secondAttribute="top" id="zY4-Dw-9Ja"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="yDx-Va-Jmo" id="Cm7-gZ-v8G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6zb-vg-821" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5164" y="9328"/>
+        </scene>
+        <!--My Collection PodcastVC-->
+        <scene sceneID="iiM-X2-LcA">
+            <objects>
+                <viewController storyboardIdentifier="WKMyCollectionPodcastVC" id="Z6o-RH-5FM" customClass="WKMyCollectionPodcastVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r2J-bJ-jLa"/>
+                        <viewControllerLayoutGuide type="bottom" id="hr2-Mj-bmA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vql-n9-WDe">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="huU-2n-9qV">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VGx-Uy-hRe">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="u19-07-4d3">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sPd-hA-0Ag">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Z6o-RH-5FM" id="9dm-wZ-RsS"/>
+                                    <outlet property="delegate" destination="Z6o-RH-5FM" id="Tjl-Qv-DQ7"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6dC-GB-thP"/>
+                        <constraints>
+                            <constraint firstItem="6dC-GB-thP" firstAttribute="trailing" secondItem="huU-2n-9qV" secondAttribute="trailing" id="98O-gc-Hg0"/>
+                            <constraint firstItem="huU-2n-9qV" firstAttribute="top" secondItem="6dC-GB-thP" secondAttribute="top" id="ANF-2x-dKE"/>
+                            <constraint firstItem="huU-2n-9qV" firstAttribute="leading" secondItem="6dC-GB-thP" secondAttribute="leading" id="Lqb-fm-Mwz"/>
+                            <constraint firstItem="6dC-GB-thP" firstAttribute="bottom" secondItem="huU-2n-9qV" secondAttribute="bottom" id="sq1-RX-dvA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="huU-2n-9qV" id="Ysy-GM-923"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4h-i0-0Ku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5164" y="10587"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="8Ls-zs-VDy"/>
