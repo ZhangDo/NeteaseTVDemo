@@ -42,6 +42,9 @@ class WKPlayingViewController: UIViewController {
         self.progressView.delegate = self
         wk_player.delegate = self
         if wk_player.isPlaying {
+            self.progressView.isHidden = false
+            self.leftTimeLabel.isHidden = false
+            self.rightLabel.isHidden = false
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
@@ -74,6 +77,9 @@ class WKPlayingViewController: UIViewController {
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
 //        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
+        self.progressView.isHidden = true
+        self.leftTimeLabel.isHidden = true
+        self.rightLabel.isHidden = true
         
     }
     
@@ -172,6 +178,9 @@ extension WKPlayingViewController: WKPlayerDelegate {
 //        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
         DispatchQueue.main.async {
             self.rightLabel.text = formatTime
+            self.progressView.isHidden = false
+            self.leftTimeLabel.isHidden = false
+            self.rightLabel.isHidden = false
         }
 
 
