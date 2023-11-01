@@ -2664,6 +2664,42 @@
             </objects>
             <point key="canvasLocation" x="5164" y="10587"/>
         </scene>
+        <!--About View Controller-->
+        <scene sceneID="chC-Ea-Eta">
+            <objects>
+                <viewController storyboardIdentifier="WKAboutViewController" id="6kF-Yx-IlP" customClass="WKAboutViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U77-kt-gT9"/>
+                        <viewControllerLayoutGuide type="bottom" id="kwT-ua-Mn5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v8z-4X-HOx">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="57i-Ab-sge">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6kF-Yx-IlP" id="GBW-K4-AZG"/>
+                                    <outlet property="delegate" destination="6kF-Yx-IlP" id="5cz-H8-LU0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Az8-sH-vb1"/>
+                        <constraints>
+                            <constraint firstItem="Az8-sH-vb1" firstAttribute="bottom" secondItem="57i-Ab-sge" secondAttribute="bottom" id="0Rd-vc-tpE"/>
+                            <constraint firstItem="57i-Ab-sge" firstAttribute="top" secondItem="Az8-sH-vb1" secondAttribute="top" id="jvL-Y9-qel"/>
+                            <constraint firstItem="57i-Ab-sge" firstAttribute="leading" secondItem="Az8-sH-vb1" secondAttribute="leading" id="mfV-JT-GlF"/>
+                            <constraint firstItem="Az8-sH-vb1" firstAttribute="trailing" secondItem="57i-Ab-sge" secondAttribute="trailing" id="rho-Vw-nTF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="57i-Ab-sge" id="k1G-vZ-ImO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Si-un-KjB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7634" y="7941"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="8Ls-zs-VDy"/>

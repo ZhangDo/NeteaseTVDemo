@@ -5,12 +5,13 @@ import NeteaseRequest
 class WKProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var rightBgView: UIView!
-    fileprivate var cellContents = ["最近播放", "我的收藏", "我的歌单", "基础设置"]
+    fileprivate var cellContents = ["最近播放", "我的收藏", "我的歌单", "基础设置", "关于"]
     fileprivate var userInfo: NRUserDetailModel?
     fileprivate var recentPlayVC = WKRecentPlayViewController.creat()
     fileprivate var myCollectionVC = WKMyCollectionVC.creat()
     fileprivate var myPlaylistVC = WKMyPlaylistViewController.creat()
     fileprivate var settingVC = WKSettingViewController.creat()
+    fileprivate var aboutVC = WKAboutViewController.creat()
     static func creat() -> WKProfileViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKProfileViewController
         return vc
@@ -51,10 +52,16 @@ class WKProfileViewController: UIViewController {
         settingVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        addChild(aboutVC)
+        self.rightBgView.addSubview(aboutVC.view)
+        aboutVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         recentPlayVC.view.isHidden = false
         myCollectionVC.view.isHidden = true
         myPlaylistVC.view.isHidden = true
         settingVC.view.isHidden = true
+        aboutVC.view.isHidden = true
     }
     
     func loadUserDetailInfo() async {
@@ -123,21 +130,31 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
             myCollectionVC.view.isHidden = true
             myPlaylistVC.view.isHidden = true
             settingVC.view.isHidden = true
+            aboutVC.view.isHidden = true
         case 1:
             recentPlayVC.view.isHidden = true
             myCollectionVC.view.isHidden = false
             myPlaylistVC.view.isHidden = true
             settingVC.view.isHidden = true
+            aboutVC.view.isHidden = true
         case 2:
             recentPlayVC.view.isHidden = true
             myCollectionVC.view.isHidden = true
             myPlaylistVC.view.isHidden = false
             settingVC.view.isHidden = true
+            aboutVC.view.isHidden = true
         case 3:
             recentPlayVC.view.isHidden = true
             myCollectionVC.view.isHidden = true
             myPlaylistVC.view.isHidden = true
             settingVC.view.isHidden = false
+            aboutVC.view.isHidden = true
+        case 4:
+            recentPlayVC.view.isHidden = true
+            myCollectionVC.view.isHidden = true
+            myPlaylistVC.view.isHidden = true
+            settingVC.view.isHidden = true
+            aboutVC.view.isHidden = false
         default: break
         }
     }
