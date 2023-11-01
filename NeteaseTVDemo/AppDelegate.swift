@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //播放器设置
         initConfig()
         UserDefaults.standard.set(1, forKey: "searchIndex")
+        //TODO:  服务部署请参考 https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/README.MD
+        //下面是我在腾讯云部署的（免费额度用完后，我会关掉的）
         NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
         
         guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
