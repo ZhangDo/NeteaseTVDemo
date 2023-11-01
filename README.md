@@ -26,7 +26,7 @@ Apple TV
 
 ## QQ 交流群
 
-![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/WechatIMG95.jpg)
+![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/WechatIMG95.png)
 
 ## 参考及引用
 
