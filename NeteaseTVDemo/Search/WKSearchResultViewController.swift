@@ -193,7 +193,6 @@ extension WKSearchResultViewController: UICollectionViewDelegate, UICollectionVi
             }
             return cell
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
