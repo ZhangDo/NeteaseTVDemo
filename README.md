@@ -24,8 +24,9 @@ Apple TV
 - Client: https://github.com/ZhangDo/NeteaseTVDemo
 - NeteaseAPI: https://github.com/ZhangDo/NeteaseRequest
 
-## 交流
+## QQ 交流群
 
+![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/WechatIMG95.jpg)
 
 ## 参考及引用
 
