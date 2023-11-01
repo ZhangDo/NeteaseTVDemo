@@ -266,18 +266,8 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
-				295E48D62AE2218800C259D2 /* Browser */,
-				29EBE67A2ADFA8CE0023E9C7 /* Video */,
+				2969158A2AF21D6800ED9298 /* Modules */,
 				297F2E0A2AD8E4DD002F4F24 /* Extensions */,
-				29A1D7072AD78710005EAFC0 /* Podcast */,
-				29A1D7022AD647C7005EAFC0 /* Find */,
-				29A1D6FD2AD4E3CB005EAFC0 /* Login */,
-				297F2E0F2AD914E4002F4F24 /* Profile */,
-				297F2E122AD93753002F4F24 /* Search */,
-				29DC0E382ACFB50600DD314A /* Detail */,
-				29DC0E372ACFA59500DD314A /* Playing */,
-				29DC0E362ACFA59500DD314A /* Recommend */,
-				295FA8242A985D5100B35C54 /* Player */,
 				F4905DFA2A98E15400C76905 /* Info.plist */,
 				295FA8132A985D3500B35C54 /* AppDelegate.swift */,
 				29F2F6192AB18A9900E2F389 /* WKConfig.swift */,
@@ -314,6 +304,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2969158A2AF21D6800ED9298 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				295FA8242A985D5100B35C54 /* Player */,
+				29DC0E362ACFA59500DD314A /* Recommend */,
+				295E48D62AE2218800C259D2 /* Browser */,
+				29EBE67A2ADFA8CE0023E9C7 /* Video */,
+				29A1D7072AD78710005EAFC0 /* Podcast */,
+				29A1D7022AD647C7005EAFC0 /* Find */,
+				29A1D6FD2AD4E3CB005EAFC0 /* Login */,
+				297F2E0F2AD914E4002F4F24 /* Profile */,
+				297F2E122AD93753002F4F24 /* Search */,
+				29DC0E382ACFB50600DD314A /* Detail */,
+				29DC0E372ACFA59500DD314A /* Playing */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		297F2E0A2AD8E4DD002F4F24 /* Extensions */ = {
