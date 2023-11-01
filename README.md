@@ -16,6 +16,8 @@
 Apple TV
 
 ## 预览
+![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/preview.png)
+
 
 ## 开源代码：
 
