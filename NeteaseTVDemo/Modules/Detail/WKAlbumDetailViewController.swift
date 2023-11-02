@@ -39,7 +39,6 @@ class WKAlbumDetailViewController: UIViewController {
         
         self.bgView.kf.setImage(with: URL(string: (albumDetail?.album!.picUrl!)!),options: [.transition(.flipFromBottom(0.6))])
         self.nameLabel.text = albumDetail?.album!.name
-        //todo: if description null 则隐藏 descView
         self.descView.descLabel.text = albumDetail?.album!.description!
         self.descView.onPrimaryAction = { [weak self] model in
             let vc = WKDescViewController.creat(desc: self!.albumDetail?.album?.description ?? "")

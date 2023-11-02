@@ -22,7 +22,7 @@ class WKAvatarView: UIControl {
     
     func setup() {
         ({(view: UIImageView) in
-            view.image = UIImage(named: "bgImage")//TODO: 测试
+            view.image = UIImage(named: "bgImage")
             view.layer.cornerRadius = 100
             view.layer.masksToBounds = true
             addSubview(view)

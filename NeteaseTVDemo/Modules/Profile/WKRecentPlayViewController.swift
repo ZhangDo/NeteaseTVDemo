@@ -16,10 +16,10 @@ class WKRecentPlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addChileVC()
+        addChildVC()
     }
     
-    func addChileVC() {
+    func addChildVC() {
         addChild(recentSongListVC)
         contentView.addSubview(recentSongListVC.view)
         recentSongListVC.view.snp.makeConstraints { make in
