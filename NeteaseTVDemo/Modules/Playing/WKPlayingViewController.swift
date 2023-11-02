@@ -130,12 +130,9 @@ extension WKPlayingViewController: WKPlayerDelegate {
     }
 
     func playDataSourceWillChange(now: CustomAudioModel?, new: CustomAudioModel?) {
-        debugPrint("设置上一个数据源，说明要切换音频了，当前是\(String(describing: now?.wk_sourceName!))，即将播放的是\(String(describing: new?.wk_sourceName!))")
     }
 
     func playDataSourceDidChanged(last: CustomAudioModel?, now: CustomAudioModel) {
-        debugPrint("设置新的数据源，说明已经切换音频了，原来是\(String(describing: last?.wk_sourceName!))，当前是\(now.wk_sourceName!)")
-
         Task {
             do {
                 lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
@@ -164,18 +161,16 @@ extension WKPlayingViewController: WKPlayerDelegate {
         }
 
     }
-
+    //MARK: 播放至结尾
     func didPlayToEnd(dataSource: CustomAudioModel, isTheEnd: Bool) {
         debugPrint("数据源\(dataSource.wk_sourceName!)已播放至结尾")
     }
 
-
+    //MARK: 没有权限播放
     func noPermissionToPlayDataSource(dataSource: CustomAudioModel) {
-        debugPrint("没有权限播放\(dataSource.wk_sourceName!)")
     }
 
     func didReadTotalTime(totalTime: UInt, formatTime: String, now: CustomAudioModel) {
-//        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
         DispatchQueue.main.async {
             self.rightLabel.text = formatTime
             self.progressView.isHidden = false
