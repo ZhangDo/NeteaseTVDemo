@@ -3,7 +3,7 @@ import UIKit
 
 class WKAboutViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    let cells = [["title":"GitHub","subtitle":"https://github.com/ZhangDo/NeteaseTVDemo"], ["title":"Weibo","subtitle":"https://weibo.com/u/3055673883"]]
+    let cells = [["title":"GitHub","subtitle":"https://github.com/ZhangDo/NeteaseTVDemo"]]
     static func creat() -> WKAboutViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKAboutViewController
         return vc
