@@ -1,6 +1,7 @@
 
 import UIKit
 import NeteaseRequest
+import nodejs_ios
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -35,6 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = WKTabBarViewController.creat()
         
         window?.makeKeyAndVisible()
+        
+        let nodeQueue = DispatchQueue(label: "node.js")
+        let srcPath = Bundle.main.path(forResource: "NeteaseCloudMusicApi/main.js", ofType: "")
+        nodeQueue.async {
+            NodeRunner.startEngine(arguments: [
+                "node",
+                srcPath!,
+            ])
+        }
         
         return true
     }

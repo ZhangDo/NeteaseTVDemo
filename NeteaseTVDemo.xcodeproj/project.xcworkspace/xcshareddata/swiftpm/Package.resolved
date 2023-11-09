@@ -46,6 +46,15 @@
       }
     },
     {
+      "identity" : "nodejs-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/zhangdo/nodejs-ios.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "12c90abfd32f04600b4d95f38327ea749a87056a"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit.git",
