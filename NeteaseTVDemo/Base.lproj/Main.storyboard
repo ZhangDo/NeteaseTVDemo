@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqC-yS-wdf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1520" y="5061"/>
+            <point key="canvasLocation" x="-1520" y="5123"/>
         </scene>
         <!--Singer Detail Album ListVC-->
         <scene sceneID="12F-L8-Xa7">
@@ -2294,6 +2294,15 @@
                                                                 <constraint firstAttribute="width" constant="450" id="Q2Y-Bv-DAY"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcX-fb-Yks">
+                                                            <rect key="frame" x="282.5" y="740" width="129.5" height="74.5"/>
+                                                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="quote.bubble.fill" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="comment:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="97d-HQ-k9k"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="DZa-f5-B9b" firstAttribute="top" secondItem="cOq-IQ-BWs" secondAttribute="top" constant="50" id="2Xm-1J-w9f"/>
@@ -2304,8 +2313,10 @@
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="trailing" secondItem="DZa-f5-B9b" secondAttribute="trailing" id="7dS-rg-mXG"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="top" secondItem="opY-ZQ-4dR" secondAttribute="bottom" constant="10" id="9XJ-ok-3ED"/>
                                                         <constraint firstItem="opY-ZQ-4dR" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="JJz-Tz-rmM"/>
+                                                        <constraint firstItem="bcX-fb-Yks" firstAttribute="top" secondItem="byL-k9-JJF" secondAttribute="bottom" constant="24" symbolic="YES" id="LGp-ei-Zo1"/>
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="top" secondItem="Hl2-f5-8kI" secondAttribute="bottom" constant="20" id="VC3-Bq-Kby"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="aZ3-1F-I8j"/>
+                                                        <constraint firstItem="bcX-fb-Yks" firstAttribute="centerX" secondItem="cOq-IQ-BWs" secondAttribute="centerX" id="gPs-aa-hDq"/>
                                                         <constraint firstItem="Hl2-f5-8kI" firstAttribute="top" secondItem="8Ls-zs-VDy" secondAttribute="bottom" constant="10" id="jLv-wn-Oi5"/>
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="yYW-sf-gv0"/>
                                                     </constraints>
@@ -2351,6 +2362,7 @@
                         <outlet property="audioQualityLabel" destination="un9-4V-j7B" id="YAi-dj-gki"/>
                         <outlet property="bgImageView" destination="4hU-Ao-qEi" id="vDf-wX-tbj"/>
                         <outlet property="bottomActionView" destination="w2T-aQ-SrY" id="bd3-fm-p3Z"/>
+                        <outlet property="commentBtn" destination="bcX-fb-Yks" id="Zvl-bd-WQP"/>
                         <outlet property="coverImageView" destination="DZa-f5-B9b" id="TXg-SZ-Eqx"/>
                         <outlet property="infoStackView" destination="0a1-98-zbj" id="9Ag-NI-vxQ"/>
                         <outlet property="leftTimeLabel" destination="apR-TI-Elh" id="BsP-Ca-o3I"/>
@@ -2700,6 +2712,42 @@
             </objects>
             <point key="canvasLocation" x="7634" y="7941"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="oe2-cj-gZW">
+            <objects>
+                <viewController storyboardIdentifier="WKCommentViewController" id="9AU-NK-wv2" customClass="WKCommentViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="22e-lI-lIk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nzu-do-ib5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="USi-Vv-BPI">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="90" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="kuz-e3-cDx">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9AU-NK-wv2" id="o6O-9E-ZIo"/>
+                                    <outlet property="delegate" destination="9AU-NK-wv2" id="1b9-zD-nYI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="936-nh-Ozs"/>
+                        <constraints>
+                            <constraint firstItem="kuz-e3-cDx" firstAttribute="leading" secondItem="936-nh-Ozs" secondAttribute="leading" id="2yr-G3-tbh"/>
+                            <constraint firstItem="936-nh-Ozs" firstAttribute="trailing" secondItem="kuz-e3-cDx" secondAttribute="trailing" id="Uw3-aP-o8d"/>
+                            <constraint firstItem="kuz-e3-cDx" firstAttribute="top" secondItem="936-nh-Ozs" secondAttribute="top" id="lKP-H8-wUC"/>
+                            <constraint firstItem="936-nh-Ozs" firstAttribute="bottom" secondItem="kuz-e3-cDx" secondAttribute="bottom" id="otL-J9-h8g"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="kuz-e3-cDx" id="9kK-tg-lpq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWb-oe-M6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="5123"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="8Ls-zs-VDy"/>
@@ -2717,6 +2765,7 @@
         <image name="house-outline" width="192" height="192"/>
         <image name="menu-2" width="192" height="192"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
+        <image name="quote.bubble.fill" catalog="system" width="128" height="111"/>
         <image name="refresh-button" width="192" height="192"/>
         <image name="resize-arrows" width="192" height="192"/>
         <image name="right-arrow-forward" width="192" height="192"/>

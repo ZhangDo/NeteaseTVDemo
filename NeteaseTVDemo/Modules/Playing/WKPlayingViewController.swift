@@ -19,7 +19,8 @@ class WKPlayingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
     //    @IBOutlet weak var playListView: UITableView!
-        
+    @IBOutlet weak var commentBtn: UIButton!
+    
     @IBOutlet weak var audioQualityLabel: UILabel!
 //        @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var singerLabel: MarqueeLabel!
@@ -45,6 +46,7 @@ class WKPlayingViewController: UIViewController {
             self.progressView.isHidden = false
             self.leftTimeLabel.isHidden = false
             self.rightLabel.isHidden = false
+            self.commentBtn.isHidden = false
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
@@ -80,6 +82,7 @@ class WKPlayingViewController: UIViewController {
         self.progressView.isHidden = true
         self.leftTimeLabel.isHidden = true
         self.rightLabel.isHidden = true
+        self.commentBtn.isHidden = true
         
     }
     
@@ -107,6 +110,15 @@ class WKPlayingViewController: UIViewController {
         }
     }
     
+    @IBAction func comment(_ sender: Any) {
+        if let songid = wk_player.currentModel?.audioId {
+            let vc = WKCommentViewController.creat(songId: (wk_player.currentModel?.audioId)!)
+            vc.modalPresentationStyle = .blurOverFullScreen
+            self.present(vc, animated: true)
+        }
+        
+        
+    }
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)
         for press in presses {
@@ -176,6 +188,7 @@ extension WKPlayingViewController: WKPlayerDelegate {
             self.progressView.isHidden = false
             self.leftTimeLabel.isHidden = false
             self.rightLabel.isHidden = false
+            self.commentBtn.isHidden = false
         }
 
 

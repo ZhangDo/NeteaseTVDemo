@@ -92,6 +92,8 @@
 		29F2F6202AB190CB00E2F389 /* WKLyricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */; };
 		29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F6282AB1935600E2F389 /* SnapKit */; };
 		29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F62B2AB1A83600E2F389 /* MarqueeLabel */; };
+		29FAC7582AFC6A9B00FEA7C0 /* WKCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */; };
+		29FAC75A2AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */; };
 		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
 		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
 		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
@@ -183,6 +185,8 @@
 		29EBE67D2ADFB5900023E9C7 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		29F2F6192AB18A9900E2F389 /* WKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKConfig.swift; sourceTree = "<group>"; };
 		29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricTableViewCell.swift; sourceTree = "<group>"; };
+		29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCommentViewController.swift; sourceTree = "<group>"; };
+		29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCommentTableViewCell.swift; sourceTree = "<group>"; };
 		F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerTool.swift; sourceTree = "<group>"; };
 		F4905DF32A98DD9C00C76905 /* WKCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKCountdown.swift; sourceTree = "<group>"; };
 		F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerError.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				2944A9372AC12EC800FD4F52 /* WKSlider.swift */,
 				29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */,
 				296915792AE89E5E00ED9298 /* WKPlayingViewController.swift */,
+				29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */,
+				29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */,
 			);
 			path = Playing;
 			sourceTree = "<group>";
@@ -576,6 +582,8 @@
 				297F2E092AD8CD3B002F4F24 /* WKPodcastDetailViewController.swift in Sources */,
 				297F2E0E2AD8E6B6002F4F24 /* WKUserModel.swift in Sources */,
 				29DC0E3D2AD252AD00DD314A /* WKRecommendPlaylistVC.swift in Sources */,
+				29FAC7582AFC6A9B00FEA7C0 /* WKCommentViewController.swift in Sources */,
+				29FAC75A2AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift in Sources */,
 				2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */,
 				29F2F61A2AB18A9900E2F389 /* WKConfig.swift in Sources */,
 				2969158C2AF246A300ED9298 /* WKAboutViewController.swift in Sources */,
