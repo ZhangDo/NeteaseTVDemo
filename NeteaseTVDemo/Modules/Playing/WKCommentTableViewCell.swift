@@ -17,12 +17,13 @@ class WKCommentTableViewCell: UITableViewCell {
             contentView.addSubview(view)
             view.snp.makeConstraints { make in
                 make.left.equalToSuperview().offset(30)
-                make.top.equalToSuperview().offset(30)
+                make.top.equalToSuperview().offset(15)
                 make.size.equalTo(80)
             }
         })(avatarImageView)
         
         ({(label: UILabel)in
+            label.font = .systemFont(ofSize: 30)
             label.numberOfLines = 0
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
@@ -38,7 +39,7 @@ class WKCommentTableViewCell: UITableViewCell {
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(avatarImageView.snp.right).offset(30)
-                make.top.equalTo(nameLabel.snp.bottom).offset(30)
+                make.top.equalTo(nameLabel.snp.bottom).offset(15)
                 make.right.bottom.equalToSuperview().offset(-30)
             }
         })(commentLabel)
