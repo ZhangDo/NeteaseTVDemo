@@ -26,6 +26,7 @@ class WKPlayingViewController: UIViewController {
     @IBOutlet weak var singerLabel: MarqueeLabel!
 //        @IBOutlet weak var bottomActionView: UIView!
 //        @IBOutlet weak var sliderStackView: UIStackView!
+    @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var bottomActionView: UIStackView!
     static func creat(isPodcast: Bool = false) -> WKPlayingViewController {
             let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKPlayingViewController
@@ -112,7 +113,7 @@ class WKPlayingViewController: UIViewController {
     
     @IBAction func comment(_ sender: Any) {
         if let songid = wk_player.currentModel?.audioId {
-            let vc = WKCommentViewController.creat(songId: (wk_player.currentModel?.audioId)!)
+            let vc = WKCommentViewController.creat(songId: songid)
             vc.modalPresentationStyle = .blurOverFullScreen
             self.present(vc, animated: true)
         }
@@ -195,6 +196,11 @@ extension WKPlayingViewController: WKPlayerDelegate {
     }
 
     func stateDidChanged(_ state: WKPlayerState) {
+        if state == .paused {
+            self.playBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        } else if state == .isPlaying {
+            self.playBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        }
     }
 
     func updateUI(dataSource: CustomAudioModel?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {

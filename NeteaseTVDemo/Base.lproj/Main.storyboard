@@ -2269,20 +2269,32 @@
                                                             <rect key="frame" x="122" y="630" width="450" height="86"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-Mq-4dm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="86"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="116.5" height="86"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="backward.end.fill" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="backward.end.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="previous:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="5qy-cZ-GKf"/>
                                                                         <action selector="previous:" destination="yRg-eE-YDZ" eventType="touchUpInside" id="tZB-aK-gjE"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byL-k9-JJF">
-                                                                    <rect key="frame" x="250" y="0.0" width="200" height="86"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnx-43-YcR">
+                                                                    <rect key="frame" x="166.5" y="0.0" width="117" height="86"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="forward.end.fill" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="pause.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="playOrPause:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="Ku0-i5-wcH"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byL-k9-JJF">
+                                                                    <rect key="frame" x="333.5" y="0.0" width="116.5" height="86"/>
+                                                                    <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" image="forward.end.fill" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="forward.end.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="next:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="p4n-ax-6du"/>
                                                                         <action selector="next:" destination="yRg-eE-YDZ" eventType="touchUpInside" id="r5X-Au-JVY"/>
@@ -2367,6 +2379,7 @@
                         <outlet property="infoStackView" destination="0a1-98-zbj" id="9Ag-NI-vxQ"/>
                         <outlet property="leftTimeLabel" destination="apR-TI-Elh" id="BsP-Ca-o3I"/>
                         <outlet property="nameLabel" destination="8Ls-zs-VDy" id="1dz-IU-59k"/>
+                        <outlet property="playBtn" destination="Hnx-43-YcR" id="a41-Z1-cxq"/>
                         <outlet property="progressView" destination="4oO-ze-TWP" id="AE1-jw-NLX"/>
                         <outlet property="rightLabel" destination="Jft-ds-n4y" id="paR-eb-Hud"/>
                         <outlet property="singerLabel" destination="Hl2-f5-8kI" id="Ypi-3f-HBd"/>
@@ -2765,6 +2778,7 @@
         <image name="house-outline" width="192" height="192"/>
         <image name="menu-2" width="192" height="192"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
+        <image name="pause.fill" catalog="system" width="120" height="128"/>
         <image name="quote.bubble.fill" catalog="system" width="128" height="111"/>
         <image name="refresh-button" width="192" height="192"/>
         <image name="resize-arrows" width="192" height="192"/>
