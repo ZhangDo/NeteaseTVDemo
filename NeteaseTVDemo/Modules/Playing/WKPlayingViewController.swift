@@ -191,15 +191,17 @@ extension WKPlayingViewController: WKPlayerDelegate {
             self.rightLabel.isHidden = false
             self.commentBtn.isHidden = false
         }
-
-
     }
 
     func stateDidChanged(_ state: WKPlayerState) {
         if state == .paused {
-            self.playBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            DispatchQueue.main.async {
+                self.playBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }
         } else if state == .isPlaying {
-            self.playBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            DispatchQueue.main.async {
+                self.playBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            }
         }
     }
 

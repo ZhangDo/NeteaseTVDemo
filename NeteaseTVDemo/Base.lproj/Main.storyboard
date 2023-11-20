@@ -665,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKf-DJ-GKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="3707"/>
+            <point key="canvasLocation" x="3132" y="3799"/>
         </scene>
         <!--Recent Song ListVC-->
         <scene sceneID="iNE-YB-sfu">
@@ -701,7 +701,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gi2-2m-ye3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="5061"/>
+            <point key="canvasLocation" x="3132" y="5232"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="BGx-eQ-VfX">
@@ -1966,7 +1966,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqv-qV-EdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3156" y="6458"/>
+            <point key="canvasLocation" x="3132" y="6684"/>
         </scene>
         <!--Rencent PlaylistVC-->
         <scene sceneID="rtQ-d1-oyV">
@@ -2019,7 +2019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-Mm-FRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="7941"/>
+            <point key="canvasLocation" x="3132" y="8141"/>
         </scene>
         <!--Recent Album ListVC-->
         <scene sceneID="9jI-XD-bfo">
@@ -2072,7 +2072,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJb-ru-i1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="9328"/>
+            <point key="canvasLocation" x="3132" y="9599"/>
         </scene>
         <!--Recent VideoVC-->
         <scene sceneID="HNJ-5T-BbV">
@@ -2125,7 +2125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFD-j0-LdQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="9328"/>
+            <point key="canvasLocation" x="3132" y="11119"/>
         </scene>
         <!--Recent Podcast ListVC-->
         <scene sceneID="JYI-dV-g0N">
@@ -2178,7 +2178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cus-Zv-f0Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3132" y="10587"/>
+            <point key="canvasLocation" x="3132" y="12608"/>
         </scene>
         <!--正在播放-->
         <scene sceneID="KJA-kN-43K">
