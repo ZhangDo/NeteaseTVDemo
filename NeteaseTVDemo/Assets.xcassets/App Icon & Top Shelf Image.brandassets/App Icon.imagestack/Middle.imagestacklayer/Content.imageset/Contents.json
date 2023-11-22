@@ -1,19 +1,22 @@
 {
   "images" : [
     {
+      "filename" : "newicon_middle 1.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
-      "filename" : "Front.png",
+      "filename" : "newicon_middle.png",
       "idiom" : "tv",
       "scale" : "2x"
     },
     {
+      "filename" : "newicon_middle 2.png",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },
     {
+      "filename" : "newicon_middle 3.png",
       "idiom" : "tv-marketing",
       "scale" : "2x"
     }
