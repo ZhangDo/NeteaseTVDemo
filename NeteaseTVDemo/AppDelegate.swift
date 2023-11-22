@@ -23,8 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
             window = UIWindow()
-            
-            window?.rootViewController = WKLoginViewController.creat()
+            Task {
+                do {
+                    let anonimousLogin: NRAnonimousModel = try await anonimousLogin()
+                    UserDefaults.standard.setValue(anonimousLogin.cookie, forKey: "cookie")
+                    cookie = anonimousLogin.cookie
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "login"), object: nil, userInfo: nil)
+                } catch {
+                    print(error)
+                }
+            }
+            window?.rootViewController = WKTabBarViewController.creat()
             
             window?.makeKeyAndVisible()
             return true

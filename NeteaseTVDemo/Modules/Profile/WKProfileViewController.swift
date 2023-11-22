@@ -91,11 +91,16 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "profileHeader") as! WKProfileHeader
-        if let avatar = userInfo?.profile.avatarUrl, let name = userInfo?.profile.nickname {
-            header.nameLabel.text = name
+        header.nameLabel.text = userInfo?.profile.nickname ?? "游客"
+        if let avatar = userInfo?.profile.avatarUrl {
             header.avatarView.imageView.kf.setImage(with: URL(string: avatar))
         }
-        header.signatureView.descLabel.text = userInfo?.profile.signature ?? ""
+        if (header.nameLabel.text == "游客") {
+            header.signatureView.descLabel.text = "选中头像可扫码登录账号"
+        } else {
+            header.signatureView.descLabel.text = userInfo?.profile.signature ?? ""
+        }
+        
         header.signatureView.onPrimaryAction = { [weak self] model in
             let vc = WKDescViewController.creat(desc: self?.userInfo?.profile.signature ?? "")
             self!.present(vc, animated: true)
