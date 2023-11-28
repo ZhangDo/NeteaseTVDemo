@@ -6,6 +6,7 @@ class WKLoginViewController: UIViewController {
 
     @IBOutlet weak var qrCodeImageView: UIImageView!
     var timer: Timer?
+    @IBOutlet weak var tipsLabel: UILabel!
     var code: Int?
     static func creat() -> WKLoginViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKLoginViewController
@@ -82,13 +83,16 @@ class WKLoginViewController: UIViewController {
                 AppDelegate.shared.showTabBar()
             } else if checkModel.code == 800 {
                 print("二维码过期")
+                tipsLabel.text = "二维码过期，请重新扫码"
                 self.showAlert("二维码过期，请重新扫码")
                 timer?.invalidate()
                 await loadQRCode()
             } else if checkModel.code == 801 {
                 print("等待扫码")
+                tipsLabel.text = "等待扫码"
             } else if checkModel.code == 802 {
                 print("等待确认")
+                tipsLabel.text = "等待确认"
             }
         } catch {
             print(error)

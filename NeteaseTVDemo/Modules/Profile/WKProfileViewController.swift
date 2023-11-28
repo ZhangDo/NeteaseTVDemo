@@ -19,6 +19,7 @@ class WKProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "login"), object: nil)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(WKProfileHeader.self, forHeaderFooterViewReuseIdentifier: "profileHeader")
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
@@ -73,6 +74,12 @@ class WKProfileViewController: UIViewController {
             tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
         } catch {
             print(error)
+        }
+    }
+    
+    @objc func reloadData() {
+        Task {
+            await loadUserDetailInfo()
         }
     }
 }
