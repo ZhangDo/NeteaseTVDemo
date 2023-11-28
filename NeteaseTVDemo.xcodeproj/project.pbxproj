@@ -768,6 +768,7 @@
 				DEVELOPMENT_TEAM = G579FSDBH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Vibefy;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -794,6 +795,7 @@
 				DEVELOPMENT_TEAM = G579FSDBH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Vibefy;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				LD_RUNPATH_SEARCH_PATHS = (
