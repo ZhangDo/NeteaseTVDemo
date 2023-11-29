@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ZhangDo/NeteaseRequest.git",
       "state" : {
-        "revision" : "ce2c949887cb3d4c1feaf12a1840b2444d0c4f83",
-        "version" : "1.0.0"
+        "revision" : "67568a1d740420e6869c1c727ae635b83461c953",
+        "version" : "1.0.1"
       }
     },
     {

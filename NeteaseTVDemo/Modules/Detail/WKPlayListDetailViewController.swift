@@ -36,26 +36,32 @@ class WKPlayListDetailViewController: UIViewController {
             self!.present(vc, animated: true)
         }
         
-        let songModels:[NRSongModel] = try! await fetchPlayListTrackAll(id: self.playListId,limit: 100)
-        self.allModels.removeAll()
-        for songModel in songModels {
-            let model = CustomAudioModel()
-            model.audioId = songModel.id
-            model.isFree = 1
-            model.freeTime = 0
-            model.audioTitle = songModel.name
-            model.audioPicUrl = songModel.al?.picUrl
-            
-            let min = (songModel.dt ?? 0) / 1000 / 60
-            let sec = (songModel.dt ?? 0) / 1000 % 60
-            model.audioTime = String(format: "%d:%02d", min, sec)
-            if let singerModel = songModel.ar {
-                model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+        do {
+            let songModels:[NRSongModel] = try await fetchPlayListTrackAll(cookie: cookie, id: self.playListId,limit: 100)
+            self.allModels.removeAll()
+            for songModel in songModels {
+                let model = CustomAudioModel()
+                model.audioId = songModel.id
+                model.isFree = 1
+                model.freeTime = 0
+                model.audioTitle = songModel.name
+                model.audioPicUrl = songModel.al?.picUrl
+                
+                let min = (songModel.dt ?? 0) / 1000 / 60
+                let sec = (songModel.dt ?? 0) / 1000 % 60
+                model.audioTime = String(format: "%d:%02d", min, sec)
+                if let singerModel = songModel.ar {
+                    model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+                }
+                self.allModels.append(model)
             }
-            self.allModels.append(model)
+            tableView .reloadData()
+            self.playButton.isHidden = false
+        } catch {
+            self.showAlert("未知错误")
         }
-        tableView .reloadData()
-        self.playButton.isHidden = false
+        
+        
     }
 
     @IBAction func playAll(_ sender: Any) {

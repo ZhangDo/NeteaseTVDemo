@@ -5,6 +5,9 @@ import NeteaseRequest
 enum Settings {
     @UserDefaultCodable("Settings.audioQuality", defaultValue: NRSongLevel.lossless)
     static var audioQuality: NRSongLevel
+    
+    @UserDefaultCodable("Settings.hotComment", defaultValue: true)
+    static var hotComment: Bool
 }
 
 extension NRSongLevel {

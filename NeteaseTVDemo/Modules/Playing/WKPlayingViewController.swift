@@ -47,7 +47,7 @@ class WKPlayingViewController: UIViewController {
             self.progressView.isHidden = false
             self.leftTimeLabel.isHidden = false
             self.rightLabel.isHidden = false
-            self.commentBtn.isHidden = false
+            self.commentBtn.isHidden = !Settings.hotComment
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
@@ -189,7 +189,7 @@ extension WKPlayingViewController: WKPlayerDelegate {
             self.progressView.isHidden = false
             self.leftTimeLabel.isHidden = false
             self.rightLabel.isHidden = false
-            self.commentBtn.isHidden = false
+            self.commentBtn.isHidden = !Settings.hotComment
         }
     }
 
