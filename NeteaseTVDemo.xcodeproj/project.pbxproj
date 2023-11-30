@@ -25,6 +25,7 @@
 		2944A93E2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93D2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift */; };
 		2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */; };
 		2944A9442AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */; };
+		29507BA72B1815AB0093D8BB /* WKInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29507BA62B1815AB0093D8BB /* WKInputViewController.swift */; };
 		295E48D02AE1056600C259D2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */; };
 		295E48D92AE2218800C259D2 /* WKBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E48D82AE2218800C259D2 /* WKBrowserViewController.m */; };
 		295E48E42AE223E500C259D2 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 295E48DC2AE223E500C259D2 /* menu-button.png */; };
@@ -120,6 +121,7 @@
 		2944A93D2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKAlbumDetailViewController.swift; sourceTree = "<group>"; };
 		2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKDescView.swift; sourceTree = "<group>"; };
 		2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPlayListCollectionViewCell.swift; sourceTree = "<group>"; };
+		29507BA62B1815AB0093D8BB /* WKInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKInputViewController.swift; sourceTree = "<group>"; };
 		295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		295E48D72AE2218800C259D2 /* WKBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBrowserViewController.h; sourceTree = "<group>"; };
 		295E48D82AE2218800C259D2 /* WKBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBrowserViewController.m; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				293F74F72ADF66F500692091 /* WKSongTableViewCell.swift */,
 				293F75022ADF88D200692091 /* WKMVCollectionViewCell.swift */,
 				296915832AEF84FD00ED9298 /* Settings.swift */,
+				29507BA62B1815AB0093D8BB /* WKInputViewController.swift */,
 				295FA8172A985D3500B35C54 /* Main.storyboard */,
 				295FA81A2A985D3600B35C54 /* Assets.xcassets */,
 				295FA81C2A985D3600B35C54 /* LaunchScreen.storyboard */,
@@ -559,6 +562,7 @@
 				297F2E1B2ADA74C8002F4F24 /* WKSegmentCell.swift in Sources */,
 				2986B2EE2AB3F418002BC0CC /* WKRecommendViewController.swift in Sources */,
 				296915702AE753B300ED9298 /* WKRencentVoiceListVC.swift in Sources */,
+				29507BA72B1815AB0093D8BB /* WKInputViewController.swift in Sources */,
 				29E033E82ADE2766002A4B37 /* WKSingerDetailViewController.swift in Sources */,
 				29A1D7042AD647E8005EAFC0 /* WKFindViewController.swift in Sources */,
 				F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */,

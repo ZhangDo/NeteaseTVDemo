@@ -10,7 +10,7 @@ struct CellModel {
 
 class WKSettingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    let settings = ["默认音质", "热门评论"]
+    let settings = ["默认音质", "热门评论", "服务地址"]
     var cellModels = [CellModel]()
     static func creat() -> WKSettingViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKSettingViewController
@@ -43,6 +43,14 @@ class WKSettingViewController: UIViewController {
             self?.setupData()
         }
         cellModels.append(comment)
+        
+        let service = CellModel(title: "服务设置", desp: Settings.service) { [weak self] in
+            let vc = WKInputViewController.creat()
+            vc.modalPresentationStyle = .blurOverFullScreen
+            self?.present(vc, animated: true)
+        }
+        cellModels.append(service)
+        
         tableView.reloadData()
     }
 }

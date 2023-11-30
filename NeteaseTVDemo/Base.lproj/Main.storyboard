@@ -2812,6 +2812,78 @@
             </objects>
             <point key="canvasLocation" x="7634" y="7941"/>
         </scene>
+        <!--Input View Controller-->
+        <scene sceneID="gjB-gg-igT">
+            <objects>
+                <viewController storyboardIdentifier="WKInputViewController" id="pwI-YE-gZl" customClass="WKInputViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nMb-E7-NVT"/>
+                        <viewControllerLayoutGuide type="bottom" id="fpI-Hc-fZx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MEi-or-XVm">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Crp-7y-rzZ">
+                                <rect key="frame" x="280" y="160" width="1360" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcr-6T-HUI">
+                                        <rect key="frame" x="8" y="0.0" width="952" height="46"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZZY-Vt-kaq">
+                                        <rect key="frame" x="8" y="54" width="1319" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="MCM-lA-V7U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="1dU-fy-HSD"/>
+                                    <constraint firstItem="gcr-6T-HUI" firstAttribute="leading" secondItem="Crp-7y-rzZ" secondAttribute="leading" constant="8" id="3uW-1N-AhZ"/>
+                                    <constraint firstItem="ZZY-Vt-kaq" firstAttribute="leading" secondItem="gcr-6T-HUI" secondAttribute="leading" id="6yD-ML-y7M"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZY-Vt-kaq" secondAttribute="trailing" constant="33" id="Hf6-H7-10u"/>
+                                    <constraint firstItem="ZZY-Vt-kaq" firstAttribute="top" secondItem="gcr-6T-HUI" secondAttribute="bottom" constant="8" symbolic="YES" id="OUY-ii-BHH"/>
+                                    <constraint firstItem="gcr-6T-HUI" firstAttribute="top" secondItem="Crp-7y-rzZ" secondAttribute="top" id="RoA-nR-PEl"/>
+                                    <constraint firstAttribute="trailing" secondItem="gcr-6T-HUI" secondAttribute="trailing" constant="400" id="TRc-JJ-Tff"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yd5-li-mWU">
+                                <rect key="frame" x="862" y="333" width="196" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="9Qb-Wj-u9D"/>
+                                    <constraint firstAttribute="height" constant="75" id="Sj0-2N-i6K"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="确定"/>
+                                <connections>
+                                    <action selector="doneButtonTaped:" destination="pwI-YE-gZl" eventType="primaryActionTriggered" id="Rzf-rI-bM7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RuW-IE-fk9"/>
+                        <constraints>
+                            <constraint firstItem="yd5-li-mWU" firstAttribute="top" secondItem="Crp-7y-rzZ" secondAttribute="bottom" constant="53" id="23a-Gz-4wx"/>
+                            <constraint firstItem="yd5-li-mWU" firstAttribute="centerX" secondItem="Crp-7y-rzZ" secondAttribute="centerX" id="BPT-el-lp6"/>
+                            <constraint firstItem="Crp-7y-rzZ" firstAttribute="top" secondItem="RuW-IE-fk9" secondAttribute="top" constant="100" id="JE5-Xh-Jf0"/>
+                            <constraint firstItem="Crp-7y-rzZ" firstAttribute="leading" secondItem="RuW-IE-fk9" secondAttribute="leading" constant="200" id="lAv-zU-9bg"/>
+                            <constraint firstItem="RuW-IE-fk9" firstAttribute="trailing" secondItem="Crp-7y-rzZ" secondAttribute="trailing" constant="200" id="wkM-QC-s6h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="serviceTextField" destination="ZZY-Vt-kaq" id="MBf-cr-KKU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAj-I2-g5o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7589" y="10071"/>
+        </scene>
         <!--Comment View Controller-->
         <scene sceneID="oe2-cj-gZW">
             <objects>

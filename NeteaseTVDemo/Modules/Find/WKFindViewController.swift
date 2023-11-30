@@ -27,8 +27,8 @@ class WKFindViewController: UIViewController {
             tableView.reloadData()
             tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
             
-            let cat = categories.first!.cateInfoModels.first?.name
-            playList = (try? await fetchTopPlayList(order: .hot, cat: cat!)) ?? []
+            let cat = categories.first?.cateInfoModels.first?.name ?? ""
+            playList = (try? await fetchTopPlayList(order: .hot, cat: cat)) ?? []
             collectionView.reloadData()
         }
     }

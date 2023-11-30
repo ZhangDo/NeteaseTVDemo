@@ -8,6 +8,9 @@ enum Settings {
     
     @UserDefaultCodable("Settings.hotComment", defaultValue: true)
     static var hotComment: Bool
+    
+    @UserDefaultCodable("Settings.service", defaultValue: "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release")
+    static var service: String
 }
 
 extension NRSongLevel {

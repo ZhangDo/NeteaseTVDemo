@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(1, forKey: "searchIndex")
         //MARK:  服务部署请参考  https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/README.MD
         //MARK: 为了自己的账号安全，请尽量使用自己部署的服务
-        //下面是我在腾讯云部署的（免费额度用完后，我会关掉的）
-        NR_BASEURL = "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release"
+        //下面是我在腾讯云部署的（不保证一直能用）
+        NR_BASEURL = Settings.service
         
         guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
             window = UIWindow()
@@ -46,6 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    
+    func reloadApplication() {
+        UIView.transition(with: self.window!, duration: 0.3, options: .transitionCrossDissolve) {
+            UIView.setAnimationsEnabled(false)
+            self.window?.rootViewController = WKTabBarViewController.creat()
+            UIView.setAnimationsEnabled(UIView.areAnimationsEnabled)
+        }
     }
     
     /** 初始化配置*/
