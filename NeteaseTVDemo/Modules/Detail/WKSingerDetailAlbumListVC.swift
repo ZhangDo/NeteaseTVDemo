@@ -24,7 +24,7 @@ class WKSingerDetailAlbumListVC: UIViewController {
     
     func loadData() async {
         do {
-            singerAlbums = try await fetchArtistAlbum(id: singerId, limit: 100)
+            singerAlbums = try await fetchArtistAlbum(cookie: cookie, id: singerId, limit: 100)
         } catch {
             print(error)
         }

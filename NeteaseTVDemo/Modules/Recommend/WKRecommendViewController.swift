@@ -213,11 +213,11 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             self.present(albumVC, animated: true)
         } else {
             if let url = self.banners![index].url {
-                self.showAlert("不支持该页面类型")
-//                let vc = WKBrowserViewController()
-//                vc.modalPresentationStyle = .blurOverFullScreen
-//                vc.url = url
-//                self.present(vc, animated: true)
+//                self.showAlert("不支持该页面类型")
+                let vc = WKBrowserViewController()
+                vc.modalPresentationStyle = .blurOverFullScreen
+                vc.url = url
+                self.present(vc, animated: true)
             }
             
         }

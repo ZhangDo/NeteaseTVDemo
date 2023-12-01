@@ -11,7 +11,7 @@ class WKSearchResultViewController: UIViewController {
      WKSearchTypeModel(isSelected: false, name: "电台", type: 1009),
      WKSearchTypeModel(isSelected: false, name: "MV", type: 1004),
      WKSearchTypeModel(isSelected: false, name: "视频", type: 1014)]
-    var query: String?
+    var query = ""
     private var searchResult: NRSearchModel?
     fileprivate var audioModels: [CustomAudioModel] = [CustomAudioModel]()
     @IBOutlet weak var segmentView: UICollectionView!
@@ -45,7 +45,7 @@ class WKSearchResultViewController: UIViewController {
             let type = types[index].type
             let keywords: String = UserDefaults.standard.object(forKey: "searchText") as! String
             do {    
-                searchResult = try await search(keywords: keywords, type: type, limit: 100)
+                searchResult = try await search(cookie:cookie, keywords: keywords, type: type, limit: 100)
                 if type == 1 {
                     let ids: String = searchResult?.songs!.map { String($0.id) }.joined(separator: ",") ?? ""
                     let songModels = try await fetchSongDetail(ids: ids)

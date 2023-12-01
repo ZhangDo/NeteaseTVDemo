@@ -22,7 +22,7 @@ class WKSongListViewController: UIViewController {
     
     func loadData() async {
         do {
-            let songModels: [NRSongModel] = try await fetchArtistSongs(id: singerId)
+            let songModels: [NRSongModel] = try await fetchArtistSongs(cookie: cookie, id: singerId)
             self.allModels.removeAll()
             for songModel in songModels {
                 let model = CustomAudioModel()

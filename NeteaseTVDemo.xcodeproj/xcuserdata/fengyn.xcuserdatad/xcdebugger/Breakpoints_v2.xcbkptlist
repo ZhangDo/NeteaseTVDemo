@@ -3,4 +3,242 @@
    uuid = "4F09B342-59AA-4A95-B9D4-BD3769BD5657"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "89B13067-D3AD-4268-B6BA-9203B70FBEDA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Search/WKSearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "updateSearchResults(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "89B13067-D3AD-4268-B6BA-9203B70FBEDA - 692fb6756eaee347"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeteaseTVDemo.WKSearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "89B13067-D3AD-4268-B6BA-9203B70FBEDA - 692fb6756eaee347"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeteaseTVDemo.WKSearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "648">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "searchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 2c519d7449ce716e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1240">
+               </Location>
+               <Location
+                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 944c6fae83f0956c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1512">
+               </Location>
+               <Location
+                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 2c519d7449ce716e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1280">
+               </Location>
+               <Location
+                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 944c6fae83f0956c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1536">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "589A058E-4ADB-4103-8C35-D271364066D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "searchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 3046c68d9ee400b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 5c3b21e0bd9baeb7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 3046c68d9ee400b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "308">
+               </Location>
+               <Location
+                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 5c3b21e0bd9baeb7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
+                  moduleName = "NeteaseTVDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E6462C8-C53D-4BB3-9DB9-4EB6E857BC28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Detail/WKSingerDetailAlbumListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3FF015C4-4D9D-454E-AD7D-478A9AE6C39A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Detail/WKSongListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "loadData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

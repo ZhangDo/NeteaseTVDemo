@@ -33,7 +33,7 @@ extension WKSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let searchText = searchController.searchBar.text {
             print(searchText)
-//            UserDefaults.standard.set(searchText, forKey: "searchText")
+            UserDefaults.standard.set(searchText, forKey: "searchText")
             self.searchResultsController.query = searchText
             self.searchResultsController.searchData()
         }
