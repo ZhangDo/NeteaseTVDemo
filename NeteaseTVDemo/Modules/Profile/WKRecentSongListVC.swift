@@ -67,7 +67,7 @@ extension WKRecentSongListVC: UITableViewDelegate, UITableViewDataSource {
             return
         }
         wk_player.allOriginalModels = self.allModels
-        try? wk_player.play(index: 0)
+        try? wk_player.play(index: indexPath.row)
         let playingVC = WKPlayingViewController.creat()
         self.present(playingVC, animated: true)
     }

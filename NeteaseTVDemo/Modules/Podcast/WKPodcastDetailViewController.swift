@@ -64,11 +64,14 @@ class WKPodcastDetailViewController: UIViewController {
     }
     
     @IBAction func playAll(_ sender: Any) {
-        wk_player.allOriginalModels = self.allModels
-        try? wk_player.play(index: 0)
-        let playingVC = WKPlayingViewController.creat(isPodcast: true)
-        playingVC.modalPresentationStyle = .blurOverFullScreen
-        self.present(playingVC, animated: true)
+        if !self.allModels.isEmpty {
+            wk_player.allOriginalModels = self.allModels
+            try? wk_player.play(index: 0)
+            let playingVC = WKPlayingViewController.creat(isPodcast: true)
+            playingVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(playingVC, animated: true)
+        }
+        
     }
 
 }

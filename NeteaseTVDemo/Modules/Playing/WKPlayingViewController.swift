@@ -52,7 +52,6 @@ class WKPlayingViewController: UIViewController {
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
             self.audioQualityLabel.text = wk_player.currentModel?.audioQuality
-            
             Task {
                 do {
                     lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
@@ -208,6 +207,7 @@ extension WKPlayingViewController: WKPlayerDelegate {
     func updateUI(dataSource: CustomAudioModel?, state: WKPlayerState, isPlaying: Bool, detailInfo: WKPlayerStateModel?) {
         guard let detail = detailInfo else { return }
         let currentTime = wk_playerTool.formatTime(seconds: detail.current)
+        let totalTime = wk_playerTool.formatTime(seconds: detail.duration)
         guard let times = lyricTuple?.times else { return }
         for (index, time) in times.enumerated() {
             let times = time.components(separatedBy: ":")
@@ -223,6 +223,7 @@ extension WKPlayingViewController: WKPlayerDelegate {
 
         DispatchQueue.main.async { [self] in
             self.leftTimeLabel.text = currentTime
+            self.rightLabel.text = totalTime
             self.progressView.progress = detail.progress
             tableView.reloadData()
             if current >= (lyricTuple?.words.count)! {

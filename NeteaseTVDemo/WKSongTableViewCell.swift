@@ -16,7 +16,7 @@ class WKSongTableViewCell: UITableViewCell {
         self.selectedBackgroundView = selView
         
         ({(label: UILabel) in
-            label.textColor = .darkGray
+            label.textColor = .white
             label.font = .systemFont(ofSize: 30)
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in

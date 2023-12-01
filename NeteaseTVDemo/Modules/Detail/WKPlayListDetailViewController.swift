@@ -37,7 +37,7 @@ class WKPlayListDetailViewController: UIViewController {
         }
         
         do {
-            let songModels:[NRSongModel] = try await fetchPlayListTrackAll(cookie: cookie, id: self.playListId,limit: 100)
+            let songModels:[NRSongModel] = try await fetchPlayListTrackAll(cookie: cookie, id: self.playListId,limit: 500)
             self.allModels.removeAll()
             for songModel in songModels {
                 let model = CustomAudioModel()
@@ -58,7 +58,7 @@ class WKPlayListDetailViewController: UIViewController {
             tableView .reloadData()
             self.playButton.isHidden = false
         } catch {
-            self.showAlert("未知错误")
+            self.showAlert(error.localizedDescription)
         }
         
         

@@ -1,6 +1,7 @@
 
 import UIKit
 import NeteaseRequest
+import AVFoundation
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -79,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        wk_player.active()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
