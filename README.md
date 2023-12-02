@@ -1,4 +1,4 @@
-# NeteaseTVDemo - 网易云音乐 tvOS 客户端
+# NeteaseTVDemo - 网易云音乐 tvOS 客户端(已改名Vibefy)
 
 代码完全开源，支持以下功能：
 
@@ -14,6 +14,13 @@
 - 搜索
 ------
 
+## 预览
+![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/preview.png)
+
+## 安装
+- 自行编译安装
+- Vibefy: [TestFlight](https://testflight.apple.com/join/he8gBuuY)
+
 ## 提示
 
 项目中的API服务是部署在我自己的腾讯云上的，但是为了自己的账号安全，请尽量使用自己部署的服务
@@ -21,9 +28,6 @@
 
 ## 支持平台
 Apple TV
-
-## 预览
-![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/preview.png)
 
 
 ## 开源代码：
