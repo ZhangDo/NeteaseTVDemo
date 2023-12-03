@@ -109,6 +109,9 @@ extension WKMVViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (wk_player.isPlaying) {
+            wk_player.pausePlayer()
+        }
         let videoPlayerVC = WKVideoViewController(playInfo: WKPlayInfo(id: mvModelList[indexPath.row].id, r: 1080, isMV: true))
         self.present(videoPlayerVC, animated: true)
     }

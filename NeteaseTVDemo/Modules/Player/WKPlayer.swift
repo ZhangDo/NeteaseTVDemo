@@ -133,8 +133,12 @@ public class WKPlayer: NSObject {
         didSet {
             currentModelState?.progress = progress
             let current = progress * Float(totalTime)
-            currentModelState?.current = UInt(round(current))
-            updateUI()
+            if current.isFinite {
+                currentModelState?.current = UInt(round(current))
+                updateUI()
+            }
+
+            
         }
     }
     

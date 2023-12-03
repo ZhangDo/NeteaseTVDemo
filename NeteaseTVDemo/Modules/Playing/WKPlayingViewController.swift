@@ -35,7 +35,7 @@ class WKPlayingViewController: UIViewController {
         }
         
     deinit {
-        wk_player.delegate = nil
+//        wk_player.delegate = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,15 +43,23 @@ class WKPlayingViewController: UIViewController {
         wk_player.delegate = nil
         self.progressView.delegate = self
         wk_player.delegate = self
-        if wk_player.isPlaying {
+        if (wk_player.currentModel != nil) {
             self.progressView.isHidden = false
             self.leftTimeLabel.isHidden = false
             self.rightLabel.isHidden = false
             self.commentBtn.isHidden = !Settings.hotComment
+            let currentTime = wk_playerTool.formatTime(seconds: wk_player.currentModelState!.current)
+            let totalTime = wk_playerTool.formatTime(seconds: wk_player.currentModelState!.duration)
+            self.leftTimeLabel.text = currentTime
+            self.rightLabel.text = totalTime
+            self.playBtn.setImage(UIImage(systemName: wk_player.isPlaying ? "pause.fill" : "play.fill"), for: .normal)
             self.bgImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
             self.audioQualityLabel.text = wk_player.currentModel?.audioQuality
+            if isPodcast {
+                self.commentBtn.isHidden = true
+            }
             Task {
                 do {
                     lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
@@ -83,6 +91,8 @@ class WKPlayingViewController: UIViewController {
         self.leftTimeLabel.isHidden = true
         self.rightLabel.isHidden = true
         self.commentBtn.isHidden = true
+        
+        
         
     }
     

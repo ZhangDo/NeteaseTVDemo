@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22154" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22155" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="appleTV" appearance="dark"/>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -2341,7 +2341,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl2-f5-8kI" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                                            <rect key="frame" x="347" y="610" width="0.0" height="0.0"/>
+                                                            <rect key="frame" x="117" y="610" width="460" height="0.0"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2414,9 +2414,11 @@
                                                         <constraint firstItem="opY-ZQ-4dR" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="JJz-Tz-rmM"/>
                                                         <constraint firstItem="bcX-fb-Yks" firstAttribute="top" secondItem="byL-k9-JJF" secondAttribute="bottom" constant="24" symbolic="YES" id="LGp-ei-Zo1"/>
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="top" secondItem="Hl2-f5-8kI" secondAttribute="bottom" constant="20" id="VC3-Bq-Kby"/>
+                                                        <constraint firstItem="Hl2-f5-8kI" firstAttribute="trailing" secondItem="DZa-f5-B9b" secondAttribute="trailing" id="VIW-Il-EmI"/>
                                                         <constraint firstItem="8Ls-zs-VDy" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="aZ3-1F-I8j"/>
                                                         <constraint firstItem="bcX-fb-Yks" firstAttribute="centerX" secondItem="cOq-IQ-BWs" secondAttribute="centerX" id="gPs-aa-hDq"/>
                                                         <constraint firstItem="Hl2-f5-8kI" firstAttribute="top" secondItem="8Ls-zs-VDy" secondAttribute="bottom" constant="10" id="jLv-wn-Oi5"/>
+                                                        <constraint firstItem="Hl2-f5-8kI" firstAttribute="leading" secondItem="DZa-f5-B9b" secondAttribute="leading" id="m2s-xP-UzH"/>
                                                         <constraint firstItem="w2T-aQ-SrY" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="yYW-sf-gv0"/>
                                                     </constraints>
                                                 </view>

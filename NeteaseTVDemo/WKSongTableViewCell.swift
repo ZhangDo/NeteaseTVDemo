@@ -58,12 +58,17 @@ class WKSongTableViewCell: UITableViewCell {
         if isFocused {
             songNameLabel.textColor = .black
             albumLabel.textColor = .black
+            indexLabel.textColor = .black
         } else {
             songNameLabel.textColor = UIColor(dynamicProvider: { (traitCollection: UITraitCollection) -> UIColor in
                 return traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark ?
                     .white : .black
             })
             albumLabel.textColor = UIColor(dynamicProvider: { (traitCollection: UITraitCollection) -> UIColor in
+                return traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark ?
+                    .white : .black
+            })
+            indexLabel.textColor = UIColor(dynamicProvider: { (traitCollection: UITraitCollection) -> UIColor in
                 return traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark ?
                     .white : .black
             })
