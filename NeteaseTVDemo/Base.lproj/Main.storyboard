@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22155" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22154" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="appleTV" appearance="dark"/>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -2940,6 +2940,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWb-oe-M6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="844" y="5256"/>
+        </scene>
+        <!--My Cloud SongVC-->
+        <scene sceneID="BGw-yZ-LFt">
+            <objects>
+                <viewController storyboardIdentifier="WKMyCloudSongVC" id="jSb-tr-HdJ" customClass="WKMyCloudSongVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GBe-EJ-MZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="06I-AC-nur"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qls-AL-ziY">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="0db-w8-E6N">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jSb-tr-HdJ" id="9Ps-Fp-dGU"/>
+                                    <outlet property="delegate" destination="jSb-tr-HdJ" id="X0g-W0-PgI"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xye-uc-nQQ"/>
+                        <constraints>
+                            <constraint firstItem="xye-uc-nQQ" firstAttribute="trailing" secondItem="0db-w8-E6N" secondAttribute="trailing" id="9bP-aO-6pV"/>
+                            <constraint firstItem="xye-uc-nQQ" firstAttribute="bottom" secondItem="0db-w8-E6N" secondAttribute="bottom" id="ZyP-th-coo"/>
+                            <constraint firstItem="0db-w8-E6N" firstAttribute="top" secondItem="xye-uc-nQQ" secondAttribute="top" id="fE4-Jv-4xc"/>
+                            <constraint firstItem="0db-w8-E6N" firstAttribute="leading" secondItem="xye-uc-nQQ" secondAttribute="leading" id="flg-DX-hxc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0db-w8-E6N" id="DAY-6T-P1S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRC-Kw-BYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7871" y="5256"/>
         </scene>
     </scenes>
     <designables>
