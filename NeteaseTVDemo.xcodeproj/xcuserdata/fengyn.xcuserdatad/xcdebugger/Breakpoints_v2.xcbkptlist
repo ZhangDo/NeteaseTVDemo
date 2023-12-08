@@ -7,333 +7,369 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "89B13067-D3AD-4268-B6BA-9203B70FBEDA"
+            uuid = "15170835-FB2E-4DCF-9F8B-10B27DEC8E13"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Search/WKSearchViewController.swift"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "updateSearchResults(for:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "89B13067-D3AD-4268-B6BA-9203B70FBEDA - 692fb6756eaee347"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NeteaseTVDemo.WKSearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "472">
-               </Location>
-               <Location
-                  uuid = "89B13067-D3AD-4268-B6BA-9203B70FBEDA - 692fb6756eaee347"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NeteaseTVDemo.WKSearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "648">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "searchData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 2c519d7449ce716e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "1240">
-               </Location>
-               <Location
-                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 944c6fae83f0956c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "1512">
-               </Location>
-               <Location
-                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 2c519d7449ce716e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "1280">
-               </Location>
-               <Location
-                  uuid = "D965E153-FE2C-4C4A-ABB5-0EC0A02F1CF2 - 944c6fae83f0956c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "1536">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "589A058E-4ADB-4103-8C35-D271364066D0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "searchData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 3046c68d9ee400b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "312">
-               </Location>
-               <Location
-                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 5c3b21e0bd9baeb7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 3046c68d9ee400b6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "589A058E-4ADB-4103-8C35-D271364066D0 - 5c3b21e0bd9baeb7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in NeteaseTVDemo.WKSearchResultViewController.searchData() -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Search/WKSearchResultViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "320">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5E6462C8-C53D-4BB3-9DB9-4EB6E857BC28"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Detail/WKSingerDetailAlbumListVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "loadData()"
+            startingLineNumber = "674"
+            endingLineNumber = "674"
+            landmarkName = "play(index:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3FF015C4-4D9D-454E-AD7D-478A9AE6C39A"
+            uuid = "8CBCAE2D-3F63-48FC-BA25-1FF127EC44F5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Detail/WKSongListViewController.swift"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "loadData()"
+            startingLineNumber = "1102"
+            endingLineNumber = "1102"
+            landmarkName = "prepareForPlay(model:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7D220F78-149E-46CF-B09B-8D567C0CDB5E"
+            uuid = "A3514E86-B0FB-4D12-9219-567323DF031E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Profile/WKMyCloudSongVC.swift"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "1290"
+            endingLineNumber = "1290"
+            landmarkName = "seekToHistory()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD2E71A6-772B-4524-9575-27922D05CD4E"
+            uuid = "AF02313E-E0EC-4778-85ED-85FE4948CFBB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Profile/WKMyCloudSongVC.swift"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            startingLineNumber = "1285"
+            endingLineNumber = "1285"
+            landmarkName = "seekToHistory()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "84298208-03E4-4EF4-8FA6-9A756E9BC9CF"
+            uuid = "431F232A-EA2D-4F66-ACE1-93CBCCACBEAF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Profile/WKMyCloudSongVC.swift"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "1286"
+            endingLineNumber = "1286"
+            landmarkName = "seekToHistory()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FB1A770E-96D6-450A-BC4A-3BE0D4E15C83"
+            uuid = "59EA72AE-2CA7-482E-AEC9-3586FB6CE9F8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Profile/WKMyCloudSongVC.swift"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "1111"
+            endingLineNumber = "1111"
+            landmarkName = "prepareForLoadDataSource()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FB1A770E-96D6-450A-BC4A-3BE0D4E15C83 - 73b43a51f007490d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NeteaseTVDemo.WKMyCloudSongVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Profile/WKMyCloudSongVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "1092">
-               </Location>
-               <Location
-                  uuid = "FB1A770E-96D6-450A-BC4A-3BE0D4E15C83 - 73b43a51f007490d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NeteaseTVDemo.WKMyCloudSongVC.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "NeteaseTVDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/fengyn/NeteaseTVDemo/NeteaseTVDemo/Modules/Profile/WKMyCloudSongVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "208">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9379DA03-F1CC-4AED-A641-5E262E52ABFE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1119"
+            endingLineNumber = "1119"
+            landmarkName = "prepareForLoadDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE33575B-FEEF-4481-B699-CF1B35258FB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1132"
+            endingLineNumber = "1132"
+            landmarkName = "prepareForLoadDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B480C13-8CF9-4E9D-8E4A-1A8EFF0367B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1143"
+            endingLineNumber = "1143"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0419AA3-F0D0-4DDE-948B-2674C10693A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1145"
+            endingLineNumber = "1145"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E9C52C5-F9F7-4623-9260-F14DEA902EC3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1156"
+            endingLineNumber = "1156"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3165BD33-EDE5-47F0-9793-7FB7D758CA35"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1166"
+            endingLineNumber = "1166"
+            landmarkName = "loadItem(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7654BB25-0167-4231-9AAD-AF8C389B9075"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1167"
+            endingLineNumber = "1167"
+            landmarkName = "loadItem(url:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05166578-EF04-4C80-9708-6E61B4A8F54E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1220"
+            endingLineNumber = "1220"
+            landmarkName = "loadPlayer(item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E0C4388-D64E-45DB-B738-0DA611968FDC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1216"
+            endingLineNumber = "1216"
+            landmarkName = "loadPlayer(item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAFA5F66-0E10-4756-9A89-69C77FD253CF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1121"
+            endingLineNumber = "1121"
+            landmarkName = "prepareForLoadDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "891AFF60-10BA-4C29-87F5-35AC4469F5DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1146"
+            endingLineNumber = "1146"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "394A7E76-AA24-4435-BAF3-D0FE35EE66F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1149"
+            endingLineNumber = "1149"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B85C27B5-F8F2-4690-AD5B-E9A9CC792775"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1150"
+            endingLineNumber = "1150"
+            landmarkName = "loadDataSource(cacheURL:currentUrl:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A82794BA-C8E6-4F5E-AC31-0683FB26BF09"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1184"
+            endingLineNumber = "1184"
+            landmarkName = "loadNetURL(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F488DAA-6C7D-4703-AA16-89058762FC40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1188"
+            endingLineNumber = "1188"
+            landmarkName = "loadNetURL(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9504959-F194-4A69-AB77-C3A8FF34D2B8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1191"
+            endingLineNumber = "1191"
+            landmarkName = "loadNetURL(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "989B5061-A6DA-455E-A80A-EB2F9139BC06"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1189"
+            endingLineNumber = "1189"
+            landmarkName = "loadNetURL(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

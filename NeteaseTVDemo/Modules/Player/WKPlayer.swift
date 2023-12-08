@@ -601,18 +601,6 @@ public class WKPlayer: NSObject {
             
             return
         }
-        
-        let url = URL.init(string:urlStr)
-        
-        guard !url!.pathExtension.isEmpty else {
-            print("暂无版权")
-            if after! {
-                try self.playNext()
-            } else {
-                try self.playLast()
-            }
-            return
-        }
         switch model.wk_sourceType {
         case .noPermission:
             let error = WKPlayerError.dataSourceError(reason: .noPermission)
@@ -895,6 +883,7 @@ public class WKPlayer: NSObject {
 //            index -= 1
         }
         //如果数据源数组中没有找到要播放的索引的数据
+
         guard let model = allAvailableModels?[index] else {
             let error = WKPlayerError.dataSourceError(reason: .lackOfDataSource)
             unifiedExceptionHandle(error)

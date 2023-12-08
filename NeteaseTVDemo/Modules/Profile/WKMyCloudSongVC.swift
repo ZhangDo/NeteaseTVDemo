@@ -22,7 +22,7 @@ class WKMyCloudSongVC: UIViewController {
     
     func loadData() async {
         do {
-            let cloudDataModels: [NRUserCloudDataModel] = try await fetchUserCloudData(cookie: cookie)
+            let cloudDataModels: [NRUserCloudDataModel] = try await fetchUserCloudData(cookie: cookie, limit: 1000)
             self.allModels.removeAll()
             for cloudDataModel in cloudDataModels {
                 let model = CustomAudioModel()

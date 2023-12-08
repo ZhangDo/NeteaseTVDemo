@@ -92,61 +92,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
                 }
                 self.dailyAudioModels.append(model)
             }
-            self.songView1.setModel(audioModel: self.dailyAudioModels[0])
-            self.songView1.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 0)
-                self!.enterPlayer()
-            }
-                
-            self.songView2.setModel(audioModel: self.dailyAudioModels[1])
-            self.songView2.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 1)
-                self!.enterPlayer()
-            }
-            self.songView3.setModel(audioModel: self.dailyAudioModels[2])
-            self.songView3.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 2)
-                self!.enterPlayer()
-            }
-            self.songView4.setModel(audioModel: self.dailyAudioModels[3])
-            self.songView4.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 3)
-                self!.enterPlayer()
-            }
-            self.songView5.setModel(audioModel: self.dailyAudioModels[4])
-            self.songView5.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 4)
-                self!.enterPlayer()
-            }
-            self.songView6.setModel(audioModel: self.dailyAudioModels[5])
-            self.songView6.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 5)
-                self!.enterPlayer()
-            }
-            self.songView7.setModel(audioModel: self.dailyAudioModels[6])
-            self.songView7.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 6)
-                self!.enterPlayer()
-            }
-            self.songView8.setModel(audioModel: self.dailyAudioModels[7])
-            self.songView8.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 7)
-                self!.enterPlayer()
-            }
-            self.songView9.setModel(audioModel: self.dailyAudioModels[8])
-            self.songView9.onPrimaryAction = { [weak self] model in
-                wk_player.allOriginalModels = self!.dailyAudioModels
-                try? wk_player.play(index: 8)
-                self!.enterPlayer()
-            }
+            setupDailySong()
         } catch {
             print(error)
         }
@@ -157,9 +103,24 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         } catch {
             print(error)
         }
-        
-        
-        
+    }
+    
+    
+    func setupDailySong() {
+        for (index, songView) in [self.songView1, self.songView2, self.songView3, self.songView4, self.songView5, self.songView6, self.songView7, self.songView8, self.songView9].enumerated() {
+            guard index < self.dailyAudioModels.count else { break }
+            setupSongData(songView!, with: self.dailyAudioModels[index], atIndex: index)
+        }
+    }
+    
+    private func setupSongData(_ songView: WKSingleSongView, with model: CustomAudioModel, atIndex index: Int) {
+            songView.setModel(audioModel: model)
+            songView.onPrimaryAction = { [weak self] _ in
+                guard let strongSelf = self else { return }
+                wk_player.allOriginalModels = strongSelf.dailyAudioModels
+                try? wk_player.play(index: index)
+                strongSelf.enterPlayer()
+            }
     }
     
     func enterPlayer() {
