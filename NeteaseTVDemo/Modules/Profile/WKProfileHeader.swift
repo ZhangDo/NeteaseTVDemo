@@ -27,8 +27,6 @@ class WKProfileHeader: UITableViewHeaderFooterView {
                 make.centerX.equalToSuperview()
                 make.top.equalToSuperview()
                 make.size.equalTo(200)
-//                make.height.equalTo(self.contentView).multipliedBy(0.5)
-//                make.width.equalTo(view.snp.height).multipliedBy(1.0)
             }
         })(avatarView)
         
@@ -44,7 +42,6 @@ class WKProfileHeader: UITableViewHeaderFooterView {
         
         ({(label: UILabel) in
             label.font = .systemFont(ofSize: 25, weight: .semibold)
-            label.textColor = .white
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
@@ -54,7 +51,6 @@ class WKProfileHeader: UITableViewHeaderFooterView {
         
         ({(label: UILabel) in
             label.font = .systemFont(ofSize: 25, weight: .semibold)
-            label.textColor = .white
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.right.equalTo(followedsLabel.snp.left).offset(-10)
@@ -64,7 +60,6 @@ class WKProfileHeader: UITableViewHeaderFooterView {
         
         ({(label: UILabel) in
             label.font = .systemFont(ofSize: 25, weight: .semibold)
-            label.textColor = .white
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(followedsLabel.snp.right).offset(10)

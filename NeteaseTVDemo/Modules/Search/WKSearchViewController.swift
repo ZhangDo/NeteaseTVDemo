@@ -2,12 +2,10 @@
 import UIKit
 import NeteaseRequest
 class WKSearchViewController: UIViewController {
-//    private let appData: WKFindModel
     private let searchController: UISearchController
     private let searchContainerViewController: UISearchContainerViewController
     private let searchResultsController = WKSearchResultViewController.creat()
     init() {
-//        self.appData = appData
         self.searchController = UISearchController(searchResultsController: WKSearchResultViewController.creat())
         self.searchContainerViewController = UISearchContainerViewController(searchController: searchController)
         super.init(nibName: nil, bundle: nil)

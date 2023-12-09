@@ -24,7 +24,6 @@ class WKPlayListTableViewCell: UITableViewCell {
         })(picView)
         
         ({(label: MarqueeLabel) in
-//            label.textColor = UIColor(named: "titleColor")
             contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(picView.snp.right).offset(20)
@@ -34,7 +33,6 @@ class WKPlayListTableViewCell: UITableViewCell {
         })(songNameLabel)
         
         ({(label: UILabel) in
-//            label.textColor = UIColor(named: "titleColor")
             label.font = .systemFont(ofSize: 30)
             contentView.addSubview(label)
             label.snp.makeConstraints { make in

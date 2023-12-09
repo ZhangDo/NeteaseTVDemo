@@ -4,7 +4,6 @@ import Kingfisher
 import MarqueeLabel
 class ViewController: UIViewController {
     
-//    var allModels: [CustomAudioModel] = [CustomAudioModel]()
     var lyrics: [String]?
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
@@ -17,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
-//    @IBOutlet weak var playListView: UITableView!
     
     @IBOutlet weak var audioQualityLabel: UILabel!
     @IBOutlet weak var rightView: UIView!
@@ -48,7 +46,6 @@ class ViewController: UIViewController {
             Task {
                 do {
                     lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
-//                    lyricTuple = parserLyric(lyric: try await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
                     self.rightView.isHidden = lyricTuple?.words.count == 1
                     tableView.reloadData()
                 } catch {
@@ -61,7 +58,6 @@ class ViewController: UIViewController {
         
         guard (wk_player.allOriginalModels?.count) != nil else {
             self.bottomActionView.isHidden = true
-//            self.sliderStackView.isHidden = true
             return
         }
         self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
@@ -70,7 +66,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
-//        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
         
     }
@@ -167,7 +162,6 @@ extension ViewController: WKPlayerDelegate {
     }
 
     func didReadTotalTime(totalTime: UInt, formatTime: String, now: CustomAudioModel) {
-//        debugPrint("已经读取到时长为duration = \(totalTime), format = \(formatTime)")
         DispatchQueue.main.async {
             self.rightLabel.text = formatTime
         }

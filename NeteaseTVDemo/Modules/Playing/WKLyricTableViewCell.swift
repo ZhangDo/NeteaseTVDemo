@@ -21,9 +21,6 @@ class WKLyricTableViewCell: UITableViewCell {
 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
-//        if context.nextFocusedView == self {
-//            setSelected(false, animated: false)
-//        }
     }
     
 

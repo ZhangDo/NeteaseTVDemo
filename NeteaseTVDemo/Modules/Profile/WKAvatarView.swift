@@ -1,10 +1,3 @@
-//
-//  WKAvatarView.swift
-//  NeteaseTVDemo
-//
-//  Created by fengyn on 2023/10/21.
-//
-
 import UIKit
 
 class WKAvatarView: UIControl {
@@ -44,15 +37,8 @@ class WKAvatarView: UIControl {
             }
         }
     }
-    
-//    override func pressesBegan  {
-//        super.pressesBegan(presses, with: event)
-//        self.transform =  CGAffineTransformIdentity
-//    }
-    
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesEnded(presses, with: event)
-//        self.transform = CGAffineTransformMakeScale(1.1, 1.1)
         if presses.first?.type == .select {
             sendActions(for: .primaryActionTriggered)
             onPrimaryAction?(self)

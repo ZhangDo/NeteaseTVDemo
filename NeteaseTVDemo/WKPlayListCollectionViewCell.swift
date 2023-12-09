@@ -6,7 +6,7 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
     private var motionEffectV: UIInterpolatingMotionEffect!
     private var motionEffectH: UIInterpolatingMotionEffect!
     var playListCover: UIImageView = UIImageView()
-    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     var titleLabel: UILabel = UILabel()
     var posterView: TVPosterView!
     var scaleFactor: CGFloat = 1.05
@@ -64,19 +64,6 @@ class WKPlayListCollectionViewCell: UICollectionViewCell {
                 make.trailing.equalTo(-10)
             }
         })(titleLabel)
-        
-        
-//        self.posterView = TVPosterView()
-//        self.posterView.imageView.contentMode = .scaleToFill
-//        self.posterView.layer.cornerRadius = 10
-//        self.posterView.clipsToBounds = true
-//        self.posterView.imageView.layer.cornerRadius = 10
-//        self.posterView.imageView.clipsToBounds = true
-//
-//        addSubview(self.posterView)
-//        self.posterView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {

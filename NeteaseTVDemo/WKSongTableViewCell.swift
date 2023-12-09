@@ -16,7 +16,7 @@ class WKSongTableViewCell: UITableViewCell {
         self.selectedBackgroundView = selView
         
         ({(label: UILabel) in
-            label.textColor = .white
+//            label.textColor = .white
             label.font = .systemFont(ofSize: 30)
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
@@ -27,7 +27,6 @@ class WKSongTableViewCell: UITableViewCell {
         })(indexLabel)
         
         ({(label: MarqueeLabel) in
-//            label.textColor = .white
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in
                 make.left.equalTo(self.contentView).offset(80)
@@ -37,7 +36,6 @@ class WKSongTableViewCell: UITableViewCell {
         })(songNameLabel)
         
         ({(label: MarqueeLabel) in
-//            label.textColor = .white
             label.font = .systemFont(ofSize: 30)
             self.contentView.addSubview(label)
             label.snp.makeConstraints { make in

@@ -30,15 +30,15 @@ class WKMyCloudSongVC: UIViewController {
                 model.isFree = 1
                 model.freeTime = 0
                 model.audioTitle = cloudDataModel.songName
-//                model.audioPicUrl = resourceModel.data.al?.picUrl
-//                model.transTitle = resourceModel.data.tns?.first
+                model.audioPicUrl = cloudDataModel.simpleSong.al?.picUrl
+                model.transTitle = cloudDataModel.simpleSong.tns?.first
                 model.albumTitle = cloudDataModel.album ?? ""
-//                let min = (resourceModel.data.dt ?? 0) / 1000 / 60
-//                let sec = (resourceModel.data.dt ?? 0) / 1000 % 60
-//                model.audioTime = String(format: "%d:%02d", min, sec)
-//                if let singerModel = resourceModel.data.ar {
-//                    model.singer = singerModel.map { $0.name! }.joined(separator: "/")
-//                }
+                let min = (cloudDataModel.simpleSong.dt ?? 0) / 1000 / 60
+                let sec = (cloudDataModel.simpleSong.dt ?? 0) / 1000 % 60
+                model.audioTime = String(format: "%d:%02d", min, sec)
+                if let singerModel = cloudDataModel.simpleSong.ar {
+                    model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+                }
                 self.allModels.append(model)
             }
         } catch {

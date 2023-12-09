@@ -60,9 +60,6 @@ extension WKMyCollectionPodcastVC {
     
     
     func makeGridLayoutSection() -> NSCollectionLayoutSection {
-        
-//        let style = styleOverride ?? Settings.displayStyle
-//        let heightDimension = NSCollectionLayoutDimension.estimated(380)
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1/3),
             heightDimension: .fractionalHeight(1)

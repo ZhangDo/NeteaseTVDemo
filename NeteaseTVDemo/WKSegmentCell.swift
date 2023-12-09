@@ -29,7 +29,6 @@ class WKSegmentCell: UICollectionViewCell {
             view.layer.shadowRadius = 16.0
             view.layer.cornerRadius = 30
             view.layer.cornerCurve = .continuous
-//            view.isHidden = !isFocused
             addSubview(view)
             view.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
@@ -53,7 +52,6 @@ class WKSegmentCell: UICollectionViewCell {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         super.didUpdateFocus(in: context, with: coordinator)
-//        bgView.isHidden = !isFocused
         bgView.isHidden = !selectedView.isHidden
         bgView.backgroundColor = isFocused ? .white : UIColor(white: 0.9, alpha: 0.1)
         titleLabel.textColor = isFocused ? (selectedView.isHidden ? .black : .white) : .white

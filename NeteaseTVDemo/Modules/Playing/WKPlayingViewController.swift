@@ -4,8 +4,6 @@ import NeteaseRequest
 import Kingfisher
 import MarqueeLabel
 class WKPlayingViewController: UIViewController {
-
-//    /    var allModels: [CustomAudioModel] = [CustomAudioModel]()
     var lyrics: [String]?
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
@@ -18,14 +16,10 @@ class WKPlayingViewController: UIViewController {
     @IBOutlet weak var nameLabel: MarqueeLabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coverImageView: UIImageView!
-    //    @IBOutlet weak var playListView: UITableView!
     @IBOutlet weak var commentBtn: UIButton!
     
     @IBOutlet weak var audioQualityLabel: UILabel!
-//        @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var singerLabel: MarqueeLabel!
-//        @IBOutlet weak var bottomActionView: UIView!
-//        @IBOutlet weak var sliderStackView: UIStackView!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var bottomActionView: UIStackView!
     static func creat(isPodcast: Bool = false) -> WKPlayingViewController {
@@ -35,7 +29,7 @@ class WKPlayingViewController: UIViewController {
         }
         
     deinit {
-//        wk_player.delegate = nil
+        wk_player.delegate = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +57,6 @@ class WKPlayingViewController: UIViewController {
             Task {
                 do {
                     lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
-//                    lyricTuple = parserLyric(lyric: try await fetchLyric(id: (wk_player.currentModel?.wk_audioId!)!).lyric!)
                     tableView.isHidden = lyricTuple?.words.count == 1
                     tableView.reloadData()
                 } catch {
@@ -76,7 +69,6 @@ class WKPlayingViewController: UIViewController {
         
         guard (wk_player.allOriginalModels?.count) != nil else {
             self.bottomActionView.isHidden = true
-//            self.sliderStackView.isHidden = true
             return
         }
         self.bottomActionView.isHidden = wk_player.allOriginalModels?.count == 1
@@ -85,15 +77,11 @@ class WKPlayingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
-//        playListView.register(WKPlayListTableViewCell.self, forCellReuseIdentifier: "WKPlayListTableViewCell")
         self.coverImageView.layer.cornerRadius = 20;
         self.progressView.isHidden = true
         self.leftTimeLabel.isHidden = true
         self.rightLabel.isHidden = true
         self.commentBtn.isHidden = true
-        
-        
-        
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -296,7 +284,7 @@ extension WKPlayingViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
         cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
         if current == indexPath.row {
-            cell.contentLabel?.textColor = UIColor.label
+            cell.contentLabel?.textColor = UIColor.white
             cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
         } else {
             cell.contentLabel?.textColor = UIColor.lightGray

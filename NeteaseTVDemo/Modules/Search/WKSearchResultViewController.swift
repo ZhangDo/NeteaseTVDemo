@@ -99,9 +99,6 @@ class WKSearchResultViewController: UIViewController {
     }
     
     func makeGridLayoutSection() -> NSCollectionLayoutSection {
-        
-//        let style = styleOverride ?? Settings.displayStyle
-//        let heightDimension = NSCollectionLayoutDimension.estimated(380)
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.25),
             heightDimension: .fractionalHeight(1)

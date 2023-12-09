@@ -66,17 +66,6 @@ extension WKMyCollectionPlaylistVC {
         if baseSpacing > 0 {
             section.contentInsets = NSDirectionalEdgeInsets(top: baseSpacing, leading: 0, bottom: 0, trailing: 0)
         }
-
-//        let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                               heightDimension: .estimated(44))
-//        if showHeader {
-//            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
-//                layoutSize: titleSize,
-//                elementKind: TitleSupplementaryView.reuseIdentifier,
-//                alignment: .top
-//            )
-//            section.boundarySupplementaryItems = [titleSupplementary]
-//        }
         return section
     }
 }

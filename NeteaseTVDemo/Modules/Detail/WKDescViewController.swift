@@ -6,7 +6,6 @@ class WKDescViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     static func creat(desc: String) -> WKDescViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKDescViewController
-//        vc.modalPresentationStyle = .custom
         vc.descStr = desc
         return vc
     }

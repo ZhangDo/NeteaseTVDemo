@@ -35,16 +35,6 @@ class WKMyPlaylistViewController: UIViewController {
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension WKMyPlaylistViewController {
@@ -78,17 +68,6 @@ extension WKMyPlaylistViewController {
         if baseSpacing > 0 {
             section.contentInsets = NSDirectionalEdgeInsets(top: baseSpacing, leading: 0, bottom: 0, trailing: 0)
         }
-
-//        let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                               heightDimension: .estimated(44))
-//        if showHeader {
-//            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
-//                layoutSize: titleSize,
-//                elementKind: TitleSupplementaryView.reuseIdentifier,
-//                alignment: .top
-//            )
-//            section.boundarySupplementaryItems = [titleSupplementary]
-//        }
         return section
     }
 }
