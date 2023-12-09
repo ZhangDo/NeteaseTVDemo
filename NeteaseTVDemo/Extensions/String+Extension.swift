@@ -20,4 +20,16 @@ extension String {
         }
         return (times, words)
     }
+    
+    ///播放时间条转换成秒的格式
+    func convertToSeconds() -> UInt {
+        let components = self.split(separator: ":")
+        guard components.count == 2 else { return 0 }
+        
+        let minuteSeconds = Double(components[0])! * 60
+        let seconds = Double(components[1])!
+        
+        return UInt(round(minuteSeconds + seconds))
+    }
+    
 }

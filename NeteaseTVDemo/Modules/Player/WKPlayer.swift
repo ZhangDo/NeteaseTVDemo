@@ -908,33 +908,33 @@ public class WKPlayer: NSObject {
                 totalTime = wk_playerTool.readDuration(url: currentModel!.wk_playURL!)
             }
         }
+        if let value = Int64(exactly: Float(totalTime) * to) {
+            let seekTime = CMTimeMake(value: value, timescale: 1)
+            debugPrint("准备跳转到\(to)")
+            player?.seek(to: seekTime, toleranceBefore: CMTimeMake(value: 1, timescale: 1), toleranceAfter: CMTimeMake(value: 1, timescale: 1), completionHandler: { [weak self] (finished) in
+                if finished {
+                    guard self?.player?.currentTime() == seekTime else {
+                        return
+                    }
+                    guard self?.canPlay(progress: to) == true else {
+                        return
+                    }
+                    guard let `self` = self else {
+                        return
+                    }
+                    self.progress = to
+                    guard self.needResume == true else {
+                        debugPrint("跳转进度\(to)完成，不恢复播放")
+                        return
+                    }
+                    debugPrint("跳转进度\(to)完成，需要恢复播放")
+                    self.resumePlayer()
+                    self.needResume = false
+                    
+                }
+            })
+        }
         
-        let value = Int64(Float(totalTime) * to)
-        let seekTime = CMTimeMake(value: value, timescale: 1)
-        
-        debugPrint("准备跳转到\(to)")
-        player?.seek(to: seekTime, toleranceBefore: CMTimeMake(value: 1, timescale: 1), toleranceAfter: CMTimeMake(value: 1, timescale: 1), completionHandler: { [weak self] (finished) in
-            if finished {
-                guard self?.player?.currentTime() == seekTime else {
-                    return
-                }
-                guard self?.canPlay(progress: to) == true else {
-                    return
-                }
-                guard let `self` = self else {
-                    return
-                }
-                self.progress = to
-                guard self.needResume == true else {
-                    debugPrint("跳转进度\(to)完成，不恢复播放")
-                    return
-                }
-                debugPrint("跳转进度\(to)完成，需要恢复播放")
-                self.resumePlayer()
-                self.needResume = false
-                
-            }
-        })
     }
     
     /// 判断当前缓冲和缓存情况以及播放器准备状态三个指标是否都能够支持要判断的进度值进行播放

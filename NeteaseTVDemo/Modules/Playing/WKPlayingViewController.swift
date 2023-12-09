@@ -22,6 +22,7 @@ class WKPlayingViewController: UIViewController {
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var bottomActionView: UIStackView!
+    var isTableViewFocused: Bool = false
     static func creat(isPodcast: Bool = false) -> WKPlayingViewController {
             let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKPlayingViewController
             vc.isPodcast = isPodcast
@@ -130,6 +131,22 @@ class WKPlayingViewController: UIViewController {
         }
     }
     
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        if !isTableViewFocused {
+            return [self.playBtn]
+        }
+                // 如果播放按钮不存在，调用父类的实现
+        return super.preferredFocusEnvironments
+    }
+    
+    // 当焦点更新后
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        // 如果焦点更新到了播放按钮，重置标记
+        if context.nextFocusedView == playBtn {
+            isTableViewFocused = false
+        }
+    }
+    
 }
 //MARK:  WKPlayerDelegate
 extension WKPlayingViewController: WKPlayerDelegate {
@@ -223,11 +240,15 @@ extension WKPlayingViewController: WKPlayerDelegate {
             self.leftTimeLabel.text = currentTime
             self.rightLabel.text = totalTime
             self.progressView.progress = detail.progress
-            tableView.reloadData()
+            
             if current >= (lyricTuple?.words.count)! {
                 return
             }
-            tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: false)
+            if !isTableViewFocused {
+                tableView.reloadData()
+                tableView.scrollToRow(at: IndexPath(row: current, section: 0), at: .middle, animated: false)
+            }
+            
         }
 
 
@@ -292,5 +313,23 @@ extension WKPlayingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(lyricTuple?.times[indexPath.row] ?? "")
+        let selectTimeStr = lyricTuple?.times[indexPath.row] ?? ""
+        let time = selectTimeStr.convertToSeconds()
+        wk_player.prepareForSeek(to: (Float(time) / Float(wk_player.totalTime)))
+        isTableViewFocused = false
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: indexPath.row, section: 0), at: .middle, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if let nextIndexPath = context.nextFocusedIndexPath {
+            isTableViewFocused = true
+        } else {
+            isTableViewFocused = false
+        }
     }
 }
