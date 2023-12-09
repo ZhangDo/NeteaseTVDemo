@@ -21,6 +21,8 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     @IBOutlet weak var songView7: WKSingleSongView!
     @IBOutlet weak var songView8: WKSingleSongView!
     @IBOutlet weak var songView9: WKSingleSongView!
+    @IBOutlet weak var moreDailySongsView: WKMoreView!
+    @IBOutlet weak var moreRecommendListView: WKMoreView!
     @IBOutlet weak var bannerView: FSPagerView! {
         didSet {
             self.bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -45,6 +47,16 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         recommendView.register(WKPlayListCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self))
         recommendView.collectionViewLayout = makeRecommendCollectionViewLayout()
         recommendView.isScrollEnabled = false
+        
+        self.moreDailySongsView.onPrimaryAction = {
+            [weak self] _ in
+            print("每日推荐单曲")
+        }
+        
+        self.moreRecommendListView.onPrimaryAction = { [weak self] _ in
+            let vc = WKRecommendPlaylistVC.creat()
+            self!.present(vc, animated: true)
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "login"), object: nil)
         
@@ -127,12 +139,6 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         let playingVC = WKPlayingViewController.creat()
         playingVC.modalPresentationStyle = .blurOverFullScreen
         self.present(playingVC, animated: true)
-    }
-    
-    @IBAction func moreRecommendPlaylist(_ sender: Any) {
-        print("更多歌单")
-        let vc = WKRecommendPlaylistVC.creat()
-        self.present(vc, animated: true)
     }
     
     // MARK:- FSPagerView DataSource

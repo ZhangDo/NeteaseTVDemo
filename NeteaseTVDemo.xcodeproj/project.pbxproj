@@ -86,6 +86,7 @@
 		29E033E82ADE2766002A4B37 /* WKSingerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E033E72ADE2766002A4B37 /* WKSingerDetailViewController.swift */; };
 		29E372B92AE5FD2C00CF7CA3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E372B82AE5FD2C00CF7CA3 /* String+Extension.swift */; };
 		29E96A1C2B21B997003AB1E7 /* WKMyCloudSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E96A1B2B21B997003AB1E7 /* WKMyCloudSongVC.swift */; };
+		29E96A242B244947003AB1E7 /* WKMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E96A232B244947003AB1E7 /* WKMoreView.swift */; };
 		29EBE67C2ADFA8E20023E9C7 /* WKVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBE67B2ADFA8E20023E9C7 /* WKVideoViewController.swift */; };
 		29EBE67E2ADFB5900023E9C7 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EBE67D2ADFB5900023E9C7 /* Int+Extension.swift */; };
 		29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F5F92AB0113F00E2F389 /* Kingfisher */; };
@@ -185,6 +186,7 @@
 		29E033E72ADE2766002A4B37 /* WKSingerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSingerDetailViewController.swift; sourceTree = "<group>"; };
 		29E372B82AE5FD2C00CF7CA3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		29E96A1B2B21B997003AB1E7 /* WKMyCloudSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKMyCloudSongVC.swift; sourceTree = "<group>"; };
+		29E96A232B244947003AB1E7 /* WKMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKMoreView.swift; sourceTree = "<group>"; };
 		29EBE67B2ADFA8E20023E9C7 /* WKVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKVideoViewController.swift; sourceTree = "<group>"; };
 		29EBE67D2ADFB5900023E9C7 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		29F2F6192AB18A9900E2F389 /* WKConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKConfig.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */,
 				29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */,
 				29DC0E3E2AD27D4500DD314A /* WKDescViewController.swift */,
+				29E96A232B244947003AB1E7 /* WKMoreView.swift */,
 				29E033E72ADE2766002A4B37 /* WKSingerDetailViewController.swift */,
 				293F74F52ADF643D00692091 /* WKSongListViewController.swift */,
 				293F74FC2ADF7EBB00692091 /* WKSingerDetailAlbumListVC.swift */,
@@ -593,6 +596,7 @@
 				29FAC75A2AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift in Sources */,
 				2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */,
 				29F2F61A2AB18A9900E2F389 /* WKConfig.swift in Sources */,
+				29E96A242B244947003AB1E7 /* WKMoreView.swift in Sources */,
 				2969158C2AF246A300ED9298 /* WKAboutViewController.swift in Sources */,
 				297F2E0C2AD8E50F002F4F24 /* UserDefault+.swift in Sources */,
 				29C865692AC415CA00AB008A /* WKSingleSongView.swift in Sources */,

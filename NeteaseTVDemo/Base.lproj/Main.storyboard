@@ -1213,13 +1213,22 @@
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqc-Zz-KAG" customClass="WKMoreView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                    <rect key="frame" x="483" y="20.5" width="70" height="90"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="70" id="NLc-2A-bcQ"/>
+                                                                        <constraint firstAttribute="height" constant="90" id="aoS-kv-fWw"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rv3-Ki-oFL" secondAttribute="trailing" constant="20" symbolic="YES" id="3Qf-AP-df6"/>
                                                                 <constraint firstAttribute="height" constant="500" id="5Sf-47-Pxs"/>
                                                                 <constraint firstItem="HEb-cM-roh" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" constant="30" id="6gr-bL-eFl"/>
                                                                 <constraint firstItem="rv3-Ki-oFL" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="top" constant="20" id="7PA-yT-y9w"/>
+                                                                <constraint firstItem="xqc-Zz-KAG" firstAttribute="leading" secondItem="rv3-Ki-oFL" secondAttribute="trailing" constant="15" id="7r8-72-1Rg"/>
                                                                 <constraint firstAttribute="trailing" secondItem="HEb-cM-roh" secondAttribute="trailing" constant="30" id="AOD-kK-aWQ"/>
+                                                                <constraint firstItem="xqc-Zz-KAG" firstAttribute="centerY" secondItem="rv3-Ki-oFL" secondAttribute="centerY" id="AxQ-1K-zp1"/>
                                                                 <constraint firstItem="HEb-cM-roh" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="top" constant="140" id="USj-oM-aj2"/>
                                                                 <constraint firstAttribute="bottom" secondItem="HEb-cM-roh" secondAttribute="bottom" id="Uru-s6-olJ"/>
                                                                 <constraint firstItem="rv3-Ki-oFL" firstAttribute="leading" secondItem="NCi-8W-p0S" secondAttribute="leading" constant="10" id="cCB-qz-QJm"/>
@@ -1228,20 +1237,14 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoQ-yL-wXw">
                                                             <rect key="frame" x="-8" y="1030" width="1760" height="3570"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwn-1h-SDg">
-                                                                    <rect key="frame" x="40" y="24" width="386" height="131"/>
-                                                                    <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" title="更多"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="推荐歌单">
-                                                                        <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
-                                                                    </buttonConfiguration>
-                                                                    <connections>
-                                                                        <action selector="moreRecommendPlaylist:" destination="Wfi-8j-fvb" eventType="primaryActionTriggered" id="zzS-gD-8vF"/>
-                                                                    </connections>
-                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD0-pd-zLj">
+                                                                    <rect key="frame" x="10" y="27" width="306" height="91"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VQS-ML-TGF">
-                                                                    <rect key="frame" x="0.0" y="165" width="1760" height="3405"/>
+                                                                    <rect key="frame" x="0.0" y="148" width="1760" height="3422"/>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JiR-xJ-Uj4">
                                                                         <size key="itemSize" width="128" height="128"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1263,21 +1266,29 @@
                                                                         <outlet property="delegate" destination="Wfi-8j-fvb" id="wd5-mo-OaB"/>
                                                                     </connections>
                                                                 </collectionView>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlu-s9-nzs" customClass="WKMoreView" customModule="NeteaseTVDemo" customModuleProvider="target">
+                                                                    <rect key="frame" x="331" y="27.5" width="70" height="90"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="90" id="hbL-6k-YXZ"/>
+                                                                        <constraint firstAttribute="width" constant="70" id="ks0-2y-38U"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dwn-1h-SDg" secondAttribute="trailing" constant="60" symbolic="YES" id="FnT-3z-Kem"/>
+                                                                <constraint firstItem="hlu-s9-nzs" firstAttribute="leading" secondItem="OD0-pd-zLj" secondAttribute="trailing" constant="15" id="41g-mT-ErT"/>
+                                                                <constraint firstItem="VQS-ML-TGF" firstAttribute="top" secondItem="OD0-pd-zLj" secondAttribute="bottom" constant="30" id="6p2-Vx-J3L"/>
                                                                 <constraint firstAttribute="bottom" secondItem="VQS-ML-TGF" secondAttribute="bottom" id="FoI-xp-6bq"/>
                                                                 <constraint firstAttribute="trailing" secondItem="VQS-ML-TGF" secondAttribute="trailing" id="HUa-qj-suf"/>
-                                                                <constraint firstItem="VQS-ML-TGF" firstAttribute="top" secondItem="Dwn-1h-SDg" secondAttribute="bottom" constant="10" id="M5M-Id-ZsP"/>
                                                                 <constraint firstItem="VQS-ML-TGF" firstAttribute="leading" secondItem="UoQ-yL-wXw" secondAttribute="leading" id="PQb-q9-KOP"/>
-                                                                <constraint firstItem="Dwn-1h-SDg" firstAttribute="leading" secondItem="UoQ-yL-wXw" secondAttribute="leading" constant="40" id="Q3o-V4-CxV"/>
-                                                                <constraint firstItem="Dwn-1h-SDg" firstAttribute="top" secondItem="UoQ-yL-wXw" secondAttribute="top" constant="24" symbolic="YES" id="gyB-3L-bwP"/>
+                                                                <constraint firstItem="hlu-s9-nzs" firstAttribute="centerY" secondItem="OD0-pd-zLj" secondAttribute="centerY" id="Zl9-J1-deX"/>
+                                                                <constraint firstItem="OD0-pd-zLj" firstAttribute="leading" secondItem="UoQ-yL-wXw" secondAttribute="leading" constant="10" id="e7M-xH-llb"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8aU-m3-bSJ"/>
                                                         <constraint firstItem="NCi-8W-p0S" firstAttribute="leading" secondItem="Fb7-83-C9u" secondAttribute="leading" id="8sb-MS-x3t"/>
+                                                        <constraint firstItem="OD0-pd-zLj" firstAttribute="top" secondItem="NCi-8W-p0S" secondAttribute="bottom" constant="47" id="Bc6-tM-YtZ"/>
                                                         <constraint firstItem="NCi-8W-p0S" firstAttribute="top" secondItem="cuk-eD-xRE" secondAttribute="bottom" constant="10" id="Ejx-nG-YMM"/>
                                                         <constraint firstItem="cuk-eD-xRE" firstAttribute="top" secondItem="Fb7-83-C9u" secondAttribute="top" id="JZu-ec-2cg"/>
                                                         <constraint firstAttribute="trailing" secondItem="cuk-eD-xRE" secondAttribute="trailing" id="MtG-ct-i8u"/>
@@ -1330,6 +1341,8 @@
                     <connections>
                         <outlet property="DailyRecommendView" destination="mw7-tb-CUU" id="lKj-nS-Pk3"/>
                         <outlet property="bannerView" destination="cei-MW-7pK" id="3qu-VH-S54"/>
+                        <outlet property="moreDailySongsView" destination="xqc-Zz-KAG" id="4nN-Hz-LrH"/>
+                        <outlet property="moreRecommendListView" destination="hlu-s9-nzs" id="C86-TN-IO5"/>
                         <outlet property="recommendView" destination="VQS-ML-TGF" id="ktA-16-cZD"/>
                         <outlet property="songView1" destination="Ou0-2e-X4c" id="N9P-It-ByW"/>
                         <outlet property="songView2" destination="nep-Rg-s5g" id="qub-r8-3Ml"/>
