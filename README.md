@@ -30,6 +30,9 @@
 ## 支持平台
 Apple TV
 
+## 项目动态
+![Alt](https://repobeats.axiom.co/api/embed/71af082fd5501aa3498863b67b470bc2ec5496f2.svg "Repobeats analytics image")
+
 
 ## 开源代码：
 
