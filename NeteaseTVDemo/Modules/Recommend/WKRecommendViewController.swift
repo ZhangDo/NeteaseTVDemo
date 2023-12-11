@@ -50,7 +50,8 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         
         self.moreDailySongsView.onPrimaryAction = {
             [weak self] _ in
-            print("每日推荐单曲")
+            let dailySongVC = WKDailySongsViewController.creat()
+            self!.present(dailySongVC, animated: true)
         }
         
         self.moreRecommendListView.onPrimaryAction = { [weak self] _ in

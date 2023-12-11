@@ -912,7 +912,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqN-WE-31O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5708" y="2276"/>
+            <point key="canvasLocation" x="-5857" y="2279"/>
         </scene>
         <!--播客-->
         <scene sceneID="xAC-pI-Jem">
@@ -1074,7 +1074,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzQ-Cx-KUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7947" y="6971"/>
+            <point key="canvasLocation" x="-7947" y="6800"/>
         </scene>
         <!--推荐-->
         <scene sceneID="UWU-Tm-q0a">
@@ -2989,6 +2989,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRC-Kw-BYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7871" y="5256"/>
+        </scene>
+        <!--每日推荐-->
+        <scene sceneID="OvY-wg-c6g">
+            <objects>
+                <viewController storyboardIdentifier="WKDailySongsViewController" title="每日推荐" id="414-NX-Zt9" customClass="WKDailySongsViewController" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gFK-t8-7tz"/>
+                        <viewControllerLayoutGuide type="bottom" id="IS1-pb-ryj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ejW-d5-cwO">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="yhe-SK-Ojj">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiX-pd-DwV">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="V4n-dJ-fZg">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lv0-Xd-ddd">
+                                            <rect key="frame" x="410" y="60" width="306" height="91"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="60" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="su5-wg-yDq">
+                                <rect key="frame" x="80" y="60" width="300" height="960"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Pww-mx-fiJ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="414-NX-Zt9" id="09C-PJ-iZo"/>
+                                    <outlet property="delegate" destination="414-NX-Zt9" id="3YJ-kC-kmz"/>
+                                </connections>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k0J-K2-0Br">
+                                <rect key="frame" x="410" y="160" width="1430" height="860"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Myc-oa-it7">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gFL-a2-43M">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="JAe-1e-xPr">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="414-NX-Zt9" id="6yw-xK-2Yh"/>
+                                    <outlet property="delegate" destination="414-NX-Zt9" id="alv-K9-LkA"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Bu-Js-Q6b"/>
+                        <constraints>
+                            <constraint firstItem="9Bu-Js-Q6b" firstAttribute="bottom" secondItem="k0J-K2-0Br" secondAttribute="bottom" id="7Wh-X9-Fon"/>
+                            <constraint firstItem="Lv0-Xd-ddd" firstAttribute="leading" secondItem="k0J-K2-0Br" secondAttribute="leading" id="GhW-RR-fEI"/>
+                            <constraint firstItem="eiX-pd-DwV" firstAttribute="leading" secondItem="ejW-d5-cwO" secondAttribute="leading" id="T0K-Hb-3QA"/>
+                            <constraint firstItem="9Bu-Js-Q6b" firstAttribute="trailing" secondItem="k0J-K2-0Br" secondAttribute="trailing" id="X1F-Mo-Ofr"/>
+                            <constraint firstItem="eiX-pd-DwV" firstAttribute="top" secondItem="ejW-d5-cwO" secondAttribute="top" id="aIL-FN-h3y"/>
+                            <constraint firstAttribute="trailing" secondItem="eiX-pd-DwV" secondAttribute="trailing" id="bkB-qN-XHt"/>
+                            <constraint firstItem="Lv0-Xd-ddd" firstAttribute="top" secondItem="su5-wg-yDq" secondAttribute="top" id="gEU-3h-KUI"/>
+                            <constraint firstItem="su5-wg-yDq" firstAttribute="leading" secondItem="9Bu-Js-Q6b" secondAttribute="leading" id="jCd-WV-BHG"/>
+                            <constraint firstAttribute="bottom" secondItem="eiX-pd-DwV" secondAttribute="bottom" id="qgv-Xu-5z2"/>
+                            <constraint firstItem="su5-wg-yDq" firstAttribute="top" secondItem="9Bu-Js-Q6b" secondAttribute="top" id="uEb-AE-pqe"/>
+                            <constraint firstItem="9Bu-Js-Q6b" firstAttribute="bottom" secondItem="su5-wg-yDq" secondAttribute="bottom" id="uL1-tX-SDb"/>
+                            <constraint firstItem="k0J-K2-0Br" firstAttribute="leading" secondItem="su5-wg-yDq" secondAttribute="trailing" constant="30" id="uL1-yP-Yx3"/>
+                            <constraint firstItem="k0J-K2-0Br" firstAttribute="top" secondItem="9Bu-Js-Q6b" secondAttribute="top" constant="100" id="yNc-hB-SMw"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="浏览" id="9rs-2g-Ry2"/>
+                    <navigationItem key="navigationItem" id="EJB-SK-MDR"/>
+                    <connections>
+                        <outlet property="collectionView" destination="k0J-K2-0Br" id="dX5-jS-f7e"/>
+                        <outlet property="tableView" destination="su5-wg-yDq" id="2uT-Q1-ypm"/>
+                        <outlet property="timeLabel" destination="Lv0-Xd-ddd" id="f7c-nB-emo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gah-SI-9le" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-8064" y="8336"/>
         </scene>
     </scenes>
     <designables>

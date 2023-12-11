@@ -47,9 +47,6 @@ class WKFindViewController: UIViewController {
         } catch {
             print(error)
         }
-        
-        
-        
     }
 
 
