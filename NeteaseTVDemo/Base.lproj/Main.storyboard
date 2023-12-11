@@ -2329,13 +2329,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opY-ZQ-4dR">
                                                             <rect key="frame" x="117" y="500" width="460" height="80"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apR-TI-Elh">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apR-TI-Elh">
                                                                     <rect key="frame" x="0.0" y="12.5" width="79" height="35"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" systemColor="lightTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jft-ds-n4y">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jft-ds-n4y">
                                                                     <rect key="frame" x="381" y="12.5" width="79" height="35"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" systemColor="lightTextColor"/>
@@ -2368,11 +2368,11 @@
                                                                 <constraint firstItem="apR-TI-Elh" firstAttribute="centerY" secondItem="un9-4V-j7B" secondAttribute="centerY" id="wji-mf-ehc"/>
                                                             </constraints>
                                                         </view>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w2T-aQ-SrY">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w2T-aQ-SrY">
                                                             <rect key="frame" x="117" y="600" width="460" height="86"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZI-Mq-4dm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="86"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="76" height="86"/>
                                                                     <color key="tintColor" systemColor="lightTextColor"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2383,18 +2383,18 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QW-e3-rHS">
-                                                                    <rect key="frame" x="92" y="0.0" width="92" height="86"/>
+                                                                    <rect key="frame" x="96" y="0.0" width="76" height="86"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="backward.end.fill" catalog="system"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="backward.end.fill" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="backward.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="previous:" destination="yRg-eE-YDZ" eventType="touchUpInside" id="FJ1-Ex-kBX"/>
                                                                         <action selector="previous:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="umC-15-td8"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnx-43-YcR">
-                                                                    <rect key="frame" x="184" y="0.0" width="92" height="86"/>
+                                                                    <rect key="frame" x="192" y="0.0" width="76" height="86"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="forward.end.fill" catalog="system"/>
@@ -2404,18 +2404,18 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byL-k9-JJF">
-                                                                    <rect key="frame" x="276" y="0.0" width="92" height="86"/>
+                                                                    <rect key="frame" x="288" y="0.0" width="76" height="86"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="forward.end.fill" catalog="system"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="forward.end.fill" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="forward.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="next:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="p4n-ax-6du"/>
                                                                         <action selector="next:" destination="yRg-eE-YDZ" eventType="touchUpInside" id="r5X-Au-JVY"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eo2-Kb-Iyy">
-                                                                    <rect key="frame" x="368" y="0.0" width="92" height="86"/>
+                                                                    <rect key="frame" x="384" y="0.0" width="76" height="86"/>
                                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3119,8 +3119,10 @@
     </designables>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="backward.fill" catalog="system" width="128" height="81"/>
         <image name="bgImage" width="1280" height="768"/>
         <image name="forward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="forward.fill" catalog="system" width="128" height="81"/>
         <image name="go-back-left-arrow" width="192" height="192"/>
         <image name="gradient_bg" width="1280" height="720"/>
         <image name="heart" catalog="system" width="128" height="109"/>
