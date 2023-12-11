@@ -2378,6 +2378,9 @@
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="backward.end.fill" catalog="system"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="shuffle" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="changePlayMode:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="FeQ-bJ-WlL"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7QW-e3-rHS">
                                                                     <rect key="frame" x="92" y="0.0" width="92" height="86"/>
@@ -2418,6 +2421,9 @@
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="forward.end.fill" catalog="system"/>
                                                                     <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="likeAudio:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="b1o-gT-1GG"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

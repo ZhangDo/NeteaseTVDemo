@@ -118,6 +118,13 @@ class WKPlayingViewController: UIViewController {
         
         
     }
+    @IBAction func changePlayMode(_ sender: Any) {
+        showAlert("该功能还在开发中")
+    }
+    @IBAction func likeAudio(_ sender: Any) {
+        showAlert("该功能还在开发中")
+    }
+    
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         super.pressesBegan(presses, with: event)
         for press in presses {
