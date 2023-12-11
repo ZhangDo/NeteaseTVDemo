@@ -305,7 +305,7 @@ extension WKPlayingViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WKLyricTableViewCell
         cell.contentLabel!.text = lyricTuple?.words[indexPath.row] ?? ""
         if current == indexPath.row {
-            cell.contentLabel?.textColor = UIColor.white
+            cell.contentLabel?.textColor = isTableViewFocused ? UIColor.black : UIColor.white
             cell.contentLabel?.font = .systemFont(ofSize: 70, weight: .bold)
         } else {
             cell.contentLabel?.textColor = UIColor.lightGray
@@ -323,6 +323,7 @@ extension WKPlayingViewController: UITableViewDelegate, UITableViewDataSource {
         isTableViewFocused = false
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: indexPath.row, section: 0), at: .middle, animated: false)
+        self.playBtn.isHighlighted = true
     }
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
