@@ -1393,12 +1393,15 @@
                                         <rect key="frame" x="0.0" y="340" width="900" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBs-im-WDn">
-                                                <rect key="frame" x="774.5" y="-3" width="125.5" height="86.5"/>
+                                                <rect key="frame" x="774.5" y="3" width="125.5" height="74.5"/>
                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dxi-cg-nI9">
                                                 <rect key="frame" x="0.0" y="0.0" width="450" height="80"/>
@@ -1616,12 +1619,15 @@
                                         <rect key="frame" x="0.0" y="340" width="900" height="80"/>
                                         <subviews>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kk-8w-3RD">
-                                                <rect key="frame" x="774.5" y="-3" width="125.5" height="86.5"/>
+                                                <rect key="frame" x="774.5" y="3" width="125.5" height="74.5"/>
                                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal">
                                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                </buttonConfiguration>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KU8-O6-NCL">
                                                 <rect key="frame" x="0.0" y="0.0" width="750" height="80"/>
@@ -2420,7 +2426,7 @@
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="forward.end.fill" catalog="system"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="likeAudio:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="b1o-gT-1GG"/>
                                                                     </connections>
@@ -2504,6 +2510,7 @@
                         <outlet property="coverImageView" destination="DZa-f5-B9b" id="TXg-SZ-Eqx"/>
                         <outlet property="infoStackView" destination="0a1-98-zbj" id="9Ag-NI-vxQ"/>
                         <outlet property="leftTimeLabel" destination="apR-TI-Elh" id="BsP-Ca-o3I"/>
+                        <outlet property="likeBtn" destination="Eo2-Kb-Iyy" id="rLW-sr-lQ1"/>
                         <outlet property="nameLabel" destination="8Ls-zs-VDy" id="1dz-IU-59k"/>
                         <outlet property="playBtn" destination="Hnx-43-YcR" id="a41-Z1-cxq"/>
                         <outlet property="progressView" destination="4oO-ze-TWP" id="AE1-jw-NLX"/>
@@ -3180,7 +3187,6 @@
         <image name="go-back-left-arrow" width="192" height="192"/>
         <image name="gradient_bg" width="1280" height="720"/>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house-outline" width="192" height="192"/>
         <image name="list.bullet" catalog="system" width="128" height="91"/>
         <image name="menu-2" width="192" height="192"/>

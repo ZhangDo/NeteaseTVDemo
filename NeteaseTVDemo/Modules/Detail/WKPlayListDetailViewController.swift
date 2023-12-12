@@ -27,21 +27,34 @@ class WKPlayListDetailViewController: UIViewController {
     }
     
     func loadData() async {
-        let playListDetail: NRPlayListDetailModel = try! await fetchPlayListDetail(id: self.playListId, cookie: cookie)
-        self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
-        self.nameLabel.text = playListDetail.name
-        self.descView.descLabel.text = playListDetail.description
-        self.descView.onPrimaryAction = { [weak self] model in
-            let vc = WKDescViewController.creat(desc: playListDetail.description ?? "")
-            self!.present(vc, animated: true)
+        do {
+            let playListDetail: NRPlayListDetailModel = try await fetchPlayListDetail(id: self.playListId, cookie: cookie)
+            self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
+            self.nameLabel.text = playListDetail.name
+            self.collectButton.tintColor = playListDetail.subscribed! ? .systemPink : .lightGray
+            self.collectButton.setImage(UIImage(systemName:  playListDetail.subscribed! ? "heart.fill" : "heart"), for: .normal)
+            self.descView.descLabel.text = playListDetail.description
+            self.descView.onPrimaryAction = { [weak self] model in
+                let vc = WKDescViewController.creat(desc: playListDetail.description ?? "")
+                self!.present(vc, animated: true)
+            }
+        } catch {
+            print(error)
         }
         
+        
         do {
+            var likeIds = [Int]()
+            if let userModel: NRProfileModel = UserDefaults.standard.codable(forKey: "userModel") {
+                likeIds = try await fetchLikeMusicList(uid: userModel.userId, cookie: cookie)
+            }
+            
             let songModels:[NRSongModel] = try await fetchPlayListTrackAll(cookie: cookie, id: self.playListId,limit: 500)
             self.allModels.removeAll()
             for songModel in songModels {
                 let model = CustomAudioModel()
                 model.audioId = songModel.id
+                model.like = likeIds.contains(songModel.id)
                 model.isFree = 1
                 model.freeTime = 0
                 model.audioTitle = songModel.name
