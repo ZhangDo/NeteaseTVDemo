@@ -58,7 +58,7 @@ class WKSearchResultViewController: UIViewController {
                         model.audioTitle = songModel.name
                         model.audioPicUrl = songModel.al?.picUrl
                         if let singerModel = songModel.ar {
-                            model.singer = singerModel.map { $0.name! }.joined(separator: "/")
+                            model.singer = singerModel.map { $0.name ?? "" }.joined(separator: "/")
                         }
                         self.audioModels.append(model)
                     }
