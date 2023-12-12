@@ -80,6 +80,7 @@
 		29A1D7062AD65294005EAFC0 /* WKFindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1D7052AD65294005EAFC0 /* WKFindModel.swift */; };
 		29A1D7092AD78721005EAFC0 /* WKPodcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A1D7082AD78721005EAFC0 /* WKPodcastViewController.swift */; };
 		29C865692AC415CA00AB008A /* WKSingleSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C865682AC415CA00AB008A /* WKSingleSongView.swift */; };
+		29D6ADBE2B27EAAC00BC3695 /* WKMyCollectionMVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D6ADBD2B27EAAC00BC3695 /* WKMyCollectionMVVC.swift */; };
 		29DC0E3B2AD104F000DD314A /* WKUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */; };
 		29DC0E3D2AD252AD00DD314A /* WKRecommendPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */; };
 		29DC0E3F2AD27D4500DD314A /* WKDescViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DC0E3E2AD27D4500DD314A /* WKDescViewController.swift */; };
@@ -182,6 +183,7 @@
 		29A1D7052AD65294005EAFC0 /* WKFindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKFindModel.swift; sourceTree = "<group>"; };
 		29A1D7082AD78721005EAFC0 /* WKPodcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPodcastViewController.swift; sourceTree = "<group>"; };
 		29C865682AC415CA00AB008A /* WKSingleSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKSingleSongView.swift; sourceTree = "<group>"; };
+		29D6ADBD2B27EAAC00BC3695 /* WKMyCollectionMVVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKMyCollectionMVVC.swift; sourceTree = "<group>"; };
 		29DC0E3A2AD104F000DD314A /* WKUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		29DC0E3C2AD252AD00DD314A /* WKRecommendPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRecommendPlaylistVC.swift; sourceTree = "<group>"; };
 		29DC0E3E2AD27D4500DD314A /* WKDescViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKDescViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				2969157D2AEF4E5C00ED9298 /* WKMyCollectionPlaylistVC.swift */,
 				296915852AEF90B200ED9298 /* WKMyCollectionAlbumVC.swift */,
 				296915872AEF923800ED9298 /* WKMyCollectionPodcastVC.swift */,
+				29D6ADBD2B27EAAC00BC3695 /* WKMyCollectionMVVC.swift */,
 				29E96A1B2B21B997003AB1E7 /* WKMyCloudSongVC.swift */,
 				2969157F2AEF804000ED9298 /* WKMyPlaylistViewController.swift */,
 				296915812AEF82A200ED9298 /* WKSettingViewController.swift */,
@@ -620,6 +623,7 @@
 				295FA8142A985D3500B35C54 /* AppDelegate.swift in Sources */,
 				296915802AEF804000ED9298 /* WKMyPlaylistViewController.swift in Sources */,
 				2969156C2AE645E100ED9298 /* WKRecentPlayViewController.swift in Sources */,
+				29D6ADBE2B27EAAC00BC3695 /* WKMyCollectionMVVC.swift in Sources */,
 				F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */,
 				29A1D6FF2AD4E3E1005EAFC0 /* WKLoginViewController.swift in Sources */,
 				2969157C2AEF48A900ED9298 /* WKMyCollectionVC.swift in Sources */,

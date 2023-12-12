@@ -2377,7 +2377,7 @@
                                                                     <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="backward.end.fill" catalog="system"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="shuffle" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="changePlayMode:" destination="yRg-eE-YDZ" eventType="primaryActionTriggered" id="FeQ-bJ-WlL"/>
                                                                     </connections>
@@ -2538,6 +2538,7 @@
                                     <tabBarItem title="歌单" id="uCR-W3-VmD"/>
                                     <tabBarItem title="专辑" id="fHM-n4-Pok"/>
                                     <tabBarItem title="播客" id="22U-Fx-uFz"/>
+                                    <tabBarItem title="MV" id="Gye-Ze-9Fe"/>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="RqD-8n-a3X" id="l0m-6k-C22"/>
@@ -2762,10 +2763,10 @@
             </objects>
             <point key="canvasLocation" x="5371" y="10086"/>
         </scene>
-        <!--My Collection PodcastVC-->
+        <!--我收藏的MV-->
         <scene sceneID="iiM-X2-LcA">
             <objects>
-                <viewController storyboardIdentifier="WKMyCollectionPodcastVC" id="Z6o-RH-5FM" customClass="WKMyCollectionPodcastVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WKMyCollectionMVVC" title="我收藏的MV" id="Z6o-RH-5FM" customClass="WKMyCollectionMVVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r2J-bJ-jLa"/>
                         <viewControllerLayoutGuide type="bottom" id="hr2-Mj-bmA"/>
@@ -2813,7 +2814,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4h-i0-0Ku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5371" y="11721"/>
+            <point key="canvasLocation" x="5371" y="13261"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="chC-Ea-Eta">
@@ -3110,6 +3111,59 @@
             </objects>
             <point key="canvasLocation" x="-8064" y="8336"/>
         </scene>
+        <!--My Collection PodcastVC-->
+        <scene sceneID="hZ8-6V-zaz">
+            <objects>
+                <viewController storyboardIdentifier="WKMyCollectionPodcastVC" id="Hic-KF-hgi" customClass="WKMyCollectionPodcastVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U1W-A5-fEI"/>
+                        <viewControllerLayoutGuide type="bottom" id="vs4-4y-an6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qwk-am-i4j">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qS5-xT-eqv">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QlG-2N-qeG">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="ofr-6e-ckM">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sfA-Qt-FXL">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hic-KF-hgi" id="OUv-B7-3oY"/>
+                                    <outlet property="delegate" destination="Hic-KF-hgi" id="GxC-IF-Rxl"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yIJ-F7-RlC"/>
+                        <constraints>
+                            <constraint firstItem="qS5-xT-eqv" firstAttribute="leading" secondItem="yIJ-F7-RlC" secondAttribute="leading" id="Fsb-QY-onE"/>
+                            <constraint firstItem="qS5-xT-eqv" firstAttribute="top" secondItem="yIJ-F7-RlC" secondAttribute="top" id="M5i-Xv-52L"/>
+                            <constraint firstItem="yIJ-F7-RlC" firstAttribute="trailing" secondItem="qS5-xT-eqv" secondAttribute="trailing" id="biX-Ai-ndZ"/>
+                            <constraint firstItem="yIJ-F7-RlC" firstAttribute="bottom" secondItem="qS5-xT-eqv" secondAttribute="bottom" id="s8A-kt-gPy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="qS5-xT-eqv" id="Vd8-Gk-Csd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmg-4g-Rrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5371" y="11721"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="8Ls-zs-VDy"/>
@@ -3128,6 +3182,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house-outline" width="192" height="192"/>
+        <image name="list.bullet" catalog="system" width="128" height="91"/>
         <image name="menu-2" width="192" height="192"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="101"/>
         <image name="pause.fill" catalog="system" width="120" height="128"/>
@@ -3135,7 +3190,6 @@
         <image name="refresh-button" width="192" height="192"/>
         <image name="resize-arrows" width="192" height="192"/>
         <image name="right-arrow-forward" width="192" height="192"/>
-        <image name="shuffle" catalog="system" width="128" height="96"/>
         <namedColor name="sectionTitleColor">
             <color red="0.034000005573034286" green="0.085999995470046997" blue="0.079999998211860657" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
