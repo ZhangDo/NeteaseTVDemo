@@ -61,6 +61,8 @@ class WKPlayingViewController: UIViewController {
             self.playModeBtn.setImage(UIImage(systemName: shufflePlay ? "shuffle" : "list.bullet"), for: .normal)
             if isPodcast {
                 self.commentBtn.isHidden = true
+                self.likeBtn.isHidden = true
+                self.playModeBtn.isHidden = true
             }
             Task {
                 do {
