@@ -86,6 +86,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let activeAudioId = url.host()
+        if let currentAudioId = wk_player.currentModel?.wk_audioId {
+            if String(currentAudioId) == activeAudioId && wk_player.isPlaying {
+                if let tabBarViewController = window?.rootViewController as? WKTabBarViewController {
+                    tabBarViewController.selectedIndex = 4
+                }
+                return true
+            }
+        }
+        if let playList : [CustomAudioModel] = UserDefaults.standard.shareListValue(forKey: "playList"){
+            wk_player.allOriginalModels = playList
+            for (index, audio) in playList.enumerated() {
+                if let audioId = audio.wk_audioId {
+                    if String(audioId) == activeAudioId {
+                        if (try? wk_player.play(index: index)) != nil {
+                            //刷新缓存播放列表顺序
+                            if ( playList.count - 1 > index){
+                                var newplayList = Array(playList[index+1...playList.count-1] + playList[0...index])
+                                UserDefaults.standard.setShareValue(codable: newplayList, forKey: "playList")
+                            }
+                            //TODO 回触发播放UI不更新的bug，暂时注释
+//                            if let tabBarViewController = window?.rootViewController as? WKTabBarViewController {
+//                                tabBarViewController.selectedIndex = 4
+//                            }
+                        }
+                        
+                        return true
+                    }
+                }
+            }
+        }
+        return true
+    }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
