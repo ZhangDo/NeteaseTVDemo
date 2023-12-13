@@ -18,6 +18,8 @@ class WKPlayingViewController: UIViewController {
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var commentBtn: UIButton!
     
+    @IBOutlet weak var playModeBtn: UIButton!
+    @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var audioQualityLabel: UILabel!
     @IBOutlet weak var singerLabel: MarqueeLabel!
     @IBOutlet weak var playBtn: UIButton!
@@ -52,8 +54,15 @@ class WKPlayingViewController: UIViewController {
             self.coverImageView.kf.setImage(with: URL(string: wk_player.currentModel?.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = wk_player.currentModel?.wk_sourceName
             self.audioQualityLabel.text = wk_player.currentModel?.audioQuality
+            if let like = wk_player.currentModel?.like {
+                self.likeBtn.tintColor = like ? .systemPink : .lightGray
+                self.likeBtn.setImage(UIImage(systemName: like ? "heart.fill" : "heart"), for: .normal)
+            }
+            self.playModeBtn.setImage(UIImage(systemName: shufflePlay ? "shuffle" : "list.bullet"), for: .normal)
             if isPodcast {
                 self.commentBtn.isHidden = true
+                self.likeBtn.isHidden = true
+                self.playModeBtn.isHidden = true
             }
             Task {
                 do {
@@ -119,7 +128,8 @@ class WKPlayingViewController: UIViewController {
         
     }
     @IBAction func changePlayMode(_ sender: Any) {
-        showAlert("该功能还在开发中")
+        shufflePlay = !shufflePlay
+        self.playModeBtn.setImage(UIImage(systemName: shufflePlay ? "shuffle" : "list.bullet"), for: .normal)
     }
     @IBAction func likeAudio(_ sender: Any) {
         showAlert("该功能还在开发中")
@@ -183,6 +193,8 @@ extension WKPlayingViewController: WKPlayerDelegate {
             self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
             self.nameLabel.text = now.wk_sourceName
             self.audioQualityLabel.text = now.audioQuality
+            self.likeBtn.tintColor = (now.like)! ? .systemPink : .lightGray
+            self.likeBtn.setImage(UIImage(systemName: now.like! ? "heart.fill" : "heart"), for: .normal)
         } else {
             DispatchQueue.main.async {
                 self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
@@ -190,6 +202,8 @@ extension WKPlayingViewController: WKPlayerDelegate {
                 self.nameLabel.text = now.wk_sourceName
                 self.singerLabel.text = now.singer
                 self.audioQualityLabel.text = now.audioQuality
+                self.likeBtn.tintColor = (now.like)! ? .systemPink : .lightGray
+                self.likeBtn.setImage(UIImage(systemName: now.like! ? "heart.fill" : "heart"), for: .normal)
             }
 
         }

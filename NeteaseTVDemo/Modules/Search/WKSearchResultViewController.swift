@@ -53,6 +53,7 @@ class WKSearchResultViewController: UIViewController {
                     for songModel in songModels {
                         let model = CustomAudioModel()
                         model.audioId = songModel.id
+                        model.like = likeIds.contains(songModel.id)
                         model.isFree = 1
                         model.freeTime = 0
                         model.audioTitle = songModel.name

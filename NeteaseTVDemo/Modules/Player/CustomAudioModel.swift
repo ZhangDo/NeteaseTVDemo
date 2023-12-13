@@ -64,6 +64,7 @@ public class CustomAudioModel: WKPlayerDataSource {
     var albumTitle: String?
     var transTitle: String?
     var fee: NRFee?
+    var like: Bool?
     
     /** 音频质量*/
     var audioQuality: String?

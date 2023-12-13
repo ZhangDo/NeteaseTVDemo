@@ -48,6 +48,7 @@ class WKPodcastDetailViewController: UIViewController {
             for songModel in djPrograms {
                 let model = CustomAudioModel()
                 model.audioId = songModel.mainTrackId
+                model.like = likeIds.contains(songModel.id)
                 model.isFree = 1
                 model.freeTime = 0
                 model.audioTitle = songModel.name

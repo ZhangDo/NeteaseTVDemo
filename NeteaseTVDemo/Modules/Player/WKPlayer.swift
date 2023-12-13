@@ -854,11 +854,16 @@ public class WKPlayer: NSObject {
         
         if after {
             //如果当前的数据源已是最后一条可播放的
-            if currentModel?.wk_audioId != allModels.last?.wk_audioId {
-                index += 1
+            if shufflePlay {//如果是随机播放
+                index = Int.random(in: 0...allModels.count - 1)
             } else {
-                index = 0
+                if currentModel?.wk_audioId != allModels.last?.wk_audioId {
+                    index += 1
+                } else {
+                    index = 0
+                }
             }
+            
 //            guard currentModel?.wk_audioId != allModels.last?.wk_audioId else {
 //                let error = WKPlayerError.dataSourceError(reason: .noNextDataSource)
 //                unifiedExceptionHandle(error)
@@ -869,11 +874,17 @@ public class WKPlayer: NSObject {
         } else {
             //如果当前的数据源已是第一条可播放的
             
-            if currentModel?.wk_audioId != allModels.first?.wk_audioId {
-                index -= 1
+            if shufflePlay {//如果是随机播放
+                index = Int.random(in: 0...allModels.count - 1)
             } else {
-                index = allAvailableModels!.count - 1
+                if currentModel?.wk_audioId != allModels.first?.wk_audioId {
+                    index -= 1
+                } else {
+                    index = allAvailableModels!.count - 1
+                }
             }
+            
+            
             currentIndex = index
 //            guard currentModel?.wk_audioId != allModels.first?.wk_audioId else {
 //                let error = WKPlayerError.dataSourceError(reason: .noLastDataSource)

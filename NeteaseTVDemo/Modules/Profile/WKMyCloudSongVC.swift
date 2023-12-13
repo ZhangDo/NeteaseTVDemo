@@ -27,7 +27,9 @@ class WKMyCloudSongVC: UIViewController {
             for cloudDataModel in cloudDataModels {
                 let model = CustomAudioModel()
                 model.audioId = cloudDataModel.songId
+                model.like = likeIds.contains(cloudDataModel.songId)
                 model.isFree = 1
+//                model.fee = cloudDataModel.fee
                 model.freeTime = 0
                 model.audioTitle = cloudDataModel.songName
                 model.audioPicUrl = cloudDataModel.simpleSong.al?.picUrl

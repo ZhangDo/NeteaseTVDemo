@@ -25,7 +25,9 @@ class WKRecentSongListVC: UIViewController {
             for resourceModel in recentModel.list {
                 let model = CustomAudioModel()
                 model.audioId = resourceModel.data.id
+                model.like = likeIds.contains(resourceModel.data.id)
                 model.isFree = 1
+//                model.fee = resourceModel.data.fee
                 model.freeTime = 0
                 model.audioTitle = resourceModel.data.name
                 model.audioPicUrl = resourceModel.data.al?.picUrl

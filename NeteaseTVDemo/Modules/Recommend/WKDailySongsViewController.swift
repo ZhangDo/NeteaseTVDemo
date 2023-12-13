@@ -51,12 +51,14 @@ class WKDailySongsViewController: UIViewController {
             for songModel in dailySongs {
                 let model = CustomAudioModel()
                 model.audioId = songModel.id
+                model.like = likeIds.contains(songModel.id)
                 model.isFree = 1
+//                model.fee = songModel.fee
                 model.freeTime = 0
                 model.audioTitle = songModel.name
                 model.audioPicUrl = songModel.al?.picUrl
                 if let singerModel = songModel.ar {
-                    model.singer = singerModel.map { $0.name ?? "" }.joined(separator: "/")
+                    model.singer = singerModel.map { $0.name! }.joined(separator: "/")
                 }
                 self.dailyAudioModels.append(model)
             }
@@ -74,12 +76,14 @@ class WKDailySongsViewController: UIViewController {
                 for songModel in songs {
                     let model = CustomAudioModel()
                     model.audioId = songModel.id
+                    model.like = likeIds.contains(songModel.id)
+//                    model.fee = songModel.fee
                     model.isFree = 1
                     model.freeTime = 0
                     model.audioTitle = songModel.name
                     model.audioPicUrl = songModel.al?.picUrl
                     if let singerModel = songModel.ar {
-                        model.singer = singerModel.map { $0.name ?? "" }.joined(separator: "/")
+                        model.singer = singerModel.map { $0.name! }.joined(separator: "/")
                     }
                     self.dailyAudioModels.append(model)
                 }

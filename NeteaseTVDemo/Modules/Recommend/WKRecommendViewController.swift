@@ -75,6 +75,15 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     }
     
     func loadData() async  {
+        await fetchLikeIds()
+        do {
+            if let userModel: NRProfileModel = UserDefaults.standard.codable(forKey: "userModel") {
+                likeIds = try await fetchLikeMusicList(uid: userModel.userId, cookie: cookie)
+            }
+        } catch {
+            print(error)
+        }
+        
         do {
             self.banners = try await fetchBanners()
             self.bannerView.reloadData()
@@ -96,8 +105,10 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
             for songModel in dailySongs {
                 let model = CustomAudioModel()
                 model.audioId = songModel.id
+                model.like = likeIds.contains(songModel.id)
                 model.isFree = 1
                 model.freeTime = 0
+//                model.fee = songModel.fee
                 model.audioTitle = songModel.name
                 model.audioPicUrl = songModel.al?.picUrl
                 if let singerModel = songModel.ar {
@@ -167,6 +178,7 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         if self.banners![index].targetType == 1 {
             let model = CustomAudioModel()
             model.audioId = self.banners![index].song?.id
+            model.like = likeIds.contains(self.banners![index].song?.id ?? 0)
             model.audioTitle = self.banners![index].song?.name
             model.audioPicUrl = self.banners![index].pic
             model.isFree = 1

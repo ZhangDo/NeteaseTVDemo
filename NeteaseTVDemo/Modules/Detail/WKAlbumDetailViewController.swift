@@ -51,11 +51,11 @@ class WKAlbumDetailViewController: UIViewController {
         for songModel in songs {
             let model = CustomAudioModel()
             model.audioId = songModel.id
+            model.like = likeIds.contains(songModel.id)
             model.isFree = 1
             model.freeTime = 0
             model.audioTitle = songModel.name
             model.audioPicUrl = songModel.al?.picUrl
-            model.fee = songModel.fee
             model.transTitle = songModel.tns?.first
             model.albumTitle = songModel.al?.name
             let min = (songModel.dt ?? 0) / 1000 / 60
