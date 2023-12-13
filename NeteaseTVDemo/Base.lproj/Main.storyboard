@@ -2513,6 +2513,7 @@
                         <outlet property="likeBtn" destination="Eo2-Kb-Iyy" id="rLW-sr-lQ1"/>
                         <outlet property="nameLabel" destination="8Ls-zs-VDy" id="1dz-IU-59k"/>
                         <outlet property="playBtn" destination="Hnx-43-YcR" id="a41-Z1-cxq"/>
+                        <outlet property="playModeBtn" destination="nZI-Mq-4dm" id="u7R-Xc-85e"/>
                         <outlet property="progressView" destination="4oO-ze-TWP" id="AE1-jw-NLX"/>
                         <outlet property="rightLabel" destination="Jft-ds-n4y" id="paR-eb-Hud"/>
                         <outlet property="singerLabel" destination="Hl2-f5-8kI" id="Ypi-3f-HBd"/>

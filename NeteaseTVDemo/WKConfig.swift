@@ -2,6 +2,7 @@ import Foundation
 import NeteaseRequest
 
 var cookie = ""
+var shufflePlay = false
 var likeIds = [Int]()
 
 func fetchLikeIds() async {
