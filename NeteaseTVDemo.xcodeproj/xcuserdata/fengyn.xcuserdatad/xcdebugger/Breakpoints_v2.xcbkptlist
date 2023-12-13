@@ -5,34 +5,62 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "C8C3A30B-7855-4215-88A6-2135C3671BE0"
+            uuid = "77156C38-6FA9-4543-BD40-F1347629FE63"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Recommend/WKRecommendViewController.swift"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95DCE84F-A18F-4F57-85BD-4A1FD3396FDF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "loadData()"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "currentModel"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "867F4D50-F66B-4A19-BA84-43EADD83F7A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeteaseTVDemo/Modules/Playing/WKPlayingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "stateDidChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1C627516-B2E8-4295-8D09-70D554A57993"
+            uuid = "877ABAF9-7FF7-414A-9B1F-4C2AA74118A1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Recommend/WKRecommendViewController.swift"
+            filePath = "NeteaseTVDemo/Modules/Playing/WKPlayingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "loadData()"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "stateDidChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

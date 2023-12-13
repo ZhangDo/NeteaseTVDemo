@@ -3,6 +3,7 @@ import UIKit
 import AVFoundation
 import NeteaseRequest
 
+var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 
 public let playDataSourceWillChangeName = Notification.Name("playDataSourceWillChange")
 
@@ -1249,10 +1250,24 @@ public class WKPlayer: NSObject {
         }
     }
     
+    func startBackgroundTask() {
+        backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            self.endBackgroundTask()
+        })
+    }
+    
+    func endBackgroundTask() {
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = .invalid
+    }
+    
     
     /// 自动播放至结尾了
     @objc private func playerDidPlayEndToTime() {
-
+        backgroundTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+                self.endBackgroundTask()
+        })
+        
         progress = 1
         actuallyPlayProgress = 1
 //        if function.contains(.database) {
