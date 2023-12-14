@@ -193,8 +193,11 @@ extension WKPlayingViewController: WKPlayerDelegate {
             self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
             self.nameLabel.text = now.wk_sourceName
             self.audioQualityLabel.text = now.audioQuality
-            self.likeBtn.tintColor = (now.like)! ? .systemPink : .lightGray
-            self.likeBtn.setImage(UIImage(systemName: now.like! ? "heart.fill" : "heart"), for: .normal)
+            if let like = now.like {
+                self.likeBtn.tintColor = like ? .systemPink : .lightGray
+                self.likeBtn.setImage(UIImage(systemName: like ? "heart.fill" : "heart"), for: .normal)
+            }
+            
         } else {
             DispatchQueue.main.async {
                 self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
@@ -202,8 +205,10 @@ extension WKPlayingViewController: WKPlayerDelegate {
                 self.nameLabel.text = now.wk_sourceName
                 self.singerLabel.text = now.singer
                 self.audioQualityLabel.text = now.audioQuality
-                self.likeBtn.tintColor = (now.like)! ? .systemPink : .lightGray
-                self.likeBtn.setImage(UIImage(systemName: now.like! ? "heart.fill" : "heart"), for: .normal)
+                if let like = now.like {
+                    self.likeBtn.tintColor = like ? .systemPink : .lightGray
+                    self.likeBtn.setImage(UIImage(systemName: like ? "heart.fill" : "heart"), for: .normal)
+                }
             }
 
         }
