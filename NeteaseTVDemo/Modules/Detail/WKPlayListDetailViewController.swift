@@ -31,7 +31,9 @@ class WKPlayListDetailViewController: UIViewController {
             let playListDetail: NRPlayListDetailModel = try await fetchPlayListDetail(id: self.playListId, cookie: cookie)
             self.bgView.kf.setImage(with: URL(string: playListDetail.coverImgUrl),options: [.transition(.flipFromBottom(0.6))])
             self.nameLabel.text = playListDetail.name
-            self.collectButton.tintColor = playListDetail.subscribed! ? .systemPink : .lightGray
+            if let subscribed = playListDetail.subscribed {
+                self.collectButton.tintColor = subscribed ? .systemPink : .lightGray
+            }
             self.collectButton.setImage(UIImage(systemName:  playListDetail.subscribed! ? "heart.fill" : "heart"), for: .normal)
             self.descView.descLabel.text = playListDetail.description
             self.descView.onPrimaryAction = { [weak self] model in
