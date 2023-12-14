@@ -189,6 +189,7 @@ public class WKPlayer: NSObject {
             }
             delegate?.dataSourceDidChange(lastOriginal: oldValue, lastAvailable: allAvailableModels, nowOriginal: allOriginalModels, nowAvailable: temp)
             allAvailableModels = temp
+            UserDefaults.standard.setShareValue(codable: allAvailableModels ?? [], forKey: "playList")
         }
     }
     
@@ -212,6 +213,7 @@ public class WKPlayer: NSObject {
             currentModelState = WKPlayerStateModel()
             updateUI()
             guard let now = currentModel else { return }
+            UserDefaults.standard.setShareValue(codable: now, forKey: "currentPlay")
             
             delegate?.playDataSourceDidChanged(last: tempLastModel, now: now)
             tempLastModel = nil

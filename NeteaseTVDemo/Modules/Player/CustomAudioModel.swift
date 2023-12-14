@@ -1,7 +1,7 @@
 
 import UIKit
 import NeteaseRequest
-public class CustomAudioModel: WKPlayerDataSource {
+public class CustomAudioModel: WKPlayerDataSource,Codable {
     
     /** 需要具体描述音频数据源的播放类型，共有3种类型，
      /** 没有权限*/

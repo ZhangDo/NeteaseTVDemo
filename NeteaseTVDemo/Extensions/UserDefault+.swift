@@ -71,14 +71,30 @@ extension Optional: OptionalProtocol {
 }
 
 extension UserDefaults {
+    
     func set<Element: Codable>(codable: Element, forKey key: String) {
         let data = try? JSONEncoder().encode(codable)
         UserDefaults.standard.setValue(data, forKey: key)
     }
-
+    
     func codable<Element: Codable>(forKey key: String) -> Element? {
         guard let data = UserDefaults.standard.data(forKey: key) else { return nil }
         let element = try? JSONDecoder().decode(Element.self, from: data)
+        return element
+    }
+    
+    func setShareValue<Element: Codable>(codable: Element, forKey key: String) {
+        if let jsonData = try? JSONEncoder().encode(codable) {
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                UserDefaults.init(suiteName: "group.com.wk.Vibefy")?.setValue(jsonString, forKey: key)
+            }
+        }
+    }
+    
+    func shareListValue<Element: Codable>(forKey key: String) ->[Element]? {
+        guard let jsonString = UserDefaults.init(suiteName: "group.com.wk.Vibefy")?.value(forKey: key) as? String else { return nil }
+        guard let jsonData = jsonString.data(using: .utf8) else { return nil }
+        let element = try? JSONDecoder().decode([Element].self, from: jsonData)
         return element
     }
 }

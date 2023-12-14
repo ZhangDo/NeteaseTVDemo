@@ -100,11 +100,38 @@
 		29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F62B2AB1A83600E2F389 /* MarqueeLabel */; };
 		29FAC7582AFC6A9B00FEA7C0 /* WKCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */; };
 		29FAC75A2AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */; };
+		98C0EFB12B29F28F005B176F /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C0EFB02B29F28F005B176F /* TVServices.framework */; };
+		98C0EFB42B29F28F005B176F /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C0EFB32B29F28F005B176F /* ContentProvider.swift */; };
+		98C0EFB82B29F28F005B176F /* TopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 98C0EFAF2B29F28F005B176F /* TopShelf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
 		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
 		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
 		F4905DF92A98DDF700C76905 /* CustomAudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF82A98DDF700C76905 /* CustomAudioModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		98C0EFB62B29F28F005B176F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 295FA8082A985D3500B35C54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98C0EFAE2B29F28F005B176F;
+			remoteInfo = TopShelf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		98C0EFB92B29F28F005B176F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				98C0EFB82B29F28F005B176F /* TopShelf.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2906FBD92ABD32C6004E5069 /* FSPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerView.swift; sourceTree = "<group>"; };
@@ -199,6 +226,12 @@
 		29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricTableViewCell.swift; sourceTree = "<group>"; };
 		29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCommentViewController.swift; sourceTree = "<group>"; };
 		29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCommentTableViewCell.swift; sourceTree = "<group>"; };
+		98C0EFAF2B29F28F005B176F /* TopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C0EFB02B29F28F005B176F /* TVServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TVServices.framework; path = System/Library/Frameworks/TVServices.framework; sourceTree = SDKROOT; };
+		98C0EFB32B29F28F005B176F /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
+		98C0EFB52B29F28F005B176F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98C0EFBD2B29F378005B176F /* NeteaseTVDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeteaseTVDemo.entitlements; sourceTree = "<group>"; };
+		98C0EFBE2B29F38D005B176F /* TopShelf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopShelf.entitlements; sourceTree = "<group>"; };
 		F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerTool.swift; sourceTree = "<group>"; };
 		F4905DF32A98DD9C00C76905 /* WKCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKCountdown.swift; sourceTree = "<group>"; };
 		F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerError.swift; sourceTree = "<group>"; };
@@ -216,6 +249,14 @@
 				29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */,
 				29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */,
 				29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C0EFAC2B29F28F005B176F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C0EFB12B29F28F005B176F /* TVServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				295FA8122A985D3500B35C54 /* NeteaseTVDemo */,
+				98C0EFB22B29F28F005B176F /* TopShelf */,
 				295FA8112A985D3500B35C54 /* Products */,
 				295FA8562A9F11E700B35C54 /* Frameworks */,
 			);
@@ -277,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */,
+				98C0EFAF2B29F28F005B176F /* TopShelf.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -284,6 +327,7 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
+				98C0EFBD2B29F378005B176F /* NeteaseTVDemo.entitlements */,
 				2969158A2AF21D6800ED9298 /* Modules */,
 				297F2E0A2AD8E4DD002F4F24 /* Extensions */,
 				F4905DFA2A98E15400C76905 /* Info.plist */,
@@ -321,6 +365,7 @@
 		295FA8562A9F11E700B35C54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98C0EFB02B29F28F005B176F /* TVServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -469,6 +514,16 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		98C0EFB22B29F28F005B176F /* TopShelf */ = {
+			isa = PBXGroup;
+			children = (
+				98C0EFBE2B29F38D005B176F /* TopShelf.entitlements */,
+				98C0EFB32B29F28F005B176F /* ContentProvider.swift */,
+				98C0EFB52B29F28F005B176F /* Info.plist */,
+			);
+			path = TopShelf;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -479,10 +534,12 @@
 				295FA80C2A985D3500B35C54 /* Sources */,
 				295FA80D2A985D3500B35C54 /* Frameworks */,
 				295FA80E2A985D3500B35C54 /* Resources */,
+				98C0EFB92B29F28F005B176F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				98C0EFB72B29F28F005B176F /* PBXTargetDependency */,
 			);
 			name = NeteaseTVDemo;
 			packageProductDependencies = (
@@ -496,6 +553,23 @@
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		98C0EFAE2B29F28F005B176F /* TopShelf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98C0EFBC2B29F28F005B176F /* Build configuration list for PBXNativeTarget "TopShelf" */;
+			buildPhases = (
+				98C0EFAB2B29F28F005B176F /* Sources */,
+				98C0EFAC2B29F28F005B176F /* Frameworks */,
+				98C0EFAD2B29F28F005B176F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TopShelf;
+			productName = TopShelf;
+			productReference = 98C0EFAF2B29F28F005B176F /* TopShelf.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -503,11 +577,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					295FA80F2A985D3500B35C54 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					98C0EFAE2B29F28F005B176F = {
+						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
@@ -532,6 +609,7 @@
 			projectRoot = "";
 			targets = (
 				295FA80F2A985D3500B35C54 /* NeteaseTVDemo */,
+				98C0EFAE2B29F28F005B176F /* TopShelf */,
 			);
 		};
 /* End PBXProject section */
@@ -552,6 +630,13 @@
 				295E48EA2AE223E500C259D2 /* refresh-button.png in Resources */,
 				295E48E72AE223E500C259D2 /* right-arrow-forward.png in Resources */,
 				295FA8192A985D3500B35C54 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98C0EFAD2B29F28F005B176F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,7 +731,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		98C0EFAB2B29F28F005B176F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98C0EFB42B29F28F005B176F /* ContentProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		98C0EFB72B29F28F005B176F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98C0EFAE2B29F28F005B176F /* TopShelf */;
+			targetProxy = 98C0EFB62B29F28F005B176F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		295FA8172A985D3500B35C54 /* Main.storyboard */ = {
@@ -785,8 +886,10 @@
 		295FA8222A985D3600B35C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NeteaseTVDemo/NeteaseTVDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 9RANFDJPSF;
@@ -813,8 +916,10 @@
 		295FA8232A985D3600B35C54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NeteaseTVDemo/NeteaseTVDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 9RANFDJPSF;
@@ -838,6 +943,69 @@
 			};
 			name = Release;
 		};
+		98C0EFBA2B29F28F005B176F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RANFDJPSF;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TopShelf/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TopShelf;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wk.Vibefy.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		98C0EFBB2B29F28F005B176F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9RANFDJPSF;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TopShelf/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TopShelf;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wk.Vibefy.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -855,6 +1023,15 @@
 			buildConfigurations = (
 				295FA8222A985D3600B35C54 /* Debug */,
 				295FA8232A985D3600B35C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98C0EFBC2B29F28F005B176F /* Build configuration list for PBXNativeTarget "TopShelf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98C0EFBA2B29F28F005B176F /* Debug */,
+				98C0EFBB2B29F28F005B176F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
