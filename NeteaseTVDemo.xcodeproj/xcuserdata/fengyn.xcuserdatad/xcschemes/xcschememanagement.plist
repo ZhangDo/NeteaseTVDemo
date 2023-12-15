@@ -681,6 +681,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>TopShelf.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>User Guide (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>

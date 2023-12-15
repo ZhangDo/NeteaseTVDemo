@@ -3173,12 +3173,6 @@
             <point key="canvasLocation" x="5371" y="11721"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="8Ls-zs-VDy"/>
-        <designable name="GQd-up-XQL"/>
-        <designable name="Hl2-f5-8kI"/>
-        <designable name="U3K-vi-udH"/>
-    </designables>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="backward.fill" catalog="system" width="128" height="81"/>

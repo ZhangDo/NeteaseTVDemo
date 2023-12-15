@@ -132,7 +132,21 @@ class WKPlayingViewController: UIViewController {
         self.playModeBtn.setImage(UIImage(systemName: shufflePlay ? "shuffle" : "list.bullet"), for: .normal)
     }
     @IBAction func likeAudio(_ sender: Any) {
-        showAlert("该功能还在开发中")
+        if !isPodcast {
+            if let songId = wk_player.currentModel?.wk_audioId {
+                likeMusic(cookie: cookie, id: songId, like: !(wk_player.currentModel?.like)!) { result in
+                    wk_player.currentModel?.like = !(wk_player.currentModel?.like)!
+                    if let like = wk_player.currentModel?.like {
+                        self.likeBtn.tintColor = like ? .systemPink : .lightGray
+                        self.likeBtn.setImage(UIImage(systemName: like ? "heart.fill" : "heart"), for: .normal)
+                    }
+                    Task {
+                         await fetchLikeIds()
+                    }
+                }
+            }
+            
+        }
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
