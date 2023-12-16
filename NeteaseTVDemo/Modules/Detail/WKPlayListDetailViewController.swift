@@ -33,7 +33,7 @@ class WKPlayListDetailViewController: UIViewController {
             self.nameLabel.text = playListDetail.name
             if let subscribed = playListDetail.subscribed {
                 self.collectButton.tintColor = subscribed ? .systemPink : .lightGray
-                self.collectButton.setImage(UIImage(systemName:  playListDetail.subscribed! ? "heart.fill" : "heart"), for: .normal)
+                self.collectButton.setImage(UIImage(systemName:  subscribed ? "heart.fill" : "heart"), for: .normal)
             }
             self.descView.descLabel.text = playListDetail.description
             self.descView.onPrimaryAction = { [weak self] model in
