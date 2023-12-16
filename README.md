@@ -39,6 +39,9 @@ Apple TV
 - Client: https://github.com/ZhangDo/NeteaseTVDemo
 - NeteaseAPI: https://github.com/ZhangDo/NeteaseRequest
 
+## Telegram Group
+https://t.me/VibefyCircle
+
 ## QQ 交流群
 
 ![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/WechatIMG95.png)
