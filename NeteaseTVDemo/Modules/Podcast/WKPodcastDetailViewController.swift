@@ -74,6 +74,10 @@ class WKPodcastDetailViewController: UIViewController {
         }
         
     }
+    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return [self.playButton]
+    }
 
 }
 

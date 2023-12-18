@@ -134,7 +134,10 @@ class WKPlayingViewController: UIViewController {
     @IBAction func likeAudio(_ sender: Any) {
         if !isPodcast {
             if let songId = wk_player.currentModel?.wk_audioId {
-                likeMusic(cookie: cookie, id: songId, like: !(wk_player.currentModel?.like)!) { result in
+//                if  wk_player.currentModel?.like {
+//                    
+//                }
+                likeMusic(cookie: cookie, id: songId, like: (wk_player.currentModel?.like)! ? !(wk_player.currentModel?.like)! : false ) { result in
                     wk_player.currentModel?.like = !(wk_player.currentModel?.like)!
                     if let like = wk_player.currentModel?.like {
                         self.likeBtn.tintColor = like ? .systemPink : .lightGray
