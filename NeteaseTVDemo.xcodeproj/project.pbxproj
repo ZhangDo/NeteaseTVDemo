@@ -891,7 +891,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NeteaseTVDemo/NeteaseTVDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 9RANFDJPSF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
@@ -921,7 +921,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NeteaseTVDemo/NeteaseTVDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 9RANFDJPSF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
@@ -1062,7 +1062,7 @@
 			repositoryURL = "https://github.com/ZhangDo/NeteaseRequest.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.5;
+				minimumVersion = 1.1.6;
 			};
 		};
 		29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
