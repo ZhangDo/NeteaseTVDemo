@@ -46,11 +46,6 @@ class WKPlayListDetailViewController: UIViewController {
         
         
         do {
-            var likeIds = [Int]()
-            if let userModel: NRProfileModel = UserDefaults.standard.codable(forKey: "userModel") {
-                likeIds = try await fetchLikeMusicList(uid: userModel.userId, cookie: cookie)
-            }
-            
             let songModels:[NRSongModel] = try await fetchPlayListTrackAll(cookie: cookie, id: self.playListId,limit: 500)
             self.allModels.removeAll()
             for songModel in songModels {
