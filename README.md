@@ -44,7 +44,7 @@ https://t.me/VibefyCircle
 
 ## QQ 交流群
 
-![预览图](https://github.com/ZhangDo/NeteaseTVDemo/blob/main/images/WechatIMG95.png)
+Vibefy QQ 交流群: 865021208
 
 ## 参考及引用
 
