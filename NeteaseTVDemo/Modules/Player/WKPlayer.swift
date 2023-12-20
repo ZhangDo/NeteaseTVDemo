@@ -2,6 +2,7 @@
 import UIKit
 import AVFoundation
 import NeteaseRequest
+import MediaPlayer
 
 var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 
@@ -546,6 +547,7 @@ public class WKPlayer: NSObject {
         if #available(iOS 10.0, *) {
             try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
         }
+        UIApplication.shared.beginReceivingRemoteControlEvents()
         initConfig()
     }
     
@@ -1237,7 +1239,7 @@ public class WKPlayer: NSObject {
             player?.automaticallyWaitsToMinimizeStalling = false
         }
         addPlayProgressTimeObserver()
-
+        creatRemoteCommand()
     }
     
     
@@ -1329,6 +1331,67 @@ public class WKPlayer: NSObject {
         }
        prepareForSeek(to: progress)
         
+    }
+    
+    fileprivate func creatRemoteCommand() {
+        // 创建一个 MPRemoteCommandCenter 实例
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.playCommand.isEnabled = true
+        // 添加播放/暂停命令
+        commandCenter.playCommand.addTarget { event in
+            // 处理播放命令
+            return .success
+        }
+        
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.pauseCommand.addTarget { event in
+            // 处理暂停命令
+            return .success
+        }
+        commandCenter.nextTrackCommand.isEnabled = true
+        // 添加下一曲命令
+        commandCenter.nextTrackCommand.addTarget { event in
+            // 处理下一曲命令
+            return .success
+        }
+
+        // 添加上一曲命令
+        commandCenter.previousTrackCommand.isEnabled = true
+        commandCenter.previousTrackCommand.addTarget { event in
+            // 处理上一曲命令
+            return .success
+        }
+
+        // 添加喜欢/不喜欢命令
+        commandCenter.likeCommand.isEnabled = true
+        commandCenter.likeCommand.addTarget { event in
+            // 处理喜欢命令
+            return .success
+        }
+        commandCenter.dislikeCommand.isEnabled = true
+        commandCenter.dislikeCommand.addTarget { event in
+            // 处理不喜欢命令
+            return .success
+        }
+
+        // 添加喜欢/不喜欢命令的状态更新
+        commandCenter.likeCommand.localizedTitle = "喜欢"
+        commandCenter.likeCommand.isActive = true
+
+        commandCenter.dislikeCommand.localizedTitle = "不喜欢"
+        commandCenter.dislikeCommand.isActive = true
+
+        // 更新锁屏控制的播放状态
+        MPNowPlayingInfoCenter.default().playbackState = .playing
+        
+        // 更新锁屏控制的歌曲信息
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [
+            MPMediaItemPropertyTitle: "歌曲标题",
+            MPMediaItemPropertyArtist: "艺术家",
+            MPMediaItemPropertyAlbumTitle: "专辑标题",
+            MPMediaItemPropertyPlaybackDuration: 300, // 歌曲总时长（秒）
+            MPNowPlayingInfoPropertyElapsedPlaybackTime: 100 // 已播放时长（秒）
+        ]
     }
 
     
