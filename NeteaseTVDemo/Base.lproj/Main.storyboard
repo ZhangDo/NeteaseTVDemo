@@ -2365,11 +2365,11 @@
                                                                 <constraint firstItem="un9-4V-j7B" firstAttribute="top" secondItem="4oO-ze-TWP" secondAttribute="bottom" constant="15" id="BhD-Fx-wlD"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="leading" secondItem="apR-TI-Elh" secondAttribute="leading" id="GCm-1O-6bH"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="top" secondItem="opY-ZQ-4dR" secondAttribute="top" id="IGI-Z3-hPj"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="IiT-wB-oyZ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="IiT-wB-oyZ"/>
                                                                 <constraint firstAttribute="height" constant="80" id="c1t-7G-Itd"/>
                                                                 <constraint firstItem="un9-4V-j7B" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="dcy-aA-AID"/>
+                                                                <constraint firstItem="Jft-ds-n4y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="apR-TI-Elh" secondAttribute="trailing" constant="8" symbolic="YES" id="ihh-J9-hDo"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="trailing" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="jGb-Q4-JGp"/>
-                                                                <constraint firstItem="Jft-ds-n4y" firstAttribute="leading" secondItem="apR-TI-Elh" secondAttribute="trailing" constant="302" id="kgE-Kj-97P"/>
                                                                 <constraint firstItem="un9-4V-j7B" firstAttribute="centerX" secondItem="4oO-ze-TWP" secondAttribute="centerX" id="qYY-LH-0eZ"/>
                                                                 <constraint firstItem="apR-TI-Elh" firstAttribute="centerY" secondItem="un9-4V-j7B" secondAttribute="centerY" id="wji-mf-ehc"/>
                                                             </constraints>
