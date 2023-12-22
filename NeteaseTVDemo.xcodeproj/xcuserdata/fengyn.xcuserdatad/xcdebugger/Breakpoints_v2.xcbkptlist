@@ -3,22 +3,4 @@
    uuid = "4F09B342-59AA-4A95-B9D4-BD3769BD5657"
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "40D70A64-C53E-48A0-9EC7-13D0F2A2F07F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Library/Developer/Xcode/DerivedData/NeteaseTVDemo-cebmjjrwikxrmhbwehhblhurrbyr/SourcePackages/checkouts/NeteaseRequest/Sources/NeteaseRequest/MusicRequest.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
-            landmarkName = "likeMusic(cookie:id:like:complete:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>
