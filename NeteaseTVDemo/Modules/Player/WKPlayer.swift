@@ -712,7 +712,6 @@ public class WKPlayer: NSObject {
             guard let `self` = self else { return }
             
             guard let currentItem = self.playerItem else { return }
-            self.updateRemoteInfoCenter()
             let loadedRanges = currentItem.seekableTimeRanges
             if loadedRanges.count > 0, currentItem.duration.timescale != 0 {
                 let currentTime = CMTimeGetSeconds(time)
@@ -1013,7 +1012,7 @@ public class WKPlayer: NSObject {
                 countdownInfo?.pause()
             case .readyToPlay:
                 judgeProgress()
-                
+                self.updateLockedScreenMusic()
                 if isPlayerStateWaiting {
                     seekToHistory()
                 }
@@ -1239,7 +1238,6 @@ public class WKPlayer: NSObject {
             player?.automaticallyWaitsToMinimizeStalling = false
         }
         addPlayProgressTimeObserver()
-        creatRemoteCommand()
     }
     
     
@@ -1333,95 +1331,45 @@ public class WKPlayer: NSObject {
         
     }
     
-    fileprivate func creatRemoteCommand() {
-        // 创建一个 MPRemoteCommandCenter 实例
-        let commandCenter = MPRemoteCommandCenter.shared()
-        commandCenter.playCommand.isEnabled = true
+    func updateLockedScreenMusic() {
+        var info = [String: Any]()
+        // 设置持续时间（歌曲的总时间）
+        info[MPMediaItemPropertyPlaybackDuration] = self.currentModelState?.duration ?? 0
+        // 设置当前播放进度
+        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.currentModelState?.current ?? 0
+        //设置歌曲名
+        info[MPMediaItemPropertyTitle] = self.currentModel?.wk_sourceName ?? ""
+        //设置演唱者
+        info[MPMediaItemPropertyArtist] = self.currentModel?.wk_singerName ?? ""
         
-        commandCenter.playCommand.addTarget { event in
-            self.pausePlayer()
-            return .success
-        }
-        
-        commandCenter.pauseCommand.isEnabled = true
-        commandCenter.pauseCommand.addTarget { event in
-            self.resumePlayer()
-            return .success
-        }
-        commandCenter.nextTrackCommand.isEnabled = true
-        commandCenter.nextTrackCommand.addTarget { event in
-            Task {
-                try self.playNext()
+        //歌手头像
+        if let url = URL(string: (self.currentModel?.wk_audioPic ?? "")) {
+            let session = URLSession.shared
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    // 处理错误
+                    print("Error loading image: \(error)")
+                } else if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        let artwork = MPMediaItemArtwork(boundsSize: CGSize(width: 400, height: 400)) { (size) -> UIImage in
+                            return image
+                        }
+                        info[MPMediaItemPropertyArtwork] = artwork
+                        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+                    }
+                }
             }
-            return .success
+            task.resume()
         }
         
-        commandCenter.previousTrackCommand.isEnabled = true
-        commandCenter.previousTrackCommand.addTarget { event in
-            Task {
-                try self.playLast()
-            }
-            return .success
+        if let duration = self.currentModelState?.duration {
+            info[MPNowPlayingInfoPropertyPlaybackProgress] = self.currentModelState!.current/duration
         }
-
-//        // 添加喜欢/不喜欢命令
-//        commandCenter.likeCommand.isEnabled = true
-//        commandCenter.likeCommand.addTarget { event in
-//            // 处理喜欢命令
-//            return .success
-//        }
-//        commandCenter.dislikeCommand.isEnabled = true
-//        commandCenter.dislikeCommand.addTarget { event in
-//            // 处理不喜欢命令
-//            return .success
-//        }
-
-        // 添加喜欢/不喜欢命令的状态更新
-//        commandCenter.likeCommand.localizedTitle = "喜欢"
-//        commandCenter.likeCommand.isActive = true
-//
-//        commandCenter.dislikeCommand.localizedTitle = "不喜欢"
-//        commandCenter.dislikeCommand.isActive = true
-
         
+        //进度光标的速度（这个随 自己的播放速率调整，我默认是原速播放）
+        info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
     
-    fileprivate func updateRemoteInfoCenter() {
-        // 更新锁屏控制的播放状态
-        MPNowPlayingInfoCenter.default().playbackState = .playing
-        
-        // 更新锁屏控制的歌曲信息
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [
-            MPMediaItemPropertyTitle: self.currentModel?.wk_sourceName ?? "",
-            MPMediaItemPropertyArtist: self.currentModel?.wk_singerName ?? "",
-            MPMediaItemPropertyAlbumTitle: "",
-            MPMediaItemPropertyPlaybackDuration: self.currentModelState?.duration ?? 0, // 歌曲总时长（秒）
-            MPNowPlayingInfoPropertyElapsedPlaybackTime: self.currentModelState?.current ?? 0 // 已播放时长（秒）
-        ]
-        if let coverImage = self.downloadCoverImage(withURL: self.currentModel?.wk_audioPic ?? "") {
-            MPNowPlayingInfoCenter.default().nowPlayingInfo?[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: coverImage.size) { _ in
-                return coverImage
-            }
-        }
-    }
-
-    private func downloadCoverImage(withURL url: String) -> UIImage? {
-        var finalImage: UIImage?
-        let semaphore = DispatchSemaphore(value: 0)
-       
-        KingfisherManager.shared.retrieveImage(with: URL(string: url)!, options: nil, progressBlock: nil) { result in
-           switch result {
-           case .success(let value):
-               finalImage = value.image
-           case .failure(let error):
-               print("Error: \(error)")
-           }
-           
-           semaphore.signal()
-       }
-       
-       _ = semaphore.wait(timeout: .distantFuture)
-       
-       return finalImage
-    }
+    
 }

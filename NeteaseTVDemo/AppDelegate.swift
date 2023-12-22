@@ -72,6 +72,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showTabBar() {
         window?.rootViewController = WKTabBarViewController.creat()
     }
+    
+    
+    override func remoteControlReceived(with event: UIEvent?) {
+        if event?.type == UIEvent.EventType.remoteControl {
+            switch event?.subtype {
+            case .remoteControlPause:
+                wk_player.pausePlayer()
+            case .remoteControlPlay:
+                //播放
+                wk_player.resumePlayer()
+            case .remoteControlPreviousTrack:
+                //前一首
+                do {
+                    try wk_player.playLast()
+                } catch {
+                    print(error)
+                }
+            case .remoteControlNextTrack:
+                //下一首
+                do {
+                    try wk_player.playNext()
+                } catch {
+                    print(error)
+                }
+            default:
+                break
+            }
+            wk_player.updateLockedScreenMusic()
+        }
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
