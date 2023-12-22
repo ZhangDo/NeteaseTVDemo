@@ -1362,7 +1362,7 @@ public class WKPlayer: NSObject {
             task.resume()
         }
         
-        if let duration = self.currentModelState?.duration {
+        if let duration = self.currentModelState?.duration, duration > 0 {
             info[MPNowPlayingInfoPropertyPlaybackProgress] = self.currentModelState!.current/duration
         }
         
