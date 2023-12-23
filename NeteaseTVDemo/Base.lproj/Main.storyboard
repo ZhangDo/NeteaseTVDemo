@@ -581,7 +581,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-Cq-Av7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-Cq-Av7">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Agn-Na-SzA">
@@ -2365,11 +2365,11 @@
                                                                 <constraint firstItem="un9-4V-j7B" firstAttribute="top" secondItem="4oO-ze-TWP" secondAttribute="bottom" constant="15" id="BhD-Fx-wlD"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="leading" secondItem="apR-TI-Elh" secondAttribute="leading" id="GCm-1O-6bH"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="top" secondItem="opY-ZQ-4dR" secondAttribute="top" id="IGI-Z3-hPj"/>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="IiT-wB-oyZ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="IiT-wB-oyZ"/>
                                                                 <constraint firstAttribute="height" constant="80" id="c1t-7G-Itd"/>
                                                                 <constraint firstItem="un9-4V-j7B" firstAttribute="centerX" secondItem="opY-ZQ-4dR" secondAttribute="centerX" id="dcy-aA-AID"/>
+                                                                <constraint firstItem="Jft-ds-n4y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="apR-TI-Elh" secondAttribute="trailing" constant="8" symbolic="YES" id="ihh-J9-hDo"/>
                                                                 <constraint firstItem="4oO-ze-TWP" firstAttribute="trailing" secondItem="Jft-ds-n4y" secondAttribute="trailing" id="jGb-Q4-JGp"/>
-                                                                <constraint firstItem="Jft-ds-n4y" firstAttribute="leading" secondItem="apR-TI-Elh" secondAttribute="trailing" constant="302" id="kgE-Kj-97P"/>
                                                                 <constraint firstItem="un9-4V-j7B" firstAttribute="centerX" secondItem="4oO-ze-TWP" secondAttribute="centerX" id="qYY-LH-0eZ"/>
                                                                 <constraint firstItem="apR-TI-Elh" firstAttribute="centerY" secondItem="un9-4V-j7B" secondAttribute="centerY" id="wji-mf-ehc"/>
                                                             </constraints>
@@ -3173,6 +3173,12 @@
             <point key="canvasLocation" x="5371" y="11721"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="8Ls-zs-VDy"/>
+        <designable name="GQd-up-XQL"/>
+        <designable name="Hl2-f5-8kI"/>
+        <designable name="U3K-vi-udH"/>
+    </designables>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="backward.fill" catalog="system" width="128" height="81"/>

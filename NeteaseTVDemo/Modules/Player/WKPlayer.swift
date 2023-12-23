@@ -572,6 +572,7 @@ public class WKPlayer: NSObject {
         if #available(iOS 10.0, *) {
             try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
         }
+        UIApplication.shared.beginReceivingRemoteControlEvents()
         initConfig()
     }
     
@@ -739,8 +740,6 @@ public class WKPlayer: NSObject {
             guard let currentItem = self.playerItem else { return }
             let loadedRanges = currentItem.seekableTimeRanges
             if loadedRanges.count > 0, currentItem.duration.timescale != 0 {
-                
-                
                 let currentTime = CMTimeGetSeconds(time)
                 
                 var progress: Float = 0
@@ -1039,7 +1038,7 @@ public class WKPlayer: NSObject {
                 countdownInfo?.pause()
             case .readyToPlay:
                 judgeProgress()
-                
+                self.updateLockedScreenMusic()
                 if isPlayerStateWaiting {
                     seekToHistory()
                 }
@@ -1267,7 +1266,6 @@ public class WKPlayer: NSObject {
             player?.automaticallyWaitsToMinimizeStalling = false
         }
         addPlayProgressTimeObserver()
-
     }
     
     
@@ -1360,6 +1358,46 @@ public class WKPlayer: NSObject {
        prepareForSeek(to: progress)
         
     }
-
+    
+    func updateLockedScreenMusic() {
+        var info = [String: Any]()
+        // 设置持续时间（歌曲的总时间）
+        info[MPMediaItemPropertyPlaybackDuration] = self.currentModelState?.duration ?? 0
+        // 设置当前播放进度
+        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = self.currentModelState?.current ?? 0
+        //设置歌曲名
+        info[MPMediaItemPropertyTitle] = self.currentModel?.wk_sourceName ?? ""
+        //设置演唱者
+        info[MPMediaItemPropertyArtist] = self.currentModel?.wk_singerName ?? ""
+        
+        //歌手头像
+        if let url = URL(string: (self.currentModel?.wk_audioPic ?? "")) {
+            let session = URLSession.shared
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    // 处理错误
+                    print("Error loading image: \(error)")
+                } else if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        let artwork = MPMediaItemArtwork(boundsSize: CGSize(width: 400, height: 400)) { (size) -> UIImage in
+                            return image
+                        }
+                        info[MPMediaItemPropertyArtwork] = artwork
+                        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+                    }
+                }
+            }
+            task.resume()
+        }
+        
+        if let duration = self.currentModelState?.duration, duration > 0 {
+            info[MPNowPlayingInfoPropertyPlaybackProgress] = self.currentModelState!.current/duration
+        }
+        
+        //进度光标的速度（这个随 自己的播放速率调整，我默认是原速播放）
+        info[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+    }
+    
     
 }
