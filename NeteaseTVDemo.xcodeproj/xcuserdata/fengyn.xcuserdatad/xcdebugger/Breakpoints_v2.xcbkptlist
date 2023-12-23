@@ -35,16 +35,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "594132FA-6C2C-4E4B-AAA8-6A89FE1A3078"
+            uuid = "E6B12EA4-C3CF-4591-99CA-D3C1484A5E16"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeteaseTVDemo/Modules/Player/WKPlayer.swift"
+            filePath = "NeteaseTVDemo/Modules/Detail/WKPlayListDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "549"
-            endingLineNumber = "549"
-            landmarkName = "active()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "loadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

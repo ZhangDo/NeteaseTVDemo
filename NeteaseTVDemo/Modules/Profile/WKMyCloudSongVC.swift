@@ -44,7 +44,7 @@ class WKMyCloudSongVC: UIViewController {
                 self.allModels.append(model)
             }
         } catch {
-            showAlert(error.localizedDescription)
+            print(error.localizedDescription)
         }
     }
 
