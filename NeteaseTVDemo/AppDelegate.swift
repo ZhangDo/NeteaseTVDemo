@@ -46,6 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        WKRemoteCommandManager.init(player: wk_player)
+            .playTrackCommand()
+            .pauseTrackCommand()
+            .nextTrackCommand()
+            .previousTrackCommand()
+        
         return true
     }
     
@@ -105,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if (try? wk_player.play(index: index)) != nil {
                             //刷新缓存播放列表顺序
                             if ( playList.count - 1 > index){
-                                var newplayList = Array(playList[index+1...playList.count-1] + playList[0...index])
+                                let newplayList = Array(playList[index+1...playList.count-1] + playList[0...index])
                                 UserDefaults.standard.setShareValue(codable: newplayList, forKey: "playList")
                             }
                             //TODO 回触发播放UI不更新的bug，暂时注释

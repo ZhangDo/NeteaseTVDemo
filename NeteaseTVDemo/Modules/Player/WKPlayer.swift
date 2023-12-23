@@ -2,6 +2,8 @@
 import UIKit
 import AVFoundation
 import NeteaseRequest
+import MediaPlayer
+import Kingfisher
 
 var backgroundTask: UIBackgroundTaskIdentifier = .invalid
 
@@ -113,6 +115,9 @@ extension WKPlayerDelegate {
 public class WKPlayer: NSObject {
     
     static let instance = WKPlayer()
+    
+    private static var _nowPlayingInfo = WKNowPlayingInfo()
+    
     private override init() {
         super.init()
     }
@@ -216,6 +221,25 @@ public class WKPlayer: NSObject {
             UserDefaults.standard.setShareValue(codable: now, forKey: "currentPlay")
             
             delegate?.playDataSourceDidChanged(last: tempLastModel, now: now)
+            if let audioId = now.wk_audioId{
+                WKPlayer._nowPlayingInfo.id(audioId)
+                WKPlayer._nowPlayingInfo.title(now.wk_sourceName)
+                WKPlayer._nowPlayingInfo.artist(now.wk_singerName)
+                WKPlayer._nowPlayingInfo.time(0.0)
+                WKPlayer._nowPlayingInfo.rate(1)
+                if let audioPicURL = now.wk_audioPic {
+                    KingfisherManager.shared.retrieveImage(with: URL(string: audioPicURL)!, options: nil, progressBlock: nil) { result in
+                        switch result {
+                        case .success(let value):
+                            WKPlayer._nowPlayingInfo.artwork(value.image)
+                            WKPlayer._nowPlayingInfo.update {_ in }
+                        case .failure(_):
+                            debugPrint("下载歌曲封面异常：" + audioPicURL)
+                        }
+                    }
+                }
+                WKPlayer._nowPlayingInfo.update {_ in }
+            }
             tempLastModel = nil
         }
     }
@@ -257,6 +281,9 @@ public class WKPlayer: NSObject {
             delegate?.didReadTotalTime(totalTime: totalTime, formatTime: time, now: now)
 //            didReadTotalTime!(totalTime, time, now)
             currentModelState?.duration = totalTime
+            
+            WKPlayer._nowPlayingInfo.duration(TimeInterval(totalTime))
+            WKPlayer._nowPlayingInfo.update { _ in }
             updateUI()
         }
     }
@@ -548,6 +575,8 @@ public class WKPlayer: NSObject {
         }
         initConfig()
     }
+    
+    
     
     
     func fetchTrueUrlStr(model: CustomAudioModel, after: Bool? = true) async throws {
