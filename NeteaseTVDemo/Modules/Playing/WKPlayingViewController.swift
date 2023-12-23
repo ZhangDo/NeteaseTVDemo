@@ -196,12 +196,17 @@ extension WKPlayingViewController: WKPlayerDelegate {
     func playDataSourceDidChanged(last: CustomAudioModel?, now: CustomAudioModel) {
         Task {
             do {
-                lyricTuple = try await fetchLyric(id: (wk_player.currentModel?.wk_audioId)!).lyric?.parserLyric()
-                tableView.isHidden = lyricTuple?.words.count == 1
-                tableView.reloadData()
+                let lyricModel: NRLyricModel = try await fetchLyric(id:(wk_player.currentModel?.wk_audioId)!)
+                if let lyric = lyricModel.lyric {
+                    lyricTuple = lyric.parserLyric()
+                    tableView.isHidden = lyricTuple?.words.count == 1
+                    tableView.reloadData()
+                } else {
+                    tableView.isHidden = true
+                    tableView .reloadData()
+                }
             } catch {
                 tableView.isHidden = true
-                print(error)
             }
         }
 

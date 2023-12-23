@@ -581,7 +581,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-Cq-Av7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ckg-Cq-Av7">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Agn-Na-SzA">
@@ -3173,6 +3173,12 @@
             <point key="canvasLocation" x="5371" y="11721"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="8Ls-zs-VDy"/>
+        <designable name="GQd-up-XQL"/>
+        <designable name="Hl2-f5-8kI"/>
+        <designable name="U3K-vi-udH"/>
+    </designables>
     <resources>
         <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="backward.fill" catalog="system" width="128" height="81"/>
