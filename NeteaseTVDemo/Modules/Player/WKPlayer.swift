@@ -225,7 +225,6 @@ public class WKPlayer: NSObject {
                 WKPlayer._nowPlayingInfo.id(audioId)
                 WKPlayer._nowPlayingInfo.title(now.wk_sourceName)
                 WKPlayer._nowPlayingInfo.artist(now.wk_singerName)
-                WKPlayer._nowPlayingInfo.time(0.0)
                 WKPlayer._nowPlayingInfo.rate(1)
                 if let audioPicURL = now.wk_audioPic {
                     KingfisherManager.shared.retrieveImage(with: URL(string: audioPicURL)!, options: nil, progressBlock: nil) { result in
@@ -1261,6 +1260,8 @@ public class WKPlayer: NSObject {
         playerItem = item
 
         player?.rate = settings.rate
+        WKPlayer._nowPlayingInfo.time(0.0)
+        WKPlayer._nowPlayingInfo.update { _ in }
         // 设置此属性，使得音频播放只要缓冲够了就可以马上播放，而不用等待缓冲完成
         if #available(iOS 10.0, *) {
             player?.automaticallyWaitsToMinimizeStalling = false

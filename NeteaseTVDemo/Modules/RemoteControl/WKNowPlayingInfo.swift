@@ -29,7 +29,7 @@ extension WKNowPlayingInfo {
     }
 
     func reset() {
-        existed.write { $0 = [:] }
+        existed.write { $0 = [MPMediaItemPropertyMediaType: MPNowPlayingInfoMediaType.audio.rawValue] }
         _queue.async { MPNowPlayingInfoCenter.default().nowPlayingInfo = nil }
     }
 
