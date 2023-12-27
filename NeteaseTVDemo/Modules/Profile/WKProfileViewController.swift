@@ -125,10 +125,15 @@ extension WKProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         header.clickAvatarAction = {
-            let loginVC = WKLoginViewController.creat()
-//            let loginVC = WKSwitchAccountVC.creat()//TODO:
-            loginVC.modalPresentationStyle = .blurOverFullScreen
-            self.present(loginVC, animated: true)
+            if let am:[WKUserModel] = UserDefaults.standard.codable(forKey: "accounts"), am.count > 0 {
+                let loginVC = WKSwitchAccountVC.creat()
+                loginVC.modalPresentationStyle = .blurOverFullScreen
+                self.present(loginVC, animated: true)
+            } else {
+                let loginVC = WKLoginViewController.creat()
+                loginVC.modalPresentationStyle = .blurOverFullScreen
+                self.present(loginVC, animated: true)
+            }
         }
         return header
     }

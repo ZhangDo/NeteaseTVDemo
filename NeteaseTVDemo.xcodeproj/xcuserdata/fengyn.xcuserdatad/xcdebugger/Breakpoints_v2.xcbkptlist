@@ -28,7 +28,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1071"
             endingLineNumber = "1071"
-            landmarkName = "judgeProgress()"
+            landmarkName = "addBufferProgressObserver()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

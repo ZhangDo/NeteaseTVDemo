@@ -1,6 +1,7 @@
 
 import UIKit
 import TVUIKit
+import NeteaseRequest
 
 class WKAccountCell: UICollectionViewCell {
     
@@ -19,7 +20,17 @@ class WKAccountCell: UICollectionViewCell {
         
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+//    func loadData(with model: NRProfileModel, isAdd: Bool) {
+//        if isAdd {
+//            self.userView.image = UIImage(systemName: "person.crop.circle.badge.plus")
+//        } else {
+//            self.userView.image = UIImage(named: "bgImage")
+//        }
+//    }
+    
 }

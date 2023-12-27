@@ -1,9 +1,15 @@
 
 import UIKit
-
+import Kingfisher
 class WKSwitchAccountVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var accountModels: [WKUserModel] {
+        if let am:[WKUserModel] = UserDefaults.standard.codable(forKey: "accounts") {
+            return am
+        }
+        return []
+    }
     static func creat() -> WKSwitchAccountVC {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKSwitchAccountVC
         return vc
@@ -52,11 +58,37 @@ class WKSwitchAccountVC: UIViewController {
 
 extension WKSwitchAccountVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return accountModels.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WKAccountCell.self), for: indexPath) as! WKAccountCell
+        if indexPath.row == accountModels.count {
+            cell.userView.image = UIImage(systemName: "person.crop.circle.badge.plus")
+            cell.userView.title = ""
+        } else {
+            KingfisherManager.shared.retrieveImage(with: URL(string: accountModels[indexPath.row].user.avatarUrl)!, options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    cell.userView.image = value.image
+                case .failure(_):
+                    debugPrint("下载图片失败")
+                }
+            }
+            cell.userView.title = accountModels[indexPath.row].user.nickname
+        }
+//        cell.loadData(with: nil, isAdd: indexPath.row == accountModels.count)
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == accountModels.count {
+            let loginVC = WKLoginViewController.creat()
+            loginVC.modalPresentationStyle = .blurOverFullScreen
+            self.present(loginVC, animated: true)
+        } else {
+            UserDefaults.standard.setValue(accountModels[indexPath.row].cookie, forKey: "cookie")
+            cookie = accountModels[indexPath.row].cookie
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "login"), object: nil, userInfo: nil)
+        }
     }
 }
