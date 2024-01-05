@@ -89,6 +89,7 @@ extension WKSwitchAccountVC: UICollectionViewDelegate, UICollectionViewDataSourc
             UserDefaults.standard.setValue(accountModels[indexPath.row].cookie, forKey: "cookie")
             cookie = accountModels[indexPath.row].cookie
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "login"), object: nil, userInfo: nil)
+            AppDelegate.shared.showTabBar()
         }
     }
 }
