@@ -1,4 +1,4 @@
-# NeteaseTVDemo - 网易云音乐 tvOS 客户端(已改名Vibefy)
+# NeteaseTVDemo - tvOS 客户端(已改名Vibefy)
 
 代码完全开源，支持以下功能：
 
