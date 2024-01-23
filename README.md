@@ -48,8 +48,6 @@ Vibefy QQ 交流群: 865021208
 
 ## 参考及引用
 
-[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
-
 [ATV-Bilibili-demo](https://github.com/yichengchen/ATV-Bilibili-demo)
 
 ## 声明
