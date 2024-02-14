@@ -2932,6 +2932,58 @@
             </objects>
             <point key="canvasLocation" x="7589" y="10071"/>
         </scene>
+        <!--Song CollectionVC-->
+        <scene sceneID="jGJ-kE-Q5b">
+            <objects>
+                <viewController storyboardIdentifier="WKSongCollectionVC" id="Maa-he-mFp" customClass="WKSongCollectionVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pvr-nj-qvG"/>
+                        <viewControllerLayoutGuide type="bottom" id="GZv-xO-f6z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jKm-XM-20h">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-ED-Yri">
+                                <rect key="frame" x="80" y="60" width="1760" height="960"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oMQ-hD-7Ug">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="3ZD-iR-TEU">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ku4-zA-7g1">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Maa-he-mFp" id="3t3-0M-Zcd"/>
+                                    <outlet property="delegate" destination="Maa-he-mFp" id="8lW-iA-cCm"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Eq-M7-svE"/>
+                        <constraints>
+                            <constraint firstItem="lV8-ED-Yri" firstAttribute="leading" secondItem="7Eq-M7-svE" secondAttribute="leading" id="f9w-gd-ZZ9"/>
+                            <constraint firstItem="lV8-ED-Yri" firstAttribute="top" secondItem="7Eq-M7-svE" secondAttribute="top" id="sfh-uw-4Eh"/>
+                            <constraint firstItem="7Eq-M7-svE" firstAttribute="bottom" secondItem="lV8-ED-Yri" secondAttribute="bottom" id="uGA-6L-byq"/>
+                            <constraint firstItem="7Eq-M7-svE" firstAttribute="trailing" secondItem="lV8-ED-Yri" secondAttribute="trailing" id="uas-fp-ErE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="lV8-ED-Yri" id="amQ-dt-7ze"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUh-we-erK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7589" y="11721"/>
+        </scene>
         <!--Comment View Controller-->
         <scene sceneID="oe2-cj-gZW">
             <objects>
@@ -3171,6 +3223,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pmg-4g-Rrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5371" y="11721"/>
+        </scene>
+        <!--Switch AccountVC-->
+        <scene sceneID="qLs-gL-COB">
+            <objects>
+                <viewController storyboardIdentifier="WKSwitchAccountVC" id="1L7-Cn-AdX" customClass="WKSwitchAccountVC" customModule="NeteaseTVDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a1J-3J-RiP"/>
+                        <viewControllerLayoutGuide type="bottom" id="XS6-Ch-Wjt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xVd-CN-oXK">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage" translatesAutoresizingMaskIntoConstraints="NO" id="zQo-qt-9zS">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PGI-lp-M2V">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Zs-Xh-4nU">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rfU-9B-cq5">
+                                            <rect key="frame" x="200" y="390" width="1520" height="300"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="300" id="twQ-gb-8Yh"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qj1-k6-P9U">
+                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="etW-TF-Pf4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dki-Zw-cyz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </collectionViewCellContentView>
+                                                </collectionViewCell>
+                                            </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="1L7-Cn-AdX" id="xjf-H4-dKP"/>
+                                                <outlet property="delegate" destination="1L7-Cn-AdX" id="bDY-FP-mCF"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rfU-9B-cq5" firstAttribute="centerY" secondItem="0Zs-Xh-4nU" secondAttribute="centerY" id="aeo-X7-GE0"/>
+                                        <constraint firstAttribute="trailing" secondItem="rfU-9B-cq5" secondAttribute="trailing" constant="200" id="bRn-Eo-i8K"/>
+                                        <constraint firstItem="rfU-9B-cq5" firstAttribute="leading" secondItem="0Zs-Xh-4nU" secondAttribute="leading" constant="200" id="fcX-4E-Hfw"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lhm-vb-4lc"/>
+                        <constraints>
+                            <constraint firstItem="zQo-qt-9zS" firstAttribute="top" secondItem="xVd-CN-oXK" secondAttribute="top" id="Ae3-rf-pV9"/>
+                            <constraint firstItem="PGI-lp-M2V" firstAttribute="leading" secondItem="xVd-CN-oXK" secondAttribute="leading" id="I3T-fi-FOc"/>
+                            <constraint firstAttribute="trailing" secondItem="PGI-lp-M2V" secondAttribute="trailing" id="JVC-Y1-F2a"/>
+                            <constraint firstAttribute="bottom" secondItem="zQo-qt-9zS" secondAttribute="bottom" id="TfO-B7-fP1"/>
+                            <constraint firstItem="PGI-lp-M2V" firstAttribute="top" secondItem="xVd-CN-oXK" secondAttribute="top" id="Wt1-xb-KlB"/>
+                            <constraint firstAttribute="trailing" secondItem="zQo-qt-9zS" secondAttribute="trailing" id="Xq4-PJ-ChS"/>
+                            <constraint firstItem="zQo-qt-9zS" firstAttribute="leading" secondItem="xVd-CN-oXK" secondAttribute="leading" id="l2t-q4-CX8"/>
+                            <constraint firstAttribute="bottom" secondItem="PGI-lp-M2V" secondAttribute="bottom" id="qDH-pS-Vgq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="rfU-9B-cq5" id="bdi-4Q-QqX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LCc-t4-SyH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11298" y="6477"/>
         </scene>
     </scenes>
     <designables>

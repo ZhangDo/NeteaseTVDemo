@@ -74,7 +74,12 @@ class WKLoginViewController: UIViewController {
 //
                 do {
                     let userModel: NRProfileModel = try await fetchAccountInfo(cookie: cookie)
-                    UserDefaults.standard.set(codable: userModel, forKey: "userModel")
+                    let newAccount = WKUserModel(isSelected: true, user: userModel, cookie: cookie)
+                    var accounts: [WKUserModel] = UserDefaults.standard.codable(forKey: "accounts") ?? []
+                    accounts.removeAll { $0.user.userId == userModel.userId }
+                    accounts.append(newAccount)
+                    UserDefaults.standard.set(codable: accounts, forKey: "accounts")
+                    UserDefaults.standard.set(codable: accounts.last?.user, forKey: "userModel")
                 } catch {
                     print(error)
                 }
