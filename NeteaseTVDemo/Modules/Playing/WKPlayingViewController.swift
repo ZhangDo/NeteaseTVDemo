@@ -187,7 +187,7 @@ extension WKPlayingViewController: WKPlayerDelegate {
     
     
     func configePlayer() {
-        wk_player.function = [.cache]
+        wk_player.function = [.default]
     }
 
     func playDataSourceWillChange(now: CustomAudioModel?, new: CustomAudioModel?) {
