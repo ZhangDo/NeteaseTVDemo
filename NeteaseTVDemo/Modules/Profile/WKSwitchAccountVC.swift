@@ -64,7 +64,7 @@ extension WKSwitchAccountVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WKAccountCell.self), for: indexPath) as! WKAccountCell
         if indexPath.row == accountModels.count {
-            cell.userView.image = UIImage(systemName: "person.crop.circle.badge.plus")
+            cell.userView.image = UIImage(named: "add_account")
             cell.userView.title = ""
         } else {
             KingfisherManager.shared.retrieveImage(with: URL(string: accountModels[indexPath.row].user.avatarUrl)!, options: nil, progressBlock: nil) { result in
