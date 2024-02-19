@@ -44,6 +44,12 @@ class WKSettingViewController: UIViewController {
         }
         cellModels.append(comment)
         
+        cellModels.append(quality)
+        let topShelf = CellModel(title: "TopShelf", desp: "正在播放") { [weak self] in
+  
+        }
+        cellModels.append(topShelf)
+        
         let service = CellModel(title: "服务设置", desp: Settings.service) { [weak self] in
             let vc = WKInputViewController.creat()
             vc.modalPresentationStyle = .blurOverFullScreen
@@ -63,14 +69,14 @@ extension WKSettingViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
+        return cellModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
 //        cell.accessoryType = .disclosureIndicator
         var content = cell.defaultContentConfiguration()
-        content.text = settings[indexPath.row]
+        content.text = cellModels[indexPath.row].title
         content.secondaryText = cellModels[indexPath.row].desp
         cell.contentConfiguration = content
         return cell
