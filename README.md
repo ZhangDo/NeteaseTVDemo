@@ -28,7 +28,7 @@
 ## 提示
 
 项目中的API服务是部署在我自己的腾讯云上的，但是为了自己的账号安全，请尽量使用自己部署的服务
-这里  [NeteaseRequest](https://github.com/ZhangDo/NeteaseRequest ) 有提示，或者直接到  [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 有具体的部署方法
+这里
 
 ## 支持平台
 Apple TV
