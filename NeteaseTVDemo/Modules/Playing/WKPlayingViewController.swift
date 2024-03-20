@@ -3,11 +3,14 @@ import UIKit
 import NeteaseRequest
 import Kingfisher
 import MarqueeLabel
+import ColorfulX
+import CoreImage
 class WKPlayingViewController: UIViewController {
     var lyrics: [String]?
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
     var isPodcast: Bool = false
+    var animateView = AnimatedMulticolorGradientView()
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
@@ -86,12 +89,26 @@ class WKPlayingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+        animateView.speed = 1
+        animateView.transitionDuration = 5.2
+        animateView.noise = 10
+        self.bgImageView.addSubview(animateView)
+        animateView.snp.makeConstraints { make in
+            make.edges.equalTo(self.bgImageView)
+        }
+        
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         self.coverImageView.layer.cornerRadius = 20;
         self.progressView.isHidden = true
         self.leftTimeLabel.isHidden = true
         self.rightLabel.isHidden = true
         self.commentBtn.isHidden = true
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            animateView.setColors([RGBColor(UIColor.white), RGBColor(UIColor.black)], interpolationEnabled: false)
+//
+//        }
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -212,6 +229,13 @@ extension WKPlayingViewController: WKPlayerDelegate {
 
 
         if Thread.isMainThread {
+            self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))]) { result in
+                //TODO: 获取封面图片颜色
+                guard let image = try? result.get().image else {
+                    return
+                }
+                self.animateView.setColors(self.getDominantColors(image: image, count: 2), interpolationEnabled: false)
+            }
             self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
             self.nameLabel.text = now.wk_sourceName
             self.audioQualityLabel.text = now.audioQuality
@@ -222,7 +246,13 @@ extension WKPlayingViewController: WKPlayerDelegate {
             
         } else {
             DispatchQueue.main.async {
-                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))])
+                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))]) { result in
+                    //TODO: 获取封面图片颜色
+                    guard let image = try? result.get().image else {
+                        return
+                    }
+                    self.animateView.setColors(self.getDominantColors(image: image, count: 2), interpolationEnabled: false)
+                }
                 self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
                 self.nameLabel.text = now.wk_sourceName
                 self.singerLabel.text = now.singer
@@ -318,8 +348,81 @@ extension WKPlayingViewController: WKPlayerDelegate {
             alert.addAction(confirm)
             self.present(alert, animated: true, completion: nil)
         }
-
-
+    }
+    
+    func getDefalutColors() -> [RGBColor] {
+//        [make(254, 116, 97), make(243, 8, 32), make(250, 193, 208), make(193, 123, 126)]
+//        [make(22, 4, 74), make(240, 54, 248), make(79, 216, 248), make(74, 0, 217)]
+        let colors = [UIColor(red: 22.0 / 255.0, green: 4.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0),
+                      UIColor(red: 240.0 / 255.0, green: 54.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0),
+                      UIColor(red: 79.0 / 255.0, green: 216.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0),
+                      UIColor(red: 74.0 / 255.0, green: 0.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)]
+        var rgbColors: [RGBColor] = []
+        for color in colors {
+            rgbColors.append(RGBColor(color))
+        }
+        return rgbColors
+    }
+    
+    func getDominantColors(image: UIImage, count: Int) -> [RGBColor] {
+        guard let cgImage = image.cgImage else {
+            return []
+        }
+        
+        let width = cgImage.width
+        let height = cgImage.height
+        let bytesPerPixel = 4
+        let bytesPerRow = width * bytesPerPixel
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
+        
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else {
+            return []
+        }
+        
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        guard let data = context.data else {
+            return []
+        }
+        
+        var colorCounts: [UIColor: Int] = [:]
+        
+        let buffer = data.bindMemory(to: UInt8.self, capacity: width * height * bytesPerPixel)
+        
+        for y in 0..<height {
+            for x in 0..<width {
+                let byteIndex = bytesPerRow * y + bytesPerPixel * x
+                let red = CGFloat(buffer[byteIndex]) / 255.0
+                let green = CGFloat(buffer[byteIndex + 1]) / 255.0
+                let blue = CGFloat(buffer[byteIndex + 2]) / 255.0
+                let alpha = CGFloat(buffer[byteIndex + 3]) / 255.0
+                
+                let color = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                
+                if let count = colorCounts[color] {
+                    colorCounts[color] = count + 1
+                } else {
+                    colorCounts[color] = 1
+                }
+            }
+        }
+        
+        let sortedColors = colorCounts.keys.sorted(by: { colorCounts[$0]! > colorCounts[$1]! })
+        let dominantColors = Array(sortedColors.prefix(count))
+        
+        var rgbColors: [RGBColor] = []
+        for rgbColor in dominantColors {
+            rgbColors.append(RGBColor(rgbColor))
+        }
+        let colors = [UIColor(red: 22.0 / 255.0, green: 4.0 / 255.0, blue: 74.0 / 255.0, alpha: 1.0),
+                      UIColor(red: 240.0 / 255.0, green: 54.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0),
+                      UIColor(red: 79.0 / 255.0, green: 216.0 / 255.0, blue: 248.0 / 255.0, alpha: 1.0),
+                      UIColor(red: 74.0 / 255.0, green: 0.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)]
+        for color in colors {
+            rgbColors.append(RGBColor(color))
+        }
+        return rgbColors
     }
 }
 //MARK:  SliderDelegate

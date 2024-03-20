@@ -22,7 +22,7 @@ class WKCommentViewController: UIViewController {
     
     func loadComment() async {
         do {
-            commentModels = try await fetchMusicHotComment(id: self.songId!, limit: 1000)
+            commentModels = try await fetchMusicHotComment(id: self.songId!, cookie: cookie, limit: 1000)
             print(commentModels)
             tableView.reloadData()
         } catch {

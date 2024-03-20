@@ -26,6 +26,7 @@
 		2944A93E2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93D2AC1644A00FD4F52 /* WKAlbumDetailViewController.swift */; };
 		2944A9402AC16F3F00FD4F52 /* WKDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A93F2AC16F3F00FD4F52 /* WKDescView.swift */; };
 		2944A9442AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2944A9432AC3B96F00FD4F52 /* WKPlayListCollectionViewCell.swift */; };
+		294B84432BAAC73600CB2995 /* ColorfulX in Frameworks */ = {isa = PBXBuildFile; productRef = 294B84422BAAC73600CB2995 /* ColorfulX */; };
 		29507BA72B1815AB0093D8BB /* WKInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29507BA62B1815AB0093D8BB /* WKInputViewController.swift */; };
 		295E48D02AE1056600C259D2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295E48CF2AE1056600C259D2 /* UIViewController+Extension.swift */; };
 		295E48D92AE2218800C259D2 /* WKBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E48D82AE2218800C259D2 /* WKBrowserViewController.m */; };
@@ -255,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */,
+				294B84432BAAC73600CB2995 /* ColorfulX in Frameworks */,
 				29A1D7012AD4ED8E005EAFC0 /* EFQRCode in Frameworks */,
 				29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */,
 				29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */,
@@ -571,6 +573,7 @@
 				29F2F6282AB1935600E2F389 /* SnapKit */,
 				29F2F62B2AB1A83600E2F389 /* MarqueeLabel */,
 				29A1D7002AD4ED8E005EAFC0 /* EFQRCode */,
+				294B84422BAAC73600CB2995 /* ColorfulX */,
 			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
@@ -626,6 +629,7 @@
 				29F2F6272AB1935600E2F389 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
 				29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */,
+				294B84412BAAC64300CB2995 /* XCRemoteSwiftPackageReference "ColorfulX" */,
 			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
@@ -1073,6 +1077,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		294B84412BAAC64300CB2995 /* XCRemoteSwiftPackageReference "ColorfulX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lakr233/ColorfulX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.5;
+			};
+		};
 		29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/EFPrefix/EFQRCode.git";
@@ -1116,6 +1128,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		294B84422BAAC73600CB2995 /* ColorfulX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 294B84412BAAC64300CB2995 /* XCRemoteSwiftPackageReference "ColorfulX" */;
+			productName = ColorfulX;
+		};
 		29A1D7002AD4ED8E005EAFC0 /* EFQRCode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */;
