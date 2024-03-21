@@ -1,8 +1,10 @@
 
 import UIKit
 import NeteaseRequest
-
+import ColorfulX
 class WKDailySongsViewController: UIViewController {
+    @IBOutlet weak var bgImageView: UIImageView!
+    var animateView = AnimatedMulticolorGradientView()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,6 +19,14 @@ class WKDailySongsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+        animateView.speed = 1
+        animateView.transitionDuration = 5.2
+        animateView.noise = 10
+        self.bgImageView.addSubview(animateView)
+        animateView.snp.makeConstraints { make in
+            make.edges.equalTo(self.bgImageView)
+        }
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)

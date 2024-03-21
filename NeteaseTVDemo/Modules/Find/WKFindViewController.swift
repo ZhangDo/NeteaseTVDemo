@@ -1,10 +1,13 @@
 
 import UIKit
 import NeteaseRequest
+import ColorfulX
 class WKFindViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bgImageView: UIImageView!
+    var animateView = AnimatedMulticolorGradientView()
     var categories = [WKFindModel]()
     var playList = [NRPlayListModel]()
     
@@ -15,6 +18,16 @@ class WKFindViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+        animateView.speed = 1
+        animateView.transitionDuration = 5.2
+        animateView.noise = 10
+        self.bgImageView.addSubview(animateView)
+        animateView.snp.makeConstraints { make in
+            make.edges.equalTo(self.bgImageView)
+        }
+        
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         

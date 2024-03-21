@@ -2,7 +2,10 @@
 import UIKit
 import TVUIKit
 import NeteaseRequest
+import ColorfulX
 class WKProfileViewController: UIViewController {
+    @IBOutlet weak var bgImageView: UIImageView!
+    var animateView = AnimatedMulticolorGradientView()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var rightBgView: UIView!
     fileprivate var cellContents = ["最近播放", "我的收藏","我喜欢的音乐", "我的歌单", "我的音乐云盘", "基础设置", "关于"]
@@ -21,6 +24,14 @@ class WKProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+        animateView.speed = 1
+        animateView.transitionDuration = 5.2
+        animateView.noise = 10
+        self.bgImageView.addSubview(animateView)
+        animateView.snp.makeConstraints { make in
+            make.edges.equalTo(self.bgImageView)
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "login"), object: nil)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(WKProfileHeader.self, forHeaderFooterViewReuseIdentifier: "profileHeader")

@@ -2,6 +2,7 @@
 import UIKit
 import NeteaseRequest
 import Kingfisher
+import ColorfulX
 class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerViewDelegate {
 
     @IBOutlet weak var dailyRecommendView: UICollectionView!
@@ -23,6 +24,8 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
     @IBOutlet weak var songView9: WKSingleSongView!
     @IBOutlet weak var moreDailySongsView: WKMoreView!
     @IBOutlet weak var moreRecommendListView: WKMoreView!
+    
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var bannerView: FSPagerView! {
         didSet {
             self.bannerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -34,12 +37,23 @@ class WKRecommendViewController: UIViewController,FSPagerViewDataSource,FSPagerV
         }
     }
     
+    var animateView = AnimatedMulticolorGradientView()
+    
     static func creat() -> WKRecommendViewController {
         let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: String(describing: self)) as! WKRecommendViewController
         return vc
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+        animateView.speed = 1
+        animateView.transitionDuration = 5.2
+        animateView.noise = 10
+        self.bgImageView.addSubview(animateView)
+        animateView.snp.makeConstraints { make in
+            make.edges.equalTo(self.bgImageView)
+        }
         
         dailyRecommendView.register(WKPlayListCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: WKPlayListCollectionViewCell.self))
         dailyRecommendView.collectionViewLayout = makeDailyRecommendCollectionViewLayout()
