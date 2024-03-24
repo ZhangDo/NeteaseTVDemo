@@ -229,13 +229,14 @@ extension WKPlayingViewController: WKPlayerDelegate {
 
 
         if Thread.isMainThread {
-            self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))]) { result in
-                //TODO: 获取封面图片颜色
-                guard let image = try? result.get().image else {
-                    return
-                }
-                self.animateView.setColors(self.getDominantColors(image: image, count: 2), interpolationEnabled: false)
-            }
+            self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))]) 
+//            { result in
+//                //TODO: 获取封面图片颜色
+//                guard let image = try? result.get().image else {
+//                    return
+//                }
+//                self.animateView.setColors(self.getDominantColors(image: image, count: 2), interpolationEnabled: false)
+//            }
             self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""))
             self.nameLabel.text = now.wk_sourceName
             self.audioQualityLabel.text = now.audioQuality
@@ -246,13 +247,14 @@ extension WKPlayingViewController: WKPlayerDelegate {
             
         } else {
             DispatchQueue.main.async {
-                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))]) { result in
-                    //TODO: 获取封面图片颜色
-                    guard let image = try? result.get().image else {
-                        return
-                    }
-                    self.animateView.setColors(self.getDominantColors(image: image, count: 2), interpolationEnabled: false)
-                }
+                self.bgImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),placeholder: UIImage(named: "bgImage"), options: [.transition(.fade(0.5))]) 
+//                { result in
+//                    //TODO: 获取封面图片颜色
+//                    guard let image = try? result.get().image else {
+//                        return
+//                    }
+//                    self.animateView.setColors(self.getDominantColors(image: image, count: 2), interpolationEnabled: false)
+//                }
                 self.coverImageView.kf.setImage(with: URL(string: now.wk_audioPic ?? ""),options: [.transition(.flipFromBottom(0.6))])
                 self.nameLabel.text = now.wk_sourceName
                 self.singerLabel.text = now.singer
