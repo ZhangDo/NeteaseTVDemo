@@ -10,7 +10,7 @@ class WKPlayingViewController: UIViewController {
     var lyricTuple: (times: [String], words: [String])?
     var current: Int = 0
     var isPodcast: Bool = false
-    var animateView = AnimatedMulticolorGradientView()
+//    var animateView = AnimatedMulticolorGradientView()
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var leftTimeLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
@@ -89,14 +89,14 @@ class WKPlayingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
-        animateView.speed = 1
-        animateView.transitionDuration = 5.2
-        animateView.noise = 10
-        self.bgImageView.addSubview(animateView)
-        animateView.snp.makeConstraints { make in
-            make.edges.equalTo(self.bgImageView)
-        }
+//        animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+//        animateView.speed = 1
+//        animateView.transitionDuration = 5.2
+//        animateView.noise = 10
+//        self.bgImageView.addSubview(animateView)
+//        animateView.snp.makeConstraints { make in
+//            make.edges.equalTo(self.bgImageView)
+//        }
         
         tableView.register(WKLyricTableViewCell.self, forCellReuseIdentifier: "cell")
         self.coverImageView.layer.cornerRadius = 20;
