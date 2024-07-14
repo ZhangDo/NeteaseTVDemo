@@ -43,11 +43,17 @@ class WKSettingViewController: UIViewController {
         }
         cellModels.append(comment)
         
-        cellModels.append(quality)
-        let topShelf = CellModel(title: "TopShelf", desp: "正在播放") { [weak self] in
-  
+        let fluidBg = CellModel(title: "流体背景", desp: Settings.fluidBg ? "开" : "关") { [weak self] in
+            Settings.fluidBg = !Settings.fluidBg
+            self?.setupData()
         }
-        cellModels.append(topShelf)
+        cellModels.append(fluidBg)
+        
+        cellModels.append(quality)
+//        let topShelf = CellModel(title: "TopShelf", desp: "正在播放") { [weak self] in
+//  
+//        }
+//        cellModels.append(topShelf)
         
         let service = CellModel(title: "服务地址", desp: Settings.service) { [weak self] in
             let vc = WKInputViewController.creat()

@@ -22,9 +22,17 @@ class WKProfileViewController: UIViewController {
         return vc
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        animateView.isHidden = !Settings.fluidBg
+        animateView.isPaused = !Settings.fluidBg
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         animateView.setColors(self.getDefalutColors(), interpolationEnabled: false)
+        animateView.isHidden = !Settings.fluidBg
+        animateView.isPaused = !Settings.fluidBg
         animateView.speed = 1
         animateView.transitionDuration = 5.2
         animateView.noise = 10

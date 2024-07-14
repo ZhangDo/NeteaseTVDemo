@@ -11,6 +11,10 @@ enum Settings {
     
     @UserDefaultCodable("Settings.service", defaultValue: "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release")
     static var service: String
+    
+    @UserDefaultCodable("Settings.fluidBg", defaultValue: true)
+    static var fluidBg: Bool
+    
 }
 
 extension NRSongLevel {
