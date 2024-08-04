@@ -109,6 +109,7 @@
 		98C0EFB12B29F28F005B176F /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C0EFB02B29F28F005B176F /* TVServices.framework */; };
 		98C0EFB42B29F28F005B176F /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C0EFB32B29F28F005B176F /* ContentProvider.swift */; };
 		98C0EFB82B29F28F005B176F /* TopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 98C0EFAF2B29F28F005B176F /* TopShelf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F40099DB2C5FC9F800F28A99 /* WKLyricProgressLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40099DA2C5FC9F800F28A99 /* WKLyricProgressLabel.swift */; };
 		F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */; };
 		F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF32A98DD9C00C76905 /* WKCountdown.swift */; };
 		F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */; };
@@ -243,6 +244,7 @@
 		98C0EFB52B29F28F005B176F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98C0EFBD2B29F378005B176F /* NeteaseTVDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NeteaseTVDemo.entitlements; sourceTree = "<group>"; };
 		98C0EFBE2B29F38D005B176F /* TopShelf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TopShelf.entitlements; sourceTree = "<group>"; };
+		F40099DA2C5FC9F800F28A99 /* WKLyricProgressLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricProgressLabel.swift; sourceTree = "<group>"; };
 		F4905DF22A98DD9C00C76905 /* WKPlayerTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerTool.swift; sourceTree = "<group>"; };
 		F4905DF32A98DD9C00C76905 /* WKCountdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKCountdown.swift; sourceTree = "<group>"; };
 		F4905DF42A98DD9C00C76905 /* WKPlayerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPlayerError.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 			children = (
 				295FA8152A985D3500B35C54 /* ViewController.swift */,
 				2944A9372AC12EC800FD4F52 /* WKSlider.swift */,
+				F40099DA2C5FC9F800F28A99 /* WKLyricProgressLabel.swift */,
 				29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */,
 				296915792AE89E5E00ED9298 /* WKPlayingViewController.swift */,
 				29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */,
@@ -714,6 +717,7 @@
 				299458062B3AC7BE0015616E /* WKSwitchAccountVC.swift in Sources */,
 				297F2E092AD8CD3B002F4F24 /* WKPodcastDetailViewController.swift in Sources */,
 				297F2E0E2AD8E6B6002F4F24 /* WKUserModel.swift in Sources */,
+				F40099DB2C5FC9F800F28A99 /* WKLyricProgressLabel.swift in Sources */,
 				29DC0E3D2AD252AD00DD314A /* WKRecommendPlaylistVC.swift in Sources */,
 				29FAC7582AFC6A9B00FEA7C0 /* WKCommentViewController.swift in Sources */,
 				29FAC75A2AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift in Sources */,
