@@ -9,7 +9,7 @@ enum Settings {
     @UserDefaultCodable("Settings.hotComment", defaultValue: true)
     static var hotComment: Bool
     
-    @UserDefaultCodable("Settings.service", defaultValue: "https://service-ioi18dzi-1259615918.gz.apigw.tencentcs.com/release")
+    @UserDefaultCodable("Settings.service", defaultValue: "https://service-9ha5w8dk-1259615918.gz.tencentapigw.com.cn/release")
     static var service: String
     
     @UserDefaultCodable("Settings.fluidBg", defaultValue: true)
