@@ -8,7 +8,7 @@ enum Settings {
     
     @UserDefaultCodable("Settings.hotComment", defaultValue: true)
     static var hotComment: Bool
-    
+//    https://service-9ha5w8dk-1259615918.gz.tencentapigw.com.cn/release/
     @UserDefaultCodable("Settings.service", defaultValue: "https://service-9ha5w8dk-1259615918.gz.tencentapigw.com.cn/release")
     static var service: String
     

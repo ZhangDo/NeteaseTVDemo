@@ -27,7 +27,10 @@ class WKLoginViewController: UIViewController {
     }
     
     func loadQRCode() async {
-        let key: String = try! await fetchQRKey().unikey
+        guard let key: String = try? await fetchQRKey().unikey else {
+            showAlert("请完成验证操作（多尝试几次😭）")
+            return
+        }
         let qrurl: String = try! await fetchQRCode(key: key).qrurl
         
         if let image = EFQRCode.generate(
