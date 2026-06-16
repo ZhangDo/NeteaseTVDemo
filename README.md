@@ -23,7 +23,7 @@
 
 ## 安装
 - 自行编译安装
-- Vibefy: [TestFlight](https://testflight.apple.com/join/he8gBuuY)
+- Vibefy: [TestFlight](https://testflight.apple.com/join/zJWvzxAK)
 
 ## 提示
 
