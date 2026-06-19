@@ -104,6 +104,15 @@
 		29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 29F2F62B2AB1A83600E2F389 /* MarqueeLabel */; };
 		29FAC7582AFC6A9B00FEA7C0 /* WKCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */; };
 		29FAC75A2AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */; };
+		50C9DA292CCD9A6800C7CC6B /* NodeMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C9DA282CCD9A6800C7CC6B /* NodeMobile.xcframework */; };
+		50C9DA2B2CCD9A6D00C7CC6B /* Service.zip in Resources */ = {isa = PBXBuildFile; fileRef = 50C9DA2A2CCD9A6D00C7CC6B /* Service.zip */; };
+		50C9DA302CCD9A7700C7CC6B /* ApiService+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9DA2D2CCD9A7700C7CC6B /* ApiService+Server.swift */; };
+		50C9DA312CCD9A7700C7CC6B /* ApiService+Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9DA2E2CCD9A7700C7CC6B /* ApiService+Source.swift */; };
+		50C9DA322CCD9A7700C7CC6B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9DA2C2CCD9A7700C7CC6B /* ApiService.swift */; };
+		50C9DA352CCD9B7200C7CC6B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C9DA342CCD9B7200C7CC6B /* main.swift */; };
+		50C9DA3C2CCD9BB300C7CC6B /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 50C9DA3B2CCD9BB300C7CC6B /* ZipArchive */; };
+		50C9DA3D2CCD9C3200C7CC6B /* NodeMobile.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C9DA282CCD9A6800C7CC6B /* NodeMobile.xcframework */; };
+		50C9DA3E2CCD9C3200C7CC6B /* NodeMobile.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50C9DA282CCD9A6800C7CC6B /* NodeMobile.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		981777812B36DA3D004F124A /* WKRemoteCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981777802B36DA3D004F124A /* WKRemoteCommandManager.swift */; };
 		98B8C9C42B34A46500CD0F76 /* WKNowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B8C9C12B34A46500CD0F76 /* WKNowPlayingInfo.swift */; };
 		98C0EFB12B29F28F005B176F /* TVServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98C0EFB02B29F28F005B176F /* TVServices.framework */; };
@@ -127,6 +136,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		50C9DA382CCD9B9D00C7CC6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C9DA3F2CCD9C3200C7CC6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				50C9DA3E2CCD9C3200C7CC6B /* NodeMobile.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		98C0EFB92B29F28F005B176F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +266,12 @@
 		29F2F61F2AB190CB00E2F389 /* WKLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKLyricTableViewCell.swift; sourceTree = "<group>"; };
 		29FAC7572AFC6A9B00FEA7C0 /* WKCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCommentViewController.swift; sourceTree = "<group>"; };
 		29FAC7592AFC7D3B00FEA7C0 /* WKCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCommentTableViewCell.swift; sourceTree = "<group>"; };
+		50C9DA282CCD9A6800C7CC6B /* NodeMobile.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = NodeMobile.xcframework; sourceTree = "<group>"; };
+		50C9DA2A2CCD9A6D00C7CC6B /* Service.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Service.zip; sourceTree = "<group>"; };
+		50C9DA2C2CCD9A7700C7CC6B /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		50C9DA2D2CCD9A7700C7CC6B /* ApiService+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiService+Server.swift"; sourceTree = "<group>"; };
+		50C9DA2E2CCD9A7700C7CC6B /* ApiService+Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiService+Source.swift"; sourceTree = "<group>"; };
+		50C9DA342CCD9B7200C7CC6B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		981777802B36DA3D004F124A /* WKRemoteCommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKRemoteCommandManager.swift; sourceTree = "<group>"; };
 		98B8C9C12B34A46500CD0F76 /* WKNowPlayingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKNowPlayingInfo.swift; sourceTree = "<group>"; };
 		98C0EFAF2B29F28F005B176F /* TopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,12 +293,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C9DA292CCD9A6800C7CC6B /* NodeMobile.xcframework in Frameworks */,
 				29F2F62C2AB1A83600E2F389 /* MarqueeLabel in Frameworks */,
 				294B84432BAAC73600CB2995 /* ColorfulX in Frameworks */,
 				29A1D7012AD4ED8E005EAFC0 /* EFQRCode in Frameworks */,
 				29F2F6292AB1935600E2F389 /* SnapKit in Frameworks */,
+				50C9DA3D2CCD9C3200C7CC6B /* NodeMobile.xcframework in Frameworks */,
 				29F2F6182AB18A0E00E2F389 /* NeteaseRequest in Frameworks */,
 				29F2F5FA2AB0113F00E2F389 /* Kingfisher in Frameworks */,
+				50C9DA3C2CCD9BB300C7CC6B /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +380,14 @@
 		295FA8122A985D3500B35C54 /* NeteaseTVDemo */ = {
 			isa = PBXGroup;
 			children = (
+				50C9DA282CCD9A6800C7CC6B /* NodeMobile.xcframework */,
+				50C9DA2A2CCD9A6D00C7CC6B /* Service.zip */,
+				50C9DA2F2CCD9A7700C7CC6B /* ApiService */,
 				98C0EFBD2B29F378005B176F /* NeteaseTVDemo.entitlements */,
 				2969158A2AF21D6800ED9298 /* Modules */,
 				297F2E0A2AD8E4DD002F4F24 /* Extensions */,
 				F4905DFA2A98E15400C76905 /* Info.plist */,
+				50C9DA342CCD9B7200C7CC6B /* main.swift */,
 				295FA8132A985D3500B35C54 /* AppDelegate.swift */,
 				29F2F6192AB18A9900E2F389 /* WKConfig.swift */,
 				2986B2EF2AB42E54002BC0CC /* WKPlayListTableViewCell.swift */,
@@ -533,6 +576,16 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		50C9DA2F2CCD9A7700C7CC6B /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				50C9DA2C2CCD9A7700C7CC6B /* ApiService.swift */,
+				50C9DA2D2CCD9A7700C7CC6B /* ApiService+Server.swift */,
+				50C9DA2E2CCD9A7700C7CC6B /* ApiService+Source.swift */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
 		98B8C9BE2B34A46500CD0F76 /* RemoteControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +616,7 @@
 				295FA80D2A985D3500B35C54 /* Frameworks */,
 				295FA80E2A985D3500B35C54 /* Resources */,
 				98C0EFB92B29F28F005B176F /* Embed Foundation Extensions */,
+				50C9DA3F2CCD9C3200C7CC6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -577,6 +631,7 @@
 				29F2F62B2AB1A83600E2F389 /* MarqueeLabel */,
 				29A1D7002AD4ED8E005EAFC0 /* EFQRCode */,
 				294B84422BAAC73600CB2995 /* ColorfulX */,
+				50C9DA3B2CCD9BB300C7CC6B /* ZipArchive */,
 			);
 			productName = NeteaseTVDemo;
 			productReference = 295FA8102A985D3500B35C54 /* NeteaseTVDemo.app */;
@@ -589,6 +644,7 @@
 				98C0EFAB2B29F28F005B176F /* Sources */,
 				98C0EFAC2B29F28F005B176F /* Frameworks */,
 				98C0EFAD2B29F28F005B176F /* Resources */,
+				50C9DA382CCD9B9D00C7CC6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -633,6 +689,7 @@
 				29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
 				29A1D6FC2AD4DA88005EAFC0 /* XCRemoteSwiftPackageReference "EFQRCode" */,
 				294B84412BAAC64300CB2995 /* XCRemoteSwiftPackageReference "ColorfulX" */,
+				50C9DA332CCD9A8A00C7CC6B /* XCRemoteSwiftPackageReference "ZipArchive" */,
 			);
 			productRefGroup = 295FA8112A985D3500B35C54 /* Products */;
 			projectDirPath = "";
@@ -650,6 +707,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				295E48E42AE223E500C259D2 /* menu-button.png in Resources */,
+				50C9DA2B2CCD9A6D00C7CC6B /* Service.zip in Resources */,
 				295E48E62AE223E500C259D2 /* menu-2.png in Resources */,
 				295E48E52AE223E500C259D2 /* resize-arrows.png in Resources */,
 				295E48E92AE223E500C259D2 /* go-back-left-arrow.png in Resources */,
@@ -678,6 +736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2969156E2AE649A900ED9298 /* WKRecentSongListVC.swift in Sources */,
+				50C9DA352CCD9B7200C7CC6B /* main.swift in Sources */,
 				F4905DF52A98DD9D00C76905 /* WKPlayerTool.swift in Sources */,
 				2969157A2AE89E5E00ED9298 /* WKPlayingViewController.swift in Sources */,
 				295FA8292A985D5100B35C54 /* WKPlayerStateModel.swift in Sources */,
@@ -747,6 +806,9 @@
 				F4905DF62A98DD9D00C76905 /* WKCountdown.swift in Sources */,
 				29A1D6FF2AD4E3E1005EAFC0 /* WKLoginViewController.swift in Sources */,
 				2969157C2AEF48A900ED9298 /* WKMyCollectionVC.swift in Sources */,
+				50C9DA302CCD9A7700C7CC6B /* ApiService+Server.swift in Sources */,
+				50C9DA312CCD9A7700C7CC6B /* ApiService+Source.swift in Sources */,
+				50C9DA322CCD9A7700C7CC6B /* ApiService.swift in Sources */,
 				2986B2EC2AB3F3C4002BC0CC /* WKTabBarViewController.swift in Sources */,
 				F4905DF72A98DD9D00C76905 /* WKPlayerError.swift in Sources */,
 				299458052B3AC7BE0015616E /* WKAccountCell.swift in Sources */,
@@ -928,7 +990,7 @@
 				CODE_SIGN_ENTITLEMENTS = NeteaseTVDemo/NeteaseTVDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 34;
-				DEVELOPMENT_TEAM = 9RANFDJPSF;
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vibefy;
@@ -940,7 +1002,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wk.Vibefy;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.vibefy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -960,7 +1022,7 @@
 				CODE_SIGN_ENTITLEMENTS = NeteaseTVDemo/NeteaseTVDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 34;
-				DEVELOPMENT_TEAM = 9RANFDJPSF;
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeteaseTVDemo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Vibefy;
@@ -972,7 +1034,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wk.Vibefy;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.vibefy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -990,7 +1052,7 @@
 				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9RANFDJPSF;
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1005,7 +1067,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wk.Vibefy.TopShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.vibefy.TopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -1023,7 +1085,7 @@
 				CODE_SIGN_ENTITLEMENTS = TopShelf/TopShelf.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9RANFDJPSF;
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1038,7 +1100,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wk.Vibefy.TopShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.vibefy.TopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1129,6 +1191,14 @@
 				kind = branch;
 			};
 		};
+		50C9DA332CCD9A8A00C7CC6B /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1161,6 +1231,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29F2F62A2AB1A7EE00E2F389 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
 			productName = MarqueeLabel;
+		};
+		50C9DA3B2CCD9BB300C7CC6B /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50C9DA332CCD9A8A00C7CC6B /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

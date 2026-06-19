@@ -86,13 +86,13 @@ extension UserDefaults {
     func setShareValue<Element: Codable>(codable: Element, forKey key: String) {
         if let jsonData = try? JSONEncoder().encode(codable) {
             if let jsonString = String(data: jsonData, encoding: .utf8) {
-                UserDefaults.init(suiteName: "group.com.wk.Vibefy")?.setValue(jsonString, forKey: key)
+                UserDefaults.init(suiteName: "group.wiki.qaq.vibefy")?.setValue(jsonString, forKey: key)
             }
         }
     }
     
     func shareListValue<Element: Codable>(forKey key: String) ->[Element]? {
-        guard let jsonString = UserDefaults.init(suiteName: "group.com.wk.Vibefy")?.value(forKey: key) as? String else { return nil }
+        guard let jsonString = UserDefaults.init(suiteName: "group.wiki.qaq.vibefy")?.value(forKey: key) as? String else { return nil }
         guard let jsonData = jsonString.data(using: .utf8) else { return nil }
         let element = try? JSONDecoder().decode([Element].self, from: jsonData)
         return element

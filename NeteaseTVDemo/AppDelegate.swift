@@ -2,7 +2,7 @@
 import UIKit
 import NeteaseRequest
 import AVFoundation
-@main
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //播放器设置
         initConfig()
         UserDefaults.standard.set(1, forKey: "searchIndex")
-        //MARK:  服务部署请参考  https://github.com/Binaryify/NeteaseCloudMusicApi/blob/master/README.MD
-        //MARK: 为了自己的账号安全，请尽量使用自己部署的服务
-        //下面是我在腾讯云部署的（不保证一直能用）
         NR_BASEURL = Settings.service
+        
+        // TODO: LOADING UI 后台启动需要几秒钟 在这里等一下 也可以用循环检测
+        sleep(3)
         
         guard let loginCookie = UserDefaults.standard.string(forKey: "cookie") else {
             window = UIWindow()

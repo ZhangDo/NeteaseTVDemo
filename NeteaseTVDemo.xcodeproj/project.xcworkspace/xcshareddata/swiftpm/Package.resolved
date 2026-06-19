@@ -1,4 +1,5 @@
 {
+  "originHash" : "cee0665e745578ca77dba71768b9213ab4b0b3ab1154dbe22672616caafa151e",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -89,7 +90,16 @@
         "revision" : "2b6054efa051565954e1d2b9da831680026cd768",
         "version" : "4.3.0"
       }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive",
+      "state" : {
+        "revision" : "df35718ea19a94e015b91dc4881dee028ce4cdba",
+        "version" : "2.6.0"
+      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
